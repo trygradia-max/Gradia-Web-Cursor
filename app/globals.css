@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-dark: #0b1120;
+  --brand-slate: #3a4a5c;
+  --brand-light: #f1f5f9;
+  --brand-amber: #f59e0b;
+  --brand-amber-hover: #d97706;
+  --border-card: #e2e8f0;
+  /* Marketing shell (dark header/footer) */
+  --bg: #0b1120;
+  --bg-elevated: #111827;
+  --foreground: #ffffff;
+  --muted: rgba(255, 255, 255, 0.65);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+}
+
+body {
+  @apply bg-[var(--bg)] font-sans text-[var(--foreground)] antialiased;
+}
+
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-[var(--brand-amber)];
+}
