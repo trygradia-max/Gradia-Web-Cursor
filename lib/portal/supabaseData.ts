@@ -1,4 +1,12 @@
 import { getSupabaseServer } from "@/lib/supabase/server";
+import { labelForPeriod, type PeriodDays } from "./period";
+import type {
+  ActivityChannel,
+  ActivityItem,
+  ActivityOutcome,
+  DigitalEmployee,
+  PortalPerformance,
+} from "./types";
 
 /** True when live reads should come from Supabase (no mock fallback for missing tenants). */
 export function isSupabasePortalEnabled(): boolean {
@@ -7,13 +15,6 @@ export function isSupabasePortalEnabled(): boolean {
     process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
   );
 }
-import type {
-  ActivityChannel,
-  ActivityItem,
-  ActivityOutcome,
-  DigitalEmployee,
-  PortalPerformance,
-} from "./types";
 
 type AccountRow = { id: string; account_name: string };
 type SummaryRow = {
@@ -59,6 +60,10 @@ function mapEmployee(row: EmployeeRow): DigitalEmployee {
   };
 }
 
+export type SupabasePerformanceOptions = {
+  periodDays?: PeriodDays;
+};
+
 /**
  * Loads portal dashboard data from Supabase for the given tenant id (`clientId`
  * from the session). Returns null if Supabase is not configured, the tenant
@@ -66,7 +71,9 @@ function mapEmployee(row: EmployeeRow): DigitalEmployee {
  */
 export async function getPerformanceFromSupabase(
   clientId: string,
+  options?: SupabasePerformanceOptions,
 ): Promise<PortalPerformance | null> {
+  const periodDays: PeriodDays = options?.periodDays === 7 ? 7 : 30;
   const supabase = getSupabaseServer();
   if (!supabase) return null;
 
@@ -96,10 +103,15 @@ export async function getPerformanceFromSupabase(
 
   if (employeesError) return null;
 
+  const cutoffIso = new Date(
+    Date.now() - periodDays * 86_400_000,
+  ).toISOString();
+
   const { data: activityRows, error: activityError } = await supabase
     .from("portal_activity")
     .select("id, client_id, at, channel, summary, outcome")
     .eq("client_id", clientId)
+    .gte("at", cutoffIso)
     .order("at", { ascending: false })
     .limit(100);
 
@@ -108,15 +120,13 @@ export async function getPerformanceFromSupabase(
   return {
     accountName: account.account_name,
     summary: {
-      periodLabel: summaryRow.period_label,
+      periodLabel: labelForPeriod(periodDays),
       callsHandled: summaryRow.calls_handled,
       bookingsCreated: summaryRow.bookings_created,
       resolutionRate: summaryRow.resolution_rate,
       avgHandleTimeSec: summaryRow.avg_handle_time_sec,
     },
-    employees: (employeeRows ?? []).map((r) =>
-      mapEmployee(r as EmployeeRow),
-    ),
+    employees: (employeeRows ?? []).map((r) => mapEmployee(r as EmployeeRow)),
     recentActivity: (activityRows ?? []).map((r) =>
       mapActivity(r as ActivityRow),
     ),

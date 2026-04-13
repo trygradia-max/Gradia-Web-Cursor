@@ -1,9 +1,15 @@
 import { getMockPerformance } from "./mockData";
+import { applyMockPeriod, type PeriodDays } from "./period";
 import {
   getPerformanceFromSupabase,
   isSupabasePortalEnabled,
 } from "./supabaseData";
 import type { PortalPerformance } from "./types";
+
+export type GetPerformanceOptions = {
+  /** Dashboard period; mock data scales KPIs for 7d vs 30d; Supabase filters activity. */
+  periodDays?: PeriodDays;
+};
 
 /**
  * Portal metrics for the signed-in tenant.
@@ -19,7 +25,10 @@ import type { PortalPerformance } from "./types";
  */
 export async function getPerformanceForClient(
   clientId: string,
+  options?: GetPerformanceOptions,
 ): Promise<PortalPerformance | null> {
+  const periodDays: PeriodDays = options?.periodDays === 7 ? 7 : 30;
+
   const apiUrl = process.env.PORTAL_API_URL;
   if (apiUrl) {
     // Example integration (uncomment and adapt when API exists):
@@ -32,8 +41,10 @@ export async function getPerformanceForClient(
   }
 
   if (isSupabasePortalEnabled()) {
-    return getPerformanceFromSupabase(clientId);
+    return getPerformanceFromSupabase(clientId, { periodDays });
   }
 
-  return getMockPerformance(clientId);
+  const mock = getMockPerformance(clientId);
+  if (!mock) return null;
+  return applyMockPeriod(mock, periodDays);
 }

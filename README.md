@@ -38,8 +38,8 @@ Each account maps to a different **tenant** (`client-acme` vs `client-globex`) s
 - `/contact` — Contact form + Calendly placeholder
 - `/privacy`, `/terms` — Legal stubs
 - `/portal/login` — Client sign-in
-- `/portal/dashboard` — Performance metrics (requires session)
-- `GET /api/portal/summary` — JSON snapshot of summary + employees (session required); useful for future client-side charts
+- `/portal/dashboard` — Performance metrics (requires session); `?period=7` or `?period=30` for the reporting window
+- `GET /api/portal/summary` — JSON snapshot of summary, employees, and recent activity (session required); optional `?period=7|30`
 
 ## Replacing mock data
 

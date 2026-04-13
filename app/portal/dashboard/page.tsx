@@ -1,6 +1,8 @@
 import { auth } from "@/auth";
 import { SectionLabel } from "@/components/marketing/SectionLabel";
+import { DashboardPeriodTabs } from "@/components/portal/DashboardPeriodTabs";
 import { getPerformanceForClient } from "@/lib/portal/data";
+import { parsePeriodDays } from "@/lib/portal/period";
 import type { ActivityOutcome } from "@/lib/portal/types";
 import { redirect } from "next/navigation";
 
@@ -31,14 +33,21 @@ function formatDuration(seconds: number) {
 const portalCard =
   "rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)] shadow-card";
 
-export default async function PortalDashboardPage() {
+export default async function PortalDashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ period?: string }>;
+}) {
   const session = await auth();
   const clientId = session?.user?.clientId;
   if (!clientId) {
     redirect("/portal/login");
   }
 
-  const data = await getPerformanceForClient(clientId);
+  const { period } = await searchParams;
+  const periodDays = parsePeriodDays(period);
+
+  const data = await getPerformanceForClient(clientId, { periodDays });
 
   if (!data) {
     return (
@@ -69,7 +78,7 @@ export default async function PortalDashboardPage() {
 
   return (
     <div className="mx-auto w-full max-w-content px-4 py-10 sm:px-6 sm:py-14">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <SectionLabel className="text-[var(--brand-amber)]">
             Performance
@@ -81,6 +90,7 @@ export default async function PortalDashboardPage() {
             {summary.periodLabel} · Digital employee activity overview
           </p>
         </div>
+        <DashboardPeriodTabs periodDays={periodDays} />
       </div>
 
       <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
