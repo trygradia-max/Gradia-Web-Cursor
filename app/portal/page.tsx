@@ -1,10 +1,11 @@
-import { auth } from "@/auth";
+import { getPortalSession } from "@/lib/portal/session";
 import { redirect } from "next/navigation";
 
 export default async function PortalHomePage() {
-  const session = await auth();
+  const session = await getPortalSession();
   if (session) {
     redirect("/portal/dashboard");
   }
+
   redirect("/portal/login");
 }

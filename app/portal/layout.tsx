@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { SignOutButton } from "@/components/portal/SignOutButton";
 import { Logo } from "@/components/ui/Logo";
-import { auth } from "@/auth";
+import { getPortalSession } from "@/lib/portal/session";
 
 export default async function PortalLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
+  const session = await getPortalSession();
 
   return (
     <div className="flex min-h-screen flex-col bg-[var(--brand-dark)]">
@@ -29,11 +29,12 @@ export default async function PortalLayout({
               </nav>
             ) : null}
           </div>
+
           <div className="flex items-center gap-3">
-            {session?.user ? (
+            {session ? (
               <>
                 <span className="hidden text-sm text-[var(--muted)] sm:inline">
-                  {session.user.email}
+                  {session.email ?? "Client user"}
                 </span>
                 <SignOutButton />
               </>
@@ -48,10 +49,12 @@ export default async function PortalLayout({
           </div>
         </div>
       </header>
+
       <div className="flex-1">{children}</div>
+
       <footer className="border-t border-[var(--border-subtle)] py-6 text-center">
         <p className="text-xs text-[var(--muted)]">
-          Powered by{" "}
+          Powered by {" "}
           <Link href="/" className="text-white hover:underline">
             Gradia
           </Link>

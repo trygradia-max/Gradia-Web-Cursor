@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { DM_Sans, DM_Serif_Display } from "next/font/google";
-import { SessionProvider } from "@/components/providers/SessionProvider";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -57,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
       <body className="min-h-screen">
-        <SessionProvider>{children}</SessionProvider>
+        {children}
       </body>
     </html>
   );

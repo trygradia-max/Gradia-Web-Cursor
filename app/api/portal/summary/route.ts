@@ -1,26 +1,27 @@
-import { auth } from "@/auth";
-import { getPerformanceForClient } from "@/lib/portal/data";
-import { parsePeriodDays } from "@/lib/portal/period";
 import { NextResponse } from "next/server";
+import { getDashboardData } from "@/lib/portal/dashboard";
+import { getPortalSession } from "@/lib/portal/session";
+import { createServerSupabaseClient } from "@/lib/supabase/server";
 
-export async function GET(request: Request) {
-  const session = await auth();
-  const clientId = session?.user?.clientId;
-  if (!clientId) {
+export async function GET() {
+  const supabase = await createServerSupabaseClient();
+  const session = await getPortalSession(supabase);
+  if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const { searchParams } = new URL(request.url);
-  const periodDays = parsePeriodDays(searchParams.get("period") ?? undefined);
-  const data = await getPerformanceForClient(clientId, { periodDays });
-  if (!data) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
-  }
+
+  const data = await getDashboardData(supabase, session.clientId);
+
   return NextResponse.json(
     {
-      accountName: data.accountName,
-      summary: data.summary,
-      employees: data.employees,
-      recentActivity: data.recentActivity,
+      companyName: session.companyName,
+      stats: {
+        totalCalls: data.totalCalls,
+        appointmentsBooked: data.appointmentsBooked,
+        avgCallDurationSeconds: data.avgCallDurationSeconds,
+      },
+      recentCalls: data.recentCalls,
+      upcomingAppointments: data.upcomingAppointments,
     },
     {
       headers: {
