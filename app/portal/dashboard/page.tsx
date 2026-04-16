@@ -29,7 +29,7 @@ export default async function PortalDashboardPage() {
   return (
     <div className="mx-auto w-full max-w-content px-4 py-10 sm:px-6 sm:py-14">
       <div>
-        <SectionLabel className="text-[var(--brand-amber)]">
+        <SectionLabel className="text-[var(--brand-primary)]">
           Client portal
         </SectionLabel>
         <h1 className="mt-2 font-serif text-3xl font-normal tracking-tight text-white sm:text-4xl">
@@ -136,7 +136,7 @@ export default async function PortalDashboardPage() {
                     }).format(new Date(item.date))}
                   </p>
                   <p className="mt-2 text-sm text-[var(--muted)]">{item.notes}</p>
-                  <p className="mt-2 text-xs uppercase tracking-wide text-[var(--brand-amber)]">
+                  <p className="mt-2 text-xs uppercase tracking-wide text-[var(--brand-primary)]">
                     {item.status}
                   </p>
                 </li>

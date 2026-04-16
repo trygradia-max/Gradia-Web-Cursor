@@ -10,10 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          dark: "#0b1120",
-          slate: "#3a4a5c",
+          dark: "#0a0a0a",
+          slate: "#64748b",
           light: "#f1f5f9",
-          amber: "#f59e0b",
+          /** Gradia blue — do not use amber/gold/yellow for accents */
+          primary: "#1e40af",
+          /** Marketing section bands — mirror CSS vars in globals.css */
+          "bg-deep": "var(--bg)",
+          "bg-band": "var(--bg-band)",
+          "card-band": "var(--card-on-band)",
+          "text-muted-band": "var(--text-muted-band)",
         },
       },
       fontFamily: {

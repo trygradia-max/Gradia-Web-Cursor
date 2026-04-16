@@ -44,7 +44,7 @@ export default async function OpenGraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0b1120",
+          background: "#0a0a0a",
         }}
       >
         <div
@@ -69,10 +69,10 @@ export default async function OpenGraphImage() {
           </span>
           <span
             style={{
-              width: 20,
-              height: 20,
-              borderRadius: 999,
-              background: "#f59e0b",
+              width: 16,
+              height: 16,
+              borderRadius: 1,
+              background: "#1e40af",
               marginTop: 14,
             }}
           />
@@ -93,7 +93,7 @@ export default async function OpenGraphImage() {
           style={{
             width: 360,
             height: 3,
-            background: "#f59e0b",
+            background: "#1e40af",
             opacity: 0.9,
             borderRadius: 2,
           }}

@@ -49,7 +49,7 @@ export default function ContactPage() {
           Or email us directly at{" "}
           <a
             href="mailto:hello@gradia.com"
-            className="font-semibold text-[var(--brand-dark)] underline decoration-[var(--brand-amber)] underline-offset-2 hover:text-[var(--brand-slate)]"
+            className="font-semibold text-[var(--brand-dark)] underline decoration-[var(--brand-primary)] underline-offset-2 hover:text-[var(--brand-slate)]"
           >
             hello@gradia.com
           </a>

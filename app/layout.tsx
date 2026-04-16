@@ -25,11 +25,25 @@ export const metadata: Metadata = {
   },
   description:
     "AI Digital Employees that answer calls, capture leads, and run your operations — built for healthcare, finance, and service businesses.",
+  keywords: [
+    "AI receptionist",
+    "digital front desk",
+    "healthcare call answering",
+    "home services lead capture",
+    "professional services intake",
+    "24/7 phone answering",
+    "appointment scheduling AI",
+    "missed call recovery",
+    "front desk automation",
+    "HIPAA-ready AI",
+    "AI digital employee",
+  ],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/gradia-logo.png", type: "image/png", sizes: "512x512" },
     ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     type: "website",

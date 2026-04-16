@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Gradia">
-  <rect width="32" height="32" rx="6" fill="#0b1120"/>
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
   <text
-    x="16"
+    x="15"
     y="22"
     text-anchor="middle"
     font-family="Georgia, 'Times New Roman', serif"
     font-size="19"
     font-weight="700"
-    fill="#f59e0b"
+    fill="#ffffff"
   >G</text>
+  <text x="23" y="22" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#1e40af">.</text>
 </svg>

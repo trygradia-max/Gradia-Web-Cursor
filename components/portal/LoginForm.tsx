@@ -3,11 +3,12 @@
 import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
+import { getSafePortalCallbackUrl } from "@/lib/portal/safe-callback-url";
 import { createBrowserSupabaseClient } from "@/lib/supabase/client";
 
 export function LoginForm() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/portal/dashboard";
+  const callbackUrl = searchParams.get("callbackUrl");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -31,10 +32,10 @@ export function LoginForm() {
         return;
       }
 
-      const targetUrl =
-        callbackUrl.startsWith("/portal") && callbackUrl !== "/portal/login"
-          ? callbackUrl
-          : "/portal/dashboard";
+      const targetUrl = getSafePortalCallbackUrl(
+        callbackUrl,
+        window.location.origin,
+      );
 
       window.location.href = targetUrl;
     } catch {
@@ -60,7 +61,7 @@ export function LoginForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-2 w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--brand-dark)] px-4 py-3 text-white placeholder:text-[var(--muted)] focus:border-[var(--brand-amber)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-amber)]"
+          className="mt-2 w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--brand-dark)] px-4 py-3 text-white placeholder:text-[var(--muted)] focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
           placeholder="you@company.com"
         />
       </div>
@@ -77,7 +78,7 @@ export function LoginForm() {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="mt-2 w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--brand-dark)] px-4 py-3 text-white placeholder:text-[var(--muted)] focus:border-[var(--brand-amber)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-amber)]"
+          className="mt-2 w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--brand-dark)] px-4 py-3 text-white placeholder:text-[var(--muted)] focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
         />
       </div>
 

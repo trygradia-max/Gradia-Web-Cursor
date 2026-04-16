@@ -2,17 +2,17 @@ import Link, { type LinkProps } from "next/link";
 import { cn } from "@/lib/cn";
 
 const base =
-  "inline-flex items-center justify-center rounded-xl px-6 py-3.5 text-center text-sm font-semibold font-sans transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-amber)] disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex items-center justify-center px-6 py-3.5 text-center text-sm font-semibold font-sans tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)] disabled:pointer-events-none disabled:opacity-50";
 
 const variants = {
   primary:
-    "bg-[var(--brand-amber)] text-[var(--brand-dark)] shadow-card hover:bg-[var(--brand-amber-hover)] hover:shadow-card-hover",
+    "rounded-full bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-primary-hover)] transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] motion-reduce:hover:scale-100 motion-reduce:active:scale-100",
   secondary:
-    "border border-white bg-transparent text-white hover:bg-white/10",
+    "rounded-[2px] border border-white/25 bg-transparent text-white hover:border-white/50 hover:bg-white/[0.06]",
   secondaryOnLight:
-    "border border-[#e2e8f0] bg-white text-[var(--brand-dark)] shadow-card hover:border-[var(--brand-slate)]/30 hover:shadow-card-hover",
+    "rounded-[2px] border border-[#e2e8f0] bg-white text-[var(--brand-dark)] shadow-card hover:border-[var(--brand-slate)]/30 hover:shadow-card-hover",
   ghost:
-    "border border-transparent bg-transparent text-[var(--brand-slate)] hover:bg-[var(--brand-light)]",
+    "rounded-[2px] border border-transparent bg-transparent text-[var(--brand-slate)] hover:bg-[var(--brand-light)]",
 } as const;
 
 type Variant = keyof typeof variants;
@@ -23,6 +23,7 @@ type ButtonLinkProps = {
   variant?: Variant;
   className?: string;
   children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 type ButtonNativeProps = {
@@ -39,9 +40,9 @@ export function Button(props: ButtonProps) {
   const cls = cn(base, variants[variant], className);
 
   if ("href" in props && props.href !== undefined) {
-    const { href, prefetch } = props;
+    const { href, prefetch, onClick } = props;
     return (
-      <Link href={href} prefetch={prefetch} className={cls}>
+      <Link href={href} prefetch={prefetch} className={cls} onClick={onClick}>
         {children}
       </Link>
     );

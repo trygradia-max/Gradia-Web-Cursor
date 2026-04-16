@@ -16,7 +16,7 @@ function LoginFormFallback() {
 export default function PortalLoginPage() {
   return (
     <div className="mx-auto flex w-full max-w-content flex-col items-center px-4 py-16 sm:px-6 sm:py-24">
-      <SectionLabel className="text-[var(--brand-amber)]">
+      <SectionLabel className="text-[var(--brand-primary)]">
         Client portal
       </SectionLabel>
       <h1 className="mt-4 font-serif text-3xl font-normal tracking-tight text-white sm:text-4xl">
@@ -35,7 +35,7 @@ export default function PortalLoginPage() {
         Need access?{" "}
         <Link
           href="mailto:hello@gradia.com?subject=Portal%20access"
-          className="font-semibold text-[var(--brand-amber)] hover:underline"
+          className="font-semibold text-[var(--brand-primary)] hover:underline"
         >
           Contact Gradia
         </Link>

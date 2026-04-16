@@ -3,24 +3,134 @@
 @tailwind utilities;
 
 :root {
-  --brand-dark: #0b1120;
-  --brand-slate: #3a4a5c;
+  --brand-dark: #0a0a0a;
+  --brand-slate: #64748b;
   --brand-light: #f1f5f9;
-  --brand-amber: #f59e0b;
-  --brand-amber-hover: #d97706;
-  --border-card: #e2e8f0;
-  /* Marketing shell (dark header/footer) */
-  --bg: #0b1120;
-  --bg-elevated: #111827;
+  /* Gradia blue only — no amber/gold accents */
+  --brand-primary: #1e40af;
+  --brand-primary-hover: #2563eb;
+  --border-card: rgba(255, 255, 255, 0.1);
+  /* Deep base (hero, header, footer, alternating sections) */
+  --bg: #0c0c0e;
+  --bg-elevated: #12121a;
+  /* Brighter slate band for mixed layout */
+  --bg-band: #0f172a;
+  --card-on-band: #1a1f2e;
   --foreground: #ffffff;
-  --muted: rgba(255, 255, 255, 0.65);
-  --border-subtle: rgba(255, 255, 255, 0.12);
+  --muted: rgba(255, 255, 255, 0.58);
+  --text-muted-band: #cbd5e1;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-band: rgba(148, 163, 184, 0.14);
 }
 
 body {
   @apply bg-[var(--bg)] font-sans text-[var(--foreground)] antialiased;
 }
 
+/* Hero: slightly brighter wash + more blue/white lift */
+.hero-base-wash {
+  background:
+    radial-gradient(ellipse 78% 62% at 42% 22%, rgba(30, 64, 175, 0.1), transparent 58%),
+    linear-gradient(165deg, #141820 0%, #0c0c0e 42%, #101018 100%),
+    radial-gradient(ellipse 82% 72% at 50% 0%, rgba(255, 255, 255, 0.055), transparent 52%);
+}
+
+.hero-noise {
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.hero-gradient-layer {
+  background:
+    radial-gradient(ellipse 90% 55% at 15% 0%, rgba(30, 64, 175, 0.09), transparent 58%),
+    radial-gradient(ellipse 70% 45% at 95% 25%, rgba(30, 64, 175, 0.06), transparent 52%),
+    radial-gradient(ellipse 85% 50% at 50% 100%, rgba(255, 255, 255, 0.045), transparent 55%);
+  animation: heroGradientDrift 22s ease-in-out infinite;
+}
+
+.hero-animated-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(30, 64, 175, 0.15) 20%,
+    rgba(30, 64, 175, 0.5) 50%,
+    rgba(30, 64, 175, 0.15) 80%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: heroLineSweep 14s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+@keyframes heroGradientDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.5%, -1.2%, 0) scale(1.02);
+  }
+}
+
+@keyframes heroLineSweep {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.45;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.95;
+  }
+}
+
 :focus-visible {
-  @apply outline-2 outline-offset-2 outline-[var(--brand-amber)];
+  @apply outline-2 outline-offset-2 outline-[var(--brand-primary)];
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.scroll-reveal {
+  @apply opacity-0 translate-y-8 transition-[opacity,transform] duration-700 ease-out;
+}
+
+.scroll-reveal.scroll-reveal--visible {
+  @apply translate-y-0 opacity-100;
+}
+
+.scroll-reveal-stagger > * {
+  @apply opacity-0 translate-y-6 transition-[opacity,transform] duration-700 ease-out;
+}
+
+.scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(1) {
+  @apply translate-y-0 opacity-100;
+  transition-delay: 0ms;
+}
+.scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(2) {
+  @apply translate-y-0 opacity-100;
+  transition-delay: 65ms;
+}
+.scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(3) {
+  @apply translate-y-0 opacity-100;
+  transition-delay: 130ms;
+}
+.scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(4) {
+  @apply translate-y-0 opacity-100;
+  transition-delay: 195ms;
+}
+.scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(5) {
+  @apply translate-y-0 opacity-100;
+  transition-delay: 260ms;
+}
+.scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(6) {
+  @apply translate-y-0 opacity-100;
+  transition-delay: 325ms;
 }
