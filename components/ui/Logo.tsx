@@ -2,18 +2,18 @@ import { cn } from "@/lib/cn";
 
 type LogoProps = {
   className?: string;
-  /** Light: white wordmark on dark. Dark: dark text on light surfaces. */
+  /** Light: white wordmark on dark (e.g. portal). Dark: primary text on light surfaces. */
   variant?: "light" | "dark";
 };
 
-export function Logo({ className, variant = "light" }: LogoProps) {
+export function Logo({ className, variant = "dark" }: LogoProps) {
   const wordmark =
-    variant === "light" ? "text-white" : "text-[var(--brand-dark)]";
+    variant === "light" ? "text-white" : "text-[var(--foreground)]";
 
   return (
     <span
       className={cn(
-        "inline-flex items-baseline font-serif text-xl font-normal tracking-tight sm:text-2xl",
+        "inline-flex items-baseline font-sans text-xl font-semibold tracking-tight sm:text-2xl",
         wordmark,
         className,
       )}

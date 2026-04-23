@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
-const body = "text-[#b0b0b0]";
+const body = "text-[var(--muted)]";
 
 type Tier = {
   id: string;
@@ -74,31 +74,33 @@ export function PricingSection() {
       {tiers.map((tier) => (
         <li key={tier.id} className="relative flex">
           {tier.popular ? (
-            <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 rounded-[2px] border border-[var(--brand-primary)] bg-[#0a0a0a] px-3 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-primary)]">
+            <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 rounded-[2px] border border-[var(--brand-primary)] bg-[var(--bg)] px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
               Popular
             </span>
           ) : null}
           <div
             className={cn(
-              "flex w-full flex-col rounded-[2px] border bg-[#141414] p-8 pt-10 sm:p-10",
+              "flex w-full flex-col rounded-[2px] border bg-[var(--bg)] p-8 pt-10 sm:p-10",
               tier.popular
-                ? "border-[var(--brand-primary)]/50 shadow-[0_0_0_1px_rgba(30,64,175,0.15)]"
-                : "border-[#222222]",
+                ? "border-[var(--brand-primary)]/40 shadow-[0_0_0_1px_rgba(59,110,245,0.12)]"
+                : "border-[var(--border-subtle)]",
             )}
           >
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-primary)]">
+            <p className="font-sans text-xs font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
               {tier.name}
             </p>
-            <p className="mt-4 font-serif text-3xl tracking-tight text-white">
+            <p className="mt-4 font-sans text-3xl font-semibold tracking-tight text-[var(--foreground)]">
               {tier.price}
             </p>
-            <p className="mt-3 font-serif text-lg leading-snug text-white">
+            <p className="mt-3 font-sans text-lg font-semibold leading-snug text-[var(--foreground)]">
               {tier.tagline}
             </p>
             <p className={`mt-4 font-sans text-sm ${body}`}>{tier.meta}</p>
-            <div className={`mt-8 space-y-3 border-t border-[#222222] pt-8 text-sm leading-relaxed ${body}`}>
+            <div
+              className={`mt-8 space-y-3 border-t border-[var(--border-subtle)] pt-8 text-sm leading-relaxed ${body}`}
+            >
               {tier.intro ? (
-                <p className="mb-4 font-medium text-[#b0b0b0]">{tier.intro}</p>
+                <p className="mb-4 font-medium text-[var(--foreground)]">{tier.intro}</p>
               ) : null}
               <ul className="space-y-3">
                 {tier.features.map((line) => (

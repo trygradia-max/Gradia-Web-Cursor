@@ -74,14 +74,14 @@ function ResourceCard({ resource }: { resource: Resource }) {
   const isPlaceholder = resource.href === "#";
 
   const inner = (
-    <div className="group flex h-full flex-col rounded-[2px] border border-[#222222] bg-[#141414] p-8 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-[rgba(30,64,175,0.45)] hover:shadow-[0_0_0_1px_rgba(30,64,175,0.12),0_0_36px_-10px_rgba(30,64,175,0.2)] motion-reduce:hover:translate-y-0 sm:p-10">
-      <span className="inline-block w-fit rounded-full border border-[var(--border-subtle)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--brand-primary)]">
+    <div className="group flex h-full flex-col rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg)] p-8 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-[rgba(59,110,245,0.35)] hover:shadow-[0_0_0_1px_rgba(59,110,245,0.08),0_12px_32px_-12px_rgba(59,110,245,0.1)] motion-reduce:hover:translate-y-0 sm:p-10">
+      <span className="inline-block w-fit rounded-full border border-[var(--border-subtle)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
         {resource.tag}
       </span>
-      <h2 className="mt-5 font-serif text-xl tracking-tight text-[#ffffff]">
+      <h2 className="mt-5 font-sans text-xl font-semibold tracking-tight text-[var(--foreground)]">
         {resource.title}
       </h2>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-[#b0b0b0]">
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--muted)]">
         {resource.description}
       </p>
       <div className="mt-6 flex items-center gap-1.5 text-sm font-medium text-[var(--brand-primary)]">
@@ -117,10 +117,10 @@ export default function ResourcesPage() {
       <MarketingPageShell className="py-24 lg:py-36">
         <ScrollReveal>
           <SectionLabel>Resources</SectionLabel>
-          <h1 className="mt-6 max-w-[24ch] font-serif text-[clamp(2rem,4.5vw,3.5rem)] font-normal leading-[1.05] tracking-[-0.03em] text-[#ffffff]">
+          <h1 className="mt-6 max-w-[24ch] font-sans text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[var(--foreground)]">
             Insights for your front desk.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#b0b0b0] sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
             Guides, case studies, and frameworks on running a smarter
             front-desk operation — whether you&apos;re in healthcare, home
             services, or professional services.

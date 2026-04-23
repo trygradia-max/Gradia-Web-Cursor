@@ -16,10 +16,10 @@ export default function PrivacyPage() {
           </strong>
           — This policy will be updated before launch.
         </div>
-        <h1 className="mt-10 font-serif text-4xl font-normal tracking-tight">
+        <h1 className="mt-10 font-sans text-4xl font-semibold tracking-tight text-[var(--foreground)]">
           Privacy policy
         </h1>
-        <div className="mt-10 max-w-3xl space-y-4 text-[var(--brand-slate)]">
+        <div className="mt-10 max-w-3xl space-y-4 text-[var(--muted)]">
           <p>
             This is a placeholder privacy page for the Gradia marketing site.
             Final copy should describe what data you collect, how you use it,

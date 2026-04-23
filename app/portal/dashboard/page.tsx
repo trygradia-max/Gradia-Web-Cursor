@@ -32,7 +32,7 @@ export default async function PortalDashboardPage() {
         <SectionLabel className="text-[var(--brand-primary)]">
           Client portal
         </SectionLabel>
-        <h1 className="mt-2 font-serif text-3xl font-normal tracking-tight text-white sm:text-4xl">
+        <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Welcome, {session.companyName}
         </h1>
       </div>
@@ -42,7 +42,7 @@ export default async function PortalDashboardPage() {
           <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
             Total calls
           </p>
-          <p className="mt-2 font-serif text-3xl font-normal tabular-nums text-white">
+          <p className="mt-2 font-sans text-3xl font-semibold tabular-nums text-white">
             {data.totalCalls.toLocaleString()}
           </p>
         </li>
@@ -51,7 +51,7 @@ export default async function PortalDashboardPage() {
           <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
             Appointments booked
           </p>
-          <p className="mt-2 font-serif text-3xl font-normal tabular-nums text-white">
+          <p className="mt-2 font-sans text-3xl font-semibold tabular-nums text-white">
             {data.appointmentsBooked.toLocaleString()}
           </p>
         </li>
@@ -60,7 +60,7 @@ export default async function PortalDashboardPage() {
           <p className="text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
             Avg call duration
           </p>
-          <p className="mt-2 font-serif text-3xl font-normal tabular-nums text-white">
+          <p className="mt-2 font-sans text-3xl font-semibold tabular-nums text-white">
             {formatDuration(data.avgCallDurationSeconds)}
           </p>
         </li>
@@ -68,7 +68,7 @@ export default async function PortalDashboardPage() {
 
       <div className="mt-10 grid gap-10 lg:grid-cols-3">
         <section className="lg:col-span-2">
-          <h2 className="font-serif text-lg font-normal text-white">Recent calls</h2>
+          <h2 className="font-sans text-lg font-semibold text-white">Recent calls</h2>
           <div className={`mt-4 overflow-hidden ${portalCard}`}>
             <table className="w-full text-left text-sm">
               <thead className="bg-[var(--bg-elevated)] text-xs uppercase tracking-wider text-[var(--muted)]">
@@ -115,7 +115,7 @@ export default async function PortalDashboardPage() {
         </section>
 
         <section className="lg:col-span-1">
-          <h2 className="font-serif text-lg font-normal text-white">
+          <h2 className="font-sans text-lg font-semibold text-white">
             Upcoming appointments
           </h2>
           <ul className="mt-4 space-y-3">

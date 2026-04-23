@@ -40,6 +40,10 @@ const securityHeaders: { key: string; value: string }[] = [
 ];
 
 const nextConfig: NextConfig = {
+  experimental: {
+    /** Smaller dev graphs / faster compiles when importing icons from lucide-react */
+    optimizePackageImports: ["lucide-react"],
+  },
   async headers() {
     return [
       {

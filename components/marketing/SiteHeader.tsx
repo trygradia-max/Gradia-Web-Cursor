@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
 const navLinkClass =
-  "text-sm font-medium text-[var(--muted)] transition-colors hover:text-white";
+  "text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]";
 
 const mobileLinkClass =
-  "block rounded-[2px] px-3 py-3 text-base font-medium text-white/90 transition-colors hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]";
+  "block rounded-[2px] px-3 py-3 text-base font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--bg-band)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]";
 
 const navItems = [
   { href: "/#the-solution", label: "Product" },
@@ -78,7 +78,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#222222] bg-[var(--bg)]/92 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-[var(--border-subtle)] bg-[var(--bg)]/92 backdrop-blur-md">
       <div className="mx-auto flex h-[4.25rem] w-full max-w-content items-center justify-between gap-6 px-4 sm:px-6">
         <Link href="/" className="shrink-0 focus-visible:outline-offset-4">
           <Logo />
@@ -111,7 +111,7 @@ export function SiteHeader() {
           <button
             ref={menuButtonRef}
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[2px] border border-white/15 text-white transition-colors hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)] md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-[2px] border border-[var(--border-subtle)] text-[var(--foreground)] transition-colors hover:bg-[var(--bg-band)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)] md:hidden"
             aria-expanded={open}
             aria-controls="site-mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -126,7 +126,7 @@ export function SiteHeader() {
         <>
           <button
             type="button"
-            className="fixed inset-0 z-40 bg-black/55 md:hidden"
+            className="fixed inset-0 z-40 bg-black/30 md:hidden"
             aria-hidden
             tabIndex={-1}
             onClick={close}
@@ -138,7 +138,7 @@ export function SiteHeader() {
             aria-modal="true"
             aria-label="Site navigation"
             className={cn(
-              "fixed inset-x-0 top-[4.25rem] z-50 max-h-[min(85vh,calc(100dvh-4.25rem))] overflow-y-auto border-b border-[#222222] bg-[var(--bg)] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.65)] md:hidden",
+              "fixed inset-x-0 top-[4.25rem] z-50 max-h-[min(85vh,calc(100dvh-4.25rem))] overflow-y-auto border-b border-[var(--border-subtle)] bg-[var(--bg)] shadow-[0_24px_48px_-12px_rgba(15,23,42,0.12)] md:hidden",
             )}
           >
             <nav className="mx-auto max-w-content px-4 py-6" aria-label="Primary mobile">
@@ -151,7 +151,7 @@ export function SiteHeader() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-8">
+              <div className="mt-8 flex flex-col gap-3 border-t border-[var(--border-subtle)] pt-8">
                 <Button
                   href="mailto:hello@gradia.com?subject=Book%20a%20call"
                   variant="primary"

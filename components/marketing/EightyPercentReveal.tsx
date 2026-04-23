@@ -38,10 +38,10 @@ export function EightyPercentReveal() {
 
   return (
     <div ref={ref}>
-      <h2 className="mx-auto max-w-[22ch] font-serif text-[clamp(2.25rem,7vw,4.75rem)] font-normal leading-[1.08] tracking-[-0.03em] text-[#ffffff]">
+      <h2 className="mx-auto max-w-[22ch] font-sans text-[clamp(2.25rem,7vw,4.75rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-[var(--foreground)]">
         <span className="tabular-nums">{value}</span>
-        <span className="text-[#b0b0b0]">%</span>{" "}
-        <span className="text-white">less front-desk workload.</span>
+        <span className="text-[var(--muted)]">%</span>{" "}
+        <span className="text-[var(--foreground)]">less front-desk workload.</span>
       </h2>
     </div>
   );

@@ -28,7 +28,7 @@ export function ContactForm() {
     >
       <h2
         id="contact-form-heading"
-        className="font-serif text-2xl text-[var(--brand-dark)]"
+        className="font-sans text-2xl font-semibold text-[var(--foreground)]"
       >
         Send a message
       </h2>

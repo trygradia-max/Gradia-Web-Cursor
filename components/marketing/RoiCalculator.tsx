@@ -11,6 +11,9 @@ function formatMoney(n: number) {
   }).format(n);
 }
 
+const inputClass =
+  "rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg)] px-3 py-2 text-center font-mono text-sm text-[var(--foreground)] focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]";
+
 export function RoiCalculator() {
   const [monthlyCalls, setMonthlyCalls] = useState(1200);
   const [missPercent, setMissPercent] = useState(30);
@@ -25,13 +28,13 @@ export function RoiCalculator() {
   const yearlyLost = monthlyLost * 12;
 
   return (
-    <div className="mt-14 rounded-[4px] border border-[#222222] bg-[#141414] p-6 sm:p-10">
+    <div className="mt-14 rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg)] p-6 sm:p-10">
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-8">
           <div>
             <label
               htmlFor="roi-calls"
-              className="block font-sans text-sm font-medium text-[#b0b0b0]"
+              className="block font-sans text-sm font-medium text-[var(--foreground)]"
             >
               How many calls does your business get per month?
             </label>
@@ -56,7 +59,7 @@ export function RoiCalculator() {
                     Math.min(5000, Math.max(100, Number(e.target.value) || 100)),
                   )
                 }
-                className="w-24 rounded-[4px] border border-[#222222] bg-[#0a0a0a] px-3 py-2 text-center font-mono text-sm text-white focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
+                className={`w-24 ${inputClass}`}
               />
             </div>
           </div>
@@ -64,7 +67,7 @@ export function RoiCalculator() {
           <div>
             <label
               htmlFor="roi-miss"
-              className="block font-sans text-sm font-medium text-[#b0b0b0]"
+              className="block font-sans text-sm font-medium text-[var(--foreground)]"
             >
               How many do you miss? ({missPercent}%)
             </label>
@@ -77,7 +80,7 @@ export function RoiCalculator() {
               onChange={(e) => setMissPercent(Number(e.target.value))}
               className="mt-3 h-2 w-full max-w-md cursor-pointer accent-[var(--brand-primary)]"
             />
-            <div className="mt-1 flex justify-between font-mono text-[10px] text-[#666]">
+            <div className="mt-1 flex justify-between font-mono text-[10px] text-[var(--muted)]">
               <span>10%</span>
               <span>60%</span>
             </div>
@@ -86,12 +89,12 @@ export function RoiCalculator() {
           <div>
             <label
               htmlFor="roi-value"
-              className="block font-sans text-sm font-medium text-[#b0b0b0]"
+              className="block font-sans text-sm font-medium text-[var(--foreground)]"
             >
               What&apos;s your average job/appointment value?
             </label>
             <div className="mt-3 flex items-center gap-2">
-              <span className="text-[#888]">$</span>
+              <span className="text-[var(--muted)]">$</span>
               <input
                 id="roi-value"
                 type="number"
@@ -101,13 +104,13 @@ export function RoiCalculator() {
                 onChange={(e) =>
                   setAvgValue(Math.max(1, Number(e.target.value) || 0))
                 }
-                className="w-32 rounded-[4px] border border-[#222222] bg-[#0a0a0a] px-3 py-2 font-mono text-sm text-white focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
+                className={`w-32 ${inputClass} text-left`}
               />
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col justify-center space-y-6 rounded-[4px] border border-[#222222] bg-[#0a0a0a] p-6 sm:p-8">
+        <div className="flex flex-col justify-center space-y-6 rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-6 sm:p-8">
           <OutputRow
             label="Missed calls per month:"
             value={String(missedCalls.toLocaleString())}
@@ -122,21 +125,21 @@ export function RoiCalculator() {
             value={formatMoney(yearlyLost)}
             emphasize
           />
-          <div className="rounded-[4px] border border-[var(--brand-primary)]/45 bg-[var(--brand-primary)]/12 px-4 py-5">
-            <p className="font-sans text-xs font-semibold uppercase tracking-[0.15em] text-[var(--brand-primary)]">
+          <div className="rounded-[4px] border border-[var(--brand-primary)]/35 bg-[var(--brand-primary)]/8 px-4 py-5">
+            <p className="font-sans text-xs font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
               With Gradia
             </p>
-            <p className="mt-2 font-serif text-3xl font-normal tabular-nums text-[var(--brand-primary)] sm:text-4xl">
+            <p className="mt-2 font-sans text-3xl font-semibold tabular-nums text-[var(--brand-primary)] sm:text-4xl">
               {formatMoney(0)}
             </p>
-            <p className="mt-1 font-sans text-sm text-[#b0b0b0]">
+            <p className="mt-1 font-sans text-sm text-[var(--muted)]">
               missed revenue from abandoned calls
             </p>
           </div>
         </div>
       </div>
 
-      <div className="mt-10 flex justify-center border-t border-[#222222] pt-10">
+      <div className="mt-10 flex justify-center border-t border-[var(--border-subtle)] pt-10">
         <Button
           href="mailto:hello@gradia.com?subject=Book%20a%20call"
           variant="primary"
@@ -159,9 +162,9 @@ function OutputRow({
 }) {
   return (
     <div>
-      <p className="font-sans text-sm text-[#888]">{label}</p>
+      <p className="font-sans text-sm text-[var(--muted)]">{label}</p>
       <p
-        className={`mt-1 font-serif tabular-nums tracking-tight text-white ${
+        className={`mt-1 font-sans font-semibold tabular-nums tracking-tight text-[var(--foreground)] ${
           emphasize ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
         }`}
       >

@@ -13,10 +13,10 @@ export default function ContactPage() {
     <div className="bg-[var(--brand-light)] text-[var(--brand-dark)]">
       <MarketingPageShell>
         <SectionLabel>Contact</SectionLabel>
-        <h1 className="mt-4 font-serif text-4xl font-normal tracking-tight sm:text-5xl">
+        <h1 className="mt-4 font-sans text-4xl font-semibold tracking-tight sm:text-5xl">
           Let&apos;s talk
         </h1>
-        <p className="mt-4 max-w-2xl text-[var(--brand-slate)]">
+        <p className="mt-4 max-w-2xl text-[var(--muted)]">
           Share a few details and we&apos;ll follow up by email. Prefer to
           schedule directly? Use the calendar block below once your Calendly
           link is connected.
@@ -29,10 +29,10 @@ export default function ContactPage() {
             aria-label="Schedule a call"
             className="rounded-xl border border-[#e2e8f0] bg-white p-8 shadow-card"
           >
-            <h2 className="font-serif text-2xl text-[var(--brand-dark)]">
+            <h2 className="font-sans text-2xl font-semibold text-[var(--foreground)]">
               Schedule a call
             </h2>
-            <p className="mt-2 text-sm text-[var(--brand-slate)]">
+            <p className="mt-2 text-sm text-[var(--muted)]">
               Replace this block with your Calendly inline embed (iframe) or
               Calendly React component.
             </p>

@@ -8,7 +8,7 @@ const variants = {
   primary:
     "rounded-full bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-primary-hover)] transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] motion-reduce:hover:scale-100 motion-reduce:active:scale-100",
   secondary:
-    "rounded-[2px] border border-white/25 bg-transparent text-white hover:border-white/50 hover:bg-white/[0.06]",
+    "rounded-[2px] border border-[var(--border-subtle)] bg-transparent text-[var(--foreground)] hover:border-[var(--brand-slate)]/40 hover:bg-[var(--bg-band)]",
   secondaryOnLight:
     "rounded-[2px] border border-[#e2e8f0] bg-white text-[var(--brand-dark)] shadow-card hover:border-[var(--brand-slate)]/30 hover:shadow-card-hover",
   ghost:

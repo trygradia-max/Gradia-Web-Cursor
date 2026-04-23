@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
   display: "swap",
-});
-
-const dmSerifDisplay = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-dm-serif",
-  display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -38,13 +32,6 @@ export const metadata: Metadata = {
     "HIPAA-ready AI",
     "AI digital employee",
   ],
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/images/gradia-logo.png", type: "image/png", sizes: "512x512" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -68,8 +55,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
-      <body className="min-h-screen">
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen font-sans font-normal antialiased">
         {children}
       </body>
     </html>

@@ -64,81 +64,79 @@ export function HeroPortalDashboard() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="overflow-hidden rounded-[4px] border border-[#222222] bg-[#141414] shadow-[0_40px_120px_-40px_rgba(0,0,0,0.85)]">
-          <div className="flex items-center justify-between border-b border-[#222222] px-4 py-3 sm:px-5">
+        <div className="overflow-hidden rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg)] shadow-[0_40px_120px_-40px_rgba(15,23,42,0.12)]">
+          <div className="flex items-center justify-between border-b border-[var(--border-subtle)] px-4 py-3 sm:px-5">
             <div>
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--brand-primary)]">
+              <p className="font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
                 Client portal
               </p>
-              <p className="mt-1 font-serif text-lg text-white">Today</p>
+              <p className="mt-1 font-sans text-lg font-semibold text-[var(--foreground)]">
+                Today
+              </p>
             </div>
-            <div className="rounded-full border border-[#2a2a2a] bg-[#0a0a0a] px-3 py-1.5 font-sans text-xs text-[#b0b0b0]">
+            <div className="rounded-full border border-[var(--border-subtle)] bg-[var(--bg-band)] px-3 py-1.5 font-sans text-xs text-[var(--muted)]">
               Live
             </div>
           </div>
 
           <div className="grid gap-3 p-4 sm:grid-cols-3 sm:gap-4 sm:p-5">
-            <div className="rounded-[2px] border border-[#222222] bg-[#0f0f0f] p-4">
-              <p className="font-sans text-[11px] uppercase tracking-wider text-[#888]">
+            <div className="rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-wider text-[var(--muted)]">
                 Calls handled
               </p>
-              <p className="mt-2 font-serif text-3xl tabular-nums tracking-tight text-white">
+              <p className="mt-2 font-sans text-3xl font-semibold tabular-nums tracking-tight text-[var(--foreground)]">
                 {callTotal.toLocaleString()}
               </p>
               <p className="mt-1 font-sans text-xs text-[var(--brand-primary)]">
                 +12 vs yesterday
               </p>
             </div>
-            <div className="rounded-[2px] border border-[#222222] bg-[#0f0f0f] p-4">
-              <p className="font-sans text-[11px] uppercase tracking-wider text-[#888]">
+            <div className="rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-wider text-[var(--muted)]">
                 Appointments
               </p>
-              <p className="mt-2 font-serif text-3xl tabular-nums tracking-tight text-white">
+              <p className="mt-2 font-sans text-3xl font-semibold tabular-nums tracking-tight text-[var(--foreground)]">
                 23
               </p>
-              <p className="mt-1 font-sans text-xs text-[#b0b0b0]">
-                Booked today
-              </p>
+              <p className="mt-1 font-sans text-xs text-[var(--muted)]">Booked today</p>
             </div>
-            <div className="rounded-[2px] border border-[#222222] bg-[#0f0f0f] p-4">
-              <p className="font-sans text-[11px] uppercase tracking-wider text-[#888]">
+            <div className="rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
+              <p className="font-sans text-[11px] font-medium uppercase tracking-wider text-[var(--muted)]">
                 Avg. answer
               </p>
-              <p className="mt-2 font-serif text-3xl tabular-nums tracking-tight text-white">
+              <p className="mt-2 font-sans text-3xl font-semibold tabular-nums tracking-tight text-[var(--foreground)]">
                 1.8s
               </p>
-              <p className="mt-1 font-sans text-xs text-[#b0b0b0]">
-                Rolling 24h
-              </p>
+              <p className="mt-1 font-sans text-xs text-[var(--muted)]">Rolling 24h</p>
             </div>
           </div>
 
-          <div className="border-t border-[#222222] px-4 pb-5 pt-2 sm:px-5">
-            <p className="mb-3 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-[#888]">
+          <div className="border-t border-[var(--border-subtle)] px-4 pb-5 pt-2 sm:px-5">
+            <p className="mb-3 font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--muted)]">
               Recent calls
             </p>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[420px] text-left text-sm">
                 <thead>
-                  <tr className="border-b border-[#222222] text-[11px] uppercase tracking-wider text-[#666]">
-                    <th className="pb-2 pr-3 font-medium">Time</th>
-                    <th className="pb-2 pr-3 font-medium">Caller</th>
-                    <th className="pb-2 pr-3 font-medium">Outcome</th>
-                    <th className="pb-2 font-medium">Duration</th>
+                  <tr className="border-b border-[var(--border-subtle)] text-[11px] font-medium uppercase tracking-wider text-[var(--muted)]">
+                    <th className="pb-2 pr-3">Time</th>
+                    <th className="pb-2 pr-3">Caller</th>
+                    <th className="pb-2 pr-3">Outcome</th>
+                    <th className="pb-2">Duration</th>
                   </tr>
                 </thead>
-                <tbody className="text-[#b0b0b0]">
+                <tbody className="text-[var(--muted)]">
                   {recentRows.map((row) => (
                     <tr
                       key={`${row.time}-${row.caller}`}
-                      className="border-b border-[#1a1a1a] last:border-0"
+                      className="border-b border-[var(--border-subtle)] last:border-0"
                     >
-                      <td className="py-2.5 pr-3 font-mono text-xs text-white/90">
+                      <td className="py-2.5 pr-3 font-mono text-xs text-[var(--foreground)]">
                         {row.time}
                       </td>
                       <td className="py-2.5 pr-3">{row.caller}</td>
                       <td className="py-2.5 pr-3">
-                        <span className="rounded-[2px] bg-[var(--brand-primary)]/15 px-2 py-0.5 text-xs text-[var(--brand-primary)]">
+                        <span className="rounded-[2px] bg-[var(--brand-primary)]/10 px-2 py-0.5 text-xs text-[var(--brand-primary)]">
                           {row.outcome}
                         </span>
                       </td>
@@ -150,7 +148,7 @@ export function HeroPortalDashboard() {
             </div>
           </div>
         </div>
-        <p className="mt-4 text-center text-xs text-[#666]">
+        <p className="mt-4 text-center text-xs text-[var(--muted)]">
           Simplified preview — your live dashboard updates in real time.
         </p>
       </div>

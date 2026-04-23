@@ -8,6 +8,12 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
+  const pathname = request.nextUrl.pathname;
+  /** Login page does not need a Supabase round-trip; skipping speeds dev when Auth is slow/unreachable. */
+  if (pathname === "/portal/login") {
+    return supabaseResponse;
+  }
+
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !anon) {
@@ -41,14 +47,24 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user: Awaited<
+    ReturnType<typeof supabase.auth.getUser>
+  >["data"]["user"] = null;
+  try {
+    const { data, error } = await supabase.auth.getUser();
+    if (!error) {
+      user = data.user;
+    }
+  } catch (err) {
+    // Edge fetch to Supabase can fail (bad URL, paused project, DNS/TLS, offline).
+    // Treat as signed-out so the app still responds; fix env / Supabase for real auth.
+    console.warn(
+      "[middleware] Supabase getUser failed — portal auth unavailable:",
+      err instanceof Error ? err.message : err,
+    );
+  }
 
-  const pathname = request.nextUrl.pathname;
-  const isLogin = pathname === "/portal/login";
-  const isPortalArea = pathname.startsWith("/portal");
-  const needsAuth = isPortalArea && !isLogin;
+  const needsAuth = pathname.startsWith("/portal");
 
   if (needsAuth && !user) {
     const loginUrl = request.nextUrl.clone();

@@ -16,10 +16,10 @@ export default function AboutPage() {
       <MarketingPageShell className="py-24 lg:py-36">
         <ScrollReveal>
           <SectionLabel>About Gradia</SectionLabel>
-          <h1 className="mt-6 max-w-[22ch] font-serif text-[clamp(2rem,4.5vw,3.5rem)] font-normal leading-[1.05] tracking-[-0.03em] text-[#ffffff]">
+          <h1 className="mt-6 max-w-[22ch] font-sans text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[var(--foreground)]">
             The Vertical Company.
           </h1>
-          <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-[#b0b0b0] sm:text-lg">
+          <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
             <p>
               Every day, businesses lose revenue to ringing phones that nobody
               picks up. Front-desk staff are stretched thin. Callers hang up.
@@ -47,8 +47,8 @@ export default function AboutPage() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal className="mt-20 rounded-[2px] border border-[#222222] bg-[#141414] p-8 sm:p-12">
-          <h2 className="font-serif text-2xl tracking-tight text-[#ffffff]">
+        <ScrollReveal className="mt-20 rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-8 sm:p-12">
+          <h2 className="font-sans text-2xl font-semibold tracking-tight text-[var(--foreground)]">
             Our principles
           </h2>
           <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -68,10 +68,10 @@ export default function AboutPage() {
             ].map((item) => (
               <li key={item.title}>
                 <div className="h-px w-10 bg-[var(--brand-primary)]" aria-hidden />
-                <h3 className="mt-6 font-serif text-lg text-[#ffffff]">
+                <h3 className="mt-6 font-sans text-lg font-semibold text-[var(--foreground)]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#b0b0b0]">
+                <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
                   {item.body}
                 </p>
               </li>
@@ -80,7 +80,7 @@ export default function AboutPage() {
         </ScrollReveal>
 
         <ScrollReveal className="mt-20 text-center">
-          <p className="text-base leading-relaxed text-[#b0b0b0] sm:text-lg">
+          <p className="text-base leading-relaxed text-[var(--muted)] sm:text-lg">
             Ready to see what Gradia can do for your business?
           </p>
           <div className="mt-8">

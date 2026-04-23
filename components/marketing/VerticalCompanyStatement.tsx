@@ -41,11 +41,11 @@ export function VerticalCompanyStatement() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-[#0a0a0a] px-4 pb-6 pt-28 sm:px-6 lg:pb-8 lg:pt-36"
+      className="relative w-full overflow-hidden bg-[var(--bg-band)] px-4 pb-6 pt-28 sm:px-6 lg:pb-8 lg:pt-36"
       aria-label="Company positioning"
     >
       <h2
-        className="mx-auto max-w-[min(96vw,1400px)] text-center font-serif font-normal leading-[0.92] tracking-[-0.02em] text-white"
+        className="mx-auto max-w-[min(96vw,1400px)] text-center font-sans font-semibold leading-[0.92] tracking-[-0.02em] text-[var(--foreground)]"
         style={{
           fontSize: "clamp(2.75rem, 9.5vw, 10rem)",
           transform: `scale(${scale})`,

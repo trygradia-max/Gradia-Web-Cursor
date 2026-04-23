@@ -11,11 +11,9 @@ const config: Config = {
       colors: {
         brand: {
           dark: "#0a0a0a",
-          slate: "#64748b",
-          light: "#f1f5f9",
-          /** Gradia blue — do not use amber/gold/yellow for accents */
-          primary: "#1e40af",
-          /** Marketing section bands — mirror CSS vars in globals.css */
+          slate: "#6b7280",
+          light: "#f5f5f5",
+          primary: "#3b6ef5",
           "bg-deep": "var(--bg)",
           "bg-band": "var(--bg-band)",
           "card-band": "var(--card-on-band)",
@@ -23,8 +21,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        serif: ["var(--font-dm-serif)", "Georgia", "serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       maxWidth: {
         content: "1200px",

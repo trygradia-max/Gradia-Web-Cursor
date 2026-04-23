@@ -16,7 +16,7 @@ export default async function PortalLayout({
         <div className="mx-auto flex h-14 w-full max-w-content items-center justify-between gap-4 px-4 sm:px-6">
           <div className="flex items-center gap-6">
             <Link href="/" className="shrink-0 focus-visible:outline-offset-4">
-              <Logo />
+              <Logo variant="light" />
             </Link>
             {session ? (
               <nav className="flex items-center gap-4 text-sm">

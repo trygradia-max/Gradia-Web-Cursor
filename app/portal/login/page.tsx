@@ -19,7 +19,7 @@ export default function PortalLoginPage() {
       <SectionLabel className="text-[var(--brand-primary)]">
         Client portal
       </SectionLabel>
-      <h1 className="mt-4 font-serif text-3xl font-normal tracking-tight text-white sm:text-4xl">
+      <h1 className="mt-4 font-sans text-3xl font-semibold tracking-tight text-white sm:text-4xl">
         Sign in to your dashboard
       </h1>
       <p className="mt-3 max-w-md text-center text-sm text-[var(--muted)]">

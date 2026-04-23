@@ -4,48 +4,44 @@
 
 :root {
   --brand-dark: #0a0a0a;
-  --brand-slate: #64748b;
-  --brand-light: #f1f5f9;
-  /* Gradia blue only — no amber/gold accents */
-  --brand-primary: #1e40af;
-  --brand-primary-hover: #2563eb;
-  --border-card: rgba(255, 255, 255, 0.1);
-  /* Deep base (hero, header, footer, alternating sections) */
-  --bg: #0c0c0e;
-  --bg-elevated: #12121a;
-  /* Brighter slate band for mixed layout */
-  --bg-band: #0f172a;
-  --card-on-band: #1a1f2e;
-  --foreground: #ffffff;
-  --muted: rgba(255, 255, 255, 0.58);
-  --text-muted-band: #cbd5e1;
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-band: rgba(148, 163, 184, 0.14);
+  --brand-slate: #6b7280;
+  --brand-light: #f5f5f5;
+  --brand-primary: #3b6ef5;
+  --brand-primary-hover: #2f5ad4;
+  --border-card: #e5e7eb;
+  --bg: #ffffff;
+  --bg-elevated: #fafafa;
+  --bg-band: #f5f5f5;
+  --card-on-band: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #6b7280;
+  --text-muted-band: #6b7280;
+  --border-subtle: #e5e7eb;
+  --border-band: #e5e7eb;
 }
 
 body {
-  @apply bg-[var(--bg)] font-sans text-[var(--foreground)] antialiased;
+  @apply bg-[var(--bg)] font-sans font-normal text-[var(--foreground)] antialiased;
 }
 
-/* Hero: slightly brighter wash + more blue/white lift */
+/* Hero — light, minimal accent */
 .hero-base-wash {
   background:
-    radial-gradient(ellipse 78% 62% at 42% 22%, rgba(30, 64, 175, 0.1), transparent 58%),
-    linear-gradient(165deg, #141820 0%, #0c0c0e 42%, #101018 100%),
-    radial-gradient(ellipse 82% 72% at 50% 0%, rgba(255, 255, 255, 0.055), transparent 52%);
+    radial-gradient(ellipse 78% 62% at 42% 18%, rgba(59, 110, 245, 0.07), transparent 58%),
+    linear-gradient(180deg, #fafafa 0%, #ffffff 48%, #f8fafc 100%);
 }
 
 .hero-noise {
-  opacity: 0.035;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
+  mix-blend-mode: multiply;
 }
 
 .hero-gradient-layer {
   background:
-    radial-gradient(ellipse 90% 55% at 15% 0%, rgba(30, 64, 175, 0.09), transparent 58%),
-    radial-gradient(ellipse 70% 45% at 95% 25%, rgba(30, 64, 175, 0.06), transparent 52%),
-    radial-gradient(ellipse 85% 50% at 50% 100%, rgba(255, 255, 255, 0.045), transparent 55%);
+    radial-gradient(ellipse 90% 55% at 15% 0%, rgba(59, 110, 245, 0.05), transparent 58%),
+    radial-gradient(ellipse 70% 45% at 95% 25%, rgba(59, 110, 245, 0.04), transparent 52%),
+    radial-gradient(ellipse 85% 50% at 50% 100%, rgba(59, 110, 245, 0.03), transparent 55%);
   animation: heroGradientDrift 22s ease-in-out infinite;
 }
 
@@ -53,14 +49,14 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(30, 64, 175, 0.15) 20%,
-    rgba(30, 64, 175, 0.5) 50%,
-    rgba(30, 64, 175, 0.15) 80%,
+    rgba(59, 110, 245, 0.12) 20%,
+    rgba(59, 110, 245, 0.35) 50%,
+    rgba(59, 110, 245, 0.12) 80%,
     transparent 100%
   );
   background-size: 200% 100%;
   animation: heroLineSweep 14s ease-in-out infinite;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 @keyframes heroGradientDrift {
@@ -77,11 +73,11 @@ body {
   0%,
   100% {
     background-position: 0% 50%;
-    opacity: 0.45;
+    opacity: 0.35;
   }
   50% {
     background-position: 100% 50%;
-    opacity: 0.95;
+    opacity: 0.75;
   }
 }
 
@@ -99,7 +95,7 @@ body {
 }
 
 .scroll-reveal {
-  @apply opacity-0 translate-y-8 transition-[opacity,transform] duration-700 ease-out;
+  @apply translate-y-8 opacity-0 transition-[opacity,transform] duration-700 ease-out;
 }
 
 .scroll-reveal.scroll-reveal--visible {
@@ -107,7 +103,7 @@ body {
 }
 
 .scroll-reveal-stagger > * {
-  @apply opacity-0 translate-y-6 transition-[opacity,transform] duration-700 ease-out;
+  @apply translate-y-6 opacity-0 transition-[opacity,transform] duration-700 ease-out;
 }
 
 .scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(1) {

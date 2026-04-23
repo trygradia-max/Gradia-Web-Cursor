@@ -16,10 +16,10 @@ export default function TermsPage() {
           </strong>
           — This policy will be updated before launch.
         </div>
-        <h1 className="mt-10 font-serif text-4xl font-normal tracking-tight">
+        <h1 className="mt-10 font-sans text-4xl font-semibold tracking-tight text-[var(--foreground)]">
           Terms of service
         </h1>
-        <div className="mt-10 max-w-3xl space-y-4 text-[var(--brand-slate)]">
+        <div className="mt-10 max-w-3xl space-y-4 text-[var(--muted)]">
           <p>
             This is a placeholder terms page for the Gradia marketing site.
             Final terms should cover acceptable use, service descriptions,

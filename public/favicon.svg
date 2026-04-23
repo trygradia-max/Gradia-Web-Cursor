@@ -1,13 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Gradia">
-  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
-  <text
-    x="15"
-    y="22"
-    text-anchor="middle"
-    font-family="Georgia, 'Times New Roman', serif"
-    font-size="19"
-    font-weight="700"
-    fill="#ffffff"
-  >G</text>
-  <text x="23" y="22" font-family="Georgia, serif" font-size="19" font-weight="700" fill="#1e40af">.</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" role="img" aria-label="Gradia">
+  <rect width="32" height="32" rx="4" fill="#ffffff" />
+  <image
+    xlink:href="/images/gradia-logo.png"
+    href="/images/gradia-logo.png"
+    x="2"
+    y="2"
+    width="28"
+    height="28"
+    preserveAspectRatio="xMidYMid meet"
+  />
 </svg>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 
 const linkClass =
-  "text-sm text-[var(--muted)] transition-colors hover:text-white";
+  "text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]";
 
 export function SiteFooter() {
   return (
@@ -40,7 +40,7 @@ export function SiteFooter() {
           </nav>
           <a
             href="mailto:hello@gradia.com"
-            className="text-sm font-medium text-white transition hover:text-[var(--brand-primary)] md:text-right"
+            className="text-sm font-medium text-[var(--foreground)] transition hover:text-[var(--brand-primary)] md:text-right"
           >
             hello@gradia.com
           </a>
