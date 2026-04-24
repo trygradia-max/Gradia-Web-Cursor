@@ -5,7 +5,6 @@ import { HeroPortalDashboard } from "@/components/marketing/HeroPortalDashboard"
 import { AnalyticsDashboardPreview } from "@/components/marketing/AnalyticsDashboardPreview";
 import { RoiCalculator } from "@/components/marketing/RoiCalculator";
 import { EightyPercentReveal } from "@/components/marketing/EightyPercentReveal";
-import { PricingSection } from "@/components/marketing/PricingSection";
 import { FeaturesSection } from "@/components/marketing/FeaturesSection";
 import { FinalCtaSection } from "@/components/marketing/FinalCtaSection";
 import { ResultsSection } from "@/components/marketing/ResultsSection";
@@ -285,21 +284,6 @@ export default function HomePage() {
 
       {/* 9. Results / outcomes */}
       <ResultsSection />
-
-      {/* 10. Pricing */}
-      <section id="pricing" className={`w-full ${divide} ${bgDeep} ${sectionPad}`}>
-        <div className={sectionShell}>
-          <ScrollReveal>
-            <SectionLabel>Plans</SectionLabel>
-            <h2 className="type-h2 mt-6 max-w-[20ch] text-[var(--black)]">
-              Simple pricing. Real outcomes.
-            </h2>
-          </ScrollReveal>
-          <div className="mt-12">
-            <PricingSection />
-          </div>
-        </div>
-      </section>
 
       {/* ROI calculator */}
       <section

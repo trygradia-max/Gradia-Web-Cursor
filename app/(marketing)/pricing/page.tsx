@@ -7,7 +7,7 @@ const demoMailto =
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Simple Gradia pricing: a base fee that covers everything, plus a 0.5% performance fee only when we help you close.",
+    "Gradia Cover, Capture, and Control plans: a base fee that covers everything, plus a 0.5% performance fee only when we help you close.",
 };
 
 const planLabelBase =
@@ -48,10 +48,10 @@ export default function PricingPage() {
       {/* 2. Pricing cards */}
       <section className="border-t border-[#E5E7EB] bg-[#FFFFFF] py-[80px]">
         <div className="mx-auto max-w-content px-4 sm:px-6">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {/* Foundation */}
-            <div className="flex flex-col border border-[#E5E7EB] bg-[#FFFFFF] p-10">
-              <p className={`${planLabelBase} text-[#6B7280]`}>Foundation</p>
+          <div className="grid gap-8 [grid-template-columns:1fr] min-[1024px]:[grid-template-columns:repeat(3,1fr)]">
+            {/* Cover */}
+            <div className="flex min-w-0 flex-col border border-[#E5E7EB] bg-[#FFFFFF] p-10">
+              <p className={`${planLabelBase} text-[#6B7280]`}>Cover</p>
               <div className="mt-6 flex flex-wrap items-baseline gap-1">
                 <span className="text-5xl font-bold tracking-tight text-[#0A0A0A]">
                   $597
@@ -77,13 +77,13 @@ export default function PricingPage() {
               </Link>
             </div>
 
-            {/* Growth — most popular */}
-            <div className="flex flex-col">
+            {/* Capture — most popular */}
+            <div className="flex min-w-0 flex-col">
               <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.15em] text-[#3B6EF5]">
                 Most popular
               </p>
-              <div className="flex flex-1 flex-col border-2 border-[#3B6EF5] bg-[#FFFFFF] p-10">
-                <p className={`${planLabelBase} text-[#3B6EF5]`}>Growth</p>
+              <div className="flex min-w-0 flex-1 flex-col border-2 border-[#3B6EF5] bg-[#FFFFFF] p-10">
+                <p className={`${planLabelBase} text-[#3B6EF5]`}>Capture</p>
                 <div className="mt-6 flex flex-wrap items-baseline gap-1">
                   <span className="text-5xl font-bold tracking-tight text-[#0A0A0A]">
                     $1,197
@@ -95,7 +95,7 @@ export default function PricingPage() {
                 <ul className={`${featureList} flex-1`}>
                   <FeatureItem>Up to 1,200 calls/mo</FeatureItem>
                   <FeatureItem>Voice + SMS channels</FeatureItem>
-                  <FeatureItem>Everything in Foundation</FeatureItem>
+                  <FeatureItem>Everything in Cover</FeatureItem>
                   <FeatureItem>CRM integration</FeatureItem>
                   <FeatureItem>Multi-location support (2 locations)</FeatureItem>
                   <FeatureItem>Priority support</FeatureItem>
@@ -110,9 +110,9 @@ export default function PricingPage() {
               </div>
             </div>
 
-            {/* Scale */}
-            <div className="flex flex-col border border-[#E5E7EB] bg-[#FFFFFF] p-10">
-              <p className={`${planLabelBase} text-[#6B7280]`}>Scale</p>
+            {/* Control */}
+            <div className="flex min-w-0 flex-col border border-[#E5E7EB] bg-[#FFFFFF] p-10">
+              <p className={`${planLabelBase} text-[#6B7280]`}>Control</p>
               <div className="mt-6 flex flex-wrap items-baseline gap-1">
                 <span className="text-5xl font-bold tracking-tight text-[#0A0A0A]">
                   $3,497
@@ -124,7 +124,7 @@ export default function PricingPage() {
               <ul className={`${featureList} flex-1`}>
                 <FeatureItem>Unlimited calls</FeatureItem>
                 <FeatureItem>Voice + SMS + Email channels</FeatureItem>
-                <FeatureItem>Everything in Growth</FeatureItem>
+                <FeatureItem>Everything in Capture</FeatureItem>
                 <FeatureItem>Up to 5 locations</FeatureItem>
                 <FeatureItem>Outbound calling</FeatureItem>
                 <FeatureItem>Dedicated account manager</FeatureItem>
