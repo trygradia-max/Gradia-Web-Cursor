@@ -3,25 +3,120 @@
 @tailwind utilities;
 
 :root {
-  --brand-dark: #0a0a0a;
-  --brand-slate: #6b7280;
-  --brand-light: #f5f5f5;
-  --brand-primary: #3b6ef5;
+  /* Canonical palette */
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --gray: #6b7280;
+  --light: #f5f5f5;
+  --blue: #3b6ef5;
+  --border: #e5e7eb;
+
+  /* Typography — Inter via --font-inter (Next font) */
+  --font: var(--font-inter), system-ui, sans-serif;
+
+  /* Type scale */
+  --text-hero-size: 72px;
+  --text-hero-weight: 700;
+  --text-hero-leading: 1.1;
+  --text-h2-size: 48px;
+  --text-h2-weight: 600;
+  --text-h2-leading: 1.2;
+  --text-h3-size: 24px;
+  --text-h3-weight: 600;
+  --text-h3-leading: 1.3;
+  --text-body-size: 16px;
+  --text-body-weight: 400;
+  --text-body-leading: 1.6;
+  --text-small-size: 14px;
+  --text-small-weight: 400;
+  --text-small-leading: 1.5;
+  --text-label-size: 12px;
+  --text-label-weight: 500;
+  --text-label-tracking: 0.15em;
+
+  /* Layout */
+  --section-padding-y: 120px;
+  --container-max: 1200px;
+  --gap: 48px;
+
+  /* Semantic aliases (existing components) */
+  --brand-dark: var(--black);
+  --brand-slate: var(--gray);
+  --brand-light: var(--light);
+  --brand-primary: var(--blue);
   --brand-primary-hover: #2f5ad4;
-  --border-card: #e5e7eb;
-  --bg: #ffffff;
+  --border-card: var(--border);
+  --bg: var(--white);
   --bg-elevated: #fafafa;
-  --bg-band: #f5f5f5;
-  --card-on-band: #ffffff;
-  --foreground: #0a0a0a;
-  --muted: #6b7280;
-  --text-muted-band: #6b7280;
-  --border-subtle: #e5e7eb;
-  --border-band: #e5e7eb;
+  --bg-band: var(--light);
+  --card-on-band: var(--white);
+  --foreground: var(--black);
+  --muted: var(--gray);
+  --text-muted-band: var(--gray);
+  --border-subtle: var(--border);
+  --border-band: var(--border);
 }
 
 body {
-  @apply bg-[var(--bg)] font-sans font-normal text-[var(--foreground)] antialiased;
+  font-family: var(--font);
+  @apply bg-[var(--bg)] font-normal text-[var(--foreground)] antialiased;
+}
+
+@layer components {
+  .type-hero {
+    font-size: clamp(2rem, 4.5vw, var(--text-hero-size));
+    font-weight: var(--text-hero-weight);
+    line-height: var(--text-hero-leading);
+    letter-spacing: -0.02em;
+  }
+  @media (min-width: 1024px) {
+    .type-hero {
+      font-size: var(--text-hero-size);
+    }
+  }
+
+  .type-h2 {
+    font-size: clamp(1.75rem, 3.5vw, var(--text-h2-size));
+    font-weight: var(--text-h2-weight);
+    line-height: var(--text-h2-leading);
+    letter-spacing: -0.02em;
+  }
+  @media (min-width: 1024px) {
+    .type-h2 {
+      font-size: var(--text-h2-size);
+    }
+  }
+
+  .type-h3 {
+    font-size: var(--text-h3-size);
+    font-weight: var(--text-h3-weight);
+    line-height: var(--text-h3-leading);
+  }
+
+  .type-body {
+    font-size: var(--text-body-size);
+    font-weight: var(--text-body-weight);
+    line-height: var(--text-body-leading);
+  }
+
+  .type-small {
+    font-size: var(--text-small-size);
+    font-weight: var(--text-small-weight);
+    line-height: var(--text-small-leading);
+  }
+
+  .type-label {
+    font-size: var(--text-label-size);
+    font-weight: var(--text-label-weight);
+    line-height: 1.2;
+    letter-spacing: var(--text-label-tracking);
+    text-transform: uppercase;
+  }
+
+  .section-pad {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+  }
 }
 
 /* Hero — light, minimal accent */
@@ -82,7 +177,8 @@ body {
 }
 
 :focus-visible {
-  @apply outline-2 outline-offset-2 outline-[var(--brand-primary)];
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

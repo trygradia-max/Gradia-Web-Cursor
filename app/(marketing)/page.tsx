@@ -29,7 +29,7 @@ const sectionPadSocial = "py-24 lg:py-28";
 const bodyText = "text-[var(--muted)]";
 const bodyTextBand = "text-[var(--text-muted-band)]";
 
-const divide = "border-t border-[var(--border-subtle)]";
+const divide = "border-t border-[var(--border)]";
 
 const bgDeep = "bg-[var(--bg)]";
 const bgBand = "bg-[var(--bg-band)]";
@@ -39,7 +39,7 @@ export default function HomePage() {
     <>
       {/* 1. Hero + dashboard */}
       <section
-        className={`relative w-full overflow-hidden border-b border-[var(--border-subtle)] ${bgDeep}`}
+        className={`relative w-full overflow-hidden border-b border-[var(--border)] ${bgDeep}`}
       >
         <HeroBackdrop />
         <div
@@ -51,20 +51,18 @@ export default function HomePage() {
                 className="pointer-events-none absolute -left-[8%] -top-[38%] h-[150%] w-[125%] max-w-[min(100vw,760px)] bg-[radial-gradient(ellipse_70%_55%_at_40%_35%,rgba(59,110,245,0.08),transparent_72%)] sm:-left-[4%]"
                 aria-hidden
               />
-              <h1 className="relative font-sans font-semibold text-[clamp(2rem,5vw,3.75rem)] leading-[1.05] tracking-[-0.03em] text-[var(--foreground)]">
+              <h1 className="type-hero relative text-[var(--black)]">
                 Every call answered. Every lead captured. Nothing slips through.
               </h1>
             </div>
-            <p
-              className={`mt-8 max-w-2xl text-base leading-relaxed sm:text-lg ${bodyText}`}
-            >
+            <p className={`type-body mt-8 max-w-2xl sm:text-lg ${bodyText}`}>
               Gradia is your always-on digital frontline — answering calls, booking
               appointments, and qualifying leads 24/7. Your team runs the business.
               We run the front end.
             </p>
             <div className="mt-14">
               <Button
-                href="mailto:hello@gradia.com?subject=Book%20a%20call"
+                href="mailto:trygradia@gmail.com?subject=Book%20a%20call"
                 variant="primary"
               >
                 Book a Call
@@ -101,10 +99,10 @@ export default function HomePage() {
             ].map((item) => (
               <li key={item.title}>
                 <Card className="h-full p-8 text-center sm:p-10" hover tone="band">
-                  <p className="font-sans font-semibold text-xl tracking-tight text-[var(--foreground)] sm:text-2xl">
+                  <p className="type-h3 text-[var(--black)] sm:text-2xl sm:leading-snug">
                     {item.title}
                   </p>
-                  <p className={`mt-4 text-sm leading-relaxed sm:text-base ${bodyTextBand}`}>
+                  <p className={`type-small mt-4 sm:text-base ${bodyTextBand}`}>
                     {item.body}
                   </p>
                 </Card>
@@ -135,7 +133,7 @@ export default function HomePage() {
         <div className={sectionShell}>
           <ScrollReveal>
             <SectionLabel>Digital employees</SectionLabel>
-            <h2 className="mt-6 max-w-[30ch] font-sans font-semibold text-[clamp(2rem,3.8vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]">
+            <h2 className="type-h2 mt-6 max-w-[30ch] text-[var(--black)]">
               An AI employee trained on your business. Not a chatbot.
             </h2>
           </ScrollReveal>
@@ -157,10 +155,8 @@ export default function HomePage() {
               <li key={item.title}>
                 <Card className="h-full p-8 sm:p-10" hover tone="band">
                   <div className="h-px w-10 bg-[var(--brand-primary)]" aria-hidden />
-                  <h3 className="mt-8 font-sans font-semibold text-xl tracking-tight text-[var(--foreground)]">
-                    {item.title}
-                  </h3>
-                  <p className={`mt-3 text-sm leading-relaxed sm:text-base ${bodyTextBand}`}>
+                  <h3 className="type-h3 mt-8 text-[var(--black)]">{item.title}</h3>
+                  <p className={`type-small mt-3 sm:text-base ${bodyTextBand}`}>
                     {item.body}
                   </p>
                 </Card>
@@ -180,10 +176,10 @@ export default function HomePage() {
         <div className={sectionShell}>
           <ScrollReveal>
             <SectionLabel>Transparency</SectionLabel>
-            <h2 className="mt-6 max-w-[32ch] font-sans font-semibold text-[clamp(2rem,3.8vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]">
+            <h2 className="type-h2 mt-6 max-w-[32ch] text-[var(--black)]">
               A dashboard that proves what&apos;s happening.
             </h2>
-            <p className={`mt-6 max-w-2xl text-base leading-relaxed sm:text-lg ${bodyTextBand}`}>
+            <p className={`type-body mt-6 max-w-2xl sm:text-lg ${bodyTextBand}`}>
               No black box. No guessing. See every call, every outcome, every
               dollar captured.
             </p>
@@ -206,10 +202,8 @@ export default function HomePage() {
               <li key={item.title}>
                 <Card className="h-full p-8 sm:p-10" hover tone="band">
                   <div className="h-px w-10 bg-[var(--brand-primary)]" aria-hidden />
-                  <h3 className="mt-8 font-sans font-semibold text-xl tracking-tight text-[var(--foreground)]">
-                    {item.title}
-                  </h3>
-                  <p className={`mt-3 text-sm leading-relaxed sm:text-base ${bodyTextBand}`}>
+                  <h3 className="type-h3 mt-8 text-[var(--black)]">{item.title}</h3>
+                  <p className={`type-small mt-3 sm:text-base ${bodyTextBand}`}>
                     {item.body}
                   </p>
                 </Card>
@@ -230,10 +224,10 @@ export default function HomePage() {
         <div className={sectionShell}>
           <ScrollReveal>
             <SectionLabel>Relief</SectionLabel>
-            <h2 className="mt-6 max-w-[36ch] font-sans font-semibold text-[clamp(2rem,3.8vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]">
+            <h2 className="type-h2 mt-6 max-w-[36ch] text-[var(--black)]">
               Your team wasn&apos;t hired to answer phones.
             </h2>
-            <p className={`mt-8 max-w-3xl text-base leading-relaxed sm:text-lg ${bodyText}`}>
+            <p className={`type-body mt-8 max-w-3xl sm:text-lg ${bodyText}`}>
               Front-desk staff spend 60%+ of their day on calls. Most of those
               calls are routine — scheduling, intake, directions, hours. Gradia
               handles all of it. Your team gets their day back. Patients and
@@ -242,9 +236,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal className="mt-16 grid gap-6 lg:grid-cols-2 lg:gap-8">
             <div className="rounded-[4px] border border-red-200 bg-[#fef2f2] p-8 sm:p-10">
-              <h3 className="font-sans font-semibold text-xl text-[var(--foreground)]">
-                Without Gradia
-              </h3>
+              <h3 className="type-h3 text-[var(--black)]">Without Gradia</h3>
               <ul className={`mt-6 space-y-3 text-sm leading-relaxed sm:text-base ${bodyText}`}>
                 <li>Missed calls when lines are busy</li>
                 <li>Staff overwhelmed during peaks</li>
@@ -254,7 +246,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="rounded-[4px] border border-[var(--brand-primary)]/35 bg-[#eff6ff] p-8 sm:p-10">
-              <h3 className="font-sans font-semibold text-xl text-[var(--foreground)]">With Gradia</h3>
+              <h3 className="type-h3 text-[var(--black)]">With Gradia</h3>
               <ul className={`mt-6 space-y-3 text-sm leading-relaxed sm:text-base ${bodyText}`}>
                 <li>Every call answered, every time</li>
                 <li>Appointments booked automatically</li>
@@ -275,12 +267,10 @@ export default function HomePage() {
             <div className="mt-10">
               <EightyPercentReveal />
             </div>
-            <p className={`mt-6 text-xl sm:text-2xl ${bodyText}`}>
+            <p className={`type-h3 mt-6 font-semibold text-[var(--gray)] sm:text-2xl`}>
               Starting day one.
             </p>
-            <p
-              className={`mx-auto mt-10 max-w-2xl text-base leading-relaxed sm:text-lg ${bodyText}`}
-            >
+            <p className={`type-body mx-auto mt-10 max-w-2xl sm:text-lg ${bodyText}`}>
               Your receptionist is buried. Calls stack up. Leads slip. Gradia
               takes the weight off — answering every call, handling intake, booking
               appointments, and routing urgencies. Your team focuses on what they
@@ -301,7 +291,7 @@ export default function HomePage() {
         <div className={sectionShell}>
           <ScrollReveal>
             <SectionLabel>Plans</SectionLabel>
-            <h2 className="mt-6 max-w-[20ch] font-sans font-semibold text-[clamp(2rem,3.8vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]">
+            <h2 className="type-h2 mt-6 max-w-[20ch] text-[var(--black)]">
               Simple pricing. Real outcomes.
             </h2>
           </ScrollReveal>
@@ -319,7 +309,7 @@ export default function HomePage() {
         <div className={sectionShell}>
           <ScrollReveal>
             <SectionLabel>See your savings</SectionLabel>
-            <h2 className="mt-6 max-w-[32ch] font-sans font-semibold text-[clamp(2rem,3.8vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]">
+            <h2 className="type-h2 mt-6 max-w-[32ch] text-[var(--black)]">
               Calculate what missed calls cost you.
             </h2>
           </ScrollReveal>
@@ -334,7 +324,7 @@ export default function HomePage() {
         <div className={sectionShell}>
           <ScrollReveal>
             <SectionLabel>Resources</SectionLabel>
-            <h2 className="mt-6 max-w-[28ch] font-sans font-semibold text-[clamp(2rem,3.8vw,3.25rem)] leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]">
+            <h2 className="type-h2 mt-6 max-w-[28ch] text-[var(--black)]">
               Learn what a smarter front desk looks like.
             </h2>
           </ScrollReveal>
@@ -343,25 +333,40 @@ export default function HomePage() {
               {
                 title: "Why Every Missed Call Costs More Than You Think",
                 tag: "Guide",
+                href: "/resources/why-every-missed-call-costs-more-than-you-think",
               },
               {
                 title: "Front-Desk Automation for Healthcare Practices",
                 tag: "Case study",
+                href: "/resources/front-desk-automation-for-healthcare-practices",
               },
               {
                 title: "The ROI of an Always-On Digital Front Desk",
                 tag: "Whitepaper",
+                href: "/resources/the-roi-of-an-always-on-digital-front-desk",
               },
             ].map((item) => (
               <li key={item.title}>
-                <Card className="h-full p-8 sm:p-10" hover>
-                  <span className="inline-block rounded-full border border-[var(--border-subtle)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
-                    {item.tag}
-                  </span>
-                  <h3 className="mt-5 font-sans font-semibold text-xl tracking-tight text-[var(--foreground)]">
-                    {item.title}
-                  </h3>
-                </Card>
+                {"href" in item && item.href ? (
+                  <Link
+                    href={item.href}
+                    className="block h-full rounded-[2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
+                  >
+                    <Card className="h-full p-8 sm:p-10" hover>
+                      <span className="type-label inline-block rounded-full border border-[var(--border)] px-3 py-1 text-[11px] text-[var(--blue)]">
+                        {item.tag}
+                      </span>
+                      <h3 className="type-h3 mt-5 text-[var(--black)]">{item.title}</h3>
+                    </Card>
+                  </Link>
+                ) : (
+                  <Card className="h-full p-8 sm:p-10" hover>
+                    <span className="type-label inline-block rounded-full border border-[var(--border)] px-3 py-1 text-[11px] text-[var(--blue)]">
+                      {item.tag}
+                    </span>
+                    <h3 className="type-h3 mt-5 text-[var(--black)]">{item.title}</h3>
+                  </Card>
+                )}
               </li>
             ))}
           </ScrollRevealStagger>

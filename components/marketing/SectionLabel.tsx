@@ -8,13 +8,6 @@ export function SectionLabel({
   className?: string;
 }) {
   return (
-    <p
-      className={cn(
-        "font-sans text-[12px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]",
-        className,
-      )}
-    >
-      {children}
-    </p>
+    <p className={cn("type-label text-[var(--blue)]", className)}>{children}</p>
   );
 }

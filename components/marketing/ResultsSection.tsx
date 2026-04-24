@@ -39,19 +39,17 @@ export function ResultsSection({ className }: { className?: string }) {
     <section
       id="outcomes"
       className={cn(
-        "w-full border-t border-[var(--border-subtle)] bg-[var(--bg)] py-[120px]",
+        "section-pad w-full border-t border-[var(--border)] bg-[var(--white)]",
         className,
       )}
       aria-labelledby="results-heading"
     >
       <div className="mx-auto w-full max-w-content px-4 sm:px-6">
         <ScrollReveal className="text-center">
-          <p className="text-[12px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
-            The results
-          </p>
+          <p className="type-label text-[var(--blue)]">The results</p>
           <h2
             id="results-heading"
-            className="mx-auto mt-6 max-w-[40rem] font-sans text-[48px] font-semibold leading-[1.15] text-[var(--foreground)]"
+            className="type-h2 mx-auto mt-6 max-w-[40rem] text-[var(--black)]"
           >
             The numbers don&apos;t lie.
           </h2>
@@ -59,21 +57,17 @@ export function ResultsSection({ className }: { className?: string }) {
 
         <ScrollRevealStagger
           className={cn(
-            "mt-16 grid list-none grid-cols-1 gap-px border border-[var(--border-subtle)] bg-[var(--border-subtle)] p-0 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3",
+            "mt-16 grid list-none grid-cols-1 gap-px border border-[var(--border)] bg-[var(--border)] p-0 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3",
           )}
         >
           {stats.map((item) => (
-            <li key={item.label} className="min-w-0 bg-[var(--bg)]">
+            <li key={item.label} className="min-w-0 bg-[var(--white)]">
               <div className="px-6 py-10 sm:px-8 md:px-10 md:py-12">
-                <p className="font-sans text-[64px] font-semibold leading-none tracking-tight text-[var(--foreground)]">
+                <p className="type-hero leading-none tracking-tight text-[var(--black)]">
                   {item.value}
                 </p>
-                <p className="mt-5 text-[14px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
-                  {item.label}
-                </p>
-                <p className="mt-3 text-[14px] leading-relaxed text-[var(--muted)]">
-                  {item.description}
-                </p>
+                <p className="type-label mt-5 text-[var(--blue)]">{item.label}</p>
+                <p className="type-small mt-3 text-[var(--gray)]">{item.description}</p>
               </div>
             </li>
           ))}

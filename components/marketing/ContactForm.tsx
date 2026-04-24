@@ -17,7 +17,7 @@ export function ContactForm() {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\n${message}`,
     );
-    window.location.href = `mailto:hello@gradia.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:trygradia@gmail.com?subject=${subject}&body=${body}`;
     setStatus("sent");
   }
 
@@ -89,7 +89,7 @@ export function ContactForm() {
         {status === "sent" ? (
           <p className="text-sm text-[var(--brand-slate)]" role="status">
             Your email client should open with this message. If nothing opens,
-            copy your note and send it to hello@gradia.com.
+            copy your note and send it to trygradia@gmail.com.
           </p>
         ) : null}
       </form>

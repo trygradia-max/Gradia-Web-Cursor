@@ -72,19 +72,17 @@ export function FeaturesSection({ className }: { className?: string }) {
     <section
       id="features"
       className={cn(
-        "w-full border-t border-[var(--border-subtle)] bg-[var(--bg)] py-[120px]",
+        "section-pad w-full border-t border-[var(--border)] bg-[var(--white)]",
         className,
       )}
       aria-labelledby="features-heading"
     >
       <div className="mx-auto w-full max-w-content px-4 sm:px-6">
         <ScrollReveal className="text-center">
-          <p className="text-[12px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
-            What gradia does
-          </p>
+          <p className="type-label text-[var(--blue)]">What gradia does</p>
           <h2
             id="features-heading"
-            className="mx-auto mt-6 max-w-[48rem] font-sans text-[48px] font-semibold leading-[1.15] text-[var(--foreground)]"
+            className="type-h2 mx-auto mt-6 max-w-[48rem] text-[var(--black)]"
           >
             Every lead. Every channel. Every time.
           </h2>
@@ -92,19 +90,17 @@ export function FeaturesSection({ className }: { className?: string }) {
 
         <ScrollRevealStagger
           className={cn(
-            "mt-16 grid list-none grid-cols-1 gap-px border border-[var(--border-subtle)] bg-[var(--border-subtle)] p-0 md:mt-20 md:grid-cols-2",
+            "mt-16 grid list-none grid-cols-1 gap-px border border-[var(--border)] bg-[var(--border)] p-0 md:mt-20 md:grid-cols-2",
           )}
         >
           {features.map((item) => (
-            <li key={item.num} className="min-w-0 bg-[var(--bg)]">
+            <li key={item.num} className="min-w-0 bg-[var(--white)]">
               <div className="px-6 py-10 sm:px-8 md:px-10 md:py-12">
-                <p className="text-[12px] font-normal tabular-nums tracking-normal text-[var(--brand-primary)]">
+                <p className="type-label normal-case tabular-nums tracking-normal text-[var(--blue)]">
                   {item.num}
                 </p>
-                <h3 className="mt-4 font-sans text-[20px] font-semibold leading-snug text-[var(--foreground)]">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-base leading-[1.6] text-[var(--muted)]">{item.body}</p>
+                <h3 className="type-h3 mt-4 text-[var(--black)]">{item.title}</h3>
+                <p className="type-body mt-3 text-[var(--gray)]">{item.body}</p>
               </div>
             </li>
           ))}

@@ -34,7 +34,7 @@ export default function PortalLoginPage() {
       <p className="mt-8 text-center text-sm text-[var(--muted)]">
         Need access?{" "}
         <Link
-          href="mailto:hello@gradia.com?subject=Portal%20access"
+          href="mailto:trygradia@gmail.com?subject=Portal%20access"
           className="font-semibold text-[var(--brand-primary)] hover:underline"
         >
           Contact Gradia

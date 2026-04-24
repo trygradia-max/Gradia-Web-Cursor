@@ -21,20 +21,20 @@ type Resource = {
 
 const resources: Resource[] = [
   {
-    title: "Why Every Missed Call Costs You More Than You Think",
+    title: "Why Every Missed Call Costs More Than You Think",
     description:
       "A breakdown of the real revenue impact of unanswered calls — and how to fix it.",
-    href: process.env.NEXT_PUBLIC_RESOURCE_LINK_1 ?? "#",
+    href: "/resources/why-every-missed-call-costs-more-than-you-think",
     tag: "Guide",
-    external: true,
+    external: false,
   },
   {
     title: "Front-Desk Automation for Healthcare Practices",
     description:
       "How AI digital employees handle scheduling, intake, and after-hours triage without replacing your team.",
-    href: process.env.NEXT_PUBLIC_RESOURCE_LINK_2 ?? "#",
+    href: "/resources/front-desk-automation-for-healthcare-practices",
     tag: "Case study",
-    external: true,
+    external: false,
   },
   {
     title: "Getting Started with Gradia: What to Expect in Week One",
@@ -56,9 +56,9 @@ const resources: Resource[] = [
     title: "The ROI of an Always-On Digital Front Desk",
     description:
       "A framework for calculating the cost of missed calls versus the cost of 24/7 AI coverage.",
-    href: process.env.NEXT_PUBLIC_RESOURCE_LINK_5 ?? "#",
+    href: "/resources/the-roi-of-an-always-on-digital-front-desk",
     tag: "Whitepaper",
-    external: true,
+    external: false,
   },
   {
     title: "HIPAA-Ready Call Handling: What It Actually Means",
@@ -72,6 +72,10 @@ const resources: Resource[] = [
 
 function ResourceCard({ resource }: { resource: Resource }) {
   const isPlaceholder = resource.href === "#";
+  const isInternal =
+    !isPlaceholder &&
+    (resource.external === false ||
+      (resource.external !== true && resource.href.startsWith("/")));
 
   const inner = (
     <div className="group flex h-full flex-col rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg)] p-8 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-[rgba(59,110,245,0.35)] hover:shadow-[0_0_0_1px_rgba(59,110,245,0.08),0_12px_32px_-12px_rgba(59,110,245,0.1)] motion-reduce:hover:translate-y-0 sm:p-10">
@@ -86,7 +90,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
       </p>
       <div className="mt-6 flex items-center gap-1.5 text-sm font-medium text-[var(--brand-primary)]">
         {isPlaceholder ? "Coming soon" : "Read more"}
-        {!isPlaceholder && (
+        {!isPlaceholder && !isInternal && (
           <ExternalLink className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
         )}
       </div>
@@ -97,16 +101,26 @@ function ResourceCard({ resource }: { resource: Resource }) {
     return <li>{inner}</li>;
   }
 
+  if (isInternal) {
+    return (
+      <li>
+        <Link href={resource.href} className="block h-full focus-visible:outline-offset-4">
+          {inner}
+        </Link>
+      </li>
+    );
+  }
+
   return (
     <li>
-      <Link
+      <a
         href={resource.href}
         target="_blank"
         rel="noopener noreferrer"
         className="block h-full focus-visible:outline-offset-4"
       >
         {inner}
-      </Link>
+      </a>
     </li>
   );
 }

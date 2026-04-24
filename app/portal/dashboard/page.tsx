@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { SectionLabel } from "@/components/marketing/SectionLabel";
+import { AppointmentsBoard } from "@/components/portal/AppointmentsBoard";
 import { getDashboardData } from "@/lib/portal/dashboard";
 import { getPortalSession } from "@/lib/portal/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -115,34 +116,10 @@ export default async function PortalDashboardPage() {
         </section>
 
         <section className="lg:col-span-1">
-          <h2 className="font-sans text-lg font-semibold text-white">
-            Upcoming appointments
-          </h2>
-          <ul className="mt-4 space-y-3">
-            {data.upcomingAppointments.length === 0 ? (
-              <li className={`${portalCard} p-4 text-sm text-[var(--muted)]`}>
-                No upcoming appointments.
-              </li>
-            ) : (
-              data.upcomingAppointments.map((item) => (
-                <li key={item.id} className={`${portalCard} p-4`}>
-                  <p className="text-sm font-semibold text-white">{item.customer}</p>
-                  <p className="mt-1 text-xs text-[var(--muted)]">
-                    {new Intl.DateTimeFormat("en", {
-                      month: "short",
-                      day: "numeric",
-                      hour: "numeric",
-                      minute: "2-digit",
-                    }).format(new Date(item.date))}
-                  </p>
-                  <p className="mt-2 text-sm text-[var(--muted)]">{item.notes}</p>
-                  <p className="mt-2 text-xs uppercase tracking-wide text-[var(--brand-primary)]">
-                    {item.status}
-                  </p>
-                </li>
-              ))
-            )}
-          </ul>
+          <AppointmentsBoard
+            initialAppointments={data.appointmentsBoard}
+            initialMonthlyFeesTotal={data.monthlyPerformanceFeesTotal}
+          />
         </section>
       </div>
     </div>

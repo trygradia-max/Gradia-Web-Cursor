@@ -116,7 +116,7 @@ export function PricingSection() {
             </div>
             <div className="mt-10">
               <Button
-                href={`mailto:hello@gradia.com?subject=${encodeURIComponent(tier.mailSubject)}`}
+                href={`mailto:trygradia@gmail.com?subject=${encodeURIComponent(tier.mailSubject)}`}
                 variant="primary"
                 className="w-full sm:w-auto"
               >

@@ -2,25 +2,23 @@ import { ScrollReveal } from "@/components/marketing/ScrollReveal";
 import { cn } from "@/lib/cn";
 
 const bodyClass =
-  "text-base leading-[1.6] text-[var(--muted)] [&_p+p]:mt-6";
+  "type-body text-[var(--gray)] [&_p+p]:mt-6";
 
 export function ProblemSection({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        "w-full border-t border-[var(--border-subtle)] bg-[var(--bg-band)] py-[120px]",
+        "section-pad w-full border-t border-[var(--border)] bg-[var(--light)]",
         className,
       )}
       aria-labelledby="problem-heading"
     >
       <div className="mx-auto w-full max-w-[680px] px-4 text-center sm:px-6">
         <ScrollReveal>
-          <p className="text-[12px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
-            The reality
-          </p>
+          <p className="type-label text-[var(--blue)]">The reality</p>
           <h2
             id="problem-heading"
-            className="mt-6 font-sans text-[48px] font-semibold leading-[1.15] text-[var(--foreground)]"
+            className="type-h2 mt-6 text-[var(--black)]"
           >
             The Invisible Gap
           </h2>

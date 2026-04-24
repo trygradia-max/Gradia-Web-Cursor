@@ -10,10 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          dark: "#0a0a0a",
-          slate: "#6b7280",
-          light: "#f5f5f5",
-          primary: "#3b6ef5",
+          dark: "var(--black)",
+          slate: "var(--gray)",
+          light: "var(--light)",
+          primary: "var(--blue)",
           "bg-deep": "var(--bg)",
           "bg-band": "var(--bg-band)",
           "card-band": "var(--card-on-band)",
@@ -25,7 +25,14 @@ const config: Config = {
         serif: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       maxWidth: {
-        content: "1200px",
+        content: "var(--container-max)",
+      },
+      spacing: {
+        layout: "var(--gap)",
+        section: "var(--section-padding-y)",
+      },
+      gap: {
+        layout: "var(--gap)",
       },
       boxShadow: {
         card: "0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.06)",

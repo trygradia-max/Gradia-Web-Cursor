@@ -1,53 +1,113 @@
 import Link from "next/link";
-import { Logo } from "@/components/ui/Logo";
 
-const linkClass =
-  "text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]";
+const headingClass =
+  "font-sans text-xs font-medium uppercase tracking-[0.1em] text-[#6B7280]";
+
+const footerLinkClass =
+  "font-sans text-sm font-normal text-white transition-colors hover:text-[#3B6EF5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]";
+
+const demoHref =
+  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
+
+const productLinks = [
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#features", label: "Features" },
+  { href: "/pricing", label: "Pricing" },
+  { href: demoHref, label: "Book a Demo" },
+] as const;
+
+const industryLinks = [
+  { href: "/contact", label: "Healthcare" },
+  { href: "/contact", label: "Finance" },
+  { href: "/contact", label: "Home Services" },
+  { href: "/contact", label: "Real Estate" },
+  { href: "/contact", label: "Legal" },
+  { href: "/contact", label: "Auto Dealerships" },
+] as const;
+
+const legalLinks = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+] as const;
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--border-subtle)] bg-[var(--bg)]">
-      <div className="mx-auto w-full max-w-content px-4 py-14 sm:px-6 sm:py-16">
-        <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-          <Link href="/" className="inline-block shrink-0 focus-visible:outline-offset-4">
-            <Logo />
-          </Link>
-          <nav
-            className="flex flex-wrap items-center gap-x-8 gap-y-3"
-            aria-label="Footer"
-          >
-            <Link href="/#the-solution" className={linkClass}>
+    <footer className="border-t border-[#1F1F1F] bg-[#0A0A0A]">
+      <div className="mx-auto w-full max-w-content px-4 pt-[80px] sm:px-6">
+        <div className="grid grid-cols-1 gap-12 pb-[40px] sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+          {/* Column 1 — Brand */}
+          <div className="lg:max-w-xs">
+            <Link
+              href="/"
+              className="inline-block font-sans text-lg font-bold leading-tight text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B6EF5]"
+            >
+              Gradia
+            </Link>
+            <p className="mt-4 font-sans text-sm leading-relaxed text-[#6B7280]">
+              Closing the invisible gap.
+            </p>
+          </div>
+
+          {/* Column 2 — Product */}
+          <nav aria-labelledby="footer-product-heading">
+            <h2 id="footer-product-heading" className={headingClass}>
               Product
-            </Link>
-            <Link href="/#integrations" className={linkClass}>
-              Integrations
-            </Link>
-            <Link href="/resources" className={linkClass}>
-              Resources
-            </Link>
-            <Link href="/contact" className={linkClass}>
-              Contact
-            </Link>
-            <Link href="/privacy" className={linkClass}>
-              Privacy
-            </Link>
-            <Link href="/terms" className={linkClass}>
-              Terms
-            </Link>
-            <Link href="/portal/login" className={linkClass}>
-              Client portal
-            </Link>
+            </h2>
+            <ul className="mt-5 space-y-3">
+              {productLinks.map((item) => (
+                <li key={item.label}>
+                  {item.href.startsWith("mailto:") ? (
+                    <a href={item.href} className={footerLinkClass}>
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link href={item.href} className={footerLinkClass}>
+                      {item.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
           </nav>
-          <a
-            href="mailto:hello@gradia.com"
-            className="text-sm font-medium text-[var(--foreground)] transition hover:text-[var(--brand-primary)] md:text-right"
-          >
-            hello@gradia.com
-          </a>
+
+          {/* Column 3 — Industries */}
+          <nav aria-labelledby="footer-industries-heading">
+            <h2 id="footer-industries-heading" className={headingClass}>
+              Industries
+            </h2>
+            <ul className="mt-5 space-y-3">
+              {industryLinks.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className={footerLinkClass}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Column 4 — Legal */}
+          <nav aria-labelledby="footer-legal-heading">
+            <h2 id="footer-legal-heading" className={headingClass}>
+              Legal
+            </h2>
+            <ul className="mt-5 space-y-3">
+              {legalLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className={footerLinkClass}>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <p className="mt-12 text-xs tracking-wide text-[var(--muted)]">
-          © 2026 Gradia. All rights reserved.
-        </p>
+
+        <div className="border-t border-[#1F1F1F] pt-[24px] pb-10">
+          <p className="text-left font-sans text-xs text-[#6B7280]">
+            © 2026 Gradia. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

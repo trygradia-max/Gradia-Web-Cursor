@@ -48,10 +48,10 @@ export default function ContactPage() {
         <p className="mt-12 text-sm text-[var(--brand-slate)]">
           Or email us directly at{" "}
           <a
-            href="mailto:hello@gradia.com"
+            href="mailto:trygradia@gmail.com"
             className="font-semibold text-[var(--brand-dark)] underline decoration-[var(--brand-primary)] underline-offset-2 hover:text-[var(--brand-slate)]"
           >
-            hello@gradia.com
+            trygradia@gmail.com
           </a>
           .
         </p>

@@ -85,7 +85,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-8">
             <Button
-              href="mailto:hello@gradia.com?subject=Book%20a%20call"
+              href="mailto:trygradia@gmail.com?subject=Book%20a%20call"
               variant="primary"
             >
               Book a Call

@@ -1,4 +1,8 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import {
+  getMonthlyPerformanceFeesSum,
+  type AppointmentBoardRow,
+} from "@/lib/portal/appointments";
 
 export type CallRow = {
   id: string;
@@ -14,16 +18,7 @@ export type CallRow = {
   summary?: string | null;
 };
 
-export type AppointmentRow = {
-  id: string;
-  client_id: string;
-  scheduled_at?: string | null;
-  appointment_date?: string | null;
-  contact_name?: string | null;
-  customer_name?: string | null;
-  notes?: string | null;
-  status?: string | null;
-};
+export type AppointmentRow = AppointmentBoardRow;
 
 export type DashboardData = {
   totalCalls: number;
@@ -44,6 +39,17 @@ export type DashboardData = {
     notes: string;
     status: string;
   }>;
+  appointmentsBoard: Array<{
+    id: string;
+    date: string;
+    customer: string;
+    notes: string;
+    status: string | null;
+    dealValue: number | null;
+    performanceFee: number | null;
+    confirmedAt: string | null;
+  }>;
+  monthlyPerformanceFeesTotal: number;
 };
 
 function pickCallDate(row: CallRow): string {
@@ -90,6 +96,7 @@ export async function getDashboardData(
     { count: callCount, error: callCountError },
     { data: recentCallsRows, error: callsError },
     { data: appointmentsRows, error: appointmentsError },
+    monthlyPerformanceFeesTotal,
   ] = await Promise.all([
     supabase
       .from("call_logs")
@@ -106,11 +113,12 @@ export async function getDashboardData(
     supabase
       .from("appointments")
       .select(
-        "id, client_id, scheduled_at, appointment_date, contact_name, customer_name, notes, status",
+        "id, client_id, scheduled_at, appointment_date, contact_name, customer_name, notes, status, deal_value, performance_fee, confirmed_at",
       )
       .eq("client_id", clientId)
-      .order("scheduled_at", { ascending: true })
-      .limit(12),
+      .order("scheduled_at", { ascending: false })
+      .limit(25),
+    getMonthlyPerformanceFeesSum(supabase, clientId),
   ]);
 
   // RLS or schema mismatches should not blank the whole dashboard for signed-in users.
@@ -121,6 +129,8 @@ export async function getDashboardData(
       avgCallDurationSeconds: 0,
       recentCalls: [],
       upcomingAppointments: [],
+      appointmentsBoard: [],
+      monthlyPerformanceFeesTotal: 0,
     };
   }
 
@@ -138,6 +148,11 @@ export async function getDashboardData(
   const upcoming = appointmentRows.filter((row) => {
     const ts = new Date(pickAppointmentDate(row)).getTime();
     return Number.isFinite(ts) && ts >= now;
+  });
+
+  const boardRows = appointmentRows.filter((row) => {
+    const s = pickAppointmentStatus(row).toLowerCase();
+    return s !== "cancelled" && s !== "canceled";
   });
 
   const appointmentsBooked = appointmentRows.filter((row) => {
@@ -164,5 +179,18 @@ export async function getDashboardData(
       notes: pickAppointmentNotes(row),
       status: pickAppointmentStatus(row),
     })),
+    appointmentsBoard: boardRows.map((row) => ({
+      id: row.id,
+      date: pickAppointmentDate(row),
+      customer: pickAppointmentCustomer(row),
+      notes: pickAppointmentNotes(row),
+      status: row.status ?? null,
+      dealValue:
+        row.deal_value != null ? Number(row.deal_value) : null,
+      performanceFee:
+        row.performance_fee != null ? Number(row.performance_fee) : null,
+      confirmedAt: row.confirmed_at ?? null,
+    })),
+    monthlyPerformanceFeesTotal,
   };
 }

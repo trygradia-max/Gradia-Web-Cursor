@@ -141,7 +141,7 @@ export function RoiCalculator() {
 
       <div className="mt-10 flex justify-center border-t border-[var(--border-subtle)] pt-10">
         <Button
-          href="mailto:hello@gradia.com?subject=Book%20a%20call"
+          href="mailto:trygradia@gmail.com?subject=Book%20a%20call"
           variant="primary"
         >
           Stop losing revenue. Book a Call.

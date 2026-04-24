@@ -3,23 +3,46 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { Logo } from "@/components/ui/Logo";
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
 const navLinkClass =
-  "text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]";
+  "font-sans text-sm font-medium text-[var(--gray)] transition-colors hover:text-[var(--black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]";
+
+const clientLoginClass =
+  "font-sans text-sm font-medium text-[#6B7280] transition-colors hover:text-[#0A0A0A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]";
 
 const mobileLinkClass =
-  "block rounded-[2px] px-3 py-3 text-base font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--bg-band)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]";
+  "block px-3 py-3 font-sans text-sm font-medium text-[var(--gray)] transition-colors hover:bg-[var(--light)] hover:text-[var(--black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]";
+
+const demoHref =
+  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
 
 const navItems = [
   { href: "/#the-solution", label: "Product" },
-  { href: "/#integrations", label: "Integrations" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/resources", label: "Resources" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "Industries" },
+  { href: "/pricing", label: "Pricing" },
 ] as const;
+
+function BookDemoLink({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      href={demoHref}
+      onClick={onClick}
+      className={cn(
+        "inline-flex items-center justify-center rounded-none border-0 bg-[var(--blue)] px-6 py-2.5 font-sans text-sm font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]",
+        className,
+      )}
+    >
+      Book a Demo
+    </Link>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -78,46 +101,52 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border-subtle)] bg-[var(--bg)]/92 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.25rem] w-full max-w-content items-center justify-between gap-6 px-4 sm:px-6">
-        <Link href="/" className="shrink-0 focus-visible:outline-offset-4">
-          <Logo />
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--white)]">
+      <div className="relative mx-auto flex h-16 w-full max-w-content items-center px-4 sm:px-6">
+        <Link
+          href="/"
+          className="relative z-[1] shrink-0 font-sans text-xl font-bold leading-none text-[var(--black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
+        >
+          Gradia
         </Link>
+
         <nav
-          className="hidden items-center gap-8 md:flex"
+          className="pointer-events-none absolute inset-x-0 top-0 hidden h-16 items-center justify-center gap-10 md:flex"
           aria-label="Primary"
         >
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className={navLinkClass}>
-              {item.label}
-            </Link>
-          ))}
+          <ul className="pointer-events-auto flex items-center gap-10">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className={navLinkClass}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          <Button
-            href="mailto:hello@gradia.com?subject=Book%20a%20call"
-            variant="primary"
-            className="hidden px-4 py-2 text-sm sm:inline-flex"
-          >
-            Book a Call
-          </Button>
-          <Button
+
+        <div className="relative z-[1] ml-auto flex items-center gap-4">
+          <Link
             href="/portal/login"
-            variant="secondary"
-            className="px-4 py-2 text-sm"
+            className={cn(clientLoginClass, "hidden md:inline-block")}
           >
-            Client login
-          </Button>
+            Client Login
+          </Link>
+          <BookDemoLink className="hidden md:inline-flex" />
           <button
             ref={menuButtonRef}
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-[2px] border border-[var(--border-subtle)] text-[var(--foreground)] transition-colors hover:bg-[var(--bg-band)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)] md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-none border border-[var(--border)] text-[var(--black)] transition-colors hover:bg-[var(--light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)] md:hidden"
             aria-expanded={open}
             aria-controls="site-mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
+            {open ? (
+              <X className="h-5 w-5" aria-hidden />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden />
+            )}
           </button>
         </div>
       </div>
@@ -137,9 +166,7 @@ export function SiteHeader() {
             role="dialog"
             aria-modal="true"
             aria-label="Site navigation"
-            className={cn(
-              "fixed inset-x-0 top-[4.25rem] z-50 max-h-[min(85vh,calc(100dvh-4.25rem))] overflow-y-auto border-b border-[var(--border-subtle)] bg-[var(--bg)] shadow-[0_24px_48px_-12px_rgba(15,23,42,0.12)] md:hidden",
-            )}
+            className="fixed inset-x-0 top-16 z-50 max-h-[min(85vh,calc(100dvh-4rem))] overflow-y-auto border-b border-[var(--border)] bg-[var(--white)] shadow-[0_24px_48px_-12px_rgba(15,23,42,0.12)] md:hidden"
           >
             <nav className="mx-auto max-w-content px-4 py-6" aria-label="Primary mobile">
               <ul className="space-y-1">
@@ -151,23 +178,21 @@ export function SiteHeader() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex flex-col gap-3 border-t border-[var(--border-subtle)] pt-8">
-                <Button
-                  href="mailto:hello@gradia.com?subject=Book%20a%20call"
-                  variant="primary"
-                  className="w-full justify-center"
-                  onClick={close}
-                >
-                  Book a Call
-                </Button>
-                <Button
+              <div className="mt-8 border-t border-[var(--border)] pt-8">
+                <Link
                   href="/portal/login"
-                  variant="secondary"
-                  className="w-full justify-center"
+                  className={cn(
+                    mobileLinkClass,
+                    "text-[#6B7280] hover:text-[#0A0A0A]",
+                  )}
                   onClick={close}
                 >
-                  Client login
-                </Button>
+                  Client Login
+                </Link>
+                <BookDemoLink
+                  className="mt-4 w-full justify-center"
+                  onClick={close}
+                />
               </div>
             </nav>
           </div>
