@@ -59,11 +59,15 @@ export function MissedLeadsCounter() {
         While you&apos;ve been on this page
       </p>
       <p
-        className="mt-2 font-sans text-[56px] font-bold leading-none tabular-nums text-[#3B6EF5] lg:text-[80px]"
+        className="mt-2 font-sans text-[56px] font-bold leading-none text-[#3B6EF5] lg:text-[80px]"
         aria-live="polite"
         aria-atomic="true"
       >
-        {display}
+        {/* Reserve space for the largest expected value so the digit count
+            growing from "1,234" to "12,345" never reflows the column. */}
+        <span className="inline-block min-w-[6ch] text-center tabular-nums">
+          {display}
+        </span>
       </p>
       <p className="mt-2 font-sans text-base text-[#6B7280]">
         businesses missed a lead.

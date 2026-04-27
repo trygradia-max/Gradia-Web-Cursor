@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
 const ENTRIES = [
@@ -39,18 +39,24 @@ type Card = {
   justEntered?: boolean;
 };
 
+const VISIBLE = 4;
+const GAP_PX = 8;
+const ESTIMATED_CARD_PX = 78;
 const DEMO_INTERVAL_MS = 3000;
 const EXIT_MS = 400;
+const ENTER_MS = 450;
 
 export function LiveActivityFeed() {
   const idRef = useRef(0);
-  const indexRef = useRef(4);
+  const indexRef = useRef(VISIBLE);
   const [cards, setCards] = useState<Card[]>(() =>
-    ENTRIES.slice(0, 4).map((entry) => ({
+    ENTRIES.slice(0, VISIBLE).map((entry) => ({
       id: idRef.current++,
       entry,
     })),
   );
+  const [cardH, setCardH] = useState(ESTIMATED_CARD_PX);
+  const sizerRef = useRef<HTMLDivElement>(null);
   const exitTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const enterTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const reduceMotionRef = useRef(false);
@@ -59,6 +65,23 @@ export function LiveActivityFeed() {
     reduceMotionRef.current = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+  }, []);
+
+  useLayoutEffect(() => {
+    const node = sizerRef.current;
+    if (!node) return;
+
+    const update = () => {
+      const h = node.offsetHeight;
+      if (h > 0) {
+        setCardH((prev) => (Math.abs(prev - h) > 0.5 ? h : prev));
+      }
+    };
+    update();
+
+    const ro = new ResizeObserver(update);
+    ro.observe(node);
+    return () => ro.disconnect();
   }, []);
 
   useEffect(() => {
@@ -80,10 +103,7 @@ export function LiveActivityFeed() {
       const entry = ENTRIES[entryIndex];
 
       if (reduceMotionRef.current) {
-        setCards((prev) => [
-          { id: newId, entry },
-          ...prev.slice(0, -1),
-        ]);
+        setCards((prev) => [{ id: newId, entry }, ...prev.slice(0, -1)]);
         return;
       }
 
@@ -108,7 +128,7 @@ export function LiveActivityFeed() {
           setCards((prev) =>
             prev.map((c) => ({ ...c, justEntered: false })),
           );
-        }, 450);
+        }, ENTER_MS);
       }, EXIT_MS);
     };
 
@@ -119,8 +139,11 @@ export function LiveActivityFeed() {
     };
   }, []);
 
+  const slotH = cardH + GAP_PX;
+  const stackHeight = VISIBLE * slotH - GAP_PX;
+
   return (
-    <div className="flex max-h-[480px] w-full max-w-[420px] flex-col overflow-hidden rounded-none border border-[#1F1F1F] bg-[#111111] p-6">
+    <div className="flex w-full max-w-[420px] flex-col overflow-hidden rounded-none border border-[#1F1F1F] bg-[#111111] p-6">
       <div className="mb-4 flex shrink-0 items-center gap-2">
         <span className="relative flex h-2 w-2 shrink-0">
           <span
@@ -138,19 +161,46 @@ export function LiveActivityFeed() {
       </div>
 
       <div
-        className="min-h-0 flex-1 overflow-hidden"
+        className="relative w-full overflow-hidden"
+        style={{ height: stackHeight }}
         aria-live="polite"
         aria-label="Live activity"
       >
-        <div className="flex flex-col">
-          {cards.map((card) => (
+        {/* Hidden sizer — same dimensions as a real card, used to measure
+            the slot height without depending on a moving target. */}
+        <div
+          ref={sizerRef}
+          aria-hidden
+          className="invisible pointer-events-none absolute left-0 right-0 top-0 rounded-none border border-[#252525] bg-[#1A1A1A] px-4 py-3 font-sans"
+          style={{ contain: "layout style paint" }}
+        >
+          <p className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#3B6EF5]">
+            INDUSTRY PLACEHOLDER
+          </p>
+          <p className="mt-1 text-[13px] font-medium text-[#FFFFFF]">
+            Lead answered
+          </p>
+          <p className="mt-1 text-xs leading-snug text-[#6B7280]">
+            Responded in 0.0s · Placeholder detail line
+          </p>
+        </div>
+
+        {cards.map((card, i) => {
+          const isEntering = !!card.justEntered;
+          const isExiting = !!card.exiting;
+          const slotY = i * slotH;
+          return (
             <div
               key={card.id}
               className={cn(
-                "mb-2 rounded-none border border-[#252525] bg-[#1A1A1A] px-4 py-3 font-sans last:mb-0",
-                card.exiting && "hero-live-feed-exit pointer-events-none",
-                card.justEntered && "animate-hero-feed-card-in",
+                "feed-card-slot rounded-none border border-[#252525] bg-[#1A1A1A] px-4 py-3 font-sans",
+                isEntering && "animate-hero-feed-card-in",
+                isExiting && "pointer-events-none",
               )}
+              style={{
+                transform: `translate3d(0, ${slotY}px, 0)`,
+                opacity: isExiting ? 0 : 1,
+              }}
             >
               <p className="text-[11px] font-medium uppercase tracking-[0.08em] text-[#3B6EF5]">
                 {card.entry.industry}
@@ -162,8 +212,8 @@ export function LiveActivityFeed() {
                 {card.entry.detail}
               </p>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -118,7 +118,7 @@ export default function TheProofPage() {
           </p>
           <Link
             href={demoMailto}
-            className="mt-10 inline-flex w-fit items-center justify-center bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
+            className="mt-10 inline-flex w-fit items-center justify-center rounded-[100px] bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
           >
             Book a Demo →
           </Link>

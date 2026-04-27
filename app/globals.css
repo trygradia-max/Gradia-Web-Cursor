@@ -3,11 +3,48 @@
 @tailwind utilities;
 
 @layer base {
-  button,
+  *,
+  *::before,
+  *::after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Inputs/selects stay sharp — cards, tables, and form fields are not rounded */
   input,
   textarea,
   select {
     border-radius: 0;
+  }
+
+  /* All native buttons are pill-shaped globally */
+  button {
+    border-radius: 100px;
+  }
+}
+
+@layer utilities {
+  /* Generic GPU-promotion helper. Add to any element being animated to keep
+     it on its own compositor layer and prevent subpixel jitter. */
+  .animated-element {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Stable numeric block — prevents counter width changes from causing
+     horizontal jitter. Combine with min-w-[Nch] for the largest expected
+     digit count. */
+  .stable-num {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
   }
 }
 
@@ -205,41 +242,62 @@ body {
 @keyframes hero-feed-card-in {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translate3d(0, -8px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-hero-feed-card-in {
   animation: hero-feed-card-in 0.45s ease-out forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .hero-live-feed-exit {
   opacity: 0;
   transition: opacity 0.4s ease-out;
+  will-change: opacity;
 }
 
 @keyframes graveyard-card-in {
   from {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translate3d(0, -6px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-graveyard-card-in {
   animation: graveyard-card-in 0.4s ease-out forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .graveyard-card-exit {
   opacity: 0;
   transition: opacity 0.35s ease-out;
+  will-change: opacity;
+}
+
+/* Live-feed wrapper — fixed-height, absolute-positioned slot carrier.
+   Cards inside transition transform smoothly when their slot index changes,
+   eliminating the once-per-tick layout snap. */
+.feed-card-slot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes typing-cursor-blink {
@@ -260,11 +318,11 @@ body {
 @keyframes feature-badge-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translate3d(0, 6px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -288,52 +346,55 @@ body {
 
 @keyframes industries-marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes the-gap-arrow-pulse {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
     opacity: 0.5;
   }
   50% {
-    transform: translateY(6px);
+    transform: translate3d(0, 6px, 0);
     opacity: 1;
   }
 }
 
 .animate-the-gap-arrow-pulse {
   animation: the-gap-arrow-pulse 1.6s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes the-gap-step-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translate3d(0, 6px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-the-gap-step-in {
   animation: the-gap-step-in 0.5s ease-out forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes see-it-close-fade-up {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translate3d(0, 10px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -373,9 +434,20 @@ body {
   transform-origin: center;
 }
 
+.industries-marquee-row {
+  /* Promote the marquee viewport itself onto its own GPU layer so the
+     scrolling track doesn't smear or jitter against neighboring text. */
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .industries-marquee-track {
   animation: industries-marquee 30s linear infinite;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Dashboard live status dot — pulses softly */
@@ -542,6 +614,9 @@ body {
 
 .scroll-reveal {
   @apply translate-y-8 opacity-0 transition-[opacity,transform] duration-700 ease-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .scroll-reveal.scroll-reveal--visible {
@@ -550,6 +625,9 @@ body {
 
 .scroll-reveal-stagger > * {
   @apply translate-y-6 opacity-0 transition-[opacity,transform] duration-700 ease-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .scroll-reveal-stagger.scroll-reveal-stagger--visible > *:nth-child(1) {

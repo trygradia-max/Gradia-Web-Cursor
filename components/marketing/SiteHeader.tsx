@@ -23,6 +23,35 @@ const navLinkClass =
 const mobileNavLinkClass =
   "block border-0 bg-transparent px-0 py-3 text-left font-sans text-sm font-medium text-[#6B7280] no-underline transition-colors duration-150 ease-in-out hover:text-[#0A0A0A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]";
 
+function NavSeparator() {
+  return (
+    <div
+      className="hidden h-4 w-px shrink-0 bg-[#E5E7EB] md:block"
+      aria-hidden="true"
+    />
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <rect x="3" y="11" width="18" height="11" rx="0" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  );
+}
+
 function BookDemoButton({
   className,
   onClick,
@@ -35,7 +64,7 @@ function BookDemoButton({
       href={demoHref}
       onClick={onClick}
       className={cn(
-        "inline-flex items-center justify-center rounded-none border-0 bg-[#3B6EF5] px-6 py-2.5 font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
+        "inline-flex items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-6 py-2.5 font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
         className,
       )}
     >
@@ -104,9 +133,9 @@ export function SiteHeader() {
           className="relative z-[1] flex shrink-0 items-center gap-2 no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B6EF5]"
         >
           <Image
-            src="/images/gradia-logomark.svg"
+            src="/images/gradia-logomark.png"
             alt=""
-            width={26}
+            width={28}
             height={28}
             className="h-7 w-auto shrink-0"
             priority
@@ -131,12 +160,22 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="relative z-[1] ml-auto flex items-center">
+        <div className="relative z-[1] ml-auto flex items-center gap-4">
+          {/* Desktop: Client Portal link with separators on both sides */}
+          <NavSeparator />
+          <Link
+            href="/portal/login"
+            className="hidden items-center gap-1.5 font-sans text-sm font-medium text-[#6B7280] no-underline transition-colors duration-150 ease-in-out hover:text-[#0A0A0A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5] md:inline-flex"
+          >
+            <LockIcon />
+            Client Portal
+          </Link>
+          <NavSeparator />
           <BookDemoButton className="hidden md:inline-flex" />
           <button
             ref={menuButtonRef}
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-none border-0 bg-transparent text-[#0A0A0A] transition-colors hover:bg-[#F5F5F5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5] md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[100px] border-0 bg-transparent text-[#0A0A0A] transition-colors hover:bg-[#F5F5F5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5] md:hidden"
             aria-expanded={open}
             aria-controls="site-mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -176,6 +215,16 @@ export function SiteHeader() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/portal/login"
+                  className={cn(mobileNavLinkClass, "inline-flex items-center gap-2")}
+                  onClick={close}
+                >
+                  <LockIcon />
+                  Client Portal
+                </Link>
+              </li>
             </ul>
             <div className="pt-6">
               <BookDemoButton

@@ -6,6 +6,7 @@ import { useId, useState, type CSSProperties } from "react";
 type SliderConfig = {
   id: string;
   label: string;
+  sublabel?: string;
   min: number;
   max: number;
   step: number;
@@ -19,7 +20,7 @@ const WEEKS_PER_MONTH = 4.33;
 const formatDollars = (n: number) =>
   `$${Math.round(n).toLocaleString("en-US")}`;
 
-const SLIDERS: Record<"leadValue" | "weeklyLeads" | "missRate", SliderConfig> = {
+const SLIDERS = {
   leadValue: {
     id: "lead-value",
     label: "Average value of a closed lead",
@@ -36,7 +37,17 @@ const SLIDERS: Record<"leadValue" | "weeklyLeads" | "missRate", SliderConfig> = 
     max: 200,
     step: 1,
     initial: 20,
-    format: (n) => `${n} ${n === 1 ? "lead" : "leads"}/week`,
+    format: (n: number) => `${n} ${n === 1 ? "lead" : "leads"}/week`,
+  },
+  closeRate: {
+    id: "close-rate",
+    label: "Average lead close rate",
+    sublabel: "What % of leads you respond to do you typically close?",
+    min: 5,
+    max: 80,
+    step: 5,
+    initial: 25,
+    format: (n: number) => `${n}%`,
   },
   missRate: {
     id: "miss-rate",
@@ -45,9 +56,9 @@ const SLIDERS: Record<"leadValue" | "weeklyLeads" | "missRate", SliderConfig> = 
     max: 80,
     step: 5,
     initial: 35,
-    format: (n) => `${n}%`,
+    format: (n: number) => `${n}%`,
   },
-};
+} satisfies Record<string, SliderConfig>;
 
 function fillPercent(value: number, min: number, max: number) {
   return Math.max(0, Math.min(100, ((value - min) / (max - min)) * 100));
@@ -70,6 +81,11 @@ function CalculatorSlider({ config, value, onChange }: SliderProps) {
       >
         {config.label}
       </label>
+      {config.sublabel && (
+        <p className="mt-1 font-sans text-[13px] leading-snug text-[#6B7280]">
+          {config.sublabel}
+        </p>
+      )}
       <p
         className="mt-2 font-sans text-[32px] font-bold leading-none tabular-nums text-[#0A0A0A] sm:text-[36px]"
         aria-hidden="true"
@@ -101,10 +117,13 @@ export function TheCostCalculator() {
 
   const [leadValue, setLeadValue] = useState(SLIDERS.leadValue.initial);
   const [weeklyLeads, setWeeklyLeads] = useState(SLIDERS.weeklyLeads.initial);
+  const [closeRate, setCloseRate] = useState(SLIDERS.closeRate.initial);
   const [missRate, setMissRate] = useState(SLIDERS.missRate.initial);
 
+  // Derived calculations
   const monthlyMissedLeads = weeklyLeads * WEEKS_PER_MONTH * (missRate / 100);
-  const monthlyRevenueLost = monthlyMissedLeads * leadValue;
+  const closeableMissedLeads = monthlyMissedLeads * (closeRate / 100);
+  const monthlyRevenueLost = closeableMissedLeads * leadValue;
   const netReturn = monthlyRevenueLost - GRADIA_COST;
   const multiplier = netReturn / GRADIA_COST;
   const showPositiveRoi = monthlyRevenueLost >= GRADIA_COST && multiplier >= 1;
@@ -127,7 +146,7 @@ export function TheCostCalculator() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8 lg:items-start">
+        <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start lg:gap-8">
           <div className="border border-[#E5E7EB] bg-[#F5F5F5] p-6 sm:p-10">
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-[#3B6EF5]">
               Your Inputs
@@ -144,6 +163,11 @@ export function TheCostCalculator() {
                 onChange={setWeeklyLeads}
               />
               <CalculatorSlider
+                config={SLIDERS.closeRate}
+                value={closeRate}
+                onChange={setCloseRate}
+              />
+              <CalculatorSlider
                 config={SLIDERS.missRate}
                 value={missRate}
                 onChange={setMissRate}
@@ -157,7 +181,20 @@ export function TheCostCalculator() {
             </p>
 
             <div className="mt-6">
-              <p className="font-sans text-xs text-[#6B7280]">You&apos;re losing:</p>
+              <p className="font-sans text-xs text-[#6B7280]">
+                Estimated monthly revenue lost:
+              </p>
+              {/* Context line — shows closeable missed leads driving the number */}
+              <p
+                className="mt-2 font-sans text-[13px] leading-snug text-[#8A8A8A]"
+                aria-hidden="true"
+              >
+                Based on{" "}
+                <span className="tabular-nums">
+                  {Math.round(closeableMissedLeads).toLocaleString("en-US")}
+                </span>{" "}
+                missed leads/month that would have closed:
+              </p>
               <p
                 className="mt-2 font-sans text-[40px] font-bold leading-none tabular-nums text-white sm:text-[52px]"
                 aria-live="polite"
@@ -207,7 +244,7 @@ export function TheCostCalculator() {
 
             <Link
               href="/pricing"
-              className="mt-8 flex w-full items-center justify-center bg-[#3B6EF5] px-6 py-[14px] font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
+              className="mt-8 flex w-full items-center justify-center rounded-[100px] bg-[#3B6EF5] px-6 py-[14px] font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
             >
               Close the gap for $299/month →
             </Link>

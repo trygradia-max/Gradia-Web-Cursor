@@ -6,13 +6,13 @@ const base =
 
 const variants = {
   primary:
-    "rounded-none bg-[var(--blue)] text-[var(--white)] hover:bg-[var(--blue-dark)]",
+    "rounded-[100px] bg-[var(--blue)] text-[var(--white)] hover:bg-[var(--blue-dark)]",
   secondary:
-    "rounded-none border border-[var(--border-subtle)] bg-transparent text-[var(--foreground)] hover:border-[var(--brand-slate)]/40 hover:bg-[var(--bg-band)]",
+    "rounded-[100px] border border-[var(--border-subtle)] bg-transparent text-[var(--foreground)] hover:border-[var(--brand-slate)]/40 hover:bg-[var(--bg-band)]",
   secondaryOnLight:
-    "rounded-none border border-[#e2e8f0] bg-white text-[var(--brand-dark)] shadow-card hover:border-[var(--brand-slate)]/30 hover:shadow-card-hover",
+    "rounded-[100px] border border-[#e2e8f0] bg-white text-[var(--brand-dark)] shadow-card hover:border-[var(--brand-slate)]/30 hover:shadow-card-hover",
   ghost:
-    "rounded-none border border-transparent bg-transparent text-[var(--brand-slate)] hover:bg-[var(--brand-light)]",
+    "rounded-[100px] border border-transparent bg-transparent text-[var(--brand-slate)] hover:bg-[var(--brand-light)]",
 } as const;
 
 type Variant = keyof typeof variants;

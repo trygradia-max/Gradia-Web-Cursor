@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const demoHref =
@@ -43,14 +44,14 @@ export function SiteFooter() {
               className="inline-flex items-center gap-2 no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B6EF5]"
               aria-label="Gradia home"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 26 28"
-                aria-hidden="true"
+              <Image
+                src="/images/gradia-logomark.png"
+                alt=""
+                width={24}
+                height={24}
                 className="h-6 w-auto shrink-0"
-              >
-                <path fill="#FFFFFF" d="M0 0h26v28H0z" />
-              </svg>
+                aria-hidden="true"
+              />
               <span className="font-sans text-[18px] font-bold leading-none text-[#FFFFFF]">
                 Gradia
               </span>

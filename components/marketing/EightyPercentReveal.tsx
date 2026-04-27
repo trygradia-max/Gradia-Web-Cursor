@@ -39,7 +39,11 @@ export function EightyPercentReveal() {
   return (
     <div ref={ref}>
       <h2 className="mx-auto max-w-[22ch] font-sans text-[clamp(2.25rem,7vw,4.75rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-[var(--foreground)]">
-        <span className="tabular-nums">{value}</span>
+        {/* Reserve width for the final 2-digit value so it doesn't
+            shift the headline as digits grow from 0 to 80. */}
+        <span className="inline-block min-w-[2ch] text-right tabular-nums">
+          {value}
+        </span>
         <span className="text-[var(--muted)]">%</span>{" "}
         <span className="text-[var(--foreground)]">less front-desk workload.</span>
       </h2>

@@ -143,7 +143,7 @@ export default function MissedCallGuidePage() {
           <div className="mt-10 flex justify-center">
             <Link
               href={demoMailto}
-              className="inline-flex items-center justify-center rounded-none border-0 bg-[var(--blue)] px-8 py-3.5 font-sans text-sm font-medium text-[var(--white)] transition-[background-color] duration-150 ease-in-out hover:bg-[var(--blue-dark)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
+              className="inline-flex items-center justify-center rounded-[100px] border-0 bg-[var(--blue)] px-8 py-3.5 font-sans text-sm font-medium text-[var(--white)] transition-[background-color] duration-150 ease-in-out hover:bg-[var(--blue-dark)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
             >
               Book a Demo →
             </Link>

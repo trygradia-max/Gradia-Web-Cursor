@@ -125,24 +125,30 @@ export function ResultsSection({ className }: { className?: string }) {
     {
       key: "voicemail",
       value: "0",
+      // min-width sized for the longest expected rendered value
+      // (e.g. "100%", "< 2s", "24/7"). Keeps each centered cell stable.
+      minCh: 3,
       label: "LEADS LOST TO VOICEMAIL",
       description: "Every inquiry gets an instant, intelligent response.",
     },
     {
       key: "answer-time",
       value: `< ${answerSeconds}s`,
+      minCh: 4,
       label: "AVERAGE ANSWER TIME",
       description: "Faster than any human team could ever respond.",
     },
     {
       key: "always-on",
       value: `${alwaysOnHours}/7`,
+      minCh: 4,
       label: "ALWAYS ON",
       description: "No days off. No sick days. No missed calls.",
     },
     {
       key: "calls-logged",
       value: `${loggedPercent}%`,
+      minCh: 4,
       label: "OF CALLS LOGGED",
       description: "Every conversation captured and visible in real time.",
     },
@@ -164,10 +170,14 @@ export function ResultsSection({ className }: { className?: string }) {
         </p>
 
         <p
-          className="mt-6 text-center font-sans text-[100px] font-bold leading-none tabular-nums text-[#0A0A0A] lg:text-[160px]"
+          className="mt-6 text-center font-sans text-[100px] font-bold leading-none text-[#0A0A0A] lg:text-[160px]"
           aria-hidden="true"
         >
-          {heroValue}x
+          {/* Reserve width for the final "21x" so the digit growth from
+              1 → 21 never shifts surrounding content horizontally. */}
+          <span className="inline-block min-w-[3ch] text-center tabular-nums">
+            {heroValue}x
+          </span>
         </p>
 
         <h2
@@ -201,8 +211,13 @@ export function ResultsSection({ className }: { className?: string }) {
                 i < 3 && "lg:border-r lg:border-[#E5E7EB]",
               )}
             >
-              <p className="font-sans text-[44px] font-bold leading-none tabular-nums text-[#0A0A0A] sm:text-[56px]">
-                {stat.value}
+              <p className="font-sans text-[44px] font-bold leading-none text-[#0A0A0A] sm:text-[56px]">
+                <span
+                  className="inline-block text-center tabular-nums"
+                  style={{ minWidth: `${stat.minCh}ch` }}
+                >
+                  {stat.value}
+                </span>
               </p>
               <p className="mt-2 font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-[#3B6EF5]">
                 {stat.label}

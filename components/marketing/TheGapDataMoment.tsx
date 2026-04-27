@@ -57,10 +57,14 @@ export function TheGapDataMoment() {
     >
       <div className="mx-auto max-w-[800px] px-4 text-center sm:px-6">
         <p
-          className="font-sans text-[100px] font-bold leading-none tabular-nums text-[#0A0A0A] lg:text-[160px]"
+          className="font-sans text-[100px] font-bold leading-none text-[#0A0A0A] lg:text-[160px]"
           aria-hidden="true"
         >
-          {count}x
+          {/* Reserve width for the final "21x" value (3 chars) so the
+              counter never causes the surrounding section to shift. */}
+          <span className="inline-block min-w-[3ch] text-center tabular-nums">
+            {count}x
+          </span>
         </p>
         <h2
           id="the-gap-data-heading"

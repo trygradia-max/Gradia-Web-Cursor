@@ -63,18 +63,24 @@ const STATS = [
     label: "LEADS CAPTURED",
     context: "Calls, emails, and SMS — all answered and logged.",
     delay: 0,
+    // Reserve enough horizontal space for the final rendered value
+    // ("1,284" = 5 chars / "$482K" = 5 chars / "34%" = 3 chars) so
+    // the counter never shifts the column horizontally as digits grow.
+    minCh: 5,
   },
   {
     key: "revenue",
     label: "REVENUE INFLUENCED",
     context: "Deals that started with a Gradia-answered call.",
     delay: 200,
+    minCh: 5,
   },
   {
     key: "booking",
     label: "BOOKING RATE",
     context: "Of answered leads converted to booked appointments.",
     delay: 400,
+    minCh: 3,
   },
 ] as const;
 
@@ -155,10 +161,15 @@ export function TheProofHeroStats({ className }: { className?: string }) {
           )}
         >
           <p
-            className="font-sans text-[56px] font-bold leading-none tabular-nums text-[#0A0A0A] sm:text-[68px] lg:text-[80px]"
+            className="font-sans text-[56px] font-bold leading-none text-[#0A0A0A] sm:text-[68px] lg:text-[80px]"
             aria-hidden="true"
           >
-            {values[stat.key]}
+            <span
+              className="inline-block text-center tabular-nums"
+              style={{ minWidth: `${stat.minCh}ch` }}
+            >
+              {values[stat.key]}
+            </span>
           </p>
           <p className="mt-4 font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-[#3B6EF5]">
             {stat.label}

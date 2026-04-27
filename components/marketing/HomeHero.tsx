@@ -25,7 +25,7 @@ export function HomeHero() {
           <div className="mt-10">
             <Link
               href={demoHref}
-              className="inline-flex items-center justify-center rounded-none border-0 bg-[#3B6EF5] px-8 py-4 font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
+              className="inline-flex items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-8 py-4 font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
             >
               Book a Demo →
             </Link>

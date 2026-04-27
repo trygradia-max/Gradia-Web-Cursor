@@ -211,7 +211,7 @@ function PricingCard({
       <Link
         href={demoMailto}
         className={cn(
-          "mt-10 flex w-full items-center justify-center px-6 py-[14px] font-sans text-sm font-medium text-white no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
+          "mt-10 flex w-full items-center justify-center rounded-[100px] px-6 py-[14px] font-sans text-sm font-medium text-white no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
           ctaClassName,
         )}
       >
@@ -396,7 +396,7 @@ export default function PricingPage() {
           <div className="mt-10 flex flex-col items-center gap-4">
             <Link
               href={demoMailto}
-              className="inline-flex w-fit items-center justify-center bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
+              className="inline-flex w-fit items-center justify-center rounded-[100px] bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
             >
               Book a Demo →
             </Link>
