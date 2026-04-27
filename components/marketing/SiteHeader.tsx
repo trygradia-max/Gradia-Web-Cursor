@@ -15,6 +15,7 @@ const navItems = [
   { href: "/the-cost", label: "The Cost" },
   { href: "/pricing", label: "Pricing" },
   { href: "/the-proof", label: "The Proof" },
+  { href: "/partners", label: "Partners" },
 ] as const;
 
 const navLinkClass =

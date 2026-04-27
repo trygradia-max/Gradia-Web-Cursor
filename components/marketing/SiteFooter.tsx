@@ -16,15 +16,16 @@ const pages = [
   { href: "/the-cost", label: "The Cost" },
   { href: "/pricing", label: "Pricing" },
   { href: "/the-proof", label: "The Proof" },
+  { href: "/partners", label: "Partners" },
 ] as const;
 
 const industries = [
-  "Healthcare",
-  "Finance",
-  "Home Services",
-  "Real Estate",
-  "Legal",
-  "Auto Dealerships",
+  { href: "/industries/healthcare", label: "Healthcare" },
+  { href: "/industries/finance", label: "Finance" },
+  { href: "/industries/home-services", label: "Home Services" },
+  { href: "/industries/real-estate", label: "Real Estate" },
+  { href: "/industries/legal", label: "Legal" },
+  { href: "/industries/auto-dealerships", label: "Auto Dealerships" },
 ] as const;
 
 const legal = [
@@ -96,9 +97,11 @@ export function SiteFooter() {
               INDUSTRIES
             </h2>
             <ul className="mt-4 list-none space-y-3">
-              {industries.map((label) => (
-                <li key={label}>
-                  <span className={`${linkClass} cursor-default`}>{label}</span>
+              {industries.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className={linkClass}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

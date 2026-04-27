@@ -9,7 +9,7 @@ const demoMailto =
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Start with coverage. Scale to control. Cover ($299), Capture ($599), or Control ($999) — month-to-month, cancel anytime.",
+    "Start with coverage. Scale to control. Cover ($299), Capture ($599), or Control ($999) — 6 and 12-month contracts available.",
 };
 
 const COVER_FEATURES = [
@@ -104,6 +104,12 @@ const COMPARISON_ROWS: ComparisonRow[] = [
     control: true,
   },
   { feature: "SLA guarantee", cover: false, capture: false, control: true },
+  {
+    feature: "Contract length",
+    cover: "6 or 12-month",
+    capture: "6 or 12-month",
+    control: "6 or 12-month",
+  },
 ];
 
 function ComparisonCell({ value }: { value: ComparisonValue }) {
@@ -240,8 +246,8 @@ export default function PricingPage() {
             The right plan for where you are.
           </h1>
           <p className="mx-auto mt-4 max-w-[520px] font-sans text-base leading-[1.6] text-[#6B7280] sm:text-lg">
-            Start with coverage. Scale to control. No contracts. Cancel
-            anytime.
+            Start with coverage. Scale to control. 6 and 12-month contracts
+            available. 3-month terms for partnership and pilot programs only.
           </p>
         </div>
       </section>
@@ -391,7 +397,7 @@ export default function PricingPage() {
             Not sure which plan fits?
           </h2>
           <p className="mx-auto mt-4 max-w-[480px] font-sans text-base leading-[1.6] text-[#8A8A8A] sm:text-lg">
-            Book a demo and we&apos;ll tell you exactly what you need.
+            Starting at $299/month. 6 and 12-month contracts. Built to last.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4">
             <Link

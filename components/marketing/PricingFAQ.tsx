@@ -6,14 +6,14 @@ import { cn } from "@/lib/cn";
 
 type FaqItem = {
   question: string;
-  answer: string;
+  answer: string; // paragraphs separated by \n\n
 };
 
 const FAQS: FaqItem[] = [
   {
     question: "Is there a contract?",
     answer:
-      "No. Gradia is month-to-month. You can cancel at any time with no penalties and no questions asked. We keep clients by being worth it, not by locking them in.",
+      "Gradia operates on 6 and 12-month contracts. We're building long-term relationships with our clients, not short-term transactions — and our results reflect that.\n\n3-month terms are available exclusively for partnership and pilot programs. If you're interested in a pilot, reach out and we'll talk through what that looks like for your business.",
   },
   {
     question: "What happens if I want to cancel?",
@@ -72,9 +72,16 @@ export function PricingFAQ() {
               )}
             >
               <div className="overflow-hidden">
-                <p className="pb-6 font-sans text-[15px] leading-[1.7] text-[#6B7280]">
-                  {faq.answer}
-                </p>
+                <div className="space-y-3 pb-6">
+                  {faq.answer.split("\n\n").map((para, pi) => (
+                    <p
+                      key={pi}
+                      className="font-sans text-[15px] leading-[1.7] text-[#6B7280]"
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
           </li>

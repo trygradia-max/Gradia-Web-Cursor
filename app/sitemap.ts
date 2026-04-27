@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { INDUSTRIES } from "@/lib/industries";
 
 const defaultSite = "https://trygradia.com";
 
@@ -43,6 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: u("/partners"),
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: u("/about"),
       lastModified: now,
       changeFrequency: "monthly",
@@ -84,6 +91,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    ...INDUSTRIES.map((industry) => ({
+      url: u(`/industries/${industry.slug}`),
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
     {
       url: u("/privacy"),
       lastModified: now,
