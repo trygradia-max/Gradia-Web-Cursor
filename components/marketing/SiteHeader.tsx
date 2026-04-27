@@ -1,29 +1,29 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/cn";
-
-const navLinkClass =
-  "font-sans text-sm font-medium text-[var(--gray)] transition-colors hover:text-[var(--black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]";
-
-const clientLoginClass =
-  "font-sans text-sm font-medium text-[#6B7280] transition-colors hover:text-[#0A0A0A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]";
-
-const mobileLinkClass =
-  "block px-3 py-3 font-sans text-sm font-medium text-[var(--gray)] transition-colors hover:bg-[var(--light)] hover:text-[var(--black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]";
 
 const demoHref =
   "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
 
 const navItems = [
-  { href: "/#the-solution", label: "Product" },
-  { href: "/about", label: "Industries" },
+  { href: "/the-gap", label: "The Gap" },
+  { href: "/see-it-close", label: "See It Close" },
+  { href: "/the-cost", label: "The Cost" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/the-proof", label: "The Proof" },
 ] as const;
 
-function BookDemoLink({
+const navLinkClass =
+  "font-sans text-sm font-medium text-[#6B7280] no-underline transition-colors duration-150 ease-in-out hover:text-[#0A0A0A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]";
+
+const mobileNavLinkClass =
+  "block border-0 bg-transparent px-0 py-3 text-left font-sans text-sm font-medium text-[#6B7280] no-underline transition-colors duration-150 ease-in-out hover:text-[#0A0A0A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]";
+
+function BookDemoButton({
   className,
   onClick,
 }: {
@@ -35,11 +35,11 @@ function BookDemoLink({
       href={demoHref}
       onClick={onClick}
       className={cn(
-        "inline-flex items-center justify-center rounded-none border-0 bg-[var(--blue)] px-6 py-2.5 font-sans text-sm font-medium text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)]",
+        "inline-flex items-center justify-center rounded-none border-0 bg-[#3B6EF5] px-6 py-2.5 font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
         className,
       )}
     >
-      Book a Demo
+      Book a Demo →
     </Link>
   );
 }
@@ -53,15 +53,11 @@ export function SiteHeader() {
 
   useEffect(() => {
     if (!open) return;
-    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
     };
     document.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", onKey);
-    };
+    return () => document.removeEventListener("keydown", onKey);
   }, [open, close]);
 
   useEffect(() => {
@@ -101,17 +97,27 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--white)]">
-      <div className="relative mx-auto flex h-16 w-full max-w-content items-center px-4 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-[#E5E7EB] bg-[#FFFFFF]">
+      <div className="relative mx-auto flex h-[72px] w-full max-w-content items-center px-4 sm:px-6">
         <Link
           href="/"
-          className="relative z-[1] shrink-0 font-sans text-xl font-bold leading-none text-[var(--black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
+          className="relative z-[1] flex shrink-0 items-center gap-2 no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3B6EF5]"
         >
-          Gradia
+          <Image
+            src="/images/gradia-logomark.svg"
+            alt=""
+            width={26}
+            height={28}
+            className="h-7 w-auto shrink-0"
+            priority
+          />
+          <span className="font-sans text-xl font-bold leading-none text-[#0A0A0A]">
+            Gradia
+          </span>
         </Link>
 
         <nav
-          className="pointer-events-none absolute inset-x-0 top-0 hidden h-16 items-center justify-center gap-10 md:flex"
+          className="pointer-events-none absolute inset-x-0 top-0 hidden h-[72px] items-center justify-center md:flex"
           aria-label="Primary"
         >
           <ul className="pointer-events-auto flex items-center gap-10">
@@ -125,78 +131,60 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="relative z-[1] ml-auto flex items-center gap-4">
-          <Link
-            href="/portal/login"
-            className={cn(clientLoginClass, "hidden md:inline-block")}
-          >
-            Client Login
-          </Link>
-          <BookDemoLink className="hidden md:inline-flex" />
+        <div className="relative z-[1] ml-auto flex items-center">
+          <BookDemoButton className="hidden md:inline-flex" />
           <button
             ref={menuButtonRef}
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-none border border-[var(--border)] text-[var(--black)] transition-colors hover:bg-[var(--light)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--blue)] md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-none border-0 bg-transparent text-[#0A0A0A] transition-colors hover:bg-[#F5F5F5] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5] md:hidden"
             aria-expanded={open}
             aria-controls="site-mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? (
-              <X className="h-5 w-5" aria-hidden />
+              <X className="h-6 w-6" aria-hidden />
             ) : (
-              <Menu className="h-5 w-5" aria-hidden />
+              <Menu className="h-6 w-6" aria-hidden />
             )}
           </button>
         </div>
       </div>
 
       {open ? (
-        <>
-          <button
-            type="button"
-            className="fixed inset-0 z-40 bg-black/30 md:hidden"
-            aria-hidden
-            tabIndex={-1}
-            onClick={close}
-          />
-          <div
-            id="site-mobile-nav"
-            ref={panelRef}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Site navigation"
-            className="fixed inset-x-0 top-16 z-50 max-h-[min(85vh,calc(100dvh-4rem))] overflow-y-auto border-b border-[var(--border)] bg-[var(--white)] shadow-[0_24px_48px_-12px_rgba(15,23,42,0.12)] md:hidden"
+        <div
+          id="site-mobile-nav"
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
+          className="border-b border-[#E5E7EB] bg-[#FFFFFF] md:hidden"
+        >
+          <nav
+            className="mx-auto w-full max-w-content px-4 pb-6 pt-0 sm:px-6"
+            aria-label="Primary mobile"
           >
-            <nav className="mx-auto max-w-content px-4 py-6" aria-label="Primary mobile">
-              <ul className="space-y-1">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className={mobileLinkClass} onClick={close}>
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 border-t border-[var(--border)] pt-8">
-                <Link
-                  href="/portal/login"
-                  className={cn(
-                    mobileLinkClass,
-                    "text-[#6B7280] hover:text-[#0A0A0A]",
-                  )}
-                  onClick={close}
-                >
-                  Client Login
-                </Link>
-                <BookDemoLink
-                  className="mt-4 w-full justify-center"
-                  onClick={close}
-                />
-              </div>
-            </nav>
-          </div>
-        </>
+            <ul className="divide-y divide-[#E5E7EB] border-t border-[#E5E7EB]">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={mobileNavLinkClass}
+                    onClick={close}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="pt-6">
+              <BookDemoButton
+                className="w-full justify-center"
+                onClick={close}
+              />
+            </div>
+          </nav>
+        </div>
       ) : null}
     </header>
   );

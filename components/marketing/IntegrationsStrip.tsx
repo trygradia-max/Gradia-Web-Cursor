@@ -34,7 +34,7 @@ export function IntegrationsStrip() {
       <ScrollRevealStagger className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6 sm:gap-6">
         {integrations.map(({ icon: Icon, label }) => (
           <li key={label}>
-            <div className="flex flex-col items-center gap-4 rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg)] p-6 text-center transition-colors duration-300 hover:border-[rgba(59,110,245,0.35)]">
+            <div className="flex flex-col items-center gap-4 rounded-none border border-[var(--border-subtle)] bg-[var(--bg)] p-6 text-center transition-colors duration-300 hover:border-[rgba(59,110,245,0.35)]">
               <Icon
                 className="h-7 w-7 text-[var(--brand-primary)]"
                 strokeWidth={1.5}

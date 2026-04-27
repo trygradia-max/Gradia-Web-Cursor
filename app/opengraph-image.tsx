@@ -11,28 +11,46 @@ export const size = {
 
 export const contentType = "image/png";
 
-export default async function OpenGraphImage() {
-  const dmSerifUrl =
-    "https://fonts.gstatic.com/s/dmserifdisplay/v15/-nFnOHM81r4j6k0gmKW0Wd9D3TMyKWPK.woff2";
+const inter400Url =
+  "https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7Wxc.woff2";
+const inter700Url =
+  "https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7SUc.woff2";
 
-  let fontData: ArrayBuffer | undefined;
+async function loadFont(url: string): Promise<ArrayBuffer | undefined> {
   try {
-    const res = await fetch(dmSerifUrl);
-    if (res.ok) fontData = await res.arrayBuffer();
+    const res = await fetch(url);
+    if (res.ok) return await res.arrayBuffer();
   } catch {
-    fontData = undefined;
+    /* ignore */
+  }
+  return undefined;
+}
+
+export default async function OpenGraphImage() {
+  const [inter400, inter700] = await Promise.all([
+    loadFont(inter400Url),
+    loadFont(inter700Url),
+  ]);
+
+  const fonts = [];
+  if (inter400) {
+    fonts.push({
+      name: "Inter",
+      data: inter400,
+      style: "normal" as const,
+      weight: 400 as const,
+    });
+  }
+  if (inter700) {
+    fonts.push({
+      name: "Inter",
+      data: inter700,
+      style: "normal" as const,
+      weight: 700 as const,
+    });
   }
 
-  const fonts = fontData
-    ? [
-        {
-          name: "DM Serif Display",
-          data: fontData,
-          style: "normal" as const,
-          weight: 400 as const,
-        },
-      ]
-    : [];
+  const hasInter = Boolean(inter400 && inter700);
 
   return new ImageResponse(
     (
@@ -59,9 +77,8 @@ export default async function OpenGraphImage() {
             style={{
               fontSize: 96,
               color: "white",
-              fontFamily: fontData
-                ? "DM Serif Display"
-                : "Georgia, 'Times New Roman', serif",
+              fontFamily: hasInter ? "Inter" : "ui-sans-serif, system-ui, sans-serif",
+              fontWeight: 700,
               letterSpacing: "-0.02em",
             }}
           >
@@ -71,8 +88,8 @@ export default async function OpenGraphImage() {
             style={{
               width: 16,
               height: 16,
-              borderRadius: 1,
-              background: "#1e40af",
+              borderRadius: 0,
+              background: "#3b6ef5",
               marginTop: 14,
             }}
           />
@@ -81,7 +98,7 @@ export default async function OpenGraphImage() {
           style={{
             fontSize: 32,
             color: "#f8fafc",
-            fontFamily: "ui-sans-serif, system-ui, sans-serif",
+            fontFamily: hasInter ? "Inter" : "ui-sans-serif, system-ui, sans-serif",
             fontWeight: 400,
             margin: 0,
             marginBottom: 36,
@@ -93,9 +110,9 @@ export default async function OpenGraphImage() {
           style={{
             width: 360,
             height: 3,
-            background: "#1e40af",
+            background: "#3b6ef5",
             opacity: 0.9,
-            borderRadius: 2,
+            borderRadius: 0,
           }}
         />
       </div>

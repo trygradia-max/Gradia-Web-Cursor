@@ -10,7 +10,7 @@ export function MarketingPageShell({
   return (
     <div
       className={cn(
-        "mx-auto w-full max-w-content px-4 py-16 sm:px-6 lg:py-24",
+        "section-pad mx-auto w-full max-w-content px-4 sm:px-6",
         className,
       )}
     >

@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  button,
+  input,
+  textarea,
+  select {
+    border-radius: 0;
+  }
+}
+
 :root {
   /* Canonical palette */
   --white: #ffffff;
@@ -9,10 +18,11 @@
   --gray: #6b7280;
   --light: #f5f5f5;
   --blue: #3b6ef5;
+  --blue-dark: #2d5ce8;
   --border: #e5e7eb;
 
   /* Typography — Inter via --font-inter (Next font) */
-  --font: var(--font-inter), system-ui, sans-serif;
+  --font: var(--font-inter), sans-serif;
 
   /* Type scale */
   --text-hero-size: 72px;
@@ -44,7 +54,7 @@
   --brand-slate: var(--gray);
   --brand-light: var(--light);
   --brand-primary: var(--blue);
-  --brand-primary-hover: #2f5ad4;
+  --brand-primary-hover: var(--blue-dark);
   --border-card: var(--border);
   --bg: var(--white);
   --bg-elevated: #fafafa;
@@ -55,6 +65,22 @@
   --text-muted-band: var(--gray);
   --border-subtle: var(--border);
   --border-band: var(--border);
+
+  /* Dashboard / portal — dark theme tokens */
+  --dash-bg: #0a0a0a;
+  --dash-surface: #111111;
+  --dash-surface-2: #0d0d0d;
+  --dash-border: #1f1f1f;
+  --dash-border-strong: #2a2a2a;
+  --dash-text: #ffffff;
+  --dash-secondary: #8a8a8a;
+  --dash-accent: #3b6ef5;
+  --dash-accent-hover: #2d5ce8;
+  --dash-success: #10b981;
+  --dash-warning: #f59e0b;
+  --dash-danger: #ef4444;
+  --dash-row-hover: #161616;
+  --dash-radius: 0px;
 }
 
 body {
@@ -176,6 +202,273 @@ body {
   }
 }
 
+@keyframes hero-feed-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-feed-card-in {
+  animation: hero-feed-card-in 0.45s ease-out forwards;
+}
+
+.hero-live-feed-exit {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+@keyframes graveyard-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-graveyard-card-in {
+  animation: graveyard-card-in 0.4s ease-out forwards;
+}
+
+.graveyard-card-exit {
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+}
+
+@keyframes typing-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-typing-cursor {
+  animation: typing-cursor-blink 0.7s step-end infinite;
+}
+
+@keyframes feature-badge-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-feature-badge-in {
+  animation: feature-badge-in 0.35s ease-out forwards;
+}
+
+@keyframes booking-slot-pulse {
+  0%,
+  100% {
+    background-color: rgba(59, 110, 245, 0.22);
+  }
+  50% {
+    background-color: rgba(59, 110, 245, 0.08);
+  }
+}
+
+.animate-booking-slot-pulse {
+  animation: booking-slot-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes industries-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes the-gap-arrow-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.animate-the-gap-arrow-pulse {
+  animation: the-gap-arrow-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes the-gap-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-the-gap-step-in {
+  animation: the-gap-step-in 0.5s ease-out forwards;
+}
+
+@keyframes see-it-close-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-see-it-close-fade-up {
+  opacity: 0;
+  animation: see-it-close-fade-up 0.6s ease-out forwards;
+}
+
+@keyframes phone-ring-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 110, 245, 0.45);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 10px rgba(59, 110, 245, 0);
+  }
+}
+
+.animate-phone-ring-pulse {
+  animation: phone-ring-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes waveform-bar {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-waveform-bar {
+  animation: waveform-bar 0.85s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.industries-marquee-track {
+  animation: industries-marquee 30s linear infinite;
+  will-change: transform;
+}
+
+/* Dashboard live status dot — pulses softly */
+@keyframes dash-live-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+}
+
+.dash-live-dot {
+  animation: dash-live-pulse 1.6s ease-in-out infinite;
+}
+
+/* ROI calculator sliders — square thumb, blue fill, gray track */
+.the-cost-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    #3b6ef5 0%,
+    #3b6ef5 var(--fill, 0%),
+    #e5e7eb var(--fill, 0%),
+    #e5e7eb 100%
+  );
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.the-cost-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #3b6ef5;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 0 0 0 rgba(59, 110, 245, 0);
+  transition: box-shadow 0.15s ease;
+}
+
+.the-cost-slider:hover::-webkit-slider-thumb,
+.the-cost-slider:focus-visible::-webkit-slider-thumb,
+.the-cost-slider:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 6px rgba(59, 110, 245, 0.18);
+}
+
+.the-cost-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #3b6ef5;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 0 0 0 rgba(59, 110, 245, 0);
+  transition: box-shadow 0.15s ease;
+}
+
+.the-cost-slider:hover::-moz-range-thumb,
+.the-cost-slider:focus-visible::-moz-range-thumb,
+.the-cost-slider:active::-moz-range-thumb {
+  box-shadow: 0 0 0 6px rgba(59, 110, 245, 0.18);
+}
+
+.the-cost-slider::-moz-range-track {
+  background: transparent;
+  border: 0;
+}
+
+.the-cost-slider::-moz-focus-outer {
+  border: 0;
+}
+
+.industries-marquee-row:hover .industries-marquee-track,
+.industries-marquee-row:focus-within .industries-marquee-track {
+  animation-play-state: paused;
+}
+
 :focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
@@ -187,6 +480,63 @@ body {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+
+  .animate-hero-feed-card-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-live-feed-exit {
+    opacity: 0 !important;
+    transition: none !important;
+  }
+
+  .animate-graveyard-card-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .graveyard-card-exit {
+    opacity: 0 !important;
+    transition: none !important;
+  }
+
+  .animate-typing-cursor,
+  .animate-feature-badge-in,
+  .animate-booking-slot-pulse {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .industries-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .animate-the-gap-arrow-pulse,
+  .animate-the-gap-step-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-see-it-close-fade-up,
+  .animate-phone-ring-pulse,
+  .animate-waveform-bar {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .dash-live-dot {
+    animation: none !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 }
 

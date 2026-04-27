@@ -24,7 +24,7 @@ export function ContactForm() {
   return (
     <section
       aria-labelledby="contact-form-heading"
-      className="rounded-xl border border-[#e2e8f0] bg-white p-8 shadow-card"
+      className="rounded-none border border-[#e2e8f0] bg-white p-8 shadow-card"
     >
       <h2
         id="contact-form-heading"
@@ -46,7 +46,7 @@ export function ContactForm() {
             type="text"
             autoComplete="name"
             required
-            className="mt-2 w-full rounded-xl border border-[#e2e8f0] bg-[var(--brand-light)] px-4 py-3 text-[var(--brand-dark)] placeholder:text-[var(--brand-slate)]/60 focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
+            className="mt-2 w-full rounded-none border border-[#e2e8f0] bg-[var(--brand-light)] px-4 py-3 text-[var(--brand-dark)] placeholder:text-[var(--brand-slate)]/60 focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
             placeholder="Jane Doe"
           />
         </div>
@@ -63,7 +63,7 @@ export function ContactForm() {
             type="email"
             autoComplete="email"
             required
-            className="mt-2 w-full rounded-xl border border-[#e2e8f0] bg-[var(--brand-light)] px-4 py-3 text-[var(--brand-dark)] placeholder:text-[var(--brand-slate)]/60 focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
+            className="mt-2 w-full rounded-none border border-[#e2e8f0] bg-[var(--brand-light)] px-4 py-3 text-[var(--brand-dark)] placeholder:text-[var(--brand-slate)]/60 focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
             placeholder="you@company.com"
           />
         </div>
@@ -79,7 +79,7 @@ export function ContactForm() {
             name="message"
             required
             rows={5}
-            className="mt-2 w-full resize-y rounded-xl border border-[#e2e8f0] bg-[var(--brand-light)] px-4 py-3 text-[var(--brand-dark)] placeholder:text-[var(--brand-slate)]/60 focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
+            className="mt-2 w-full resize-y rounded-none border border-[#e2e8f0] bg-[var(--brand-light)] px-4 py-3 text-[var(--brand-dark)] placeholder:text-[var(--brand-slate)]/60 focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
             placeholder="Tell us about your workflows, volume, and goals."
           />
         </div>

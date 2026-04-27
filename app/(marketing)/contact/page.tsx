@@ -27,7 +27,7 @@ export default function ContactPage() {
 
           <section
             aria-label="Schedule a call"
-            className="rounded-xl border border-[#e2e8f0] bg-white p-8 shadow-card"
+            className="rounded-none border border-[#e2e8f0] bg-white p-8 shadow-card"
           >
             <h2 className="font-sans text-2xl font-semibold text-[var(--foreground)]">
               Schedule a call
@@ -37,7 +37,7 @@ export default function ContactPage() {
               Calendly React component.
             </p>
             <div
-              className="mt-6 flex min-h-[420px] items-center justify-center rounded-xl border border-dashed border-[#e2e8f0] bg-[var(--brand-light)] px-4 text-center text-sm text-[var(--brand-slate)]"
+              className="mt-6 flex min-h-[420px] items-center justify-center rounded-none border border-dashed border-[#e2e8f0] bg-[var(--brand-light)] px-4 text-center text-sm text-[var(--brand-slate)]"
               role="status"
             >
               Calendly embed placeholder — paste your scheduling URL here.

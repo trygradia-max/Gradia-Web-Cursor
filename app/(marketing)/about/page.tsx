@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="bg-[var(--bg)]">
-      <MarketingPageShell className="py-24 lg:py-36">
+      <MarketingPageShell>
         <ScrollReveal>
           <SectionLabel>About Gradia</SectionLabel>
           <h1 className="mt-6 max-w-[22ch] font-sans text-[clamp(2rem,4.5vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[var(--foreground)]">
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal className="mt-20 rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-8 sm:p-12">
+        <ScrollReveal className="mt-20 rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] p-8 sm:p-12">
           <h2 className="font-sans text-2xl font-semibold tracking-tight text-[var(--foreground)]">
             Our principles
           </h2>

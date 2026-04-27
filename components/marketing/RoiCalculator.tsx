@@ -12,7 +12,7 @@ function formatMoney(n: number) {
 }
 
 const inputClass =
-  "rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg)] px-3 py-2 text-center font-mono text-sm text-[var(--foreground)] focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]";
+  "rounded-none border border-[var(--border-subtle)] bg-[var(--bg)] px-3 py-2 text-center font-sans text-sm tabular-nums text-[var(--foreground)] focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]";
 
 export function RoiCalculator() {
   const [monthlyCalls, setMonthlyCalls] = useState(1200);
@@ -28,7 +28,7 @@ export function RoiCalculator() {
   const yearlyLost = monthlyLost * 12;
 
   return (
-    <div className="mt-14 rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg)] p-6 sm:p-10">
+    <div className="mt-14 rounded-none border border-[var(--border-subtle)] bg-[var(--bg)] p-6 sm:p-10">
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-8">
           <div>
@@ -80,7 +80,7 @@ export function RoiCalculator() {
               onChange={(e) => setMissPercent(Number(e.target.value))}
               className="mt-3 h-2 w-full max-w-md cursor-pointer accent-[var(--brand-primary)]"
             />
-            <div className="mt-1 flex justify-between font-mono text-[10px] text-[var(--muted)]">
+            <div className="mt-1 flex justify-between font-sans text-[10px] tabular-nums text-[var(--muted)]">
               <span>10%</span>
               <span>60%</span>
             </div>
@@ -110,7 +110,7 @@ export function RoiCalculator() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center space-y-6 rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-6 sm:p-8">
+        <div className="flex flex-col justify-center space-y-6 rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] p-6 sm:p-8">
           <OutputRow
             label="Missed calls per month:"
             value={String(missedCalls.toLocaleString())}
@@ -125,7 +125,7 @@ export function RoiCalculator() {
             value={formatMoney(yearlyLost)}
             emphasize
           />
-          <div className="rounded-[4px] border border-[var(--brand-primary)]/35 bg-[var(--brand-primary)]/8 px-4 py-5">
+          <div className="rounded-none border border-[var(--brand-primary)]/35 bg-[var(--brand-primary)]/8 px-4 py-5">
             <p className="font-sans text-xs font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
               With Gradia
             </p>

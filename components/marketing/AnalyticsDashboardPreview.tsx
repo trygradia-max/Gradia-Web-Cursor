@@ -65,7 +65,7 @@ export function AnalyticsDashboardPreview() {
 
   return (
     <div ref={rootRef} className="mt-14 w-full max-w-4xl" aria-hidden>
-      <div className="overflow-hidden rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg)] shadow-[0_32px_90px_-36px_rgba(15,23,42,0.1)]">
+      <div className="overflow-hidden rounded-none border border-[var(--border-subtle)] bg-[var(--bg)] shadow-[0_32px_90px_-36px_rgba(15,23,42,0.1)]">
         <div className="border-b border-[var(--border-subtle)] px-5 py-4">
           <p className="font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
             Performance
@@ -79,7 +79,7 @@ export function AnalyticsDashboardPreview() {
             <p className="mb-3 font-sans text-xs font-medium uppercase tracking-wider text-[var(--muted)]">
               Volume trend
             </p>
-            <div className="relative rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-2">
+            <div className="relative rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] p-2">
               <svg
                 className="h-[180px] w-full sm:h-[200px]"
                 viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
@@ -150,13 +150,13 @@ export function AnalyticsDashboardPreview() {
                 })}
               </svg>
             </div>
-            <div className="mt-2 flex justify-between gap-1 font-mono text-[10px] text-[var(--muted)]">
+            <div className="mt-2 flex justify-between gap-1 font-sans text-[10px] tabular-nums text-[var(--muted)]">
               {WEEKS.map((w) => (
                 <span key={w.label}>{w.label}</span>
               ))}
             </div>
           </div>
-          <div className="flex flex-col justify-center gap-4 rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
+          <div className="flex flex-col justify-center gap-4 rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
             <div>
               <p className="font-sans text-[11px] text-[var(--muted)]">Leads captured</p>
               <p className="font-sans text-2xl font-semibold text-[var(--foreground)]">1,284</p>

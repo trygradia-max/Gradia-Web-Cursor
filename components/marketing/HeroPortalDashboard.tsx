@@ -64,7 +64,7 @@ export function HeroPortalDashboard() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="overflow-hidden rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg)] shadow-[0_40px_120px_-40px_rgba(15,23,42,0.12)]">
+        <div className="overflow-hidden rounded-none border border-[var(--border-subtle)] bg-[var(--bg)] shadow-[0_40px_120px_-40px_rgba(15,23,42,0.12)]">
           <div className="flex items-center justify-between border-b border-[var(--border-subtle)] px-4 py-3 sm:px-5">
             <div>
               <p className="font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
@@ -74,13 +74,13 @@ export function HeroPortalDashboard() {
                 Today
               </p>
             </div>
-            <div className="rounded-full border border-[var(--border-subtle)] bg-[var(--bg-band)] px-3 py-1.5 font-sans text-xs text-[var(--muted)]">
+            <div className="rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] px-3 py-1.5 font-sans text-xs text-[var(--muted)]">
               Live
             </div>
           </div>
 
           <div className="grid gap-3 p-4 sm:grid-cols-3 sm:gap-4 sm:p-5">
-            <div className="rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
+            <div className="rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
               <p className="font-sans text-[11px] font-medium uppercase tracking-wider text-[var(--muted)]">
                 Calls handled
               </p>
@@ -91,7 +91,7 @@ export function HeroPortalDashboard() {
                 +12 vs yesterday
               </p>
             </div>
-            <div className="rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
+            <div className="rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
               <p className="font-sans text-[11px] font-medium uppercase tracking-wider text-[var(--muted)]">
                 Appointments
               </p>
@@ -100,7 +100,7 @@ export function HeroPortalDashboard() {
               </p>
               <p className="mt-1 font-sans text-xs text-[var(--muted)]">Booked today</p>
             </div>
-            <div className="rounded-[2px] border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
+            <div className="rounded-none border border-[var(--border-subtle)] bg-[var(--bg-band)] p-4">
               <p className="font-sans text-[11px] font-medium uppercase tracking-wider text-[var(--muted)]">
                 Avg. answer
               </p>
@@ -131,16 +131,16 @@ export function HeroPortalDashboard() {
                       key={`${row.time}-${row.caller}`}
                       className="border-b border-[var(--border-subtle)] last:border-0"
                     >
-                      <td className="py-2.5 pr-3 font-mono text-xs text-[var(--foreground)]">
+                      <td className="py-2.5 pr-3 font-sans text-xs tabular-nums text-[var(--foreground)]">
                         {row.time}
                       </td>
                       <td className="py-2.5 pr-3">{row.caller}</td>
                       <td className="py-2.5 pr-3">
-                        <span className="rounded-[2px] bg-[var(--brand-primary)]/10 px-2 py-0.5 text-xs text-[var(--brand-primary)]">
+                        <span className="rounded-none bg-[var(--brand-primary)]/10 px-2 py-0.5 text-xs text-[var(--brand-primary)]">
                           {row.outcome}
                         </span>
                       </td>
-                      <td className="py-2.5 font-mono text-xs">{row.dur}</td>
+                      <td className="py-2.5 font-sans text-xs tabular-nums">{row.dur}</td>
                     </tr>
                   ))}
                 </tbody>

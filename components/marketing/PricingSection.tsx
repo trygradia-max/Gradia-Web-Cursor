@@ -74,13 +74,13 @@ export function PricingSection() {
       {tiers.map((tier) => (
         <li key={tier.id} className="relative flex">
           {tier.popular ? (
-            <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 rounded-[2px] border border-[var(--brand-primary)] bg-[var(--bg)] px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
+            <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 rounded-none border border-[var(--brand-primary)] bg-[var(--bg)] px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
               Popular
             </span>
           ) : null}
           <div
             className={cn(
-              "flex w-full flex-col rounded-[2px] border bg-[var(--bg)] p-8 pt-10 sm:p-10",
+              "flex w-full flex-col rounded-none border bg-[var(--bg)] p-8 pt-10 sm:p-10",
               tier.popular
                 ? "border-[var(--brand-primary)]/40 shadow-[0_0_0_1px_rgba(59,110,245,0.12)]"
                 : "border-[var(--border-subtle)]",
@@ -106,7 +106,7 @@ export function PricingSection() {
                 {tier.features.map((line) => (
                   <li key={line} className="flex gap-2">
                     <span
-                      className="mt-2 h-1 w-1 shrink-0 rounded-[1px] bg-[var(--brand-primary)]/80"
+                      className="mt-2 h-1 w-1 shrink-0 rounded-none bg-[var(--brand-primary)]/80"
                       aria-hidden
                     />
                     <span>{line}</span>

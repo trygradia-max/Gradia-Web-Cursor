@@ -12,7 +12,7 @@ export function Card({ children, className, hover, tone = "default" }: CardProps
   return (
     <div
       className={cn(
-        "rounded-[2px] border",
+        "rounded-none border",
         tone === "band"
           ? "border-[var(--border-band)] bg-[var(--card-on-band)]"
           : "border-[var(--border-subtle)] bg-[var(--bg)]",

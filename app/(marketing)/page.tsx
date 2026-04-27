@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { HeroBackdrop } from "@/components/marketing/HeroBackdrop";
-import { HeroPortalDashboard } from "@/components/marketing/HeroPortalDashboard";
+import { HomeHero } from "@/components/marketing/HomeHero";
 import { AnalyticsDashboardPreview } from "@/components/marketing/AnalyticsDashboardPreview";
 import { RoiCalculator } from "@/components/marketing/RoiCalculator";
 import { EightyPercentReveal } from "@/components/marketing/EightyPercentReveal";
@@ -12,18 +11,15 @@ import { HowItWorksSection } from "@/components/marketing/HowItWorksSection";
 import { ProblemSection } from "@/components/marketing/ProblemSection";
 import { SectionLabel } from "@/components/marketing/SectionLabel";
 import { VerticalCompanyStatement } from "@/components/marketing/VerticalCompanyStatement";
+import { IndustriesSection } from "@/components/marketing/IndustriesSection";
 import { IntegrationsStrip } from "@/components/marketing/IntegrationsStrip";
-import { LogoTrustStrip } from "@/components/marketing/LogoTrustStrip";
 import { ScrollReveal, ScrollRevealStagger } from "@/components/marketing/ScrollReveal";
-import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
 const sectionShell =
   "mx-auto w-full max-w-content px-4 sm:px-6";
 
-const sectionPad = "py-32 lg:py-44";
-
-const sectionPadSocial = "py-24 lg:py-28";
+const sectionPad = "section-pad";
 
 const bodyText = "text-[var(--muted)]";
 const bodyTextBand = "text-[var(--text-muted-band)]";
@@ -36,91 +32,39 @@ const bgBand = "bg-[var(--bg-band)]";
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero + dashboard */}
+      {/* 1. Hero */}
+      <HomeHero />
+
+      {/* 2. Social proof — minimal & honest while in early access */}
+      {/* When client logos are ready: replace this section with a logo bar
+          (grayscale logos, single row) + 1-2 pull quotes below. One quote
+          per row, full width, with name, company, and role. */}
       <section
-        className={`relative w-full overflow-hidden border-b border-[var(--border)] ${bgDeep}`}
+        aria-label="Social proof"
+        className="w-full bg-[#F5F5F5] py-[48px] lg:py-[64px]"
       >
-        <HeroBackdrop />
-        <div
-          className={`${sectionShell} relative z-[1] flex min-h-0 flex-col pb-16 pt-28 lg:pb-20 lg:pt-36`}
-        >
-          <ScrollReveal>
-            <div className="relative max-w-[min(100%,44rem)]">
-              <div
-                className="pointer-events-none absolute -left-[8%] -top-[38%] h-[150%] w-[125%] max-w-[min(100vw,760px)] bg-[radial-gradient(ellipse_70%_55%_at_40%_35%,rgba(59,110,245,0.08),transparent_72%)] sm:-left-[4%]"
-                aria-hidden
-              />
-              <h1 className="type-hero relative text-[var(--black)]">
-                Every call answered. Every lead captured. Nothing slips through.
-              </h1>
-            </div>
-            <p className={`type-body mt-8 max-w-2xl sm:text-lg ${bodyText}`}>
-              Gradia is your always-on digital frontline — answering calls, booking
-              appointments, and qualifying leads 24/7. Your team runs the business.
-              We run the front end.
-            </p>
-            <div className="mt-14">
-              <Button
-                href="mailto:trygradia@gmail.com?subject=Book%20a%20call"
-                variant="primary"
-              >
-                Book a Call
-              </Button>
-            </div>
-          </ScrollReveal>
-          <HeroPortalDashboard />
+        <div className="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-12">
+          <div
+            className="mb-8 border-t border-[#E5E7EB]"
+            aria-hidden="true"
+          />
+          <p className="text-center font-sans text-sm text-[#6B7280]">
+            Client stories coming soon — currently in early access.
+          </p>
+          <div
+            className="mt-8 border-t border-[#E5E7EB]"
+            aria-hidden="true"
+          />
         </div>
       </section>
 
-      {/* 2. Social proof */}
-      <section
-        className={`w-full ${divide} ${bgBand} ${sectionPadSocial}`}
-        aria-labelledby="social-stats"
-      >
-        <div className={sectionShell}>
-          <ScrollRevealStagger
-            id="social-stats"
-            className="grid gap-6 sm:grid-cols-3 sm:gap-8"
-          >
-            {[
-              {
-                title: "24/7 Coverage",
-                body: "Nights, weekends, holidays. Always on.",
-              },
-              {
-                title: "< 2 sec",
-                body: "Average answer time.",
-              },
-              {
-                title: "Every Call",
-                body: "Answered, logged, and followed up.",
-              },
-            ].map((item) => (
-              <li key={item.title}>
-                <Card className="h-full p-8 text-center sm:p-10" hover tone="band">
-                  <p className="type-h3 text-[var(--black)] sm:text-2xl sm:leading-snug">
-                    {item.title}
-                  </p>
-                  <p className={`type-small mt-4 sm:text-base ${bodyTextBand}`}>
-                    {item.body}
-                  </p>
-                </Card>
-              </li>
-            ))}
-          </ScrollRevealStagger>
-        </div>
-      </section>
-
-      {/* Integrations + Trust */}
+      {/* Integrations */}
       <section
         id="integrations"
         className={`w-full ${divide} ${bgDeep} ${sectionPad}`}
       >
         <div className={sectionShell}>
           <IntegrationsStrip />
-          <div className="mt-24">
-            <LogoTrustStrip />
-          </div>
         </div>
       </section>
 
@@ -234,7 +178,7 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
           <ScrollReveal className="mt-16 grid gap-6 lg:grid-cols-2 lg:gap-8">
-            <div className="rounded-[4px] border border-red-200 bg-[#fef2f2] p-8 sm:p-10">
+            <div className="rounded-none border border-red-200 bg-[#fef2f2] p-8 sm:p-10">
               <h3 className="type-h3 text-[var(--black)]">Without Gradia</h3>
               <ul className={`mt-6 space-y-3 text-sm leading-relaxed sm:text-base ${bodyText}`}>
                 <li>Missed calls when lines are busy</li>
@@ -244,7 +188,7 @@ export default function HomePage() {
                 <li>No clear picture of front-desk performance</li>
               </ul>
             </div>
-            <div className="rounded-[4px] border border-[var(--brand-primary)]/35 bg-[#eff6ff] p-8 sm:p-10">
+            <div className="rounded-none border border-[var(--brand-primary)]/35 bg-[#eff6ff] p-8 sm:p-10">
               <h3 className="type-h3 text-[var(--black)]">With Gradia</h3>
               <ul className={`mt-6 space-y-3 text-sm leading-relaxed sm:text-base ${bodyText}`}>
                 <li>Every call answered, every time</li>
@@ -284,6 +228,9 @@ export default function HomePage() {
 
       {/* 9. Results / outcomes */}
       <ResultsSection />
+
+      {/* Industries — who we work with */}
+      <IndustriesSection />
 
       {/* ROI calculator */}
       <section
@@ -334,10 +281,10 @@ export default function HomePage() {
                 {"href" in item && item.href ? (
                   <Link
                     href={item.href}
-                    className="block h-full rounded-[2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
+                    className="block h-full rounded-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
                   >
                     <Card className="h-full p-8 sm:p-10" hover>
-                      <span className="type-label inline-block rounded-full border border-[var(--border)] px-3 py-1 text-[11px] text-[var(--blue)]">
+                      <span className="type-label inline-block rounded-none border border-[var(--border)] px-3 py-1 text-[11px] text-[var(--blue)]">
                         {item.tag}
                       </span>
                       <h3 className="type-h3 mt-5 text-[var(--black)]">{item.title}</h3>
@@ -345,7 +292,7 @@ export default function HomePage() {
                   </Link>
                 ) : (
                   <Card className="h-full p-8 sm:p-10" hover>
-                    <span className="type-label inline-block rounded-full border border-[var(--border)] px-3 py-1 text-[11px] text-[var(--blue)]">
+                    <span className="type-label inline-block rounded-none border border-[var(--border)] px-3 py-1 text-[11px] text-[var(--blue)]">
                       {item.tag}
                     </span>
                     <h3 className="type-h3 mt-5 text-[var(--black)]">{item.title}</h3>

@@ -2,9 +2,14 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { Button } from "@/components/ui/Button";
 import { getSafePortalCallbackUrl } from "@/lib/portal/safe-callback-url";
 import { createBrowserSupabaseClient } from "@/lib/supabase/client";
+
+const inputClass =
+  "block w-full bg-[var(--dash-bg)] border border-[var(--dash-border-strong)] px-4 py-3 font-sans text-sm text-white placeholder:text-[var(--dash-secondary)] outline-none transition-colors focus:border-[var(--dash-accent)]";
+
+const labelClass =
+  "block font-sans text-[12px] font-medium uppercase tracking-[0.1em] text-[var(--dash-secondary)]";
 
 export function LoginForm() {
   const searchParams = useSearchParams();
@@ -47,10 +52,10 @@ export function LoginForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="mx-auto w-full max-w-sm space-y-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)] p-8 shadow-card"
+      className="mx-auto w-full max-w-sm space-y-5 border border-[var(--dash-border)] bg-[var(--dash-surface)] p-8 font-sans"
     >
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-white">
+        <label htmlFor="email" className={labelClass}>
           Email
         </label>
         <input
@@ -61,13 +66,13 @@ export function LoginForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-2 w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--brand-dark)] px-4 py-3 text-white placeholder:text-[var(--muted)] focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
+          className={`${inputClass} mt-2`}
           placeholder="you@company.com"
         />
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-white">
+        <label htmlFor="password" className={labelClass}>
           Password
         </label>
         <input
@@ -78,19 +83,27 @@ export function LoginForm() {
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="mt-2 w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--brand-dark)] px-4 py-3 text-white placeholder:text-[var(--muted)] focus:border-[var(--brand-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--brand-primary)]"
+          className={`${inputClass} mt-2`}
+          placeholder="••••••••"
         />
       </div>
 
       {error ? (
-        <p className="text-sm text-red-400" role="alert">
+        <p
+          className="font-sans text-sm text-[var(--dash-danger)]"
+          role="alert"
+        >
           {error}
         </p>
       ) : null}
 
-      <Button type="submit" variant="primary" className="w-full" disabled={pending}>
-        {pending ? "Signing in..." : "Sign in"}
-      </Button>
+      <button
+        type="submit"
+        disabled={pending}
+        className="inline-flex w-full cursor-pointer items-center justify-center bg-[var(--dash-accent)] px-6 py-[14px] font-sans text-sm font-medium text-white transition-[background-color] duration-150 ease-in-out hover:bg-[var(--dash-accent-hover)] disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        {pending ? "Signing in…" : "Sign in"}
+      </button>
     </form>
   );
 }

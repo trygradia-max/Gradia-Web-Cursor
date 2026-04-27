@@ -13,7 +13,7 @@ export function LogoTrustStrip() {
         {slots.map((i) => (
           <div
             key={i}
-            className="flex h-9 w-24 items-center justify-center rounded-[2px] border border-dashed border-[var(--border-subtle)] text-[11px] tracking-wider text-[var(--muted)] opacity-50"
+            className="flex h-9 w-24 items-center justify-center rounded-none border border-dashed border-[var(--border-subtle)] text-[11px] tracking-wider text-[var(--muted)] opacity-50"
             aria-hidden
           >
             LOGO
