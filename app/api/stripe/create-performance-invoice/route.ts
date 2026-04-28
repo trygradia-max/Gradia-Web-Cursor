@@ -34,7 +34,10 @@ export async function POST(request: Request) {
     !Number.isFinite(totalDeals) ||
     totalDeals < 0
   ) {
-    return NextResponse.json({ error: "totalDeals must be a number >= 0" }, { status: 400 });
+    return NextResponse.json(
+      { error: "totalDeals must be a non-negative number" },
+      { status: 400 },
+    );
   }
   if (
     typeof totalDealValue !== "number" ||
@@ -42,7 +45,7 @@ export async function POST(request: Request) {
     totalDealValue < 0
   ) {
     return NextResponse.json(
-      { error: "totalDealValue must be a number >= 0" },
+      { error: "totalDealValue must be a non-negative number" },
       { status: 400 },
     );
   }
@@ -52,7 +55,7 @@ export async function POST(request: Request) {
     performanceFee < 0
   ) {
     return NextResponse.json(
-      { error: "performanceFee must be a number >= 0" },
+      { error: "performanceFee must be a non-negative number" },
       { status: 400 },
     );
   }
@@ -60,13 +63,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "month is required" }, { status: 400 });
   }
 
-  const amountCents = Math.round(performanceFee * 100);
-  if (amountCents <= 0) {
+  // No fee owed — skip invoice creation and return early.
+  if (performanceFee === 0) {
     return NextResponse.json(
-      { error: "performanceFee must be greater than zero after conversion to cents" },
-      { status: 400 },
+      { success: true, skipped: true },
+      { headers: { "Cache-Control": "no-store" } },
     );
   }
+
+  const amountCents = Math.round(performanceFee * 100);
 
   const supabase = createAdminSupabaseClient();
   const { data: client, error: fetchError } = await supabase
@@ -85,8 +90,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const description = `Gradia performance fee — ${totalDeals} confirmed deals — ${month.trim()}`;
-
   const stripe = getStripe();
 
   try {
@@ -94,7 +97,7 @@ export async function POST(request: Request) {
       customer: client.stripe_customer_id,
       amount: amountCents,
       currency: "usd",
-      description,
+      description: `Gradia Performance Fee - ${month.trim()} (${totalDeals} confirmed deals, $${totalDealValue} total deal value)`,
       metadata: {
         client_id: client.id,
         total_deals: String(totalDeals),
@@ -105,18 +108,16 @@ export async function POST(request: Request) {
 
     const invoice = await stripe.invoices.create({
       customer: client.stripe_customer_id,
-      collection_method: "send_invoice",
-      days_until_due: 14,
-      auto_advance: false,
-      description: `Gradia performance fee — ${month.trim()}`,
+      collection_method: "charge_automatically",
+      auto_advance: true,
+      description: `Gradia Performance Fee - ${month.trim()}`,
       pending_invoice_items_behavior: "include",
     });
 
     const finalized = await stripe.invoices.finalizeInvoice(invoice.id);
-    await stripe.invoices.sendInvoice(finalized.id);
 
     return NextResponse.json(
-      { invoice: finalized },
+      { success: true, invoiceId: finalized.id },
       { headers: { "Cache-Control": "no-store" } },
     );
   } catch (e: unknown) {
