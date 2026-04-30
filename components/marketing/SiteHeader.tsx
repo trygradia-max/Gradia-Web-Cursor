@@ -5,9 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/cn";
-
-const demoHref =
-  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 const navItems = [
   { href: "/the-gap", label: "The Gap" },
@@ -53,7 +51,7 @@ function LockIcon() {
   );
 }
 
-function BookDemoButton({
+function NavBookDemoButton({
   className,
   onClick,
 }: {
@@ -61,16 +59,13 @@ function BookDemoButton({
   onClick?: () => void;
 }) {
   return (
-    <Link
-      href={demoHref}
+    <BookDemoButton
       onClick={onClick}
       className={cn(
         "inline-flex items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-6 py-2.5 font-sans text-sm font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
         className,
       )}
-    >
-      Book a Demo →
-    </Link>
+    />
   );
 }
 
@@ -172,7 +167,7 @@ export function SiteHeader() {
             Client Portal
           </Link>
           <NavSeparator />
-          <BookDemoButton className="hidden md:inline-flex" />
+          <NavBookDemoButton className="hidden md:inline-flex" />
           <button
             ref={menuButtonRef}
             type="button"
@@ -228,10 +223,10 @@ export function SiteHeader() {
               </li>
             </ul>
             <div className="pt-6">
-              <BookDemoButton
-                className="w-full justify-center"
-                onClick={close}
-              />
+                  <NavBookDemoButton
+                    className="w-full justify-center"
+                    onClick={close}
+                  />
             </div>
           </nav>
         </div>

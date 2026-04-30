@@ -14,6 +14,7 @@
     "generate:assets": "node scripts/generate-assets.mjs"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.103.0",
     "lucide-react": "^0.468.0",

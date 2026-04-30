@@ -1,9 +1,6 @@
-import Link from "next/link";
 import { cn } from "@/lib/cn";
 import type { Industry } from "@/lib/industries";
-
-const demoHref =
-  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 const ctaButtonClass =
   "inline-flex w-fit items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-10 py-4 font-sans text-[15px] font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]";
@@ -103,9 +100,7 @@ export function IndustryPageLayout({ industry }: IndustryPageLayoutProps) {
             business.
           </p>
           <div className="mt-8 flex justify-center">
-            <Link href={demoHref} className={ctaButtonClass}>
-              Book a Demo →
-            </Link>
+            <BookDemoButton className={ctaButtonClass} />
           </div>
         </div>
       </section>
@@ -169,9 +164,7 @@ export function IndustryPageLayout({ industry }: IndustryPageLayoutProps) {
             Book a demo. See Gradia work for your {finalCtaNoun} in real time.
           </p>
           <div className="mt-10 flex justify-center">
-            <Link href={demoHref} className={ctaButtonClass}>
-              Book a Demo →
-            </Link>
+            <BookDemoButton className={ctaButtonClass} />
           </div>
         </div>
       </section>

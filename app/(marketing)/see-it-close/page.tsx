@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { SeeItCloseCalendar } from "@/components/marketing/SeeItCloseCalendar";
 import { SeeItCloseMorning } from "@/components/marketing/SeeItCloseMorning";
 import { SeeItClosePhoneCall } from "@/components/marketing/SeeItClosePhoneCall";
 import { SeeItCloseTranscript } from "@/components/marketing/SeeItCloseTranscript";
-
-const showcaseHref =
-  "mailto:trygradia@gmail.com?subject=Book%20a%20live%20showcase" as const;
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 export const metadata: Metadata = {
   title: "See It Close",
@@ -170,12 +167,9 @@ export default function SeeItClosePage() {
             business — live.
           </p>
           <div className="mt-10 flex justify-center">
-            <Link
-              href={showcaseHref}
-              className="inline-flex w-fit items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
-            >
+            <BookDemoButton className="inline-flex w-fit items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]">
               Book a Live Showcase →
-            </Link>
+            </BookDemoButton>
           </div>
         </div>
       </section>

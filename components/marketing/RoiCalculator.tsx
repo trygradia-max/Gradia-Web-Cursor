@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Button } from "@/components/ui/Button";
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 function formatMoney(n: number) {
   return new Intl.NumberFormat("en-US", {
@@ -140,12 +140,9 @@ export function RoiCalculator() {
       </div>
 
       <div className="mt-10 flex justify-center border-t border-[var(--border-subtle)] pt-10">
-        <Button
-          href="mailto:trygradia@gmail.com?subject=Book%20a%20call"
-          variant="primary"
-        >
+        <BookDemoButton className="inline-flex items-center justify-center rounded-[100px] border-0 bg-[var(--blue)] px-8 py-3.5 font-sans text-sm font-medium text-[var(--white)] transition-[background-color] duration-150 ease-in-out hover:bg-[var(--blue-dark)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]">
           Stop losing revenue. Book a Call.
-        </Button>
+        </BookDemoButton>
       </div>
     </div>
   );

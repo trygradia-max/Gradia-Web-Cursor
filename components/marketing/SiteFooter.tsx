@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const demoHref =
-  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 const headingClass =
   "font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-[#6B7280]";
@@ -66,12 +64,7 @@ export function SiteFooter() {
               <p className="font-sans text-sm text-[#6B7280]">
                 Ready to close the gap?
               </p>
-              <a
-                href={demoHref}
-                className="mt-1 inline-block font-sans text-sm font-medium text-[#3B6EF5] no-underline transition-colors duration-150 ease-out hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
-              >
-                Book a Demo →
-              </a>
+              <BookDemoButton className="mt-1 cursor-pointer appearance-none border-0 bg-transparent p-0 font-sans text-sm font-medium text-[#3B6EF5] no-underline transition-colors duration-150 ease-out hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]" />
             </div>
           </div>
 

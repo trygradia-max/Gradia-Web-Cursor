@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { TheProofHeroStats } from "@/components/marketing/TheProofHeroStats";
 import { TheProofTrendChart } from "@/components/marketing/TheProofTrendChart";
-
-const demoMailto =
-  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 export const metadata: Metadata = {
   title: "The Proof",
@@ -116,12 +113,7 @@ export default function TheProofPage() {
           <p className="mx-auto mt-4 max-w-[480px] font-sans text-base leading-[1.6] text-[#8A8A8A] sm:text-lg">
             Book a demo and see what Gradia does for your business.
           </p>
-          <Link
-            href={demoMailto}
-            className="mt-10 inline-flex w-fit items-center justify-center rounded-[100px] bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
-          >
-            Book a Demo →
-          </Link>
+          <BookDemoButton className="mt-10 inline-flex w-fit items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]" />
         </div>
       </section>
     </div>

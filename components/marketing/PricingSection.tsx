@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 const body = "text-[var(--muted)]";
 
@@ -115,13 +115,9 @@ export function PricingSection() {
               </ul>
             </div>
             <div className="mt-10">
-              <Button
-                href={`mailto:trygradia@gmail.com?subject=${encodeURIComponent(tier.mailSubject)}`}
-                variant="primary"
-                className="w-full sm:w-auto"
-              >
+              <BookDemoButton className="inline-flex w-full items-center justify-center rounded-[100px] border-0 bg-[var(--blue)] px-8 py-3.5 text-center font-sans text-sm font-medium tracking-normal text-[var(--white)] transition-[background-color] duration-150 ease-in-out hover:bg-[var(--blue-dark)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)] sm:w-auto">
                 Get Started
-              </Button>
+              </BookDemoButton>
             </div>
           </div>
         </li>

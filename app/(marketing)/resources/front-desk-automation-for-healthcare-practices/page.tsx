@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-
-const demoMailto =
-  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 export const metadata: Metadata = {
   title: "Front-Desk Automation for Healthcare Practices",
@@ -144,12 +141,7 @@ export default function HealthcareFrontDeskGuidePage() {
             See how Gradia closes the gap.
           </h2>
           <div className="mt-10 flex justify-center">
-            <Link
-              href={demoMailto}
-              className="inline-flex items-center justify-center rounded-[100px] border-0 bg-[var(--blue)] px-8 py-3.5 font-sans text-sm font-medium text-[var(--white)] transition-[background-color] duration-150 ease-in-out hover:bg-[var(--blue-dark)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]"
-            >
-              Book a Demo →
-            </Link>
+            <BookDemoButton className="inline-flex items-center justify-center rounded-[100px] border-0 bg-[var(--blue)] px-8 py-3.5 font-sans text-sm font-medium text-[var(--white)] transition-[background-color] duration-150 ease-in-out hover:bg-[var(--blue-dark)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--blue)]" />
           </div>
         </div>
       </section>

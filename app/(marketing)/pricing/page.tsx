@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PricingFAQ } from "@/components/marketing/PricingFAQ";
 import { cn } from "@/lib/cn";
-
-const demoMailto =
-  "mailto:trygradia@gmail.com?subject=Book%20a%20demo" as const;
+import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -214,15 +211,14 @@ function PricingCard({
         ))}
       </ul>
 
-      <Link
-        href={demoMailto}
+      <BookDemoButton
         className={cn(
-          "mt-10 flex w-full items-center justify-center rounded-[100px] px-6 py-[14px] font-sans text-sm font-medium text-white no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
+          "mt-10 flex w-full items-center justify-center rounded-[100px] border-0 px-6 py-[14px] font-sans text-sm font-medium text-white no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]",
           ctaClassName,
         )}
       >
         Get Started →
-      </Link>
+      </BookDemoButton>
     </div>
   );
 }
@@ -400,12 +396,7 @@ export default function PricingPage() {
             Starting at $299/month. 6 and 12-month contracts. Built to last.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4">
-            <Link
-              href={demoMailto}
-              className="inline-flex w-fit items-center justify-center rounded-[100px] bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
-            >
-              Book a Demo →
-            </Link>
+            <BookDemoButton className="inline-flex w-fit items-center justify-center rounded-[100px] border-0 bg-[#3B6EF5] px-12 py-[18px] font-sans text-base font-medium text-white no-underline transition-[background-color] duration-150 ease-in-out hover:bg-[#2D5CE8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]" />
             <a
               href="#pricing-comparison"
               className="font-sans text-sm text-[#6B7280] no-underline transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B6EF5]"
