@@ -189,7 +189,7 @@ function PricingCard({
         <span className="font-sans text-base text-[#6B7280]">/month</span>
       </div>
       <p className="mt-2 font-sans text-[13px] leading-snug text-[#6B7280]">
-        + 0.5% performance fee on confirmed deals
+        + 1.25% performance fee on confirmed deals
       </p>
 
       <div

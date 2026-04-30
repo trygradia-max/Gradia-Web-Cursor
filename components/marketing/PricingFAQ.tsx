@@ -23,7 +23,7 @@ const FAQS: FaqItem[] = [
   {
     question: "How does the performance fee work?",
     answer:
-      "When your team marks a deal as sold in the Gradia dashboard, a 0.5% performance fee is calculated on the confirmed deal value. This is invoiced monthly alongside your base plan. It only applies to deals Gradia helped close — you control what gets marked.",
+      "When your team marks a deal as sold in the Gradia dashboard, a 1.25% performance fee is calculated on the confirmed deal value. This is invoiced monthly alongside your base plan. It only applies to deals Gradia helped close — you control what gets marked.",
   },
 ];
 

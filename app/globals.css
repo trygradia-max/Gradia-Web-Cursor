@@ -654,3 +654,23 @@ body {
   @apply translate-y-0 opacity-100;
   transition-delay: 325ms;
 }
+
+/* ── Loading screen ─────────────────────────────────────── */
+@keyframes gradia-logo-pulse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, 0, 0) scale(1.08);
+  }
+}
+
+@keyframes gradia-screen-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

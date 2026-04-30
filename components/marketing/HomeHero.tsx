@@ -3,8 +3,8 @@ import { BookDemoButton } from "@/components/marketing/BookDemoButton";
 
 export function HomeHero() {
   return (
-    <section className="min-h-screen w-full bg-[#0A0A0A]">
-      <div className="mx-auto flex min-h-screen max-w-content flex-col justify-center gap-12 px-12 py-16 lg:flex-row lg:items-center lg:gap-16 lg:py-0">
+    <section className="min-h-screen w-full overflow-hidden bg-[#0A0A0A]">
+      <div className="mx-auto flex min-h-screen max-w-content flex-col justify-center gap-12 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:gap-20 lg:px-12 lg:py-0">
         <div className="flex min-w-0 flex-1 flex-col">
           <p className="font-sans text-[11px] font-medium uppercase tracking-[0.15em] text-[#3B6EF5]">
             AI VOICE AGENT
@@ -24,7 +24,7 @@ export function HomeHero() {
           </div>
         </div>
 
-        <div className="flex w-full shrink-0 justify-center lg:w-auto lg:justify-end">
+        <div className="flex w-full shrink-0 justify-center lg:w-[420px] lg:justify-end">
           <LiveActivityFeed />
         </div>
       </div>

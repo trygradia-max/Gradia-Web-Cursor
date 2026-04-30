@@ -347,7 +347,7 @@ export function AppointmentsBoard({
               Mark as Sold
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[var(--dash-secondary)]">
-              Confirm the closed deal value to log a 0.5% performance fee.
+              Confirm the closed deal value to log a 1.25% performance fee.
             </p>
 
             <div className="mt-7 space-y-5">

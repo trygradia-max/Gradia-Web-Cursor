@@ -16,12 +16,12 @@ const ctaButtonClass =
 export const metadata: Metadata = {
   title: "Partners",
   description:
-    "Become a Gradia partner. Zero setup cost — pay only a 0.5% performance fee on closed deals. Apply to the partnership program.",
+    "Become a Gradia partner. Zero setup cost — pay only a 1.25% performance fee on closed deals. Apply to the partnership program.",
   alternates: { canonical: "/partners" },
   openGraph: {
     title: "Partners — Gradia",
     description:
-      "Grow with Gradia. Zero setup cost. 0.5% performance fee on closed deals only.",
+      "Grow with Gradia. Zero setup cost. 1.25% performance fee on closed deals only.",
     url: "/partners",
     type: "website",
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Partners — Gradia",
     description:
-      "Grow with Gradia. Zero setup cost. 0.5% performance fee on closed deals only.",
+      "Grow with Gradia. Zero setup cost. 1.25% performance fee on closed deals only.",
   },
 };
 
@@ -44,7 +44,7 @@ const BENEFITS: Item[] = [
   {
     number: "02",
     title: "Performance-only pricing",
-    body: "You pay a 0.5% performance fee on confirmed closed deals only. No base monthly cost. No risk. Just results.",
+    body: "You pay a 1.25% performance fee on confirmed closed deals only. No base monthly cost. No risk. Just results.",
   },
   {
     number: "03",
@@ -103,7 +103,7 @@ export default function PartnersPage() {
         </h1>
         <p className="mx-auto mt-6 max-w-[560px] font-sans text-base leading-[1.6] text-[#8A8A8A] sm:text-lg">
           Gradia partners get full platform access with zero setup cost. You
-          only pay a 0.5% performance fee on deals you close.
+          only pay a 1.25% performance fee on deals you close.
         </p>
         <div className="mt-12">
           <ChevronDown
