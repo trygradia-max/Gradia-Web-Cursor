@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SignOutButton } from "@/components/portal/SignOutButton";
 import { getPortalSession } from "@/lib/portal/session";
 
-const LOGOMARK_SRC = "/images/gradia-logomark.svg";
+const LOGOMARK_SRC = "/images/gradia-logomark.png";
 
 function NotificationBell() {
   return (
