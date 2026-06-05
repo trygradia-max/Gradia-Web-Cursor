@@ -14,13 +14,12 @@ import { AnimatedShaderHero } from "@/components/waitlist/AnimatedShaderHero";
 import { SpiralBackdrop } from "@/components/waitlist/SpiralBackdrop";
 import { DottedBackdrop } from "@/components/waitlist/DottedBackdrop";
 import { SparklesBackdrop } from "@/components/waitlist/SparklesBackdrop";
-import { CommandCenterMock } from "@/components/waitlist/CommandCenterMock";
+import { PlatformPreview } from "@/components/waitlist/PlatformPreview";
 import { BookingCalendar } from "@/components/waitlist/BookingCalendar";
 import { IntegrationsOrbit } from "@/components/waitlist/IntegrationsOrbit";
 import { ModeToggle } from "@/components/waitlist/ModeToggle";
 import { CrmAgentDemo } from "@/components/waitlist/CrmAgentDemo";
 import { WhisperDemo } from "@/components/waitlist/WhisperDemo";
-import { ContainerScroll } from "@/components/ui/ContainerScroll";
 import DisplayCards from "@/components/ui/DisplayCards";
 import { getWaitlistCount } from "@/lib/waitlist";
 
@@ -121,28 +120,9 @@ export default async function WaitlistPage() {
         </section>
 
         {/* ---------------------------------------------------------------- */}
-        {/* Section reveal — scroll-tilt command center                      */}
+        {/* Platform sneak peek — dashboard preview                          */}
         {/* ---------------------------------------------------------------- */}
-        <section className="overflow-hidden border-t border-[var(--border)]">
-          <ContainerScroll
-            titleComponent={
-              <div className="mb-2 px-5">
-                <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--brand-primary)]">
-                  The command center
-                </span>
-                <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--foreground)] sm:text-5xl">
-                  One screen. Your whole shop.
-                </h2>
-                <p className="mx-auto mt-3 max-w-xl text-[var(--muted)]">
-                  Every call, quote, booking, and payment your agents handled —
-                  in one place you own.
-                </p>
-              </div>
-            }
-          >
-            <CommandCenterMock />
-          </ContainerScroll>
-        </section>
+        <PlatformPreview />
 
         {/* ---------------------------------------------------------------- */}
         {/* A full day — swipeable 7 agents                                  */}
