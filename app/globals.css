@@ -13,15 +13,27 @@
 
   html {
     scroll-behavior: smooth;
-    /* Clip stray horizontal overflow so the page can't drift sideways on
-       mobile. `clip` (not `hidden`) doesn't create a scroll container, so the
-       sticky header keeps working. */
+    /* Lock the page to vertical scrolling only. `clip` kills horizontal
+       overflow (without breaking the sticky header), overscroll-behavior-x
+       stops the sideways rubber-band, and touch-action: pan-y keeps touch
+       gestures vertical so the page can't be dragged around on mobile.
+       pinch-zoom is preserved for accessibility. */
     overflow-x: clip;
+    overscroll-behavior-x: none;
   }
 
   body {
-    overflow-x: clip;
+    width: 100%;
     max-width: 100%;
+    overflow-x: clip;
+    overscroll-behavior-x: none;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  /* The agent-day carousel is the one place horizontal swipe is intentional —
+     opt it back in so it stays swipeable inside the locked page. */
+  [data-hscroll] {
+    touch-action: auto;
   }
 
   /* Inputs/selects stay sharp — cards, tables, and form fields are not rounded */
