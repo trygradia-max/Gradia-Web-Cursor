@@ -179,7 +179,7 @@ export function AnimatedShaderHero() {
   });
 
   return (
-    <section className="relative h-screen min-h-[660px] w-full overflow-hidden bg-black">
+    <section className="relative h-[100svh] min-h-[600px] w-full overflow-hidden bg-black">
       <canvas
         ref={canvasRef}
         aria-hidden

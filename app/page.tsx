@@ -68,7 +68,7 @@ export default async function WaitlistPage() {
   const waitlistCount = await getWaitlistCount();
 
   return (
-    <div id="top" className="min-h-screen bg-[var(--bg)]">
+    <div id="top" className="min-h-[100svh] bg-[var(--bg)]">
       <WaitlistHeader />
 
       <main>
@@ -375,7 +375,7 @@ export default async function WaitlistPage() {
         {/* ---------------------------------------------------------------- */}
         {/* Anticipation — dotted surface wave before the proof              */}
         {/* ---------------------------------------------------------------- */}
-        <section className="relative flex min-h-screen items-center justify-center overflow-hidden border-t border-[var(--border)] bg-[#0a0810]">
+        <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden border-t border-[var(--border)] bg-[#0a0810]">
           <DottedBackdrop />
           <div
             aria-hidden
@@ -419,8 +419,12 @@ export default async function WaitlistPage() {
                   busywork.
                 </p>
               </ScrollReveal>
-              <div className="flex min-h-[20rem] items-center justify-center">
-                <DisplayCards cards={PROOF_CARDS} />
+              <div className="flex min-h-[16rem] items-center justify-center overflow-hidden sm:min-h-[20rem]">
+                {/* the skewed stack is ~450px wide by design — scale it down on
+                    phones so it fits instead of overflowing the viewport */}
+                <div className="origin-center scale-[0.72] sm:scale-100">
+                  <DisplayCards cards={PROOF_CARDS} />
+                </div>
               </div>
             </div>
           </div>
@@ -442,7 +446,7 @@ export default async function WaitlistPage() {
         {/* ---------------------------------------------------------------- */}
         {/* Finale CTA — spiral backdrop                                     */}
         {/* ---------------------------------------------------------------- */}
-        <section className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0810] py-28 sm:py-40">
+        <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#0a0810] py-28 sm:py-40">
           <SpiralBackdrop scale={1} />
           {/* vignette so the form CTA and text stay legible */}
           <div
@@ -478,7 +482,7 @@ export default async function WaitlistPage() {
         {/* ---------------------------------------------------------------- */}
         {/* Sparkles CTA — the last word                                     */}
         {/* ---------------------------------------------------------------- */}
-        <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#0a0810]">
+        <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-[#0a0810]">
           <SparklesBackdrop particleColor="#ffffff" particleDensity={1100} />
           {/* purple ambient glow + bottom vignette */}
           <div

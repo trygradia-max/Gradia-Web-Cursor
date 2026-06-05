@@ -13,6 +13,15 @@
 
   html {
     scroll-behavior: smooth;
+    /* Clip stray horizontal overflow so the page can't drift sideways on
+       mobile. `clip` (not `hidden`) doesn't create a scroll container, so the
+       sticky header keeps working. */
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   /* Inputs/selects stay sharp — cards, tables, and form fields are not rounded */
