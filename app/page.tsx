@@ -167,6 +167,56 @@ export default async function WaitlistPage() {
         </section>
 
         {/* ---------------------------------------------------------------- */}
+        {/* Join the waitlist — while you can (sparkles CTA)                 */}
+        {/* ---------------------------------------------------------------- */}
+        <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-[#0a0810]">
+          <SparklesBackdrop particleColor="#ffffff" particleDensity={1100} />
+          {/* purple ambient glow + bottom vignette */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 60% 50% at 50% 42%, rgba(124,58,237,0.28), transparent 70%)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-1/3 bg-gradient-to-b from-transparent to-[#0a0810]"
+          />
+
+          <div className="relative z-20 mx-auto max-w-3xl px-5 text-center">
+            <div className="mb-6 flex justify-center">
+              <Logo variant="light" className="text-2xl" />
+            </div>
+            <p className="mb-4 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/70 backdrop-blur-sm">
+              <span className="wl-dot-pulse h-1.5 w-1.5 rounded-full bg-[var(--brand-primary)]" />
+              27 founding spots left
+            </p>
+            <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
+              Join the waitlist
+              <br />
+              <span className="bg-gradient-to-r from-[#a78bfa] via-white to-[#a78bfa] bg-clip-text text-transparent">
+                while you can.
+              </span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-lg text-base text-white/60 sm:text-lg">
+              The first 1,000 detailers lock in 50% off year one — and the
+              founding 100 keep it for life. Spots are going fast.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <a
+                href="#waitlist"
+                className="wl-cta inline-flex items-center gap-2 rounded-[100px] bg-white px-8 py-4 text-sm font-semibold text-[#0a0810] shadow-[0_0_40px_rgba(124,58,237,0.5)] transition-transform hover:scale-[1.03]"
+              >
+                Join the waitlist
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------------------------------------------------------- */}
         {/* Scheduler — two weeks booked + ceramic upsells                   */}
         {/* ---------------------------------------------------------------- */}
         <section
@@ -204,18 +254,6 @@ export default async function WaitlistPage() {
             <ScrollReveal>
               <DailyBrief />
             </ScrollReveal>
-          </div>
-        </section>
-
-        {/* ---------------------------------------------------------------- */}
-        {/* Waitlist form                                                    */}
-        {/* ---------------------------------------------------------------- */}
-        <section
-          id="waitlist"
-          className="scroll-mt-16 border-t border-[var(--border)] py-20 sm:py-28"
-        >
-          <div className="mx-auto max-w-content px-5 sm:px-8">
-            <WaitlistForm count={waitlistCount} />
           </div>
         </section>
 
@@ -480,52 +518,14 @@ export default async function WaitlistPage() {
           </div>
         </section>
         {/* ---------------------------------------------------------------- */}
-        {/* Sparkles CTA — the last word                                     */}
+        {/* Waitlist form — the very bottom                                  */}
         {/* ---------------------------------------------------------------- */}
-        <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-[#0a0810]">
-          <SparklesBackdrop particleColor="#ffffff" particleDensity={1100} />
-          {/* purple ambient glow + bottom vignette */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 z-0"
-            style={{
-              background:
-                "radial-gradient(ellipse 60% 50% at 50% 42%, rgba(124,58,237,0.28), transparent 70%)",
-            }}
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-1/3 bg-gradient-to-b from-transparent to-[#0a0810]"
-          />
-
-          <div className="relative z-20 mx-auto max-w-3xl px-5 text-center">
-            <div className="mb-6 flex justify-center">
-              <Logo variant="light" className="text-2xl" />
-            </div>
-            <p className="mb-4 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/70 backdrop-blur-sm">
-              <span className="wl-dot-pulse h-1.5 w-1.5 rounded-full bg-[var(--brand-primary)]" />
-              27 founding spots left
-            </p>
-            <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
-              Join the waitlist
-              <br />
-              <span className="bg-gradient-to-r from-[#a78bfa] via-white to-[#a78bfa] bg-clip-text text-transparent">
-                while you can.
-              </span>
-            </h2>
-            <p className="mx-auto mt-5 max-w-lg text-base text-white/60 sm:text-lg">
-              The first 1,000 detailers lock in 50% off year one — and the
-              founding 100 keep it for life. Spots are going fast.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <a
-                href="#waitlist"
-                className="wl-cta inline-flex items-center gap-2 rounded-[100px] bg-white px-8 py-4 text-sm font-semibold text-[#0a0810] shadow-[0_0_40px_rgba(124,58,237,0.5)] transition-transform hover:scale-[1.03]"
-              >
-                Join the waitlist
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+        <section
+          id="waitlist"
+          className="scroll-mt-16 border-t border-[var(--border)] py-20 sm:py-28"
+        >
+          <div className="mx-auto max-w-content px-5 sm:px-8">
+            <WaitlistForm count={waitlistCount} />
           </div>
         </section>
       </main>
