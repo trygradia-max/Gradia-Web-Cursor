@@ -15,38 +15,38 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Gradia — The Vertical Company",
+    default: "Gradia — Your 7-agent front office for car detailers",
     template: "%s · Gradia",
   },
   description:
-    "AI Digital Employees that answer calls, capture leads, and run your operations — built for healthcare, finance, and service businesses.",
+    "Gradia is 7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices — so you keep your hands on the car. Join the waitlist.",
   keywords: [
-    "AI receptionist",
-    "digital front desk",
-    "healthcare call answering",
-    "home services lead capture",
-    "professional services intake",
-    "24/7 phone answering",
-    "appointment scheduling AI",
-    "missed call recovery",
-    "front desk automation",
-    "HIPAA-ready AI",
-    "AI digital employee",
+    "car detailing software",
+    "AI for car detailers",
+    "detailing business software",
+    "auto detailing CRM",
+    "detailer booking software",
+    "AI receptionist for detailers",
+    "car detail quoting",
+    "mobile detailing scheduling",
+    "ceramic coating business software",
+    "detailing invoicing",
+    "AI front office",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName: "Gradia",
-    title: "Gradia — The Vertical Company",
+    title: "Gradia — Your 7-agent front office for car detailers",
     description:
-      "AI Digital Employees that answer calls, capture leads, and run your operations.",
+      "7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices. Join the waitlist.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gradia — The Vertical Company",
+    title: "Gradia — Your 7-agent front office for car detailers",
     description:
-      "AI Digital Employees that answer calls, capture leads, and run your operations.",
+      "7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices. Join the waitlist.",
   },
 };
 

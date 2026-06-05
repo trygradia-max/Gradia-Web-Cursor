@@ -93,8 +93,8 @@ export function AnalyticsDashboardPreview() {
                     x2="0"
                     y2="1"
                   >
-                    <stop offset="0%" stopColor="#3b6ef5" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="#3b6ef5" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
                   </linearGradient>
                 </defs>
                 {[0, 0.25, 0.5, 0.75, 1].map((t) => (
@@ -118,7 +118,7 @@ export function AnalyticsDashboardPreview() {
                   ref={pathRef}
                   d={d}
                   fill="none"
-                  stroke="#3b6ef5"
+                  stroke="#7c3aed"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -139,7 +139,7 @@ export function AnalyticsDashboardPreview() {
                       cy={cy}
                       r="5"
                       fill="#ffffff"
-                      stroke="#3b6ef5"
+                      stroke="#7c3aed"
                       strokeWidth="2"
                       style={{
                         opacity: draw ? 1 : 0,

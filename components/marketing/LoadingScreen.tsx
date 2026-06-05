@@ -7,8 +7,8 @@ type Phase = "loading" | "fading" | "done";
 
 const SESSION_KEY = "gradia-intro-shown";
 
-const HOLD_MS = 2000;
-const FADE_MS = 500;
+const HOLD_MS = 800;
+const FADE_MS = 400;
 
 export function LoadingScreen() {
   // Start as null to avoid SSR/hydration mismatch — the server never renders

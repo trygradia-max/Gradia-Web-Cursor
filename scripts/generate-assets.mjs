@@ -1,9 +1,13 @@
 /**
  * Generates favicons from public/images/gradia-logo.png:
  * - App Router: app/favicon.ico, app/icon.png, app/apple-icon.png (tab + home-screen)
- * - Legacy public: public/favicon.ico, public/apple-touch-icon.png
- * - OG: public/images/og-image.jpg (from SVG)
+ * - Legacy public: public/apple-touch-icon.png
+ * - OG: public/images/og-image.jpg (static fallback; live OG is app/opengraph-image.tsx)
  * Run: node scripts/generate-assets.mjs
+ *
+ * NOTE: do NOT also write public/favicon.ico — App Router serves /favicon.ico
+ * from app/favicon.ico, and a duplicate in public/ causes a route collision
+ * ("A conflicting public file and page file was found") that 500s the icon.
  */
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -33,7 +37,7 @@ const ogSvg = `<?xml version="1.0" encoding="UTF-8"?>
   <rect x="420" y="412" width="360" height="3" fill="${brandPrimary}" rx="1.5" opacity="0.9"/>
   <text x="520" y="292" text-anchor="start" font-family="Georgia, serif" font-size="96" fill="#ffffff">Gradia</text>
   <circle cx="700" cy="268" r="11" fill="${brandPrimary}"/>
-  <text x="600" y="372" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#f8fafc">The Vertical Company</text>
+  <text x="600" y="372" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#f8fafc">Your 7-agent front office for car detailers</text>
 </svg>`;
 
 await mkdir(imagesDir, { recursive: true });
@@ -42,7 +46,6 @@ const faviconPng32 = await sharp(logoPath).resize(32, 32).png().toBuffer();
 const faviconPng16 = await sharp(logoPath).resize(16, 16).png().toBuffer();
 const icoBuffer = await pngToIco([faviconPng16, faviconPng32]);
 
-await writeFile(join(publicDir, "favicon.ico"), icoBuffer);
 await writeFile(join(appDir, "favicon.ico"), icoBuffer);
 
 await sharp(logoPath).resize(180, 180).png().toFile(join(publicDir, "apple-touch-icon.png"));
@@ -60,5 +63,5 @@ await sharp(logoPath)
 await sharp(Buffer.from(ogSvg)).jpeg({ quality: 88 }).toFile(join(imagesDir, "og-image.jpg"));
 
 console.log(
-  "Wrote app/favicon.ico, app/icon.png, app/apple-icon.png; public/favicon.ico, public/apple-touch-icon.png; public/images/og-image.jpg",
+  "Wrote app/favicon.ico, app/icon.png, app/apple-icon.png; public/apple-touch-icon.png; public/images/og-image.jpg",
 );

@@ -33,3 +33,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# supabase CLI cache
+supabase/.temp/
+
+# vercel
+.vercel

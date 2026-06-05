@@ -78,7 +78,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
       (resource.external !== true && resource.href.startsWith("/")));
 
   const inner = (
-    <div className="group flex h-full flex-col rounded-none border border-[var(--border-subtle)] bg-[var(--bg)] p-8 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-[rgba(59,110,245,0.35)] hover:shadow-[0_0_0_1px_rgba(59,110,245,0.08),0_12px_32px_-12px_rgba(59,110,245,0.1)] motion-reduce:hover:translate-y-0 sm:p-10">
+    <div className="group flex h-full flex-col rounded-none border border-[var(--border-subtle)] bg-[var(--bg)] p-8 transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-[rgba(124,58,237,0.35)] hover:shadow-[0_0_0_1px_rgba(124,58,237,0.08),0_12px_32px_-12px_rgba(124,58,237,0.1)] motion-reduce:hover:translate-y-0 sm:p-10">
       <span className="inline-block w-fit rounded-none border border-[var(--border-subtle)] px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--brand-primary)]">
         {resource.tag}
       </span>

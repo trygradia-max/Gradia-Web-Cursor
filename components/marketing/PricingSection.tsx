@@ -82,7 +82,7 @@ export function PricingSection() {
             className={cn(
               "flex w-full flex-col rounded-none border bg-[var(--bg)] p-8 pt-10 sm:p-10",
               tier.popular
-                ? "border-[var(--brand-primary)]/40 shadow-[0_0_0_1px_rgba(59,110,245,0.12)]"
+                ? "border-[var(--brand-primary)]/40 shadow-[0_0_0_1px_rgba(124,58,237,0.12)]"
                 : "border-[var(--border-subtle)]",
             )}
           >

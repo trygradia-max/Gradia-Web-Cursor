@@ -6,31 +6,9 @@ import { NextResponse, type NextRequest } from "next/server";
  * /portal/* (except /portal/login) when there is no valid session.
  */
 export async function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
-
-  // Site takedown: only the waitlist landing (/) and functional routes (the
-  // portal app + API) stay reachable. Every other marketing route 307s to the
-  // waitlist. The old pages still exist in the repo — restore by reverting
-  // this redirect, app/page.tsx, and app/sitemap.ts (see _backup/). Static
-  // assets and metadata files are excluded by `config.matcher` below.
-  const isFunctional =
-    pathname === "/" ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/portal");
-  if (!isFunctional) {
-    const home = request.nextUrl.clone();
-    home.pathname = "/";
-    home.search = "";
-    return NextResponse.redirect(home);
-  }
-
-  // Only the portal needs the Supabase auth round-trip below.
-  if (!pathname.startsWith("/portal")) {
-    return NextResponse.next({ request });
-  }
-
   let supabaseResponse = NextResponse.next({ request });
 
+  const pathname = request.nextUrl.pathname;
   /** Login page does not need a Supabase round-trip; skipping speeds dev when Auth is slow/unreachable. */
   if (pathname === "/portal/login") {
     return supabaseResponse;
@@ -99,14 +77,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Run on everything except Next internals, static assets, and metadata
-  // routes, so the takedown redirect covers all marketing pages while leaving
-  // favicon/sitemap/OG image and /_next untouched.
-  matcher: [
-    // Exclude Next internals, metadata routes, AND any path with a static-file
-    // extension (e.g. /logo.png, /images/*, favicon.svg) so public assets are
-    // never caught by the takedown redirect — otherwise the image optimizer
-    // fetches a 307 HTML redirect instead of the file and 400s.
-    "/((?!_next/static|_next/image|sitemap.xml|robots.txt|opengraph-image|.*\\.[\\w]+$).*)",
-  ],
+  matcher: ["/portal", "/portal/:path*"],
 };

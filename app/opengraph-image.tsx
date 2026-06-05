@@ -2,7 +2,18 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Gradia — The Vertical Company";
+export const alt =
+  "Gradia — your 7-agent front office for car detailers";
+
+const AGENTS = [
+  "Receptionist",
+  "Estimator",
+  "Scheduler",
+  "Collector",
+  "Marketer",
+  "Reviewer",
+  "Closer",
+];
 
 export const size = {
   width: 1200,
@@ -52,6 +63,10 @@ export default async function OpenGraphImage() {
 
   const hasInter = Boolean(inter400 && inter700);
 
+  const fontFamily = hasInter
+    ? "Inter"
+    : "ui-sans-serif, system-ui, sans-serif";
+
   return new ImageResponse(
     (
       <div
@@ -60,24 +75,18 @@ export default async function OpenGraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#0a0a0a",
+          justifyContent: "space-between",
+          padding: 72,
+          background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)",
+          fontFamily,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 18,
-            marginBottom: 28,
-          }}
-        >
+        {/* Wordmark */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span
             style={{
-              fontSize: 96,
+              fontSize: 40,
               color: "white",
-              fontFamily: hasInter ? "Inter" : "ui-sans-serif, system-ui, sans-serif",
               fontWeight: 700,
               letterSpacing: "-0.02em",
             }}
@@ -86,40 +95,67 @@ export default async function OpenGraphImage() {
           </span>
           <span
             style={{
-              width: 16,
-              height: 16,
-              borderRadius: 0,
-              background: "#3b6ef5",
-              marginTop: 14,
+              width: 12,
+              height: 12,
+              background: "rgba(255,255,255,0.9)",
+              marginTop: 12,
             }}
           />
         </div>
-        <p
-          style={{
-            fontSize: 32,
-            color: "#f8fafc",
-            fontFamily: hasInter ? "Inter" : "ui-sans-serif, system-ui, sans-serif",
-            fontWeight: 400,
-            margin: 0,
-            marginBottom: 36,
-          }}
-        >
-          The Vertical Company
-        </p>
-        <div
-          style={{
-            width: 360,
-            height: 3,
-            background: "#3b6ef5",
-            opacity: 0.9,
-            borderRadius: 0,
-          }}
-        />
+
+        {/* Headline */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span
+            style={{
+              fontSize: 68,
+              lineHeight: 1.05,
+              color: "white",
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+              maxWidth: 940,
+            }}
+          >
+            Hire your 7-agent front office.
+          </span>
+          <span
+            style={{
+              fontSize: 36,
+              color: "rgba(255,255,255,0.85)",
+              fontWeight: 400,
+              marginTop: 16,
+            }}
+          >
+            So you keep your hands on the car. Built for car detailers.
+          </span>
+        </div>
+
+        {/* Agent chips */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+          {AGENTS.map((name) => (
+            <span
+              key={name}
+              style={{
+                display: "flex",
+                fontSize: 24,
+                color: "white",
+                fontWeight: 500,
+                padding: "10px 20px",
+                background: "rgba(255,255,255,0.14)",
+                border: "1px solid rgba(255,255,255,0.25)",
+              }}
+            >
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
     ),
     {
       ...size,
-      fonts,
+      // Only override the built-in font when our Inter fetch succeeded —
+      // passing an empty `fonts` array makes ImageResponse throw
+      // "No fonts are loaded" (e.g. if fonts.gstatic.com is unreachable).
+      ...(fonts.length > 0 ? { fonts } : {}),
     },
   );
 }
