@@ -2,9 +2,6 @@
 
 import { useState } from "react";
 import { Check } from "lucide-react";
-import { CountUp } from "@/components/ui/CountUp";
-import { FoundingMeter } from "@/components/waitlist/FoundingMeter";
-import { SignupTicker } from "@/components/waitlist/SignupTicker";
 
 const ROLES = [
   "Solo / mobile detailer",
@@ -17,19 +14,15 @@ const ROLES = [
 const TIERS = [
   {
     title: "Founding 100",
-    perk: "Lifetime 50% off + your name on the launch wall.",
+    perk: "50% off for life, early access to new features, and our private beta.",
   },
   {
-    title: "Next 900",
-    perk: "50% off year one + 30-day early access.",
-  },
-  {
-    title: "Refer 5 friends",
-    perk: "Skip 500 spots in line.",
+    title: "First 1,000",
+    perk: "50% off your first month.",
   },
 ];
 
-export function WaitlistForm({ count = 2400 }: { count?: number }) {
+export function WaitlistForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">(
     "idle",
   );
@@ -81,37 +74,11 @@ export function WaitlistForm({ count = 2400 }: { count?: number }) {
           Get on the list.
         </h2>
         <p className="mt-4 max-w-md text-[var(--muted)]">
-          Be first in line when Gradia opens up. The first 1,000 detailers get
-          50% off year one.
+          Be first in line when Gradia opens up. The founding 100 lock in 50%
+          off for life.
         </p>
 
-        <div className="mt-6 flex flex-col gap-2.5">
-          <div className="inline-flex items-center gap-2 self-start border border-[var(--border)] bg-[var(--bg)] px-4 py-2.5">
-            <span className="flex -space-x-2">
-              {["#7c3aed", "#a78bfa", "#c8ccd4"].map((c) => (
-                <span
-                  key={c}
-                  className="h-6 w-6 rounded-full border-2 border-[var(--bg)]"
-                  style={{ background: c }}
-                />
-              ))}
-            </span>
-            <span className="text-sm text-[var(--foreground)]">
-              <span className="font-semibold">
-                <CountUp end={count} />+
-              </span>{" "}
-              <span className="text-[var(--muted)]">detailers already in line</span>
-            </span>
-          </div>
-          <SignupTicker />
-        </div>
-
-        {/* scarcity meter — the founding tier is filling up */}
-        <div className="mt-6">
-          <FoundingMeter claimed={73} />
-        </div>
-
-        <ul className="mt-6 flex flex-col gap-3">
+        <ul className="mt-8 flex flex-col gap-3">
           {TIERS.map((t) => (
             <li key={t.title} className="flex gap-3">
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-primary)]" />
@@ -137,8 +104,7 @@ export function WaitlistForm({ count = 2400 }: { count?: number }) {
               You&rsquo;re on the list.
             </h3>
             <p className="mt-2 max-w-xs text-sm text-[var(--muted)]">
-              We&rsquo;ll email you the moment Gradia opens up. Refer 5 friends
-              to skip 500 spots.
+              We&rsquo;ll email you the moment Gradia opens up.
             </p>
           </div>
         ) : (

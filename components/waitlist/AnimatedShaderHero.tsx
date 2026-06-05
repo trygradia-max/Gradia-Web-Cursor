@@ -214,7 +214,7 @@ export function AnimatedShaderHero() {
           className="inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/70 backdrop-blur-sm"
         >
           <span className="wl-dot-pulse h-1.5 w-1.5 rounded-full bg-[var(--brand-primary)]" />
-          Now in private beta · First 1,000 get 50% off year one
+          Now in private beta · Founding 100 get 50% off for life
         </span>
 
         <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.04] tracking-tight text-white sm:text-7xl">

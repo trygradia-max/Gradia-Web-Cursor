@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "How much will it cost?",
-    a: "Less than one detail a month. Final pricing is set before launch — the first 1,000 people on the waitlist lock in 50% off year one, and the founding 100 keep 50% off for life.",
+    a: "Less than one detail a month. Final pricing is set before launch — the founding 100 lock in 50% off for life plus early access to new features and our private beta, and the first 1,000 get 50% off their first month.",
   },
   {
     q: "When does it launch?",

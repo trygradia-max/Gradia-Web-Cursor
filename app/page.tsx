@@ -21,7 +21,6 @@ import { ModeToggle } from "@/components/waitlist/ModeToggle";
 import { CrmAgentDemo } from "@/components/waitlist/CrmAgentDemo";
 import { WhisperDemo } from "@/components/waitlist/WhisperDemo";
 import DisplayCards from "@/components/ui/DisplayCards";
-import { getWaitlistCount } from "@/lib/waitlist";
 
 const PROOF_CARDS = [
   {
@@ -63,9 +62,7 @@ const WHY_STATS = [
   { stat: "24/7", label: "answering, quoting, and booking — even while you detail." },
 ];
 
-export default async function WaitlistPage() {
-  const waitlistCount = await getWaitlistCount();
-
+export default function WaitlistPage() {
   return (
     <div id="top" className="min-h-[100svh] bg-[var(--bg)]">
       <WaitlistHeader />
@@ -171,7 +168,7 @@ export default async function WaitlistPage() {
             </div>
             <p className="mb-4 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/70 backdrop-blur-sm">
               <span className="wl-dot-pulse h-1.5 w-1.5 rounded-full bg-[var(--brand-primary)]" />
-              27 founding spots left
+              Founding 100 · 50% off for life
             </p>
             <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl">
               Join the waitlist
@@ -181,8 +178,9 @@ export default async function WaitlistPage() {
               </span>
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-base text-white/60 sm:text-lg">
-              The first 1,000 detailers lock in 50% off year one — and the
-              founding 100 keep it for life. Spots are going fast.
+              The founding 100 lock in 50% off for life — plus early access to
+              new features and our private beta. The first 1,000 get 50% off
+              their first month.
             </p>
             <div className="mt-8 flex justify-center">
               <a
@@ -484,7 +482,7 @@ export default async function WaitlistPage() {
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-white/70">
               Hire your 7-agent front office and keep your hands on the car. The
-              first 1,000 detailers get 50% off year one.
+              founding 100 get 50% off for life.
             </p>
             <div className="mt-8 flex justify-center">
               <a
@@ -505,7 +503,7 @@ export default async function WaitlistPage() {
           className="scroll-mt-16 border-t border-[var(--border)] py-20 sm:py-28"
         >
           <div className="mx-auto max-w-content px-5 sm:px-8">
-            <WaitlistForm count={waitlistCount} />
+            <WaitlistForm />
           </div>
         </section>
       </main>
