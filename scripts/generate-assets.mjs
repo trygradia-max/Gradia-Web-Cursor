@@ -22,9 +22,9 @@ const appDir = join(root, "app");
 const imagesDir = join(publicDir, "images");
 
 const brandDark = "#0a0a0a";
-const brandPrimary = "#3b6ef5";
+const brandPrimary = "#7c3aed";
 
-const logoPath = join(imagesDir, "gradia-logo.png");
+const logoPath = join(imagesDir, "gradia-icon.png");
 
 const iconPad = {
   fit: "contain",
