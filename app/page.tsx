@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/marketing/ScrollReveal";
 import { Logo } from "@/components/ui/Logo";
 import { WaitlistHeader } from "@/components/waitlist/WaitlistHeader";
 import { CaptureDemo } from "@/components/waitlist/CaptureDemo";
-import { CastTabs } from "@/components/waitlist/CastTabs";
+import { CallStory } from "@/components/waitlist/CallStory";
 import { AgentDay } from "@/components/waitlist/AgentDay";
 import { DailyBrief } from "@/components/waitlist/DailyBrief";
 import { WaitlistForm } from "@/components/waitlist/WaitlistForm";
@@ -100,19 +100,19 @@ export default function WaitlistPage() {
           className="border-t border-[var(--border)] bg-[var(--bg-elevated)] py-20 sm:py-28"
         >
           <div className="mx-auto max-w-content px-5 sm:px-8">
-            <ScrollReveal className="mx-auto mb-14 max-w-2xl text-center">
-              <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
+            <ScrollReveal className="mx-auto mb-12 max-w-2xl text-center">
+              <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--brand-primary)]">
+                Gradia in action
+              </span>
+              <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
                 Built to run the front office while you detail.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                In the bay, on a job, or off the clock — your 7 agents handle the
-                calls, quotes, bookings, and follow-ups. One system. Nothing
-                falls through.
+                Watch one call go end to end — answered, quoted, upsold, booked,
+                and followed up — without you touching your phone.
               </p>
             </ScrollReveal>
-            <ScrollReveal>
-              <CastTabs />
-            </ScrollReveal>
+            <CallStory />
           </div>
         </section>
 
