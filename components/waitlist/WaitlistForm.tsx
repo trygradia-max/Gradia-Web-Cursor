@@ -15,6 +15,7 @@ const TIERS = [
   {
     title: "Founding 100",
     perk: "50% off for life, early access to new features, and our private beta.",
+    limited: true,
   },
   {
     title: "First 1,000",
@@ -85,7 +86,13 @@ export function WaitlistForm() {
               <span className="text-sm">
                 <span className="font-medium text-[var(--foreground)]">
                   {t.title}
-                </span>{" "}
+                </span>
+                {"limited" in t && t.limited && (
+                  <span className="ml-2 inline-flex items-center gap-1 border border-[color:var(--dash-warning)]/40 bg-[color:var(--dash-warning)]/10 px-1.5 py-0.5 align-middle text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--dash-warning)]">
+                    <span className="wl-dot-pulse h-1 w-1 bg-[var(--dash-warning)]" />
+                    Limited · only 100
+                  </span>
+                )}{" "}
                 <span className="text-[var(--muted)]">— {t.perk}</span>
               </span>
             </li>
