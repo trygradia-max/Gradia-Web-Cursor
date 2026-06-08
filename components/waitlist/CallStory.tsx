@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   PhoneCall,
@@ -14,11 +14,13 @@ import {
 import { cn } from "@/lib/cn";
 
 /**
- * "See Gradia handle a call, start to finish" — a scroll-driven sticky reveal
- * (pattern from aceternity/sticky-scroll-reveal, rebuilt page-scroll for smooth
- * mobile). The four beats scroll on the left; the visual on the right sticks and
- * cross-fades to match. On mobile each beat carries its own visual inline.
+ * "See Gradia handle a call, start to finish" — an auto-playing product-demo
+ * (pattern adapted from aceternity/sticky-scroll-reveal). The four beats
+ * advance on their own (call → quote+upsell → book → follow-up) with the visual
+ * cross-fading to match. Starts when scrolled into view, pauses off-screen,
+ * click any beat to jump, and holds still under prefers-reduced-motion.
  */
+const DWELL = 4500; // ms each beat stays before auto-advancing
 const BEATS = [
   {
     eyebrow: "01 · The Receptionist",
@@ -154,89 +156,117 @@ function Visual({ step }: { step: number }) {
 
 export function CallStory() {
   const [active, setActive] = useState(0);
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const [inView, setInView] = useState(false);
+  const reduce = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) {
-          const i = refs.current.indexOf(visible.target as HTMLDivElement);
-          if (i >= 0) setActive(i);
-        }
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.5, 1] },
-    );
-    refs.current.forEach((el) => el && io.observe(el));
+    reduce.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+  }, []);
+
+  // Only play while the demo is on-screen.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), {
+      threshold: 0.35,
+    });
+    io.observe(el);
     return () => io.disconnect();
   }, []);
 
-  return (
-    <div className="relative grid gap-10 lg:grid-cols-2 lg:gap-16">
-      {/* left: scrolling beats */}
-      <div>
-        {BEATS.map((b, i) => (
-          <div
-            key={b.title}
-            ref={(el) => {
-              refs.current[i] = el;
-            }}
-            className="flex min-h-[60vh] flex-col justify-center py-8 lg:min-h-[80vh]"
-          >
-            <div
-              className={cn(
-                "transition-opacity duration-500",
-                i === active ? "opacity-100" : "lg:opacity-35",
-              )}
-            >
-              <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--brand-primary)]">
-                {b.eyebrow}
-              </span>
-              <h3 className="mt-2 text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
-                {b.title}
-              </h3>
-              <p className="mt-3 max-w-md text-[var(--muted)]">{b.desc}</p>
-            </div>
-            {/* mobile: visual inline under each beat */}
-            <div className="mt-6 lg:hidden">
-              <Visual step={i} />
-            </div>
-          </div>
-        ))}
-      </div>
+  // Auto-advance: re-arm after each beat (a click also resets the dwell).
+  useEffect(() => {
+    if (!inView || reduce.current) return;
+    const t = window.setTimeout(
+      () => setActive((a) => (a + 1) % BEATS.length),
+      DWELL,
+    );
+    return () => window.clearTimeout(t);
+  }, [active, inView]);
 
-      {/* right: sticky visual that cross-fades (desktop) */}
-      <div className="hidden lg:block">
-        <div className="sticky top-28 flex h-[60vh] items-center">
-          <div className="relative w-full max-w-md">
-            {/* progress rail */}
-            <div className="absolute -left-8 top-0 flex h-full flex-col items-center justify-center gap-2">
-              {BEATS.map((_, i) => (
-                <span
-                  key={i}
-                  className={cn(
-                    "w-0.5 rounded-full transition-all duration-500",
-                    i === active
-                      ? "h-8 bg-[var(--brand-primary)]"
-                      : "h-3 bg-white/15",
-                  )}
-                />
-              ))}
-            </div>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -14 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
+  return (
+    <div
+      ref={containerRef}
+      className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
+    >
+      {/* left: the four beats — active highlights, others dim, click to jump */}
+      <ol className="flex flex-col gap-1">
+        {BEATS.map((b, i) => {
+          const on = i === active;
+          return (
+            <li key={b.title}>
+              <button
+                type="button"
+                onClick={() => setActive(i)}
+                aria-current={on}
+                className={cn(
+                  "flex w-full cursor-pointer border-l-2 py-3 pl-5 text-left transition-colors",
+                  on
+                    ? "border-[var(--brand-primary)]"
+                    : "border-[var(--border)] hover:border-white/25",
+                )}
               >
-                <Visual step={active} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                <div
+                  className={cn(
+                    "transition-opacity duration-300",
+                    on ? "opacity-100" : "opacity-45",
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "text-xs font-medium uppercase tracking-[0.15em] transition-colors",
+                      on ? "text-[var(--brand-primary)]" : "text-[var(--muted)]",
+                    )}
+                  >
+                    {b.eyebrow}
+                  </span>
+                  <h3
+                    className={cn(
+                      "mt-1 text-xl font-semibold tracking-tight transition-colors sm:text-2xl",
+                      on ? "text-[var(--foreground)]" : "text-[var(--muted)]",
+                    )}
+                  >
+                    {b.title}
+                  </h3>
+                  <p className="mt-1.5 max-w-md text-sm text-[var(--muted)]">
+                    {b.desc}
+                  </p>
+                  {/* timing bar — fills over the dwell on the active beat */}
+                  <div className="mt-2.5 h-0.5 w-full max-w-md overflow-hidden bg-white/10">
+                    {on && !reduce.current && inView && (
+                      <motion.div
+                        key={active}
+                        className="h-full bg-[var(--brand-primary)]"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: DWELL / 1000, ease: "linear" }}
+                      />
+                    )}
+                  </div>
+                </div>
+              </button>
+            </li>
+          );
+        })}
+      </ol>
+
+      {/* right: visual cross-fades to the active beat */}
+      <div className="flex justify-center lg:justify-end">
+        <div className="w-full max-w-md">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 14, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -14, scale: 0.98 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <Visual step={active} />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </div>
