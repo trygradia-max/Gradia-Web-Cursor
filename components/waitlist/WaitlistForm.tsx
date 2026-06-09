@@ -18,7 +18,7 @@ const TIERS = [
     limited: true,
   },
   {
-    title: "First 1,000",
+    title: "Next 900",
     perk: "50% off your first month ($10).",
   },
 ];

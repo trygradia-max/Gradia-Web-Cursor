@@ -190,8 +190,8 @@ export default function WaitlistPage() {
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-base text-white/60 sm:text-lg">
               The founding 100 lock in 50% off for life — plus early access to
-              new features and our private beta. The first 1,000 get 50% off
-              their first month.
+              new features and our private beta. The next 900 get 50% off their
+              first month.
             </p>
             <div className="mt-8 flex justify-center">
               <a
