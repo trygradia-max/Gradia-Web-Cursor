@@ -50,6 +50,9 @@ export const metadata: Metadata = {
   },
   description:
     "AI software for car detailers: Gradia's 7 AI agents answer every call, quote any car, fill your calendar, and collect your money — so you keep your hands on the car. Join the waitlist.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
