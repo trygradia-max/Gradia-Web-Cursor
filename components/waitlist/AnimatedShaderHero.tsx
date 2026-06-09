@@ -206,18 +206,18 @@ export function AnimatedShaderHero() {
       />
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 text-center">
-        <div style={rise("0s")} className="mb-7 flex justify-center">
+        <div style={rise("0s")} className="mb-5 flex justify-center sm:mb-6">
           <Logo variant="light" className="text-2xl sm:text-3xl" />
         </div>
         <span
           style={rise("0.1s")}
-          className="inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/70 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] text-white/70 backdrop-blur-sm sm:text-xs"
         >
           <span className="wl-dot-pulse h-1.5 w-1.5 rounded-full bg-[var(--brand-primary)]" />
           Now in private beta · Founding 100 get 50% off for life
         </span>
 
-        <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[1.04] tracking-tight text-white sm:text-7xl">
+        <h1 className="mt-5 max-w-4xl text-[2rem] font-bold leading-[1.14] tracking-tight text-white sm:mt-6 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
           <span style={rise("0.2s")} className="block">
             Your entire front office. One app.
           </span>
@@ -231,7 +231,7 @@ export function AnimatedShaderHero() {
 
         <p
           style={rise("0.5s")}
-          className="mx-auto mt-6 max-w-2xl text-base text-white/70 sm:text-lg"
+          className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/65 sm:mt-6 sm:max-w-2xl sm:text-lg"
         >
           Gradia is 7 AI agents that answer your phone, quote every car, fill
           your calendar, collect your money, and bring back old customers — so
@@ -240,7 +240,7 @@ export function AnimatedShaderHero() {
 
         <div
           style={rise("0.65s")}
-          className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
+          className="mt-7 flex w-full flex-col items-center gap-3 sm:mt-9 sm:w-auto sm:flex-row"
         >
           <a
             href="#waitlist"
