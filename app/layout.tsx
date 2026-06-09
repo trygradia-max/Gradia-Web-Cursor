@@ -15,11 +15,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Gradia — Your 7-agent front office for car detailers",
+    default: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     template: "%s · Gradia",
   },
   description:
-    "Gradia is 7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices — so you keep your hands on the car. Join the waitlist.",
+    "AI software for car detailers: Gradia's 7 AI agents answer every call, quote any car, fill your calendar, and collect your money — so you keep your hands on the car. Join the waitlist.",
   keywords: [
     "car detailing software",
     "AI for car detailers",
@@ -38,15 +38,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Gradia",
-    title: "Gradia — Your 7-agent front office for car detailers",
+    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
-      "7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices. Join the waitlist.",
+      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gradia — Your 7-agent front office for car detailers",
+    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
-      "7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices. Join the waitlist.",
+      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
   },
 };
 

@@ -45,14 +45,19 @@ const PROOF_CARDS = [
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Gradia — Your 7-agent front office for car detailers",
+    absolute: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7 · Gradia",
   },
   description:
-    "Gradia is 7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices — so you keep your hands on the car. Join the waitlist.",
+    "AI software for car detailers: Gradia's 7 AI agents answer every call, quote any car, fill your calendar, and collect your money — so you keep your hands on the car. Join the waitlist.",
   openGraph: {
-    title: "Gradia — Your 7-agent front office for car detailers",
+    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
-      "7 AI agents that answer your calls, quote every car, fill your calendar, and chase your invoices. Join the waitlist.",
+      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
+  },
+  twitter: {
+    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
+    description:
+      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
   },
 };
 
