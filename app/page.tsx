@@ -59,6 +59,7 @@ export const metadata: Metadata = {
       "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
   },
   twitter: {
+    card: "summary_large_image",
     title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
       "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",

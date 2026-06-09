@@ -9,10 +9,15 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   // Site takedown: only the waitlist landing (/) and functional routes (the
-  // portal app + API) stay reachable. Every other marketing route 307s to the
-  // waitlist. The old pages still exist in the repo — restore by reverting
-  // this redirect, app/page.tsx, and app/sitemap.ts (see _backup/). Static
-  // assets and metadata files are excluded by `config.matcher` below.
+  // portal app + API) stay reachable. Every other (retired) marketing route
+  // 308-redirects to the waitlist. 308 (permanent) — not 307 — so search
+  // engines consolidate these dead URLs into / and drop their old titles/
+  // descriptions from the index, instead of keeping them as "temporarily
+  // moved." The old pages still exist in the repo — restore by reverting this
+  // redirect, app/page.tsx, and app/sitemap.ts (see _backup/). Static assets
+  // and metadata files are excluded by `config.matcher` below.
+  // NOTE: 308 is cached by browsers; if the marketing site is revived, expect
+  // some clients to keep redirecting until their cache clears.
   const isFunctional =
     pathname === "/" ||
     pathname.startsWith("/api") ||
@@ -21,7 +26,7 @@ export async function middleware(request: NextRequest) {
     const home = request.nextUrl.clone();
     home.pathname = "/";
     home.search = "";
-    return NextResponse.redirect(home);
+    return NextResponse.redirect(home, 308);
   }
 
   // Only the portal needs the Supabase auth round-trip below.
