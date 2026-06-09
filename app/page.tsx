@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, PhoneCall, Star, Receipt } from "lucide-react";
+import { ArrowRight, PhoneCall, MessageSquare, CalendarCheck } from "lucide-react";
 import { ScrollReveal } from "@/components/marketing/ScrollReveal";
 import { Logo } from "@/components/ui/Logo";
 import { WaitlistHeader } from "@/components/waitlist/WaitlistHeader";
@@ -27,19 +27,19 @@ const PROOF_CARDS = [
   {
     icon: <PhoneCall className="size-4 text-white" />,
     title: "Missed call → booked",
-    description: "Receptionist replied in 4 seconds",
+    description: "Voice agent answered in 4 seconds",
     date: "9:47 PM",
   },
   {
-    icon: <Star className="size-4 text-white" />,
-    title: "New 5-star review",
-    description: "Reviewer asked at the right moment",
+    icon: <MessageSquare className="size-4 text-white" />,
+    title: "Cold lead → revived",
+    description: "Chat agent followed up — you approved",
     date: "Today",
   },
   {
-    icon: <Receipt className="size-4 text-white" />,
-    title: "$640 collected",
-    description: "Collector chased the invoice",
+    icon: <CalendarCheck className="size-4 text-white" />,
+    title: "Quoted & booked on a call",
+    description: "Straight onto your calendar",
     date: "2h ago",
   },
 ];
@@ -49,25 +49,25 @@ export const metadata: Metadata = {
     absolute: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7 · Gradia",
   },
   description:
-    "AI software for car detailers: Gradia's 7 AI agents answer every call, quote any car, fill your calendar, and collect your money — so you keep your hands on the car. Join the waitlist.",
+    "An AI office for auto detailers. Two agents, one brain: answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email — and you approve everything before it sends. $20/mo. Join the waitlist.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
-      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
+      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
   },
   twitter: {
     title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
-      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
+      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
   },
 };
 
 const WHY_STATS = [
   { stat: "62%", label: "of detailer calls go to voicemail — and most never call back." },
-  { stat: "7", label: "agents working your front office, around the clock." },
+  { stat: "2", label: "agents — voice and chat — sharing one brain across your shop." },
   { stat: "24/7", label: "answering, quoting, and booking — even while you detail." },
 ];
 
@@ -93,7 +93,7 @@ export default function WaitlistPage() {
                 Live
               </span>
               <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-                A lead comes in. It&rsquo;s handled before you wake up.
+                A call comes in. Answered, quoted, and booked.
               </h2>
             </ScrollReveal>
             <ScrollReveal>
@@ -118,9 +118,10 @@ export default function WaitlistPage() {
                 Built to run the front office while you detail.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Watch one call go end to end — your AI receptionist answers it,
-                quotes the car, upsells, books the job, and follows up — so you
-                stop missing calls while your hands are on the car.
+                Watch one call go end to end — your voice agent answers it,
+                quotes the car, and books the job over the phone. Then your chat
+                agent follows up by text and email — and you approve everything
+                before it sends.
               </p>
             </ScrollReveal>
             <CallStory />
@@ -133,7 +134,7 @@ export default function WaitlistPage() {
         <PlatformPreview />
 
         {/* ---------------------------------------------------------------- */}
-        {/* A full day — swipeable 7 agents                                  */}
+        {/* A full day — swipeable cards: 2 agents + 2 signature features    */}
         {/* ---------------------------------------------------------------- */}
         <section id="day" className="py-20 sm:py-28">
           <div className="mx-auto max-w-content px-5 sm:px-8">
@@ -206,7 +207,7 @@ export default function WaitlistPage() {
         </section>
 
         {/* ---------------------------------------------------------------- */}
-        {/* Scheduler — two weeks booked + ceramic upsells                   */}
+        {/* Calendar — two weeks booked over the phone                       */}
         {/* ---------------------------------------------------------------- */}
         <section
           id="schedule"
@@ -215,15 +216,15 @@ export default function WaitlistPage() {
           <div className="mx-auto max-w-content px-5 sm:px-8">
             <ScrollReveal className="mx-auto mb-12 max-w-2xl text-center">
               <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--brand-primary)]">
-                The Scheduler
+                Your calendar
               </span>
               <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-                Two weeks, booked solid — upsells included.
+                Two weeks, booked solid.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Your Scheduler fills the calendar while you work, and the
-                Estimator layers ceramic-coating upsells onto the right jobs.
-                You just show up and detail.
+                Your voice agent quotes and books every call straight onto the
+                real calendar you already use — filling your week while your
+                hands are on the car. You just show up and detail.
               </p>
             </ScrollReveal>
             <ScrollReveal>
@@ -259,11 +260,13 @@ export default function WaitlistPage() {
                 You&rsquo;re always in control
               </span>
               <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-                Approve every move — or let it run.
+                Nothing sends without your OK.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Start in approval mode and OK each action. When you trust it,
-                flip one switch and your agents go fully autonomous. Try it.
+                Every message, booking, and follow-up is staged for you to
+                approve — there&rsquo;s no auto-send. Whisper an instruction or
+                describe a workflow, and Gradia drafts it all, ready for your
+                one-tap OK. Try it.
               </p>
             </ScrollReveal>
             <ModeToggle />
@@ -285,7 +288,7 @@ export default function WaitlistPage() {
               <p className="mt-4 text-[var(--muted)]">
                 Every missed call is a detailing job that went to the next shop.
                 Gradia is the AI front office for car detailers — answering,
-                quoting, scheduling, and invoicing in one app — so nothing slips
+                quoting, booking, and following up in one app — so nothing slips
                 through.
               </p>
             </ScrollReveal>
@@ -314,9 +317,9 @@ export default function WaitlistPage() {
               Gradia AI sits at the center of it all.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/60">
-              Your CRM, texting, email marketing, payments, reviews, and Gradia
-              Whisper all run through one brain. Tap a node to see how it
-              connects.
+              Your CRM, calendar, email, texting, voice line, and Gradia Whisper
+              all run through one brain — so the voice agent knows what the chat
+              agent did two hours ago. Tap a node to see how it connects.
             </p>
           </div>
           <div className="relative z-10 mt-2">
@@ -334,14 +337,15 @@ export default function WaitlistPage() {
           <div className="mx-auto max-w-content px-5 sm:px-8">
             <ScrollReveal className="mx-auto mb-12 max-w-2xl text-center">
               <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--brand-primary)]">
-                The CRM agent
+                The chat agent
               </span>
               <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
                 Just ask. It works your whole customer list.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
                 Type it like you&rsquo;d text an employee. Gradia opens your CRM,
-                pulls the right customers, and sends — in seconds.
+                pulls the right customers, and shows you a preview — then sends
+                the moment you approve.
               </p>
             </ScrollReveal>
             <ScrollReveal>
@@ -363,11 +367,12 @@ export default function WaitlistPage() {
                 Gradia Whisper
               </span>
               <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-                Ask your shop anything.
+                Speak it. Gradia stages the work.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Speak or type a question and get the number, instantly — no
-                dashboards, no spreadsheets.
+                Say it like you&rsquo;d tell an employee — &ldquo;text everyone
+                who quoted ceramic but never booked&rdquo; — and Gradia turns it
+                into notes, tasks, and staged actions, ready for your approval.
               </p>
             </ScrollReveal>
             <ScrollReveal>
@@ -422,9 +427,9 @@ export default function WaitlistPage() {
               Your shop never stops moving.
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-white/60">
-              Calls answered. Cars quoted. Jobs booked. Invoices collected. Every
-              ripple below is a job your agents handled overnight — here&rsquo;s
-              the proof.
+              Calls answered. Cars quoted. Jobs booked. Leads followed up. Every
+              ripple below is work your agents staged overnight — waiting for
+              your OK.
             </p>
           </ScrollReveal>
         </section>
@@ -440,12 +445,12 @@ export default function WaitlistPage() {
                   Proof
                 </span>
                 <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-                  Real work, handled while you sleep.
+                  Real work, staged while you sleep.
                 </h2>
                 <p className="mt-4 max-w-md text-[var(--muted)]">
-                  Every night your agents answer texts, quote cars, book jobs,
-                  and collect deposits. You wake up to the results — not the
-                  busywork.
+                  Every night your agents answer calls, quote cars, book jobs,
+                  and follow up with leads — all staged for your approval. You
+                  wake up to the work, not the busywork.
                 </p>
               </ScrollReveal>
               <div className="flex min-h-[16rem] items-center justify-center overflow-hidden sm:min-h-[20rem]">
@@ -494,8 +499,8 @@ export default function WaitlistPage() {
               Your shop, fully staffed.
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-white/70">
-              Hire your 7-agent front office and keep your hands on the car. The
-              founding 100 get 50% off for life.
+              Two AI agents, one brain — keep your hands on the car. The founding
+              100 get 50% off for life.
             </p>
             <div className="mt-8 flex justify-center">
               <a

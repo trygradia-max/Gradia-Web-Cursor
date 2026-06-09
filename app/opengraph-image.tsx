@@ -3,16 +3,14 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "Gradia — your 7-agent front office for car detailers";
+  "Gradia — an AI office for auto detailers: two agents, one brain";
 
-const AGENTS = [
-  "Receptionist",
-  "Estimator",
-  "Scheduler",
-  "Collector",
-  "Marketer",
-  "Reviewer",
-  "Closer",
+const CAPABILITIES = [
+  "Answers every call 24/7",
+  "Books over the phone",
+  "Follows up by text + email",
+  "Revives old leads",
+  "You approve everything",
 ];
 
 export const size = {
@@ -115,7 +113,7 @@ export default async function OpenGraphImage() {
               maxWidth: 940,
             }}
           >
-            Hire your 7-agent front office.
+            Your entire front office. Two AI agents, one brain.
           </span>
           <span
             style={{
@@ -125,13 +123,14 @@ export default async function OpenGraphImage() {
               marginTop: 16,
             }}
           >
-            So you keep your hands on the car. Built for car detailers.
+            Never miss another call. You approve everything. Built for auto
+            detailers — $20/mo.
           </span>
         </div>
 
-        {/* Agent chips */}
+        {/* Capability chips */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-          {AGENTS.map((name) => (
+          {CAPABILITIES.map((name) => (
             <span
               key={name}
               style={{

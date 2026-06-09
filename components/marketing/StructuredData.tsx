@@ -10,11 +10,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://trygradia.com";
 const FAQ: { q: string; a: string }[] = [
   {
     q: "What exactly is Gradia?",
-    a: "Gradia is a 7-agent AI front office built for car detailers. The agents answer your calls and DMs, quote cars from a photo, book and reschedule jobs, send and chase invoices, post your before/afters, ask for reviews, and re-engage cold leads — so you can keep your hands on the car.",
+    a: "Gradia is an AI office for auto detailers — two agents that share one brain. A voice agent answers your calls 24/7, quotes and books over the phone, and handles reschedules. A chat agent follows up with every new lead and revives the ones you forgot, by text and email. You approve everything before it sends, and it all lives in one CRM and calendar you own.",
   },
   {
     q: "Do I have to change how I work?",
-    a: "No. Gradia plugs into the phone number, inbox, and calendar you already use. Your agents work in the background; you approve anything you want to keep an eye on, and ignore the rest.",
+    a: "No. Gradia plugs into the phone number, inbox, and calendar you already use. The agents draft and stage the work in the background — but nothing gets sent or booked until you approve it. AI does the work; you stay in control.",
   },
   {
     q: "How much will it cost?",
@@ -39,7 +39,7 @@ const jsonLd = [
     operatingSystem: "Web",
     url: siteUrl,
     description:
-      "AI front office for car detailers — 7 AI agents that answer calls, quote cars from a photo, book jobs, collect payments, and win back old customers.",
+      "AI office for auto detailers — two agents that share one brain. A voice agent answers calls 24/7 and books over the phone; a chat agent follows up with leads by text and email. You approve everything before it sends. $20/month.",
     offers: {
       "@type": "Offer",
       price: "20",

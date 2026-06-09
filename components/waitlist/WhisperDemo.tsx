@@ -1,38 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Sparkles, DollarSign, Receipt, Gem } from "lucide-react";
+import { Users, Pencil, Eye, ShieldCheck } from "lucide-react";
 import { GradiaChatBox } from "@/components/ui/GradiaChatBox";
 import { BentoGrid, type BentoItem } from "@/components/ui/BentoGrid";
 import { cn } from "@/lib/cn";
 
-const QUESTION = "How many details did we do last week — and how much did we make?";
+const QUESTION = "Text everyone who quoted ceramic but never booked";
 
 const METRICS: BentoItem[] = [
   {
-    icon: <Sparkles className="h-4 w-4" />,
+    icon: <Users className="h-4 w-4" />,
     title: "23",
-    meta: "details",
-    description: "completed last week",
-    status: "+15%",
+    meta: "leads",
+    description: "matched in your CRM",
   },
   {
-    icon: <DollarSign className="h-4 w-4" />,
-    title: "$14,200",
-    description: "revenue last week",
-    status: "best week",
+    icon: <Pencil className="h-4 w-4" />,
+    title: "Draft",
+    description: "text + email written",
+    status: "ready",
   },
   {
-    icon: <Receipt className="h-4 w-4" />,
-    title: "$617",
-    description: "average ticket",
+    icon: <Eye className="h-4 w-4" />,
+    title: "Dry-run",
+    description: "preview before it sends",
   },
   {
-    icon: <Gem className="h-4 w-4" />,
-    title: "5",
-    meta: "ceramic",
-    description: "upsells closed",
-    status: "+2",
+    icon: <ShieldCheck className="h-4 w-4" />,
+    title: "Your OK",
+    description: "approve to send",
+    status: "staged",
   },
 ];
 
@@ -93,7 +91,7 @@ export function WhisperDemo() {
         voice
         text={QUESTION.slice(0, chars)}
         state={phase === "typing" ? "typing" : phase === "thinking" ? "sending" : "idle"}
-        placeholder="Ask about your shop…"
+        placeholder="Tell Gradia what to do…"
       />
 
       {/* answer — reserved height so the section never jumps */}
@@ -104,11 +102,10 @@ export function WhisperDemo() {
             showAnswer ? "opacity-100" : "opacity-0",
           )}
         >
-          Last week you completed{" "}
-          <span className="text-[var(--brand-primary)]">23 details</span> and
-          brought in{" "}
-          <span className="text-[var(--brand-primary)]">$14,200</span> — your
-          best week yet.
+          Gradia turned that into a job:{" "}
+          <span className="text-[var(--brand-primary)]">23 ceramic leads</span>{" "}
+          matched, a text + email drafted, and a dry-run preview — all{" "}
+          <span className="text-[var(--brand-primary)]">staged for your OK</span>.
         </p>
         <div
           className={cn(

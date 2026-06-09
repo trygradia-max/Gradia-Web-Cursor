@@ -4,11 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   PhoneCall,
-  Gem,
   CalendarCheck,
-  Star,
   Check,
-  Sparkles,
+  ShieldCheck,
+  Mail,
   MessageSquareText,
 } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -16,31 +15,31 @@ import { cn } from "@/lib/cn";
 /**
  * "See Gradia handle a call, start to finish" — an auto-playing product-demo
  * (pattern adapted from aceternity/sticky-scroll-reveal). The four beats
- * advance on their own (call → quote+upsell → book → follow-up) with the visual
- * cross-fading to match. Starts when scrolled into view, pauses off-screen,
- * click any beat to jump, and holds still under prefers-reduced-motion.
+ * advance on their own (voice answers → quotes → chat follows up → you approve)
+ * with the visual cross-fading to match. Starts when scrolled into view, pauses
+ * off-screen, click any beat to jump, holds still under prefers-reduced-motion.
  */
 const DWELL = 4500; // ms each beat stays before auto-advancing
 const BEATS = [
   {
-    eyebrow: "01 · The Receptionist",
+    eyebrow: "01 · Voice agent",
     title: "The call comes in.",
-    desc: "A new lead calls, texts, or DMs after hours. Gradia answers in seconds — 24/7 — so it never goes to voicemail or the next shop.",
+    desc: "A new lead calls after hours. Gradia answers in seconds — 24/7 — so it never goes to voicemail or the next shop.",
   },
   {
-    eyebrow: "02 · The Estimator",
-    title: "Quoted — and upsold.",
-    desc: "It reads the job, sends an accurate quote in seconds, and offers the right add-on automatically. Bigger tickets, zero pressure.",
+    eyebrow: "02 · Voice agent",
+    title: "Quoted over the phone.",
+    desc: "It quotes the job right on the call — accurate and instant, speaking as your shop — then books it straight onto your real calendar.",
   },
   {
-    eyebrow: "03 · The Scheduler",
-    title: "Booked, deposit and all.",
-    desc: "The moment they say yes, it drops the job into your calendar, collects the deposit, and confirms — no back-and-forth.",
+    eyebrow: "03 · Chat agent",
+    title: "Followed up by text and email.",
+    desc: "Sharing the same brain, the chat agent texts and emails to confirm and keep the lead warm — and revives the old leads you forgot.",
   },
   {
-    eyebrow: "04 · The Reviewer & Closer",
-    title: "Followed up automatically.",
-    desc: "After the detail, it asks for the 5-star review at the perfect moment and sets the re-book reminder. Your pipeline refills itself.",
+    eyebrow: "04 · You approve",
+    title: "Nothing sends without your OK.",
+    desc: "Every message is staged for you. Tap approve and it goes out signed as your shop. AI does the work; you stay in control.",
   },
 ] as const;
 
@@ -82,34 +81,16 @@ function Visual({ step }: { step: number }) {
     return (
       <div className={common}>
         <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">
-          The Estimator
+          Voice agent · on the call
         </span>
         <div className="mt-3 flex flex-wrap gap-1.5">
-          {["Tahoe · full-size SUV", "Interior detail · $640"].map((c) => (
+          {["Tahoe · full-size SUV", "Interior + ceramic · $640"].map((c) => (
             <span key={c} className="bg-white/[0.05] px-2 py-1 text-[12px] text-white">
               {c}
             </span>
           ))}
         </div>
-        <div className="mt-2 flex items-center justify-between border border-[#7c3aed]/40 bg-[#7c3aed]/[0.1] px-2.5 py-2">
-          <span className="flex items-center gap-1.5 text-[13px] font-medium text-white">
-            <Sparkles className="h-3.5 w-3.5 text-[#a78bfa]" /> Add ceramic coating
-          </span>
-          <span className="text-[13px] font-semibold text-[#a78bfa]">+$300</span>
-        </div>
-        <p className="mt-3 flex items-center gap-1.5 border-t border-white/10 pt-3 text-[12px] text-[#10b981]">
-          <Check className="h-3.5 w-3.5" /> Quote + offer sent · accepted in 6 min
-        </p>
-      </div>
-    );
-  }
-  if (step === 2) {
-    return (
-      <div className={common}>
-        <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">
-          The Scheduler
-        </span>
-        <div className="mt-3 flex items-center gap-3 bg-white/[0.04] p-3">
+        <div className="mt-2 flex items-center gap-3 bg-white/[0.04] p-3">
           <span className="flex h-10 w-10 flex-col items-center justify-center bg-[#7c3aed] text-white">
             <span className="text-[9px] uppercase leading-none">Sat</span>
             <span className="text-base font-bold leading-none">14</span>
@@ -120,36 +101,67 @@ function Visual({ step }: { step: number }) {
           </div>
           <CalendarCheck className="ml-auto h-5 w-5 text-[#10b981]" />
         </div>
-        <div className="mt-3 flex items-center justify-between border-t border-white/10 pt-3 text-[12px]">
-          <span className="flex items-center gap-1.5 text-[#10b981]">
-            <Check className="h-3.5 w-3.5" /> Deposit collected
-          </span>
-          <span className="font-semibold text-white">$120</span>
+        <p className="mt-3 flex items-center gap-1.5 border-t border-white/10 pt-3 text-[12px] text-[#10b981]">
+          <Check className="h-3.5 w-3.5" /> Quoted &amp; booked on the call
+        </p>
+      </div>
+    );
+  }
+  if (step === 2) {
+    return (
+      <div className={common}>
+        <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">
+          Chat agent · follow-up
+        </span>
+        <div className="mt-3 flex items-start gap-2 bg-white/[0.04] p-3">
+          <MessageSquareText className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#a78bfa]" />
+          <p className="text-[13px] text-white/80">
+            &ldquo;You&rsquo;re booked for Saturday at 10, Marcus — see you then!
+            — Pristine&rdquo;
+          </p>
         </div>
+        <div className="mt-2 flex items-center justify-between bg-white/[0.04] px-3 py-2 text-[12px]">
+          <span className="flex items-center gap-1.5 text-white/70">
+            <Mail className="h-3.5 w-3.5 text-[#a78bfa]" /> Confirmation email
+          </span>
+          <span className="text-white/45">drafted</span>
+        </div>
+        <p className="mt-3 flex items-center gap-1.5 border-t border-white/10 pt-3 text-[12px] text-white/55">
+          Same brain as the voice agent — it knows the call just happened.
+        </p>
       </div>
     );
   }
   return (
     <div className={common}>
       <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">
-        The Reviewer
+        Your approval
       </span>
-      <div className="mt-3 bg-white/[0.04] p-3 text-[13px] text-white/80">
-        &ldquo;Thanks for choosing Pristine, Marcus! Mind leaving a quick review?&rdquo;
-      </div>
-      <div className="mt-2 flex items-center justify-between bg-white/[0.04] px-3 py-2">
-        <span className="flex items-center gap-1 text-[#f59e0b]">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="h-3.5 w-3.5 fill-current" />
-          ))}
+      <ul className="mt-3 flex flex-col gap-2">
+        {[
+          "Confirmation text to Marcus",
+          "Confirmation email",
+        ].map((item) => (
+          <li
+            key={item}
+            className="flex items-center justify-between bg-white/[0.04] px-3 py-2 text-[12px]"
+          >
+            <span className="text-white/80">{item}</span>
+            <span className="flex items-center gap-1 text-white/45">
+              <Check className="h-3 w-3" /> Drafted
+            </span>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-3 flex items-center justify-between border-t border-white/10 pt-3">
+        <span className="flex items-center gap-1.5 text-[12px] text-white/55">
+          <ShieldCheck className="h-3.5 w-3.5 text-[#a78bfa]" /> Nothing sends
+          without you
         </span>
-        <span className="flex items-center gap-1.5 text-[12px] text-[#10b981]">
-          <Check className="h-3.5 w-3.5" /> Posted
+        <span className="rounded-[100px] bg-[#7c3aed] px-3 py-1.5 text-[11px] font-medium text-white">
+          Approve &amp; send
         </span>
       </div>
-      <p className="mt-3 flex items-center gap-1.5 border-t border-white/10 pt-3 text-[12px] text-white/55">
-        <Gem className="h-3.5 w-3.5 text-[#a78bfa]" /> Re-book reminder set · 6 weeks
-      </p>
     </div>
   );
 }

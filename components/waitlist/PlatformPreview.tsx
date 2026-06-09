@@ -1,4 +1,4 @@
-import { Megaphone, Inbox, CalendarCheck, ShieldCheck } from "lucide-react";
+import { MessageSquare, Inbox, CalendarCheck, ShieldCheck } from "lucide-react";
 import { PlatformDashboard } from "@/components/waitlist/PlatformDashboard";
 
 /**
@@ -8,24 +8,24 @@ import { PlatformDashboard } from "@/components/waitlist/PlatformDashboard";
  */
 const FEATURES = [
   {
-    icon: Megaphone,
-    title: "Campaigns, ready to send",
-    body: "Your Marketer drafts the offer. Approve it and it texts + emails your whole list in one tap.",
+    icon: MessageSquare,
+    title: "Follow-ups, drafted for you",
+    body: "Your chat agent writes the text and email to revive a lead. Approve it and it sends — signed as your shop.",
   },
   {
     icon: Inbox,
-    title: "Every lead in one inbox",
-    body: "Calls, texts, and DMs answered, organized, and quoted — nothing slips through.",
+    title: "Every lead in one place",
+    body: "Calls answered, quoted, and logged in one CRM — nothing slips through.",
   },
   {
     icon: CalendarCheck,
-    title: "It books itself",
-    body: "Your calendar fills, reschedules, and backfills no-shows without you lifting a finger.",
+    title: "Booked over the phone",
+    body: "Your voice agent quotes and books every call straight onto the real calendar you already use.",
   },
   {
     icon: ShieldCheck,
     title: "Always your call",
-    body: "Approve every action, or go fully autonomous. Your customers and data stay yours.",
+    body: "Approve every action before it sends — there's no auto-send. Your customers and data stay yours.",
   },
 ];
 
@@ -48,9 +48,9 @@ export function PlatformPreview() {
           </div>
           <p className="max-w-sm text-[var(--muted)] md:ml-auto">
             This is what you wake up to inside Gradia&rsquo;s car detailing
-            software — every agent&rsquo;s work overnight, this week&rsquo;s
-            numbers, live activity, and your next campaign drafted and ready to
-            send.
+            software — both agents&rsquo; work overnight, this week&rsquo;s
+            numbers, live activity, and the follow-ups they&rsquo;ve drafted for
+            your approval.
           </p>
         </div>
 

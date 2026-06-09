@@ -1,21 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Check, MessageSquareText } from "lucide-react";
+import { Check, PhoneCall } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 /**
- * Looping demo: an inbound text gets answered, quoted, booked, and filed —
- * the "voice/lead in, structured job out" moment, hands-free.
+ * Looping demo: an after-hours call gets answered, quoted, and booked over the
+ * phone by the voice agent — the "missed call in, booked job out" moment.
  *
  * Every block below stays mounted for the whole loop and only fades/slides via
  * opacity + transform — never via mount/unmount or height. That keeps the
  * card's height perfectly stable so the page beneath it doesn't jump each cycle.
  */
 const STAGES = [
-  { agent: "The Receptionist", state: "Replying…" },
-  { agent: "The Estimator", state: "Quoting…" },
-  { agent: "The Scheduler", state: "Booking…" },
+  { agent: "Voice agent", state: "Answering…" },
+  { agent: "Voice agent", state: "Quoting…" },
+  { agent: "Voice agent", state: "Booking…" },
   { agent: "Done", state: "Booked" },
 ] as const;
 
@@ -65,11 +65,11 @@ export function CaptureDemo() {
       {/* incoming message */}
       <div className="mb-3 flex items-start gap-2.5">
         <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-[var(--bg-elevated)] text-[var(--muted)]">
-          <MessageSquareText className="h-4 w-4" />
+          <PhoneCall className="h-4 w-4" />
         </div>
         <div>
           <p className="mb-1 text-[11px] text-[var(--muted)]">
-            New text · 9:47 PM
+            Missed call · 9:47 PM
           </p>
           <p className="bg-[var(--bg-elevated)] px-3 py-2 text-sm text-[var(--foreground)]">
             &ldquo;Can I get a quote for a full interior + ceramic on my
@@ -94,7 +94,7 @@ export function CaptureDemo() {
       {/* quote — always mounted, fades in */}
       <div className={cn("mb-2 border border-[var(--border)] p-3", reveal(showQuote))}>
         <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-          The Estimator
+          Voice agent · quote
         </p>
         <div className="flex flex-wrap gap-1.5">
           {["Tahoe · full-size SUV", "Interior + ceramic", "$640"].map((chip) => (
@@ -106,7 +106,7 @@ export function CaptureDemo() {
             </span>
           ))}
           <span className="flex items-center gap-1 bg-[color:var(--dash-success)]/10 px-2 py-1 text-xs text-[var(--dash-success)]">
-            <Check className="h-3 w-3" /> Quote sent
+            <Check className="h-3 w-3" /> Quoted on the call
           </span>
         </div>
       </div>
@@ -114,12 +114,12 @@ export function CaptureDemo() {
       {/* booking — always mounted, fades in */}
       <div className={cn("mb-2 border border-[var(--border)] p-3", reveal(showBooking))}>
         <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-          The Scheduler
+          Voice agent · booking
         </p>
         <div className="flex items-center justify-between text-sm">
           <span className="text-[var(--foreground)]">Saturday · 10:00 AM</span>
           <span className="flex items-center gap-1 text-xs text-[var(--dash-success)]">
-            <Check className="h-3 w-3" /> Deposit collected
+            <Check className="h-3 w-3" /> Added to your calendar
           </span>
         </div>
       </div>

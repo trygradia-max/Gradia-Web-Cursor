@@ -2,12 +2,12 @@ import { Sparkles, Check } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 /**
- * Bespoke Gradia booking calendar: the Scheduler agent has filled a full two
- * weeks of detailing work, and the Closer/Estimator have layered ceramic-coating
- * upsells on top. Ceramic jobs are highlighted in brand blue with the upsell
- * value. Static (no animation) so it never shifts the page.
+ * Bespoke Gradia booking calendar: the voice agent has quoted and booked a full
+ * two weeks of detailing work over the phone. Ceramic-coating jobs are
+ * highlighted in brand purple as premium services. Static (no animation) so it
+ * never shifts the page. No revenue/upsell figures — bookings only.
  */
-type Job = { time: string; service: string; vehicle: string; upsell?: number };
+type Job = { time: string; service: string; vehicle: string; premium?: boolean };
 type Day = { label: string; date: string; jobs: Job[] };
 
 const WEEK_ONE: Day[] = [
@@ -16,7 +16,7 @@ const WEEK_ONE: Day[] = [
     { time: "1:00", service: "Interior", vehicle: "Civic" },
   ] },
   { label: "Tue", date: "9", jobs: [
-    { time: "10:00", service: "Ceramic coating", vehicle: "Model 3", upsell: 899 },
+    { time: "10:00", service: "Ceramic coating", vehicle: "Model 3", premium: true },
     { time: "2:30", service: "Wash & wax", vehicle: "Camry" },
   ] },
   { label: "Wed", date: "10", jobs: [
@@ -24,14 +24,14 @@ const WEEK_ONE: Day[] = [
   ] },
   { label: "Thu", date: "11", jobs: [
     { time: "9:30", service: "Full detail", vehicle: "4Runner" },
-    { time: "1:30", service: "Ceramic coating", vehicle: "F-150", upsell: 1200 },
+    { time: "1:30", service: "Ceramic coating", vehicle: "F-150", premium: true },
   ] },
   { label: "Fri", date: "12", jobs: [
     { time: "11:00", service: "Engine bay", vehicle: "Silverado" },
   ] },
   { label: "Sat", date: "13", jobs: [
     { time: "9:00", service: "Full detail", vehicle: "Tahoe" },
-    { time: "12:30", service: "Ceramic top-up", vehicle: "Bronco", upsell: 350 },
+    { time: "12:30", service: "Ceramic top-up", vehicle: "Bronco", premium: true },
   ] },
 ];
 
@@ -41,7 +41,7 @@ const WEEK_TWO: Day[] = [
     { time: "2:00", service: "Full detail", vehicle: "Q5" },
   ] },
   { label: "Tue", date: "16", jobs: [
-    { time: "9:00", service: "Ceramic coating", vehicle: "Bronco", upsell: 1050 },
+    { time: "9:00", service: "Ceramic coating", vehicle: "Bronco", premium: true },
   ] },
   { label: "Wed", date: "17", jobs: [
     { time: "8:30", service: "Wash & wax", vehicle: "Civic" },
@@ -52,7 +52,7 @@ const WEEK_TWO: Day[] = [
   ] },
   { label: "Fri", date: "19", jobs: [
     { time: "9:00", service: "Interior", vehicle: "Highlander" },
-    { time: "2:30", service: "Ceramic coating", vehicle: "Model Y", upsell: 950 },
+    { time: "2:30", service: "Ceramic coating", vehicle: "Model Y", premium: true },
   ] },
   { label: "Sat", date: "20", jobs: [
     { time: "11:00", service: "Full detail", vehicle: "Tacoma" },
@@ -61,32 +61,31 @@ const WEEK_TWO: Day[] = [
 
 const ALL_DAYS = [...WEEK_ONE, ...WEEK_TWO];
 const totalJobs = ALL_DAYS.reduce((n, d) => n + d.jobs.length, 0);
-const ceramicJobs = ALL_DAYS.flatMap((d) => d.jobs).filter((j) => j.upsell);
-const upsellTotal = ceramicJobs.reduce((s, j) => s + (j.upsell ?? 0), 0);
+const daysFilled = ALL_DAYS.filter((d) => d.jobs.length > 0).length;
 
 function JobChip({ job }: { job: Job }) {
-  const isCeramic = Boolean(job.upsell);
+  const isPremium = Boolean(job.premium);
   return (
     <div
       className={cn(
         "flex flex-col gap-0.5 border px-2 py-1.5 text-left",
-        isCeramic
+        isPremium
           ? "border-[var(--brand-primary)]/40 bg-[color:var(--brand-primary)]/8"
           : "border-[var(--border)] bg-[var(--bg-elevated)]",
       )}
     >
       <div className="flex items-center justify-between gap-1">
         <span className="font-mono text-[10px] text-[var(--muted)]">{job.time}</span>
-        {isCeramic && (
+        {isPremium && (
           <span className="flex items-center gap-0.5 text-[10px] font-semibold text-[var(--brand-primary)]">
-            <Sparkles className="h-2.5 w-2.5" />+${job.upsell?.toLocaleString("en-US")}
+            <Sparkles className="h-2.5 w-2.5" /> Ceramic
           </span>
         )}
       </div>
       <span
         className={cn(
           "text-[11px] font-medium leading-tight",
-          isCeramic ? "text-[var(--brand-primary)]" : "text-[var(--foreground)]",
+          isPremium ? "text-[var(--brand-primary)]" : "text-[var(--foreground)]",
         )}
       >
         {job.service}
@@ -132,7 +131,7 @@ export function BookingCalendar() {
         <div>
           <div className="flex items-center gap-2">
             <span className="flex items-center gap-1.5 text-xs font-medium text-[var(--dash-success)]">
-              <Check className="h-3.5 w-3.5" /> Scheduler · booked solid
+              <Check className="h-3.5 w-3.5" /> Voice agent · booked solid
             </span>
           </div>
           <p className="mt-1 text-sm text-[var(--muted)]">
@@ -142,8 +141,8 @@ export function BookingCalendar() {
         <div className="flex flex-wrap gap-2">
           {[
             { v: `${totalJobs}`, l: "jobs booked" },
-            { v: `${ceramicJobs.length}`, l: "ceramic upsells" },
-            { v: `+$${upsellTotal.toLocaleString("en-US")}`, l: "in upsells", accent: true },
+            { v: `${daysFilled}`, l: "days filled" },
+            { v: "24/7", l: "booked by Gradia", accent: true },
           ].map((s) => (
             <div
               key={s.l}
@@ -176,7 +175,7 @@ export function BookingCalendar() {
         </span>
         <span className="flex items-center gap-1.5 text-[11px] text-[var(--muted)]">
           <span className="h-2.5 w-2.5 border border-[var(--brand-primary)]/40 bg-[color:var(--brand-primary)]/15" />
-          Ceramic upsell
+          Ceramic coating
         </span>
       </div>
 

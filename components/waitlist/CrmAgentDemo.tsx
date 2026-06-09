@@ -1,29 +1,31 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Check, Loader2, Database, Users, Tag, Send } from "lucide-react";
+import { Check, Loader2, Database, Users, Tag, Eye } from "lucide-react";
 import { GradiaChatBox } from "@/components/ui/GradiaChatBox";
 import { cn } from "@/lib/cn";
 
 /**
- * CRM agent demo: the owner types "send all my customers 10% off", and Gradia
- * opens the CRM, pulls the customer list, drafts the offer, and sends it. Loops
- * on a fixed-height timeline (no layout shift), starting when it scrolls in.
+ * Chat-agent demo: the owner types a plain-English ask, and Gradia opens the
+ * CRM, pulls the matching leads, drafts the message, and builds a dry-run
+ * preview — then waits for the owner's approval before anything sends (nothing
+ * auto-sends). Loops on a fixed-height timeline (no layout shift), starting when
+ * it scrolls in.
  */
-const PROMPT = "Send all my customers 10% off this week";
+const PROMPT = "Text everyone who quoted ceramic but never booked";
 
 const STEPS = [
   { label: "Opening your CRM", icon: Database },
-  { label: "Pulled 248 customers", icon: Users },
-  { label: "Drafted “10% off” offer", icon: Tag },
-  { label: "Sending via SMS + email", icon: Send },
+  { label: "Found 23 matching leads", icon: Users },
+  { label: "Drafted the message", icon: Tag },
+  { label: "Dry-run preview ready", icon: Eye },
 ];
 
 const CUSTOMERS = [
-  { n: "Marcus James", v: "Tahoe · ceramic" },
-  { n: "Dana Ruiz", v: "Model 3 · full detail" },
-  { n: "Sam Park", v: "F-150 · interior" },
-  { n: "Priya Shah", v: "Q5 · wash & wax" },
+  { n: "Marcus James", v: "Tahoe · ceramic quote" },
+  { n: "Dana Ruiz", v: "Model 3 · ceramic quote" },
+  { n: "Sam Park", v: "F-150 · ceramic quote" },
+  { n: "Priya Shah", v: "Q5 · ceramic quote" },
 ];
 
 export function CrmAgentDemo() {
@@ -123,8 +125,7 @@ export function CrmAgentDemo() {
               done ? "opacity-100" : "opacity-0",
             )}
           >
-            <Check className="h-4 w-4" /> Offer sent to 248 customers · 312
-            messages out
+            <Check className="h-4 w-4" /> You approved — sent to 23 leads
           </p>
         </div>
       </div>
@@ -133,8 +134,9 @@ export function CrmAgentDemo() {
       <div className="border border-[var(--border)] bg-[var(--bg)] shadow-card">
         <div className="flex items-center justify-between border-b border-[var(--border)] px-4 py-3">
           <span className="flex items-center gap-2 text-sm font-medium text-[var(--foreground)]">
-            <Database className="h-4 w-4 text-[var(--brand-primary)]" /> Customers
-            <span className="text-[var(--muted)]">· 248</span>
+            <Database className="h-4 w-4 text-[var(--brand-primary)]" /> Ceramic
+            leads
+            <span className="text-[var(--muted)]">· 23</span>
           </span>
           <span
             className={cn(
@@ -173,12 +175,12 @@ export function CrmAgentDemo() {
                   pulled ? "opacity-100" : "opacity-0",
                 )}
               >
-                <Tag className="h-3 w-3" /> 10% off
+                <Tag className="h-3 w-3" /> ceramic
               </span>
             </li>
           ))}
           <li className="px-4 py-2 text-center text-xs text-[var(--muted)]">
-            + 244 more
+            + 19 more
           </li>
         </ul>
       </div>

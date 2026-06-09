@@ -23,11 +23,11 @@ export function AgentDay() {
             On the job
           </span>
           <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-            A full day, run by your 7 agents.
+            Two agents, one brain — your whole day.
           </h2>
           <p className="mt-3 max-w-xl text-[var(--muted)]">
-            From the first missed call to tomorrow&rsquo;s follow-ups — every
-            step handled while you detail.
+            From the first missed call to tonight&rsquo;s follow-ups — every
+            step staged for your approval while you detail.
           </p>
         </div>
         <div className="hidden shrink-0 gap-2 sm:flex">

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s · Gradia",
   },
   description:
-    "AI software for car detailers: Gradia's 7 AI agents answer every call, quote any car, fill your calendar, and collect your money — so you keep your hands on the car. Join the waitlist.",
+    "An AI office for auto detailers. Two agents, one brain: answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email — and you approve everything before it sends. $20/mo. Join the waitlist.",
   keywords: [
     "car detailing software",
     "AI for car detailers",
@@ -27,10 +27,11 @@ export const metadata: Metadata = {
     "auto detailing CRM",
     "detailer booking software",
     "AI receptionist for detailers",
+    "AI voice agent for detailers",
     "car detail quoting",
     "mobile detailing scheduling",
     "ceramic coating business software",
-    "detailing invoicing",
+    "detailer lead follow-up",
     "AI front office",
   ],
   openGraph: {
@@ -40,13 +41,13 @@ export const metadata: Metadata = {
     siteName: "Gradia",
     title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
-      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
+      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
     description:
-      "AI software for car detailers: 7 AI agents answer every call, quote any car, fill your calendar, and collect your money. Join the waitlist.",
+      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
   },
 };
 

@@ -178,7 +178,7 @@ export function WaitlistForm() {
               <input
                 type="text"
                 name="currentTools"
-                placeholder="DMs + a paper calendar"
+                placeholder="Texts + a paper calendar"
                 className="w-full border border-[var(--border)] bg-[var(--bg)] px-3 py-2.5 text-sm text-[var(--foreground)] outline-none focus:border-[var(--brand-primary)]"
               />
             </Field>

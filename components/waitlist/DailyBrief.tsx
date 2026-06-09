@@ -1,11 +1,11 @@
 import { Check } from "lucide-react";
 
 const HANDLED = [
+  "7 calls answered",
   "4 jobs booked",
-  "7 calls & texts answered",
-  "3 quotes sent",
-  "2 invoices collected",
-  "5 review requests sent",
+  "3 quotes given",
+  "6 follow-ups drafted",
+  "2 old leads revived",
 ];
 
 const NEEDS_YOU = [
@@ -27,12 +27,12 @@ const NEEDS_YOU = [
   {
     initials: "SP",
     name: "Sam Park",
-    reason: "Left a 5-star review yesterday. Send a thank-you + referral ask.",
+    reason: "Detail done yesterday. Chat agent drafted a thank-you + re-book — approve to send.",
   },
   {
     initials: "CV",
     name: "Cold quote · Civic full detail",
-    reason: "Stalled 9 days. The Closer drafted a nudge — approve to send.",
+    reason: "Stalled 9 days. The chat agent drafted a nudge — approve to send.",
   },
 ];
 
@@ -44,12 +44,12 @@ export function DailyBrief() {
           Daily brief
         </span>
         <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-          Wake up to a shop that already ran itself.
+          Wake up to a night&rsquo;s work, staged for you.
         </h2>
         <p className="mt-4 max-w-md text-[var(--muted)]">
-          Your agents work the phones, quotes, and bookings overnight. Each
-          morning you get the handful of moves only you can make — and the
-          reason why.
+          Your agents answer the phones and draft every follow-up overnight.
+          Each morning you get one screen: what&rsquo;s waiting for your OK, and
+          the handful of leads only you should call.
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export function DailyBrief() {
               Daily Brief
             </p>
             <p className="text-xs text-[var(--muted)]">
-              Thursday, June 4 · from calls, texts &amp; bookings
+              Thursday, June 4 · from calls, follow-ups &amp; bookings
             </p>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--brand-primary)]">
@@ -70,7 +70,7 @@ export function DailyBrief() {
 
         <div className="border-b border-[var(--border)] px-5 py-4">
           <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-            Handled overnight
+            Overnight
           </p>
           <div className="flex flex-wrap gap-2">
             {HANDLED.map((h) => (

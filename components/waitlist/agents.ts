@@ -1,20 +1,17 @@
 import {
   PhoneCall,
-  Camera,
-  CalendarCheck,
-  Receipt,
-  Megaphone,
-  Star,
-  Target,
+  MessageSquare,
+  Mic,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
 export type Agent = {
   /** Two-digit step, e.g. "01" */
   step: string;
-  /** Role name, e.g. "The Receptionist" */
+  /** Name, e.g. "Voice agent" */
   name: string;
-  /** Verb shown on the day-sequence card, e.g. "Answer" */
+  /** Verb shown on the day-sequence card, e.g. "Answers the phone" */
   verb: string;
   /** One-line job */
   job: string;
@@ -26,72 +23,46 @@ export type Agent = {
 };
 
 /**
- * The cast of 7 — Gradia's brand. Order is the order of a detailer's day:
- * a lead comes in, gets quoted, booked, paid, marketed, reviewed, and any
- * cold ones get re-closed.
+ * Two agents that share one brain, plus the two signature features. This is the
+ * MVP cast (the old 7-named-agent vision folded into this — see
+ * _docs/WHAT_GRADIA_DOES.md). Every outbound step is staged for the owner's
+ * approval; nothing auto-sends.
  */
 export const AGENTS: Agent[] = [
   {
     step: "01",
-    name: "The Receptionist",
-    verb: "Answer",
-    job: "Answers every call, text, and DM — 24/7.",
-    pain: "Missed leads",
-    demo: "Every call, text, and DM picked up in seconds, day or night.",
+    name: "Voice agent",
+    verb: "Answers the phone",
+    job: "Answers every call 24/7, quotes, and books over the phone.",
+    pain: "Missed calls",
+    demo: "Picks up every call 24/7 — even after hours — quotes the job and books it over the phone, speaking as your shop.",
     icon: PhoneCall,
   },
   {
     step: "02",
-    name: "The Estimator",
-    verb: "Quote",
-    job: "Quotes any car from a photo in seconds.",
-    pain: "Slow quotes lose jobs",
-    demo: "Snap a photo of any car; an accurate quote goes out in seconds.",
-    icon: Camera,
+    name: "Chat agent",
+    verb: "Works your leads",
+    job: "Follows up new leads and revives old ones by text and email.",
+    pain: "Leads gone cold",
+    demo: "Texts and emails new leads, revives the ones you forgot, and sends reminders — all from your CRM, staged for your OK.",
+    icon: MessageSquare,
   },
   {
     step: "03",
-    name: "The Scheduler",
-    verb: "Book",
-    job: "Books, reschedules, and backfills no-show slots.",
-    pain: "Empty bays",
-    demo: "Fills your calendar and backfills cancellations automatically.",
-    icon: CalendarCheck,
+    name: "Gradia Whisper",
+    verb: "Speak it, it stages",
+    job: "Turns a spoken instruction into staged work.",
+    pain: "Notes that go nowhere",
+    demo: "Say an instruction like an employee and Gradia turns it into notes, tasks, and staged actions, ready for your approval.",
+    icon: Mic,
   },
   {
     step: "04",
-    name: "The Collector",
-    verb: "Collect",
-    job: "Sends invoices and chases what's owed.",
-    pain: "Unpaid invoices",
-    demo: "Sends invoices and follows up on what's owed — no awkward texts.",
-    icon: Receipt,
-  },
-  {
-    step: "05",
-    name: "The Marketer",
-    verb: "Post",
-    job: "Posts your before/afters and runs the feed.",
-    pain: "Dead social",
-    demo: "Turns your before/afters into posts that keep the leads coming.",
-    icon: Megaphone,
-  },
-  {
-    step: "06",
-    name: "The Reviewer",
-    verb: "Review",
-    job: "Turns happy clients into 5-star Google reviews.",
-    pain: "Stuck rating",
-    demo: "Asks every happy client for the review at the right moment.",
-    icon: Star,
-  },
-  {
-    step: "07",
-    name: "The Closer",
-    verb: "Close",
-    job: "Re-engages cold leads and dead quotes.",
-    pain: "Money on the table",
-    demo: "Re-engages stalled quotes so nothing's left on the table.",
-    icon: Target,
+    name: "Agentic mode",
+    verb: "Describe a workflow",
+    job: "Plans a multi-step workflow and stages every step.",
+    pain: "Repetitive busywork",
+    demo: "Lay out a multi-step job in plain English; Gradia plans it and stages every outbound step behind one approval.",
+    icon: Zap,
   },
 ];
