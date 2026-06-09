@@ -218,6 +218,11 @@ export function AnimatedShaderHero() {
         </span>
 
         <h1 className="mt-5 max-w-4xl text-[2rem] font-bold leading-[1.14] tracking-tight text-white sm:mt-6 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
+          {/* Primary keyword for crawlers/screen-readers; the visible display
+              headline below is unchanged. */}
+          <span className="sr-only">
+            AI front office software for car detailers —{" "}
+          </span>
           <span style={rise("0.2s")} className="block">
             Your entire front office. One app.
           </span>
@@ -233,9 +238,9 @@ export function AnimatedShaderHero() {
           style={rise("0.5s")}
           className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/65 sm:mt-6 sm:max-w-2xl sm:text-lg"
         >
-          Gradia is 7 AI agents that answer your phone, quote every car, fill
-          your calendar, collect your money, and bring back old customers — so
-          you keep your hands on the car.
+          Gradia is 7 AI agents for car detailers that answer your phone, quote
+          every car, fill your calendar, collect your money, and bring back old
+          customers — so you keep your hands on the car.
         </p>
 
         <div
