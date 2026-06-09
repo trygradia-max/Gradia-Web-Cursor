@@ -14,12 +14,12 @@ const ROLES = [
 const TIERS = [
   {
     title: "Founding 100",
-    perk: "50% off for life, early access to new features, and our private beta.",
+    perk: "$10/month for life (50% off) + early access to new features and our private beta.",
     limited: true,
   },
   {
     title: "First 1,000",
-    perk: "50% off your first month.",
+    perk: "50% off your first month ($10).",
   },
 ];
 
@@ -75,8 +75,11 @@ export function WaitlistForm() {
           Get on the list.
         </h2>
         <p className="mt-4 max-w-md text-[var(--muted)]">
-          Be first in line when Gradia opens up. The founding 100 lock in 50%
-          off for life.
+          Be first in line when Gradia opens up.{" "}
+          <span className="font-semibold text-[var(--foreground)]">
+            Just $20/month at launch
+          </span>{" "}
+          — less than one detail. The founding 100 lock in 50% off for life.
         </p>
 
         <ul className="mt-8 flex flex-col gap-3">

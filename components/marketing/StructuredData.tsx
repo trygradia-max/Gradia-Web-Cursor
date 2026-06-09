@@ -18,7 +18,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "How much will it cost?",
-    a: "Less than one detail a month. Final pricing is set before launch — the founding 100 lock in 50% off for life plus early access to new features and our private beta, and the first 1,000 get 50% off their first month.",
+    a: "$20/month — less than one detail. The founding 100 lock in 50% off for life ($10/month), plus early access to new features and our private beta, and the first 1,000 get 50% off their first month.",
   },
   {
     q: "When does it launch?",
@@ -42,6 +42,8 @@ const jsonLd = [
       "AI front office for car detailers — 7 AI agents that answer calls, quote cars from a photo, book jobs, collect payments, and win back old customers.",
     offers: {
       "@type": "Offer",
+      price: "20",
+      priceCurrency: "USD",
       url: `${siteUrl}/#waitlist`,
       availability: "https://schema.org/PreOrder",
     },
