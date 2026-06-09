@@ -131,9 +131,9 @@ export default function TermsPage() {
 
       <h2>Governing law</h2>
       <p>
-        These Terms are governed by the laws of the State of Delaware, United States, without regard
+        These Terms are governed by the laws of the State of Oregon, United States, without regard
         to its conflict-of-laws rules. You agree to the exclusive jurisdiction of the state and
-        federal courts located in Delaware for any dispute not subject to other agreed dispute
+        federal courts located in Oregon for any dispute not subject to other agreed dispute
         resolution.
       </p>
 
