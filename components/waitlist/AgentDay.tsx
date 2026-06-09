@@ -121,7 +121,7 @@ export function AgentDay() {
                 aria-label={`Play the ${a.name} demo`}
                 className="group mt-5 inline-flex cursor-pointer items-center gap-2 self-start rounded-[100px] border border-[var(--border)] py-1.5 pl-1.5 pr-3.5 text-xs font-medium text-[var(--foreground)] transition-colors hover:border-[var(--brand-primary)] hover:bg-[color:var(--brand-primary)]/8 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] disabled:cursor-default disabled:opacity-50"
               >
-                <span className="wl-pulse-glow flex h-6 w-6 items-center justify-center rounded-full bg-[var(--brand-primary)] text-white transition-transform duration-200 group-hover:scale-110">
+                <span className="wl-pulse-glow flex h-6 w-6 items-center justify-center rounded-[100px] bg-[var(--brand-primary)] text-white transition-transform duration-200 group-hover:scale-110">
                   <Play className="h-3 w-3 translate-x-px fill-current" />
                 </span>
                 Play demo
