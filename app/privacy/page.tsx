@@ -4,7 +4,7 @@ import { LegalShell } from "@/components/legal/LegalShell";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Gradia Inc. collects, uses, and protects your information across the Gradia website, waitlist, and AI office for auto detailers.",
+    "How Gradia LLC collects, uses, and protects your information across the Gradia website, waitlist, and AI office for auto detailers.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -12,7 +12,7 @@ export default function PrivacyPage() {
   return (
     <LegalShell title="Privacy Policy" updated="June 9, 2026">
       <p>
-        This Privacy Policy explains how <strong>Gradia Inc.</strong> (&ldquo;Gradia,&rdquo;
+        This Privacy Policy explains how <strong>Gradia LLC</strong> (&ldquo;Gradia,&rdquo;
         &ldquo;we,&rdquo; &ldquo;us&rdquo;) collects, uses, and protects information when you
         visit <a href="https://trygradia.com">trygradia.com</a>, join our waitlist, or use the
         Gradia platform — an AI office for auto detailers. By using our website or services, you
@@ -150,7 +150,7 @@ export default function PrivacyPage() {
 
       <h2>Contact us</h2>
       <p>
-        Gradia Inc. — questions about privacy? Email{" "}
+        Gradia LLC — questions about privacy? Email{" "}
         <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>.
       </p>
     </LegalShell>

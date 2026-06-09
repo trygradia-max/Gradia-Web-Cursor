@@ -16,7 +16,7 @@ export default function TermsPage() {
         These Terms of Service (&ldquo;Terms&rdquo;) govern your use of{" "}
         <a href="https://trygradia.com">trygradia.com</a>, the Gradia waitlist, and the Gradia
         platform and services (together, the &ldquo;Service&rdquo;), provided by{" "}
-        <strong>Gradia Inc.</strong> (&ldquo;Gradia,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;). By
+        <strong>Gradia LLC</strong> (&ldquo;Gradia,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;). By
         accessing the Service or joining the waitlist, you agree to these Terms. If you do not agree,
         do not use the Service.
       </p>
@@ -86,7 +86,7 @@ export default function TermsPage() {
 
       <h2>Intellectual property</h2>
       <p>
-        Gradia, including its software, models, and brand, is owned by Gradia Inc. We grant you a
+        Gradia, including its software, models, and brand, is owned by Gradia LLC We grant you a
         limited, non-exclusive, non-transferable right to use the Service. You retain ownership of
         your data and content.
       </p>
@@ -139,7 +139,7 @@ export default function TermsPage() {
 
       <h2>Contact us</h2>
       <p>
-        Gradia Inc. — questions about these Terms? Email{" "}
+        Gradia LLC — questions about these Terms? Email{" "}
         <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>.
       </p>
     </LegalShell>

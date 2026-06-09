@@ -78,7 +78,7 @@ export function LegalShell({
               Contact
             </a>
           </div>
-          <p className="text-sm text-[var(--muted)]">©2026 Gradia Inc.</p>
+          <p className="text-sm text-[var(--muted)]">©2026 Gradia LLC</p>
         </div>
       </footer>
     </div>
