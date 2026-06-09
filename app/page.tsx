@@ -21,6 +21,7 @@ import { ModeToggle } from "@/components/waitlist/ModeToggle";
 import { CrmAgentDemo } from "@/components/waitlist/CrmAgentDemo";
 import { WhisperDemo } from "@/components/waitlist/WhisperDemo";
 import DisplayCards from "@/components/ui/DisplayCards";
+import { StructuredData } from "@/components/marketing/StructuredData";
 
 const PROOF_CARDS = [
   {
@@ -70,6 +71,7 @@ const WHY_STATS = [
 export default function WaitlistPage() {
   return (
     <div id="top" className="min-h-[100svh] bg-[var(--bg)]">
+      <StructuredData />
       <WaitlistHeader />
 
       <main>
