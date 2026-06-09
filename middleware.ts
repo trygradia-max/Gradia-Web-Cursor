@@ -20,6 +20,8 @@ export async function middleware(request: NextRequest) {
   // some clients to keep redirecting until their cache clears.
   const isFunctional =
     pathname === "/" ||
+    pathname === "/privacy" ||
+    pathname === "/terms" ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/portal");
   if (!isFunctional) {

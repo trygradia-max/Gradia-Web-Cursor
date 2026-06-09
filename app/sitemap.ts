@@ -8,15 +8,14 @@ function siteBase(): string {
   return raw.replace(/\/$/, "");
 }
 
-// Site is in waitlist-only mode: the landing page (/) is the only public route.
-// The old marketing pages were removed and any old URLs 308-redirect to / via
-// middleware.ts, so the sitemap lists just the root. (Full history is in git.)
+// Site is in waitlist-only mode: the public routes are the landing page (/) and
+// the legal pages (/privacy, /terms). The old marketing pages were removed and
+// any old URLs 308-redirect to / via middleware.ts. (Full history is in git.)
 export default function sitemap(): MetadataRoute.Sitemap {
+  const base = siteBase();
   return [
-    {
-      url: `${siteBase()}/`,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
+    { url: `${base}/`, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/privacy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${base}/terms`, changeFrequency: "yearly", priority: 0.3 },
   ];
 }

@@ -864,3 +864,50 @@ body {
     display: none;
   }
 }
+
+/* Legal pages (privacy / terms) — simple, readable document typography on the
+   dark theme. The project has no @tailwindcss/typography plugin, so these style
+   the semantic HTML inside <div class="legal-prose">. */
+.legal-prose {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.legal-prose h2 {
+  color: var(--foreground);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+.legal-prose h2:first-child {
+  margin-top: 0;
+}
+.legal-prose h3 {
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.legal-prose p {
+  margin-bottom: 1rem;
+}
+.legal-prose ul {
+  margin: 0.5rem 0 1.25rem;
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+.legal-prose li {
+  margin-bottom: 0.4rem;
+}
+.legal-prose strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.legal-prose a {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
