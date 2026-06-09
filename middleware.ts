@@ -13,9 +13,9 @@ export async function middleware(request: NextRequest) {
   // 308-redirects to the waitlist. 308 (permanent) — not 307 — so search
   // engines consolidate these dead URLs into / and drop their old titles/
   // descriptions from the index, instead of keeping them as "temporarily
-  // moved." The old pages still exist in the repo — restore by reverting this
-  // redirect, app/page.tsx, and app/sitemap.ts (see _backup/). Static assets
-  // and metadata files are excluded by `config.matcher` below.
+  // moved." The old marketing pages have been removed from the repo; restore
+  // from git history if ever needed. Static assets and metadata files are
+  // excluded by `config.matcher` below.
   // NOTE: 308 is cached by browsers; if the marketing site is revived, expect
   // some clients to keep redirecting until their cache clears.
   const isFunctional =

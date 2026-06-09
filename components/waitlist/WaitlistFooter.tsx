@@ -15,13 +15,6 @@ const COLUMNS = [
       { label: "Contact", href: "mailto:trygradia@gmail.com" },
     ],
   },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-    ],
-  },
 ];
 
 const SOCIAL = [
@@ -56,7 +49,7 @@ export function WaitlistFooter() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-10">
             {COLUMNS.map((col) => (
               <div key={col.title}>
                 <p className="mb-3 text-xs font-medium uppercase tracking-[0.12em] text-[var(--foreground)]">

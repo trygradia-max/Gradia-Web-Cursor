@@ -9,8 +9,8 @@ function siteBase(): string {
 }
 
 // Site is in waitlist-only mode: the landing page (/) is the only public route.
-// All other marketing pages 307-redirect to / via middleware.ts, so the sitemap
-// lists just the root. (Previous full sitemap preserved in _backup/.)
+// The old marketing pages were removed and any old URLs 308-redirect to / via
+// middleware.ts, so the sitemap lists just the root. (Full history is in git.)
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {

@@ -26,9 +26,14 @@ const brandPrimary = "#7c3aed";
 
 const logoPath = join(imagesDir, "gradia-icon.png");
 
+// Black background behind the purple knot for every icon (tab favicon + home
+// screen), so it reads on light and dark browser chrome alike. `contain` keeps
+// a little padding; `flatten` composites the transparent knot onto solid black.
+const iconBg = "#000000";
+
 const iconPad = {
   fit: "contain",
-  background: { r: 255, g: 255, b: 255, alpha: 1 },
+  background: iconBg,
 };
 
 const ogSvg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -37,26 +42,40 @@ const ogSvg = `<?xml version="1.0" encoding="UTF-8"?>
   <rect x="420" y="412" width="360" height="3" fill="${brandPrimary}" rx="1.5" opacity="0.9"/>
   <text x="520" y="292" text-anchor="start" font-family="Georgia, serif" font-size="96" fill="#ffffff">Gradia</text>
   <circle cx="700" cy="268" r="11" fill="${brandPrimary}"/>
-  <text x="600" y="372" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#f8fafc">Your 7-agent front office for car detailers</text>
+  <text x="600" y="372" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#f8fafc">AI office for auto detailers — two agents, one brain</text>
 </svg>`;
 
 await mkdir(imagesDir, { recursive: true });
 
-const faviconPng32 = await sharp(logoPath).resize(32, 32).png().toBuffer();
-const faviconPng16 = await sharp(logoPath).resize(16, 16).png().toBuffer();
+const faviconPng32 = await sharp(logoPath)
+  .resize(32, 32, iconPad)
+  .flatten({ background: iconBg })
+  .png()
+  .toBuffer();
+const faviconPng16 = await sharp(logoPath)
+  .resize(16, 16, iconPad)
+  .flatten({ background: iconBg })
+  .png()
+  .toBuffer();
 const icoBuffer = await pngToIco([faviconPng16, faviconPng32]);
 
 await writeFile(join(appDir, "favicon.ico"), icoBuffer);
 
-await sharp(logoPath).resize(180, 180).png().toFile(join(publicDir, "apple-touch-icon.png"));
+await sharp(logoPath)
+  .resize(180, 180, iconPad)
+  .flatten({ background: iconBg })
+  .png()
+  .toFile(join(publicDir, "apple-touch-icon.png"));
 
 await sharp(logoPath)
   .resize(512, 512, iconPad)
+  .flatten({ background: iconBg })
   .png()
   .toFile(join(appDir, "icon.png"));
 
 await sharp(logoPath)
   .resize(180, 180, iconPad)
+  .flatten({ background: iconBg })
   .png()
   .toFile(join(appDir, "apple-icon.png"));
 
