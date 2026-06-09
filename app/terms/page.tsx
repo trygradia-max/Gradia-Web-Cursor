@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalShell } from "@/components/legal/LegalShell";
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default function TermsPage() {
         Your shop&rsquo;s data is yours. You grant Gradia a limited license to process your data and
         content solely to operate the Service for you and to carry out the actions you approve. You
         can export or delete your data. Our handling of personal information is described in our{" "}
-        <a href="/privacy">Privacy Policy</a>.
+        <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
       <h2>Third-party services</h2>
