@@ -118,8 +118,9 @@ export default function WaitlistPage() {
                 Built to run the front office while you detail.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Watch one call go end to end — answered, quoted, upsold, booked,
-                and followed up — without you touching your phone.
+                Watch one call go end to end — your AI receptionist answers it,
+                quotes the car, upsells, books the job, and follows up — so you
+                stop missing calls while your hands are on the car.
               </p>
             </ScrollReveal>
             <CallStory />
@@ -282,9 +283,10 @@ export default function WaitlistPage() {
                 Hire your whole front office for less than one detail a month.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Every missed call is a job that went to the next shop. Gradia
-                catches all of them — and keeps the rest of your back office
-                moving while you work.
+                Every missed call is a detailing job that went to the next shop.
+                Gradia is the AI front office for car detailers — answering,
+                quoting, scheduling, and invoicing in one app — so nothing slips
+                through.
               </p>
             </ScrollReveal>
             <div className="grid gap-px overflow-hidden border border-[var(--border)] bg-[var(--border)] sm:grid-cols-3">
@@ -390,9 +392,10 @@ export default function WaitlistPage() {
                 Your clients and data — always yours.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Every customer, vehicle, quote, and job lives in one place you
-                fully own and can export anytime. Switch tools whenever you
-                want — your shop comes with you. Independent, portable, yours.
+                Every customer, vehicle, quote, and job lives in one auto
+                detailing CRM you fully own and can export anytime. Switch tools
+                whenever you want — your shop comes with you. Independent,
+                portable, yours.
               </p>
             </ScrollReveal>
           </div>

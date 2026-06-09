@@ -47,9 +47,10 @@ export function PlatformPreview() {
             </h2>
           </div>
           <p className="max-w-sm text-[var(--muted)] md:ml-auto">
-            This is what you wake up to inside Gradia — every agent&rsquo;s work
-            overnight, this week&rsquo;s numbers, live activity, and your next
-            campaign drafted and ready to send.
+            This is what you wake up to inside Gradia&rsquo;s car detailing
+            software — every agent&rsquo;s work overnight, this week&rsquo;s
+            numbers, live activity, and your next campaign drafted and ready to
+            send.
           </p>
         </div>
 
