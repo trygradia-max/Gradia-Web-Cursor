@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     q: "When does it launch?",
-    a: "We're in private beta now and opening up in waves. Join the waitlist and we'll email you the moment your spot is ready.",
+    a: "Gradia launches July 10, 2026. We're in private beta now, and founding members get early access ahead of launch. Join the waitlist and we'll email you the moment your spot opens.",
   },
   {
     q: "Who owns my customer data?",

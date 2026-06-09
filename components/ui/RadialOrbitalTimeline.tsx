@@ -37,6 +37,9 @@ export default function RadialOrbitalTimeline({
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
+  // Orbit radius shrinks on narrow screens so nodes + labels never spill off the
+  // viewport. 200 on desktop; clamped down on mobile from the container width.
+  const [radius, setRadius] = useState<number>(200);
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -97,6 +100,21 @@ export default function RadialOrbitalTimeline({
     return () => io.disconnect();
   }, []);
 
+  // Keep the whole orbit inside its container. Leave room on each side for half
+  // a node (24px) plus label overflow (~36px), so nothing bleeds off-screen.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const compute = () => {
+      const w = el.clientWidth;
+      setRadius(Math.max(104, Math.min(200, Math.floor(w / 2) - 60)));
+    };
+    compute();
+    const ro = new ResizeObserver(compute);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!autoRotate || !inView) return;
@@ -108,7 +126,6 @@ export default function RadialOrbitalTimeline({
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 200;
     const radian = (angle * Math.PI) / 180;
     const x = radius * Math.cos(radian);
     const y = radius * Math.sin(radian);
@@ -144,8 +161,11 @@ export default function RadialOrbitalTimeline({
             </span>
           </div>
 
-          {/* orbit ring */}
-          <div className="absolute h-[25rem] w-[25rem] orbit-round border border-white/10" />
+          {/* orbit ring — diameter tracks the responsive node radius */}
+          <div
+            className="absolute orbit-round border border-white/10"
+            style={{ height: radius * 2, width: radius * 2 }}
+          />
 
           {/* Nodes render client-only: their float-precision transforms would
               otherwise serialize differently on the server and mismatch on
@@ -212,7 +232,7 @@ export default function RadialOrbitalTimeline({
                 </div>
 
                 {isExpanded && (
-                  <div className="absolute top-24 left-1/2 w-64 -translate-x-1/2 border border-white/20 bg-[#0c0916]/95 p-4 shadow-xl shadow-[#7c3aed]/10 backdrop-blur-lg">
+                  <div className="absolute top-24 left-1/2 w-[min(16rem,72vw)] -translate-x-1/2 border border-white/20 bg-[#0c0916]/95 p-4 shadow-xl shadow-[#7c3aed]/10 backdrop-blur-lg">
                     <div className="absolute -top-3 left-1/2 h-3 w-px -translate-x-1/2 bg-white/40" />
                     <div className="flex items-center justify-between">
                       <span
