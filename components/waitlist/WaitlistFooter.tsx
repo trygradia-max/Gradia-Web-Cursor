@@ -25,10 +25,12 @@ const COLUMNS = [
 ];
 
 const SOCIAL = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "TikTok", href: "https://tiktok.com" },
-  { label: "X (Twitter)", href: "https://x.com" },
-  { label: "YouTube", href: "https://youtube.com" },
+  { label: "Instagram", href: "https://www.instagram.com/trygradia/" },
+  { label: "X (Twitter)", href: "https://x.com/TryGradia" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/gradia-undefined-4100963a9/",
+  },
 ];
 
 export function WaitlistFooter() {
