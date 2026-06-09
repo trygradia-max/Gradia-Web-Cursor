@@ -56,7 +56,7 @@ const jsonLd = [
     sameAs: [
       "https://www.instagram.com/trygradia/",
       "https://x.com/TryGradia",
-      "https://www.linkedin.com/in/gradia-undefined-4100963a9/",
+      "https://www.linkedin.com/in/gradia-ai-4100963a9/",
     ],
   },
   {

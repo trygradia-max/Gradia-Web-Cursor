@@ -29,7 +29,7 @@ const SOCIAL = [
   { label: "X (Twitter)", href: "https://x.com/TryGradia" },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/gradia-undefined-4100963a9/",
+    href: "https://www.linkedin.com/in/gradia-ai-4100963a9/",
   },
 ];
 
