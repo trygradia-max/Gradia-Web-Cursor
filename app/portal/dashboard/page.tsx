@@ -303,10 +303,7 @@ export default async function PortalDashboardPage() {
 
         {/* Appointments */}
         <section className="mt-6" aria-label="Appointments">
-          <AppointmentsBoard
-            initialAppointments={data.appointmentsBoard}
-            initialMonthlyFeesTotal={data.monthlyPerformanceFeesTotal}
-          />
+          <AppointmentsBoard initialAppointments={data.appointmentsBoard} />
         </section>
       </div>
     </div>

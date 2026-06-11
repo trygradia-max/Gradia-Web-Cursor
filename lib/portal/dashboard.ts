@@ -1,8 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import {
-  getMonthlyPerformanceFeesSum,
-  type AppointmentBoardRow,
-} from "@/lib/portal/appointments";
+import type { AppointmentBoardRow } from "@/lib/portal/appointments";
 
 export type CallRow = {
   id: string;
@@ -45,11 +42,7 @@ export type DashboardData = {
     customer: string;
     notes: string;
     status: string | null;
-    dealValue: number | null;
-    performanceFee: number | null;
-    confirmedAt: string | null;
   }>;
-  monthlyPerformanceFeesTotal: number;
 };
 
 function pickCallDate(row: CallRow): string {
@@ -96,7 +89,6 @@ export async function getDashboardData(
     { count: callCount, error: callCountError },
     { data: recentCallsRows, error: callsError },
     { data: appointmentsRows, error: appointmentsError },
-    monthlyPerformanceFeesTotal,
   ] = await Promise.all([
     supabase
       .from("call_logs")
@@ -113,12 +105,11 @@ export async function getDashboardData(
     supabase
       .from("appointments")
       .select(
-        "id, client_id, scheduled_at, appointment_date, contact_name, customer_name, notes, status, deal_value, performance_fee, confirmed_at",
+        "id, client_id, scheduled_at, appointment_date, contact_name, customer_name, notes, status",
       )
       .eq("client_id", clientId)
       .order("scheduled_at", { ascending: false })
       .limit(25),
-    getMonthlyPerformanceFeesSum(supabase, clientId),
   ]);
 
   // RLS or schema mismatches should not blank the whole dashboard for signed-in users.
@@ -130,7 +121,6 @@ export async function getDashboardData(
       recentCalls: [],
       upcomingAppointments: [],
       appointmentsBoard: [],
-      monthlyPerformanceFeesTotal: 0,
     };
   }
 
@@ -185,12 +175,6 @@ export async function getDashboardData(
       customer: pickAppointmentCustomer(row),
       notes: pickAppointmentNotes(row),
       status: row.status ?? null,
-      dealValue:
-        row.deal_value != null ? Number(row.deal_value) : null,
-      performanceFee:
-        row.performance_fee != null ? Number(row.performance_fee) : null,
-      confirmedAt: row.confirmed_at ?? null,
     })),
-    monthlyPerformanceFeesTotal,
   };
 }

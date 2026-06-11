@@ -50,7 +50,6 @@ export async function GET() {
       recentCalls: data.recentCalls,
       upcomingAppointments: data.upcomingAppointments,
       appointmentsBoard: data.appointmentsBoard,
-      monthlyPerformanceFeesTotal: data.monthlyPerformanceFeesTotal,
     },
     {
       headers: {
