@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { createAdminSupabaseClient } from "@/lib/supabase/admin";
+import { alertFailedSignup } from "@/lib/notify";
 
 async function clientIpKey(): Promise<string> {
   const h = await headers();
@@ -102,16 +103,21 @@ export async function POST(request: Request) {
     if (error) throw error;
   } catch (err) {
     // Don't lose the signup if the DB is unconfigured (e.g. local dev without
-    // SUPABASE_SERVICE_ROLE_KEY) or briefly unavailable — fall back to a
-    // structured log that surfaces in Vercel / Cloud Run and is grep-able.
-    console.error(
-      "[waitlist-signup] persist failed, logging instead:",
-      err instanceof Error ? err.message : err,
-    );
-    console.log(
-      "[waitlist-signup]",
-      JSON.stringify({ receivedAt: new Date().toISOString(), ...row }),
-    );
+    // SUPABASE_SERVICE_ROLE_KEY) or unavailable (e.g. a Supabase outage during
+    // launch traffic). Two independent safety nets, neither of which depends on
+    // the failing database:
+    const reason = err instanceof Error ? err.message : String(err);
+    const record = { receivedAt: new Date().toISOString(), ...row };
+
+    // 1) Out-of-band alert — delivers the full payload off-platform (Slack /
+    //    Discord / generic webhook) so the founder is notified and can recover
+    //    the email by hand even if the DB is completely down. No-op until
+    //    WAITLIST_ALERT_WEBHOOK_URL is set.
+    await alertFailedSignup(record, reason);
+
+    // 2) Structured, grep-able log as a second net (surfaces in Vercel logs).
+    console.error("[waitlist-signup] persist failed, alerted + logging:", reason);
+    console.log("[waitlist-signup]", JSON.stringify(record));
   }
 
   return NextResponse.json({ ok: true }, { status: 200 });
