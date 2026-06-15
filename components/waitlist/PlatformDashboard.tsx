@@ -13,7 +13,7 @@ import {
 
 /**
  * Sneak-peek mock of the Gradia platform dashboard — what a shop owner sees
- * when they log in: the two agents' overnight work, this week's numbers, live
+ * when they log in: Gradia's overnight work, this week's numbers, live
  * activity, and a lead-revival follow-up drafted and staged for approval.
  * Static (it's a product preview), dark to match the app. Self-contained colors
  * so it reads like a real screenshot regardless of page theme.
@@ -35,10 +35,10 @@ const STATS = [
 ];
 
 const FEED = [
-  { t: "9:47 PM", who: "Voice agent", what: "Answered Marcus in 4s" },
-  { t: "9:48 PM", who: "Voice agent", what: "Quoted a Tahoe — $640 on the call" },
-  { t: "9:51 PM", who: "Voice agent", what: "Booked Saturday 10:00 AM" },
-  { t: "10:02 PM", who: "Chat agent", what: "Drafted a follow-up — staged for you" },
+  { t: "9:47 PM", who: "On the phone", what: "Answered Marcus in 4s" },
+  { t: "9:48 PM", who: "On the phone", what: "Quoted a Tahoe — $640 on the call" },
+  { t: "9:51 PM", who: "On the phone", what: "Booked Saturday 10:00 AM" },
+  { t: "10:02 PM", who: "Follow-up", what: "Drafted a text + email — staged for you" },
 ];
 
 export function PlatformDashboard() {
@@ -85,7 +85,7 @@ export function PlatformDashboard() {
             <p className="text-[11px] text-white/45">Thursday, June 4 · staged while you slept</p>
           </div>
           <span className="hidden items-center gap-1.5 rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-[#10b981] sm:flex">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#10b981]" /> Both agents on
+            <span className="h-1.5 w-1.5 rounded-full bg-[#10b981]" /> Gradia online
           </span>
         </div>
 
@@ -113,7 +113,7 @@ export function PlatformDashboard() {
                   <MessageSquare className="h-3.5 w-3.5" /> Follow-up · staged for your OK
                 </span>
                 <span className="text-[10px] text-white/45">
-                  drafted by your chat agent
+                  drafted by Gradia
                 </span>
               </div>
               <p className="mt-2 text-[15px] font-semibold">Revive 23 ceramic leads who never booked</p>

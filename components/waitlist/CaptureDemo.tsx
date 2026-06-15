@@ -6,16 +6,16 @@ import { cn } from "@/lib/cn";
 
 /**
  * Looping demo: an after-hours call gets answered, quoted, and booked over the
- * phone by the voice agent — the "missed call in, booked job out" moment.
+ * phone by Gradia — the "missed call in, booked job out" moment.
  *
  * Every block below stays mounted for the whole loop and only fades/slides via
  * opacity + transform — never via mount/unmount or height. That keeps the
  * card's height perfectly stable so the page beneath it doesn't jump each cycle.
  */
 const STAGES = [
-  { agent: "Voice agent", state: "Answering…" },
-  { agent: "Voice agent", state: "Quoting…" },
-  { agent: "Voice agent", state: "Booking…" },
+  { agent: "Gradia", state: "Answering…" },
+  { agent: "Gradia", state: "Quoting…" },
+  { agent: "Gradia", state: "Booking…" },
   { agent: "Done", state: "Booked" },
 ] as const;
 
@@ -94,7 +94,7 @@ export function CaptureDemo() {
       {/* quote — always mounted, fades in */}
       <div className={cn("mb-2 border border-[var(--border)] p-3", reveal(showQuote))}>
         <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-          Voice agent · quote
+          On the call · quote
         </p>
         <div className="flex flex-wrap gap-1.5">
           {["Tahoe · full-size SUV", "Interior + ceramic", "$640"].map((chip) => (
@@ -114,7 +114,7 @@ export function CaptureDemo() {
       {/* booking — always mounted, fades in */}
       <div className={cn("mb-2 border border-[var(--border)] p-3", reveal(showBooking))}>
         <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--muted)]">
-          Voice agent · booking
+          On the call · booking
         </p>
         <div className="flex items-center justify-between text-sm">
           <span className="text-[var(--foreground)]">Saturday · 10:00 AM</span>

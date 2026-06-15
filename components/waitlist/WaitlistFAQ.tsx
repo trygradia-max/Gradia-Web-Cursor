@@ -6,11 +6,11 @@ import { Plus, Minus } from "lucide-react";
 const FAQS = [
   {
     q: "What exactly is Gradia?",
-    a: "Gradia is an AI office for auto detailers — two agents that share one brain. A voice agent answers your calls 24/7, quotes and books over the phone, and handles reschedules. A chat agent follows up with every new lead and revives the ones you forgot, by text and email. You approve everything before it sends, and it all lives in one CRM and calendar you own.",
+    a: "Gradia is the AI front office for auto detailers. Connect your CRM, calls, texts, email, and calendar in one place — then just tell Gradia what to do. Ask Gradia Whisper to quote a customer, book a job, follow up with a lead, or run a campaign, and Gradia Agent stages every step for your approval. Answering calls 24/7 and following up by text and email are the channels it works through. You approve everything before it sends, and it all lives in one CRM and calendar you own.",
   },
   {
     q: "Do I have to change how I work?",
-    a: "No. Gradia plugs into the phone number, inbox, and calendar you already use. The agents draft and stage the work in the background — but nothing gets sent or booked until you approve it. AI does the work; you stay in control.",
+    a: "No. Gradia plugs into the phone number, inbox, CRM, and calendar you already use. You just tell it what to do in plain English — Gradia drafts and stages the work in the background, but nothing gets sent or booked until you approve it. AI does the work; you stay in control.",
   },
   {
     q: "How much will it cost?",

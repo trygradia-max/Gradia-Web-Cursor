@@ -22,19 +22,19 @@ import { cn } from "@/lib/cn";
 const DWELL = 4500; // ms each beat stays before auto-advancing
 const BEATS = [
   {
-    eyebrow: "01 · Voice agent",
+    eyebrow: "01 · On the phone",
     title: "The call comes in.",
     desc: "A new lead calls after hours. Gradia answers in seconds — 24/7 — so it never goes to voicemail or the next shop.",
   },
   {
-    eyebrow: "02 · Voice agent",
+    eyebrow: "02 · On the phone",
     title: "Quoted over the phone.",
     desc: "It quotes the job right on the call — accurate and instant, speaking as your shop — then books it straight onto your real calendar.",
   },
   {
-    eyebrow: "03 · Chat agent",
+    eyebrow: "03 · By text & email",
     title: "Followed up by text and email.",
-    desc: "Sharing the same brain, the chat agent texts and emails to confirm and keep the lead warm — and revives the old leads you forgot.",
+    desc: "Sharing the same brain, Gradia texts and emails to confirm and keep the lead warm — and revives the old leads you forgot.",
   },
   {
     eyebrow: "04 · You approve",
@@ -81,7 +81,7 @@ function Visual({ step }: { step: number }) {
     return (
       <div className={common}>
         <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">
-          Voice agent · on the call
+          On the call
         </span>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {["Tahoe · full-size SUV", "Interior + ceramic · $640"].map((c) => (
@@ -111,7 +111,7 @@ function Visual({ step }: { step: number }) {
     return (
       <div className={common}>
         <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">
-          Chat agent · follow-up
+          Follow-up · text &amp; email
         </span>
         <div className="mt-3 flex items-start gap-2 bg-white/[0.04] p-3">
           <MessageSquareText className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#a78bfa]" />
@@ -127,7 +127,7 @@ function Visual({ step }: { step: number }) {
           <span className="text-white/45">drafted</span>
         </div>
         <p className="mt-3 flex items-center gap-1.5 border-t border-white/10 pt-3 text-[12px] text-white/55">
-          Same brain as the voice agent — it knows the call just happened.
+          One brain — it already knows the call just happened.
         </p>
       </div>
     );
