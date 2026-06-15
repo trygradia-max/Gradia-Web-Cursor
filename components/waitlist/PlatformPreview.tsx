@@ -10,7 +10,7 @@ const FEATURES = [
   {
     icon: MessageSquare,
     title: "Follow-ups, drafted for you",
-    body: "Your chat agent writes the text and email to revive a lead. Approve it and it sends — signed as your shop.",
+    body: "Gradia writes the text and email to revive a lead. Approve it and it sends — signed as your shop.",
   },
   {
     icon: Inbox,
@@ -20,7 +20,7 @@ const FEATURES = [
   {
     icon: CalendarCheck,
     title: "Booked over the phone",
-    body: "Your voice agent quotes and books every call straight onto the real calendar you already use.",
+    body: "Gradia quotes and books every call straight onto the real calendar you already use.",
   },
   {
     icon: ShieldCheck,
@@ -48,8 +48,8 @@ export function PlatformPreview() {
           </div>
           <p className="max-w-sm text-[var(--muted)] md:ml-auto">
             This is what you wake up to inside Gradia&rsquo;s car detailing
-            software — both agents&rsquo; work overnight, this week&rsquo;s
-            numbers, live activity, and the follow-ups they&rsquo;ve drafted for
+            software — Gradia&rsquo;s work overnight, this week&rsquo;s
+            numbers, live activity, and the follow-ups it&rsquo;s drafted for
             your approval.
           </p>
         </div>

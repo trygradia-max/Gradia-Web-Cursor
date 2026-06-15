@@ -27,12 +27,12 @@ const NEEDS_YOU = [
   {
     initials: "SP",
     name: "Sam Park",
-    reason: "Detail done yesterday. Chat agent drafted a thank-you + re-book — approve to send.",
+    reason: "Detail done yesterday. Gradia drafted a thank-you + re-book — approve to send.",
   },
   {
     initials: "CV",
     name: "Cold quote · Civic full detail",
-    reason: "Stalled 9 days. The chat agent drafted a nudge — approve to send.",
+    reason: "Stalled 9 days. Gradia drafted a nudge — approve to send.",
   },
 ];
 

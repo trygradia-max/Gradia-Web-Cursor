@@ -17,11 +17,11 @@ const DEMOS: Record<
   string,
   { subtitle: string; render: () => React.ReactNode }
 > = {
-  "Voice agent": {
+  "Voice receptionist": {
     subtitle: "A missed call, answered — quoted and booked over the phone, 24/7.",
     render: () => <CaptureDemo />,
   },
-  "Chat agent": {
+  "Lead follow-ups": {
     subtitle:
       "Ask in plain English. Gradia works your CRM, previews it, and waits for your OK.",
     render: () => <CrmAgentDemo />,

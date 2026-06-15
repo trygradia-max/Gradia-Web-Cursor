@@ -2,7 +2,7 @@ import { Sparkles, Check } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 /**
- * Bespoke Gradia booking calendar: the voice agent has quoted and booked a full
+ * Bespoke Gradia booking calendar: Gradia has quoted and booked a full
  * two weeks of detailing work over the phone. Ceramic-coating jobs are
  * highlighted in brand purple as premium services. Static (no animation) so it
  * never shifts the page. No revenue/upsell figures — bookings only.
@@ -131,7 +131,7 @@ export function BookingCalendar() {
         <div>
           <div className="flex items-center gap-2">
             <span className="flex items-center gap-1.5 text-xs font-medium text-[var(--dash-success)]">
-              <Check className="h-3.5 w-3.5" /> Voice agent · booked solid
+              <Check className="h-3.5 w-3.5" /> Booked over the phone · solid
             </span>
           </div>
           <p className="mt-1 text-sm text-[var(--muted)]">

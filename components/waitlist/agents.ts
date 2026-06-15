@@ -9,7 +9,7 @@ import {
 export type Agent = {
   /** Two-digit step, e.g. "01" */
   step: string;
-  /** Name, e.g. "Voice agent" */
+  /** Name, e.g. "Voice receptionist" */
   name: string;
   /** Verb shown on the day-sequence card, e.g. "Answers the phone" */
   verb: string;
@@ -50,7 +50,7 @@ export const AGENTS: Agent[] = [
   },
   {
     step: "03",
-    name: "Voice agent",
+    name: "Voice receptionist",
     verb: "Answers the phone",
     job: "Answers every call 24/7, quotes, and books over the phone.",
     pain: "Missed calls",
@@ -59,7 +59,7 @@ export const AGENTS: Agent[] = [
   },
   {
     step: "04",
-    name: "Chat agent",
+    name: "Lead follow-ups",
     verb: "Works your leads",
     job: "Follows up new leads and revives old ones by text and email.",
     pain: "Leads gone cold",
