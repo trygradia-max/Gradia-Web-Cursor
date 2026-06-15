@@ -15,11 +15,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
+    default: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
     template: "%s · Gradia",
   },
   description:
-    "An AI office for auto detailers. Two agents, one brain: answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email — and you approve everything before it sends. $20/mo. Join the waitlist.",
+    "The AI front office for auto detailers. Connect your CRM, calls, texts, email, and calendar — then ask Gradia Whisper to quote customers, book jobs, follow up with leads, and run campaigns. Gradia Agent stages every step for your approval. $20/mo. Join the waitlist.",
   keywords: [
     "car detailing software",
     "AI for car detailers",
@@ -39,15 +39,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Gradia",
-    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
+    title: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
     description:
-      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
+      "Connect your CRM, calls, texts, email, and calendar. Then ask Gradia Whisper to quote, book, follow up, and run campaigns — Gradia Agent stages every step for your approval. $20/mo.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
+    title: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
     description:
-      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
+      "Connect your CRM, calls, texts, email, and calendar. Then ask Gradia Whisper to quote, book, follow up, and run campaigns — Gradia Agent stages every step for your approval. $20/mo.",
   },
 };
 

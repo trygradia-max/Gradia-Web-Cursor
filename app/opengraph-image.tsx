@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "Gradia — an AI office for auto detailers: two agents, one brain";
+  "Gradia — the AI front office for auto detailers: connect your shop, then just tell Gradia what to do";
 
 const CAPABILITIES = [
   "Answers every call 24/7",
@@ -113,7 +113,7 @@ export default async function OpenGraphImage() {
               maxWidth: 940,
             }}
           >
-            Your entire front office. Two AI agents, one brain.
+            Your entire front office. Just tell Gradia what to do.
           </span>
           <span
             style={{

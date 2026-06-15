@@ -221,16 +221,16 @@ export function AnimatedShaderHero() {
           {/* Primary keyword for crawlers/screen-readers; the visible display
               headline below is unchanged. */}
           <span className="sr-only">
-            Agentic AI office for auto detailers —{" "}
+            AI office that organizes and runs auto detailing shops —{" "}
           </span>
           <span style={rise("0.2s")} className="block">
-            Your entire front office. Two AI agents, one brain.
+            Your shop, finally organized.
           </span>
           <span
             style={rise("0.35s")}
             className="block bg-gradient-to-r from-[#a78bfa] via-white to-[#c8ccd4] bg-clip-text text-transparent"
           >
-            Never miss another call.
+            Say it. Gradia handles it.
           </span>
         </h1>
 
@@ -238,10 +238,11 @@ export function AnimatedShaderHero() {
           style={rise("0.5s")}
           className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/65 sm:mt-6 sm:max-w-2xl sm:text-lg"
         >
-          Gradia answers your phone 24/7, quotes and books over the phone,
-          follows up with every lead by text and email, and revives the
-          customers you forgot — all in one CRM, and you approve everything
-          before it sends. $20/month.
+          Connect your CRM, calls, texts, email, and calendar in one place.
+          Then just tell Gradia what happened (&ldquo;quoted Marcus $600 on the
+          F-150&rdquo;) and Gradia Whisper stages the quote, the booking, and the
+          follow-up — every step waiting for your tap in one inbox. Flip to
+          autopilot when it&apos;s earned it. From $20/month.
         </p>
 
         <div

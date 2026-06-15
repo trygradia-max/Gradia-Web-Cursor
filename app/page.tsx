@@ -27,49 +27,49 @@ const PROOF_CARDS = [
   {
     icon: <PhoneCall className="size-4 text-white" />,
     title: "Missed call → booked",
-    description: "Voice agent answered in 4 seconds",
+    description: "Answered, quoted, and booked while you detailed",
     date: "9:47 PM",
   },
   {
     icon: <MessageSquare className="size-4 text-white" />,
     title: "Cold lead → revived",
-    description: "Chat agent followed up — you approved",
+    description: "You asked Gradia; the follow-up went out on your OK",
     date: "Today",
   },
   {
     icon: <CalendarCheck className="size-4 text-white" />,
-    title: "Quoted & booked on a call",
-    description: "Straight onto your calendar",
+    title: "Quoted & booked",
+    description: "Straight onto the calendar you already use",
     date: "2h ago",
   },
 ];
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7 · Gradia",
+    absolute: "AI Front Office for Car Detailers — Just Tell Gradia What To Do · Gradia",
   },
   description:
-    "An AI office for auto detailers. Two agents, one brain: answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email — and you approve everything before it sends. $20/mo. Join the waitlist.",
+    "The AI front office for auto detailers. Connect your CRM, calls, texts, email, and calendar — then ask Gradia Whisper to quote customers, book jobs, follow up with leads, and run campaigns. Gradia Agent stages it all for your approval. $20/mo. Join the waitlist.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
+    title: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
     description:
-      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
+      "Connect your CRM, calls, texts, email, and calendar. Then ask Gradia Whisper to quote, book, follow up, and run campaigns — Gradia Agent stages every step for your approval. $20/mo.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Front Office for Car Detailers — Answer, Quote & Book 24/7",
+    title: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
     description:
-      "Two AI agents, one brain — answer every call 24/7, quote and book over the phone, and follow up with every lead by text and email. You approve everything before it sends. $20/mo.",
+      "Connect your CRM, calls, texts, email, and calendar. Then ask Gradia Whisper to quote, book, follow up, and run campaigns — Gradia Agent stages every step for your approval. $20/mo.",
   },
 };
 
 const WHY_STATS = [
   { stat: "62%", label: "of detailer calls go to voicemail — and most never call back." },
-  { stat: "2", label: "agents — voice and chat — sharing one brain across your shop." },
-  { stat: "24/7", label: "answering, quoting, and booking — even while you detail." },
+  { stat: "1", label: "place for your CRM, calls, texts, email, and calendar — one command line." },
+  { stat: "24/7", label: "quoting, booking, and following up — even while you detail." },
 ];
 
 export default function WaitlistPage() {
@@ -116,13 +116,15 @@ export default function WaitlistPage() {
                 Gradia in action
               </span>
               <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-                Built to run the front office while you detail.
+                Connect your shop. Then just tell Gradia what to do.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Watch one call go end to end — your voice agent answers it,
-                quotes the car, and books the job over the phone. Then your chat
-                agent follows up by text and email — and you approve everything
-                before it sends.
+                Connect your CRM, calls, texts, email, and calendar in one place.
+                Then ask <span className="font-medium text-[var(--foreground)]">Gradia Whisper</span> to
+                quote customers, book jobs, follow up with leads, and run
+                campaigns — and <span className="font-medium text-[var(--foreground)]">Gradia Agent</span> stages
+                every step for your approval. Here&rsquo;s one call going end to
+                end across the phone, text, and email.
               </p>
             </ScrollReveal>
             <CallStory />
@@ -223,9 +225,9 @@ export default function WaitlistPage() {
                 Two weeks, booked solid.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Your voice agent quotes and books every call straight onto the
-                real calendar you already use — filling your week while your
-                hands are on the car. You just show up and detail.
+                Gradia quotes and books every call straight onto the real
+                calendar you already use — filling your week while your hands are
+                on the car. You just show up and detail.
               </p>
             </ScrollReveal>
             <ScrollReveal>
@@ -315,12 +317,13 @@ export default function WaitlistPage() {
               One brain, your whole stack
             </span>
             <h2 className="mx-auto mt-2 max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
-              Gradia AI sits at the center of it all.
+              Gradia Whisper and Gradia Agent sit at the center of it all.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/60">
-              Your CRM, calendar, email, texting, voice line, and Gradia Whisper
-              all run through one brain — so the voice agent knows what the chat
-              agent did two hours ago. Tap a node to see how it connects.
+              Your CRM, calendar, email, texting, and voice line all run through
+              one brain — so when you ask Gradia to do something, it already
+              knows what happened on the phone two hours ago. Tap a node to see
+              how it connects.
             </p>
           </div>
           <div className="relative z-10 mt-2">
@@ -338,15 +341,15 @@ export default function WaitlistPage() {
           <div className="mx-auto max-w-content px-5 sm:px-8">
             <ScrollReveal className="mx-auto mb-12 max-w-2xl text-center">
               <span className="text-xs font-medium uppercase tracking-[0.15em] text-[var(--brand-primary)]">
-                The chat agent
+                Gradia Agent
               </span>
               <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
                 Just ask. It works your whole customer list.
               </h2>
               <p className="mt-4 text-[var(--muted)]">
-                Type it like you&rsquo;d text an employee. Gradia opens your CRM,
-                pulls the right customers, and shows you a preview — then sends
-                the moment you approve.
+                Type it like you&rsquo;d text an employee. Gradia Agent opens your
+                CRM, pulls the right customers, drafts the texts and emails, and
+                shows you a preview — then sends the moment you approve.
               </p>
             </ScrollReveal>
             <ScrollReveal>
@@ -429,8 +432,7 @@ export default function WaitlistPage() {
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-white/60">
               Calls answered. Cars quoted. Jobs booked. Leads followed up. Every
-              ripple below is work your agents staged overnight — waiting for
-              your OK.
+              ripple below is work Gradia staged overnight — waiting for your OK.
             </p>
           </ScrollReveal>
         </section>
@@ -449,9 +451,9 @@ export default function WaitlistPage() {
                   Real work, staged while you sleep.
                 </h2>
                 <p className="mt-4 max-w-md text-[var(--muted)]">
-                  Every night your agents answer calls, quote cars, book jobs,
-                  and follow up with leads — all staged for your approval. You
-                  wake up to the work, not the busywork.
+                  Every night Gradia answers calls, quotes cars, books jobs, and
+                  follows up with leads — all staged for your approval. You wake
+                  up to the work, not the busywork.
                 </p>
               </ScrollReveal>
               <div className="flex min-h-[16rem] items-center justify-center overflow-hidden sm:min-h-[20rem]">
@@ -500,8 +502,8 @@ export default function WaitlistPage() {
               Your shop, fully staffed.
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-white/70">
-              Two AI agents, one brain — keep your hands on the car. The founding
-              100 get 50% off for life.
+              Connect it once, then just tell Gradia what to do — keep your hands
+              on the car. The founding 100 get 50% off for life.
             </p>
             <div className="mt-8 flex justify-center">
               <a

@@ -10,30 +10,42 @@
 
 ## 1. Positioning (north star)
 
-> A **vertical SaaS agentic AI office for auto detailers** — **two agents (voice + chat)
-> that share ONE brain** across the shop's CRM, calendar, email, voice, and SMS, with
-> **the owner approving everything** before it goes out. **$20/month.**
+> The **AI front office for auto detailers**. **Connect your CRM, calls, texts, email, and
+> calendar in one place — then just tell Gradia what to do.** Ask **Gradia Whisper** to quote
+> customers, book jobs, follow up with leads, and run campaigns; **Gradia Agent** stages every
+> step for **the owner's approval** before it goes out. **$20/month.**
+
+**Lead with the connected front office and the command-it-in-plain-English flagship** — Gradia
+Whisper + Gradia Agent. Voice AI and chat are **table stakes now: they're how Gradia works, the
+channels it runs through, NOT the headline** (per `WHAT_GRADIA_DOES.md`, 2026-06-11). The old
+"two agents, one brain" hero is retired — the one brain is still the truth under the hood, but
+it's no longer the lead.
 
 It is **not** a "platform," not for "local service businesses" generally, and not "7 agents."
 It's a focused, vertical product for **independent auto detailers.**
 
-## 2. The two things we actually sell
+## 2. The things we actually sell
 
-1. **One shared brain across channels.** The voice agent knows what the chat agent did two
-   hours ago, and vice versa — same memory, same customer records, same knowledge base, same
-   persona. This is the real differentiator; lead with it.
-2. **Human approves everything — as a feature, not a limitation.** Nothing sends, books, or
+1. **Connect your shop, then just tell Gradia what to do.** One place for CRM, calls, texts,
+   email, and calendar — and a plain-English command line over all of it. This is the new lead.
+2. **The flagship pair: Gradia Whisper + Gradia Agent.** Whisper = say/type an instruction →
+   staged work. Gradia Agent = describe a workflow → it runs it across the shop, every outbound
+   step staged. Market them as a matched duo (command line + engine).
+3. **One shared brain across channels.** When you ask Gradia to do something, it already knows
+   what happened on the phone two hours ago — same memory, customer records, knowledge base,
+   persona. Still the real moat; now framed as *why the command line works*, not the headline.
+4. **Human approves everything — as a feature, not a limitation.** Nothing sends, books, or
    charges without the owner's OK in the app. Frame as control and trust:
    *"AI does the work. You stay in control."*
 
 ## 3. The product, in plain terms (for copy)
 
-- **Voice agent** — answers the shop's phone 24/7; quotes services and books appointments over the phone; handles reschedules and after-hours.
-- **Chat agent** — works the CRM over SMS + email: follows up with new leads, revives old/stale leads, sends reminders; takes one-off plain-English asks.
-- **Gradia Whisper** — speak (or type) an instruction → Gradia stages notes, memory, tasks, actions.
-- **Agentic mode** — describe a workflow in plain English → Gradia plans and runs it, every outbound step staged for approval.
+- **Gradia Whisper** (flagship) — speak (or type) an instruction → Gradia stages notes, memory, tasks, actions.
+- **Gradia Agent** (flagship; the engine formerly framed as "Agentic mode") — describe a workflow in plain English → Gradia plans and runs it, every outbound step staged for approval.
+- **Voice agent** (channel) — answers the shop's phone 24/7; quotes services and books appointments over the phone; handles reschedules and after-hours. Voice Receptionist is the +$29/mo add-on.
+- **Chat agent** (channel) — works the CRM over SMS + email: follows up with new leads, revives old/stale leads, sends reminders; takes one-off plain-English asks.
 - **Integrations:** Calendar (real bookings), CRM (customers/quotes/jobs), Email + SMS.
-- **Price:** $20/month per user — "less than one detail a month."
+- **Price:** $20/month (per shop) — "less than one detail a month." Voice Receptionist add-on: +$29/month (not yet claimable — pending acceptance run).
 
 ## 4. ✅ Always-OK to say (from `WHAT_GRADIA_DOES.md` §5)
 
@@ -70,13 +82,18 @@ It's a focused, vertical product for **independent auto detailers.**
 > Gradia is 7 AI agents for car detailers that answer your phone, quote every car,
 > fill your calendar, **collect your money**, and bring back old customers.
 
-**On-brief rewrite:**
+**On-brief rewrite (current positioning — flagship pair, voice/chat as channels):**
 
-> Your entire front office. Two AI agents, one brain.
-> Never miss another call.
-> Gradia answers your phone 24/7, quotes and books over the phone, follows up with
-> every lead by text and email, and revives the customers you forgot — all in one CRM,
-> and **you approve everything before it sends.** $20/month.
+> Your shop, finally organized. **Say it. Gradia handles it.**
+> Connect your CRM, calls, texts, email, and calendar in one place — then just tell
+> **Gradia Whisper** to quote customers, book jobs, follow up with leads, and run
+> campaigns. **Gradia Agent** stages every step, and **you approve everything before it
+> sends.** Answering calls 24/7 and following up by text + email are the channels it
+> works through. $20/month.
+
+> ⚠️ Do **not** lead with "Two AI agents, one brain" anymore — that's the retired hero.
+> The one brain is still true under the hood (it's *why* the command line works), but the
+> lead is the connected front office + Gradia Whisper/Agent. Voice + chat are channels.
 
 ## 7. Voice & tone
 

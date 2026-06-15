@@ -30,7 +30,7 @@ const DEMOS: Record<
     subtitle: "Speak an instruction and Gradia stages the work for your approval.",
     render: () => <WhisperDemo />,
   },
-  "Agentic mode": {
+  "Gradia Agent": {
     subtitle:
       "Describe a workflow — every step staged behind one approval. Never auto-sent.",
     render: () => <ModeToggle />,
@@ -59,11 +59,12 @@ export function AgentDay() {
             On the job
           </span>
           <h2 className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">
-            Two agents, one brain — your whole day.
+            Two ways to command it. Two channels it works.
           </h2>
           <p className="mt-3 max-w-xl text-[var(--muted)]">
-            From the first missed call to tonight&rsquo;s follow-ups — every
-            step staged for your approval while you detail.
+            Ask Gradia Whisper or hand Gradia Agent a workflow — it runs across
+            your calls, texts, and email, every step staged for your approval
+            while you detail.
           </p>
         </div>
         <div className="hidden shrink-0 gap-2 sm:flex">
