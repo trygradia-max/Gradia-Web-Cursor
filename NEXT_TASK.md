@@ -1,69 +1,48 @@
-> **Note (2026-08-28):** still tactically valid, but the site is being rebuilt per `../platform/docs/gradia-v2/marketing-site/site-v2-plan.md` — read that first; SEO work folds into its Pass 1/Pass 5.
+# NEXT TASK — Build the v2 homepage (Pass 2)
 
-# NEXT TASK — SEO: get trygradia.com ranking for buyer searches
+> **Work order for Claude Code (Builder role).** Review + adjustments come from the founder's
+> Cowork session (Reviewer). Cursor runs independent QA at Pass 7 — not now.
+> _Issued 2026-08-28. Supersedes the SEO work order (git history; SEO folds into Pass 1/5 per the plan)._
 
-> Work order for Claude Code. Read `HANDOFF.md` first for repo orientation, then the full strategy in `docs/seo/Gradia-SEO-Audit-Action-Plan.md`. Ready-to-paste snippets (metadata, JSON-LD, robots, middleware/sitemap diffs) are in `docs/seo/BUILD-KIT.md`. **Goal:** rank for high-intent searches car detailers actually make (e.g. "AI receptionist for car detailers", "car detailing software", "stop missing calls detailing") — NOT vanity terms like "newest AI startup".
+## Read first, in this order
 
-## Before you write any code
+1. `HANDOFF.md` — repo orientation (stack, gotchas, deploy).
+2. `../platform/docs/gradia-v2/marketing-site/site-v2-plan.md` — **the plan of record.** Homepage = its §3 (9 sections). Design rules = §5.
+3. `../_docs/WHAT_GRADIA_DOES.md` — the claim list. **If a claim isn't in §4, you don't write it.** §5 gates and §6 forbidden claims are hard rules.
+4. The Pass 1 foundation (already merged to this branch): `app/v2/site-v2.css`, `components/site/primitives.tsx`, `components/site/SiteNav.tsx`, `components/site/SiteFooter.tsx`, and the style guide at `/v2`.
 
-1. Read `docs/seo/Gradia-SEO-Audit-Action-Plan.md` (full keyword strategy + 30/60/90 plan).
-2. Explore the repo and confirm the current state of:
-   - `middleware.ts` (the takedown redirect — this is gating everything)
-   - `app/(marketing)/*` (the existing hidden pages)
-   - `app/sitemap.ts`, `app/layout.tsx` (metadata)
-3. **Report back a plan before editing.** Don't bulk-change. Propose, get approval, then implement section by section, committing after each.
+## Branch & workflow — non-negotiable
 
-## The key realization
+- Work **only on branch `site-v2`**. Never commit to `main` (it auto-deploys to trygradia.com, which is the live waitlist).
+- Build the new homepage as `app/page.tsx` **on this branch** (replacing the waitlist page *in the branch only* — merge to main is the founder's cutover act, not yours).
+- One commit per homepage section, descriptive message, push after each so Vercel previews update.
+- After each pushed section, **stop and wait for review notes** in `REVIEW_NOTES.md` before starting the next section. Address notes in a follow-up commit before moving on.
+- Do not touch the platform repo, the portal (`app/portal`), or `middleware.ts` beyond what already exists.
 
-The SEO pages **already exist** — they're just turned off by the takedown middleware (see `HANDOFF.md`). So most of this task is **re-enabling and re-targeting**, not greenfield building.
+## Scope — the 9 sections (site-v2-plan §3, in order)
 
----
+1. Hero — D-033 headline verbatim; CTA "Start your trial" / "See how it works"; trust line "Guided setup · You approve what goes out".
+2. Problem — scattered tools consolidating into one Gradia surface; three pains max.
+3. Connected flow — Capture → Understand → Prepare → **Approve** → Schedule → Retain; same sample customer throughout (Sarah Mitchell · 2024 BMW X5).
+4. Operations dashboard — calm, prioritized; placeholder visual now (Pass 3 swaps in real UI).
+5. Core operating system — four alternating full-width panels: Customers & Vehicles · Leads & Pipeline · Quotes, Jobs & Scheduling · Conversations.
+6. Gradia Agent + control (ONE section) — ask → list → prepare → Review/Edit/Approve → logged. "Start with approvals. Money and calendar always ask."
+7. Receptionist — **build it behind a flag, default HIDDEN** (`SHOW_RECEPTIONIST = false` constant). Not claimable until the telephony acceptance run passes.
+8. Industries — four tiles linking to the five industry routes (pages come in Pass 5; links can 308 for now).
+9. Final CTA — "Run the shop without the shop running you." + trust line incl. "Import your existing customers — no starting over."
 
-## Phase 1 — Fast, safe, on the page that's already live (do first)
+**Deliberately absent — do not add:** credibility/logo strips, Customer Recovery, Meta Ads teaser, pricing numbers or tier names, testimonials, metrics, stock imagery. Trial copy allowed: "14-day guided trial · starts after your setup · trial usage limits apply" — nothing beyond that sentence.
 
-These touch only the live homepage and metadata. Low risk.
+## Build rules
 
-1. **`app/layout.tsx` metadata**
-   - Tighten the `title.default` to lead with the primary keyword, e.g. `AI Front Office for Car Detailers — Answer, Quote & Book 24/7`.
-   - Front-load "AI software for car detailers" in the first words of `description`.
-   - (The `keywords` array is fine but note Google ignores the keywords meta tag — don't over-invest there.)
-2. **`app/page.tsx`** — ensure a real, crawlable H1 contains the primary keyword (the current visual headline "A front office that never sleeps" is great for humans but keyword-invisible). Keep the visual headline; add/adjust a semantic H1.
-3. **Image alt text** — add descriptive alt to hero/screenshot images across `components/marketing/` and `components/waitlist/` (e.g. "Gradia AI receptionist booking a car detailing job").
-4. **Structured data (JSON-LD)** — add to the homepage:
-   - `SoftwareApplication` (category, offers/pricing, brand)
-   - `FAQPage` (the FAQ already rendered on the page — mark it up for rich results; high ROI)
-   - `Organization` (name, logo, sameAs social links)
-   Implement as `<script type="application/ld+json">` via Next metadata or a component. Validate with Google Rich Results Test.
+- Use the Pass 1 primitives (`Section`, `Container`, `Card`, `Button`, `Eyebrow`, `Lead`, `SiteNav`, `SiteFooter`) and `--sv-*` tokens. Extend the primitives file if genuinely needed; never fork a parallel system. Check `/v2` before inventing any new pattern.
+- Product visuals: Pass 2 uses clean structural placeholders (bordered frames with realistic sample data text, e.g. "Sarah Mitchell · 2024 BMW X5 · Full Detail + Ceramic Maintenance · $485"). No fake charts, no invented metrics. Pass 3 replaces these with real app UI.
+- Copy: short. Headline → ≤2 sentences → visual. Customer language only — no "AI agents", "HITL", "orchestration", "context layer".
+- Motion: restrained, explanatory only, `prefers-reduced-motion` respected; framer-motion is already a dependency. No always-running animation.
+- Semantic HTML, real H1 (the D-033 headline), keyboard nav, visible focus, alt text, no horizontal overflow at any width, mobile-first.
+- Keep JS light: no three.js/tsparticles/gsap on the new homepage (they belong to the old waitlist page and will be pruned at cutover).
+- Keep JSON-LD/metadata work from the old SEO plan in mind but do NOT do it in Pass 2 — it rides in Pass 5/6.
 
-## Phase 2 — Re-enable the hidden pages (the #1 structural lever)
+## Definition of done (per section)
 
-1. In `middleware.ts`, whitelist the SEO-valuable routes so they stop 307-redirecting to `/`. Extend the `isFunctional` check (or the matcher) to allow the chosen paths. Reference `_backup/middleware.original.ts` for the pre-takedown logic.
-2. Add each re-enabled route to `app/sitemap.ts` (currently root-only). Reference `_backup/sitemap.original.ts`.
-3. **Re-target the content for detailers.** The existing `resources/` articles skew generic/healthcare ("front-desk-automation-for-healthcare-practices"). Rewrite/replace toward detailer buyer-intent topics from the audit (§5), e.g.:
-   - "How mobile detailers handle calls while their hands are wet"
-   - "What a missed call really costs a detailing shop"
-   - "AI receptionist vs. answering service for detailers"
-   - "How to quote a car detail from a single photo"
-4. Use the `industries/[slug]` dynamic route for per-audience landing pages (mobile detailer, shop owner, ceramic/PPF installer) — it's already scaffolded.
-5. Give every re-enabled page a unique `title` + `description` + canonical, and a keyword-aligned H1.
-
-## Phase 3 — Technical SEO
-
-- [ ] `robots.txt` (or `app/robots.ts`) allows crawl + points to sitemap.
-- [ ] Canonical tags on every page.
-- [ ] Confirm pages are server-rendered (they are — Next App Router) and not blocked by middleware after Phase 2.
-- [ ] Core Web Vitals: the hero uses three/gsap/tsparticles — lazy-load below-the-fold and check PageSpeed on mobile (most detailers search on phones).
-
-## Out of scope for Claude Code (Harry handles — account/manual)
-
-- Verify Google Search Console + Bing Webmaster, submit sitemap.
-- Claim G2 / Capterra / GetApp listings.
-- Product Hunt / BetaList launch, link outreach, detailing-creator shout-outs.
-- Resolve the open `www` DNS item (see `HANDOFF.md`).
-
-## Definition of done (this task)
-
-- Homepage metadata + H1 + alt text + JSON-LD shipped and validating.
-- Chosen marketing/resource pages reachable (no longer 307'd), in the sitemap, detailer-targeted, each with unique metadata.
-- `robots` + canonicals in place.
-- Each phase committed separately with clear messages.
+Compiles (`npx tsc --noEmit` clean) · renders correctly at 375px, 768px, 1440px · every string passes the claim list · uses foundation primitives · committed + pushed · review notes addressed.
