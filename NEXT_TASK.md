@@ -43,6 +43,12 @@
 - Keep JS light: no three.js/tsparticles/gsap on the new homepage (they belong to the old waitlist page and will be pruned at cutover).
 - Keep JSON-LD/metadata work from the old SEO plan in mind but do NOT do it in Pass 2 — it rides in Pass 5/6.
 
+## Tools you have (see CLAUDE.md for rules)
+
+- **Playwright MCP** (`.mcp.json`) — screenshot every section at 375/768/1440 against `npm run dev`; review your own screenshots before pushing.
+- **21st.dev MCP + registry** — inspiration search and featured shadcn-format components (`npx shadcn@latest add "https://21st.dev/r/<author>/<component>"`). Retoken everything to `--sv-*` before commit — no component ships with its own colors/fonts/spacing.
+- **framer-motion** — already a dependency; one shared set of curves/durations.
+
 ## Definition of done (per section)
 
-Compiles (`npx tsc --noEmit` clean) · renders correctly at 375px, 768px, 1440px · every string passes the claim list · uses foundation primitives · committed + pushed · review notes addressed.
+Compiles (`npx tsc --noEmit` clean) · Playwright screenshots reviewed at 375px, 768px, 1440px · every string passes the claim list · uses foundation primitives · committed + pushed · review notes addressed.
