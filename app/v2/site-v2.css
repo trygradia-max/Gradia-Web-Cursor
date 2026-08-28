@@ -1,0 +1,71 @@
+/* ============================================================
+   Gradia site v2 — design tokens & base (Pass 1)
+   Scoped under .site-v2 so the legacy waitlist theme is untouched.
+   Direction (site-v2-plan §5): premium, quiet, product-first.
+   Warm soft-white paper, charcoal ink, ONE accent (brand violet),
+   subtle borders over shadows, restrained motion.
+   ============================================================ */
+
+.site-v2 {
+  /* color */
+  --sv-paper: #faf9f7;       /* page background — warm soft white */
+  --sv-surface: #ffffff;     /* cards, nav when solid */
+  --sv-wash: #f2f1ed;        /* alternate section band */
+  --sv-ink: #17171c;         /* headlines, primary text */
+  --sv-ink-2: #4b4b55;       /* body text */
+  --sv-ink-3: #85858f;       /* captions, eyebrows */
+  --sv-line: #e7e5e0;        /* hairline borders */
+  --sv-line-strong: #d8d6cf;
+  --sv-accent: #6d28d9;      /* the one accent — Gradia violet */
+  --sv-accent-hover: #5b21b6;
+  --sv-accent-soft: #f1ecfb; /* accent tint for chips/badges */
+  --sv-graphite: #1c1b22;    /* dark panels (used sparingly) */
+
+  /* type scale — large, confident */
+  --sv-text-xs: 0.8125rem;
+  --sv-text-sm: 0.9375rem;
+  --sv-text-base: 1.0625rem;
+  --sv-text-lg: 1.25rem;
+  --sv-h3: clamp(1.35rem, 1.1rem + 1vw, 1.75rem);
+  --sv-h2: clamp(1.9rem, 1.4rem + 2.2vw, 3rem);
+  --sv-h1: clamp(2.6rem, 1.8rem + 3.6vw, 4.25rem);
+
+  /* rhythm */
+  --sv-container: 72rem;
+  --sv-section-y: clamp(4.5rem, 3rem + 5vw, 8rem);
+  --sv-radius: 14px;
+  --sv-radius-sm: 10px;
+
+  background: var(--sv-paper);
+  color: var(--sv-ink-2);
+  font-size: var(--sv-text-base);
+  line-height: 1.6;
+}
+
+.site-v2 h1, .site-v2 h2, .site-v2 h3 {
+  color: var(--sv-ink);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.site-v2 h1 { font-size: var(--sv-h1); }
+.site-v2 h2 { font-size: var(--sv-h2); line-height: 1.12; }
+.site-v2 h3 { font-size: var(--sv-h3); line-height: 1.25; }
+
+.site-v2 ::selection { background: var(--sv-accent-soft); color: var(--sv-ink); }
+
+.site-v2 a { color: inherit; }
+.site-v2 :focus-visible {
+  outline: 2px solid var(--sv-accent);
+  outline-offset: 2px;
+}
+
+/* motion discipline */
+@media (prefers-reduced-motion: reduce) {
+  .site-v2 *, .site-v2 *::before, .site-v2 *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

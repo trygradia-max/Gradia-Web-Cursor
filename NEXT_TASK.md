@@ -1,3 +1,5 @@
+> **Note (2026-08-28):** still tactically valid, but the site is being rebuilt per `../platform/docs/gradia-v2/marketing-site/site-v2-plan.md` — read that first; SEO work folds into its Pass 1/Pass 5.
+
 # NEXT TASK — SEO: get trygradia.com ranking for buyer searches
 
 > Work order for Claude Code. Read `HANDOFF.md` first for repo orientation, then the full strategy in `docs/seo/Gradia-SEO-Audit-Action-Plan.md`. Ready-to-paste snippets (metadata, JSON-LD, robots, middleware/sitemap diffs) are in `docs/seo/BUILD-KIT.md`. **Goal:** rank for high-intent searches car detailers actually make (e.g. "AI receptionist for car detailers", "car detailing software", "stop missing calls detailing") — NOT vanity terms like "newest AI startup".

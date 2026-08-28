@@ -1,3 +1,5 @@
+> **⚠️ SUPERSEDED (2026-08-28).** This brief described the retired $20/mo "CRM that works itself" era. The site v2 plan of record is `../platform/docs/gradia-v2/marketing-site/site-v2-plan.md`; claims come from the rewritten `../_docs/WHAT_GRADIA_DOES.md`; pricing is Core $99 / Pro $149 / Operator $249 (D-034). Kept only for the §5 forbidden-claims list, which still applies.
+
 # Gradia — Marketing Copy Brief (landing page + waitlist)
 
 > **Read this before writing or editing any copy on this site.**
