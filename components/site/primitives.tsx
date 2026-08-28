@@ -36,7 +36,14 @@ export function Section({
   );
 }
 
-export function Eyebrow({ children }: { children: ReactNode }) {
+export function Eyebrow({ children, chip = false }: { children: ReactNode; chip?: boolean }) {
+  if (chip) {
+    return (
+      <p className="mb-5 inline-flex items-center rounded-[100px] border border-[var(--sv-line-strong)] bg-[var(--sv-surface)] px-3.5 py-1.5 text-[var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
+        {children}
+      </p>
+    );
+  }
   return (
     <p className="mb-4 text-[var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
       {children}
@@ -59,10 +66,11 @@ const btnSize = {
   lg: "h-13 px-8 py-3.5 text-[var(--sv-text-base)]",
 };
 const btnVariant = {
-  primary: "bg-[var(--sv-accent)] text-white hover:bg-[var(--sv-accent-hover)]",
+  primary: "bg-[var(--sv-ink)] text-white hover:bg-black",
   secondary:
     "border border-[var(--sv-line-strong)] bg-[var(--sv-surface)] text-[var(--sv-ink)] hover:border-[var(--sv-ink-3)]",
   ghost: "text-[var(--sv-ink)] hover:text-[var(--sv-accent)]",
+  link: "!h-auto !px-0 text-[var(--sv-ink)] underline underline-offset-4 decoration-[var(--sv-line-strong)] hover:decoration-[var(--sv-ink)]",
 };
 
 export function Button({

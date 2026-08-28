@@ -14,6 +14,15 @@ and `../_docs/WHAT_GRADIA_DOES.md` (claim law) before writing code.
   consistent (Sarah Mitchell · 2024 BMW X5 · Full Detail + Ceramic Maintenance · $485).
 - One commit per homepage section, push, then STOP and wait for `REVIEW_NOTES.md`.
 
+## Visual reference (founder-designated)
+
+**trygtm.com** is the feel target — read `../platform/docs/gradia-v2/marketing-site/reference-trygtm.md`
+(adopt vs do-not-copy) and screenshot the live site with Playwright before building sections 1–2.
+Net rules: centered hero (chip eyebrow, ink pill CTA, underlined-text secondary, dark graphite
+product frame below); monochrome-dominant — primary buttons are INK pills, violet is a signal
+color only (links, focus, approval highlights); product UI always sits in graphite rounded frames.
+Their aesthetic transfers; their autonomous-agents promise does NOT — Gradia is control-first.
+
 ## Design system (Pass 1 — already in repo)
 
 - Tokens: `app/v2/site-v2.css` (`--sv-*`), scoped under `.site-v2`. Primitives:

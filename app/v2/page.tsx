@@ -13,7 +13,7 @@ export default function StyleGuide() {
 
       {/* Hero specimen */}
       <Section>
-        <Eyebrow>Built for detailing &amp; automotive appearance shops</Eyebrow>
+        <Eyebrow chip>Built for detailing &amp; automotive appearance shops</Eyebrow>
         <h1 className="max-w-[16ch]">Run your shop. Capture every lead. Recover more revenue.</h1>
         <Lead>
           Gradia connects your customers, vehicles, leads, quotes, jobs, conversations and
@@ -21,7 +21,7 @@ export default function StyleGuide() {
         </Lead>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Button href="#trial" size="lg">Start your trial</Button>
-          <Button href="#how" variant="secondary" size="lg">See how it works</Button>
+          <Button href="#how" variant="link" size="lg">See how it works</Button>
         </div>
         <p className="mt-5 text-[var(--sv-text-sm)] text-[var(--sv-ink-3)]">
           Guided setup · You approve what goes out
