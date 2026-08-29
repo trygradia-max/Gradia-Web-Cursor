@@ -140,23 +140,42 @@ sentences describe each trade's reality with the one-system claim as the only pr
 used only for links (designated signal) · alternation reasoning documented · dead 308 links
 acceptable on branch, pages land in Pass 5.
 
-## Next up — FINAL homepage cycle
+## Review — Sections 9+10: FAQ (09da270) + Final CTA (609a02a) — 2026-08-29
 
-Section 9 — FAQ ("Honest answers"), per site-v2-plan §3.9: wash band. 5–6 questions, direct
-answers, all inside claim law. REQUIRED items: "Does Gradia send messages by itself?" (only
-if you turn autonomy on — money and calendar always ask) · "Do I have to start over?"
-(import reassurance, labeled beta-honest) · "What if Gradia drafts something wrong?" (edit or
-discard at review — nothing sends until you approve). Do NOT include a receptionist question
-while Section 7 is hidden (add it at un-hide). No pricing/trial-length questions until the
-pricing page ships. Plain <details> or static Q/A — no JS accordion library. Mark up later
-for FAQPage JSON-LD in Pass 5/6 (not now).
+**VERDICT: BOTH APPROVED. ✅ PASS 2 HOMEPAGE COMPLETE — all 10 sections built (9 visible, Receptionist flag-hidden).**
 
-Section 10 — Final CTA, per §3.10: full-bleed graphite band (the page's closing dark moment,
-mirroring the hero frame). "Run the shop without the shop running you." + support line +
-Start your trial (ink-on-dark: use the accent pill here if ink-on-graphite lacks contrast —
-builder's call, screenshot both) + trust line: "Guided setup · You approve what goes out ·
-Import your existing customers — no starting over."
+Section 9: native <details>, no JS accordion · all six answers inside claim law · the honest
+ones land ("Only if you turn autonomy on… money and calendar always ask" · "Could Gradia spam
+my customers? No — hard caps, cooldowns, opt-outs honored before staging") · import answer
+carries its beta label (D-028) · correctly no receptionist or pricing questions yet.
+Section 10: full-bleed graphite mirror of the hero · inverse (white) pill keeps monochrome
+discipline · trust line includes the import reassurance verbatim · carries id="trial".
 
-Build both, screenshot, push once, stop. This completes the Pass 2 homepage — after this
-review, the Reviewer runs a full-page top-to-bottom pass and the founder eyeballs the Vercel
-preview before Pass 3 (real product visuals) begins.
+## Full-page pass (Pass 2 complete) — Reviewer, 2026-08-29
+
+1. **Narrative** — one record travels the whole page: text message → one record → quote →
+   approved → booked (Tue 9:00) → completed → maintenance drafted. Approval is highlighted
+   identically in every frame. This is the moat, demonstrated, not described. PASS.
+2. **Rhythm** — light/band alternation holds; five dark moments (hero frame · flow · ops ·
+   agent · final CTA) separated by light relief (core system · industries · FAQ). PASS.
+3. **Claim sweep** — full-copy review: zero violations across all ten sections. No invented
+   metrics, names, testimonials, prices, or trial numbers anywhere. PASS.
+4. **"Waiting for your review" repetition** — appears across ~5 sections. Reviewer verdict:
+   deliberate drumbeat, keep. Founder should confirm on the full preview read; vary phrasing
+   only if it grates in situ.
+5. **⚠ N1 is now urgent** — the CTA chain is circular (nav/hero → #trial → Final CTA → its
+   own section). Fine on a branch; meaningless at cutover. Founder decision needed: signup
+   route vs waitlist capture.
+
+## Cutover blockers (running list)
+
+Pass 3 (real UI, esp. Section 3 vignettes — flagged as blocker) · Pass 4 motion · Pass 5
+subpages · Pass 6 conversion + JSON-LD · Pass 7 Cursor QA · N1 CTA destination (founder) ·
+P0-013 before Pricing publishes · telephony acceptance run before Receptionist un-hides ·
+founder full-preview approval.
+
+## Next up
+
+HOLD — founder reviews the full homepage on the Vercel preview before Pass 3 begins. Builder:
+no further sections; next work order will be Pass 3 (real product-UI compositions), issued
+after founder feedback lands here.
