@@ -178,6 +178,19 @@ founder full-preview approval.
 
 Overall: approved — "looks pretty good." Two directives + three reviewer-derived hooks below.
 
+## Review — P3-A: Home dashboard rebuild (9b28707) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to P3-B (Whisper moment).**
+
+Verified: composition follows the real Home (greeting → count tiles → "What needs a yes" →
+today's jobs → suggestion bar) · founder's counts delivered ("3 leads need a reply · 5 open
+quotes · $3,850 · 2 jobs today · 1 waiting for your approval") with zero performance/ROI
+stats and zero charts · internal consistency is airtight — counts agree with visible rows,
+and Sarah's accepted quote is deliberately absent from the open-quotes count · "What needs a
+yes" (the app's real approvals name) is a stronger label than anything in the plan · the
+greeting line ("Two jobs on the books. One yes needed before the day starts.") is the best
+copy on the page · naming rule applied and recorded in CLAUDE.md.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
