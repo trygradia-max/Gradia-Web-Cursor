@@ -34,8 +34,28 @@ Carry-forward notes (address in later sections, not as rework now):
   disable protection for preview deployments on `gradia-web-cursor` so the reviewer can
   screenshot them.
 
+## Review — Section 2: Problem (b3c9800) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 3 (Connected flow).**
+
+Verified: §3.2 headline verbatim · the scattered/consolidated visual tells the right story —
+the SAME lead (via SAMPLE) hiding in six places, then one clean record · sharp claim
+discipline: "Instagram DM, unread" sits only on the *today/scattered* side (the shop's current
+reality), while the Gradia surface lists exactly the claimable channels ("Texts + email, one
+thread") — this is precisely how to show the problem without over-claiming the product ·
+three pains match the plan and the copy is strong ("nothing moves unless you touch it") ·
+N3 done properly: `sample.ts` canonical, Hero + Problem both import it, checkbox updated ·
+band alternation correct · primitives used throughout.
+
+Notes:
+- The consolidation motion (chips flowing into the surface) is correctly deferred to Pass 4 —
+  do not add it now.
+- **Reminder for Section 3: it must carry `id="how"` (N2).** Same customer (SAMPLE) through
+  all six stages; Approve is the highlighted stage, consistent with the hero's treatment.
+
 ## Next up
 
-Section 2 — Problem ("Running a shop shouldn't take six disconnected systems."), per
-NEXT_TASK.md scope 2. Do N3 (sample.ts) as part of it. Same rhythm: build, screenshot at
-375/768/1440, review your screenshots, push, stop.
+Section 3 — Connected flow ("One system from first message to finished job."), per
+NEXT_TASK.md scope 3: Capture → Understand → Prepare → Approve → Schedule → Retain, SAMPLE
+record persisting through every stage, `id="how"` on the section (N2), Approve stage
+highlighted like the hero. Same rhythm: build, screenshot at 375/768/1440, review, push, stop.
