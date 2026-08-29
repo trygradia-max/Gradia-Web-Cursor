@@ -51,6 +51,13 @@ Their aesthetic transfers; their autonomous-agents promise does NOT — Gradia i
 - **21st** — inspiration search + component registry (registered at user level via `claude mcp add`;
   search is free, installs capped on the free tier). Use for sourcing, then retoken.
 
+## Process hygiene
+
+- When you start a dev server or any background process, record its PID and stop ONLY that
+  PID at cleanup. Never `pkill`/`killall` by name or pattern — the founder runs other dev
+  servers and Claude sessions on this machine (incident 2026-08-29: a `pkill -f "next dev"`
+  killed the founder's unrelated dev server).
+
 ## Stack facts
 
 Next.js 15 App Router · React 19 · Tailwind v3 (config zeroes border-radius globally — use

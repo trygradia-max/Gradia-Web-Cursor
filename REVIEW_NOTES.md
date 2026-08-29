@@ -108,13 +108,30 @@ Each §5 panel deliberately shows its feature at its most illustrative moment (i
 one; record = after the job), and each screen is self-contained. Fine as-is — but if Pass 3's
 real-UI compositions can make the record panel read clearly as "later," take the opportunity.
 
+## Review — Section 6: Gradia Agent + control (d2c05c5) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 7 (Receptionist, flag-hidden).**
+
+Verified: the demo runs the exact §3.6 sequence — ask → result list → "Prepare follow-ups" →
+Prepared (accent label) → Review/Edit pills with Approve as the single solid-accent action →
+activity log "approved by you · sent · logged" · every step staged, zero autonomous framing ·
+closes on the trust copy with "Money and calendar always ask." emphasized · action pills are
+non-interactive spans, so the demo doesn't fake affordances · PPF casing self-caught and fixed.
+
+Reviewer note on the continuity call: the Builder correctly OVERRODE my "Sarah is fine" note —
+Sarah is booked in this page's timeline, so she cannot appear in a "hasn't booked" list. The
+nameless result list is right and my note was wrong. This is exactly the kind of pushback the
+loop should produce; keep doing it.
+
 ## Next up
 
-Section 6 — Gradia Agent + control, ONE section ("Tell Gradia what needs to get done.
-Approve it before it goes out."), per NEXT_TASK.md scope 6. Wash band (alternation). The
-demo: owner asks "Show me every ceramic coating lead this month that hasn't booked" → short
-result list (nameless leads + Sarah is fine) → "Prepare follow-ups" → Prepared → Review →
-Edit → Approve → activity log entry. Graphite frame is appropriate again here (Section 5
-broke the rhythm) — this is the product's chat surface. Approve carries the accent. Close
-with: "Start with approvals. Give Gradia more responsibility when it's earned it. Money and
-calendar always ask." Same rhythm: build, screenshot, review, push, stop.
+Section 7 — Receptionist, per NEXT_TASK.md scope 7: build the full section but ship it
+HIDDEN behind `SHOW_RECEPTIONIST = false` (telephony acceptance run pending; claim law §5).
+Copy per site-v2-plan §9.3 honest framing: "Don't lose the customer because you're under a
+car." + "Gradia captures, organizes and prepares the opportunity so your business can respond
+properly." No quote/book-on-calls claims while gated. IMPORTANT: compute band alternation
+from VISIBLE sections — with 7 hidden, Industries (8) follows band-6 and must be light;
+verify alternation still holds for when 7 flips visible later (acceptable: revisit
+alternation at un-hiding). Then continue straight into Section 8 (Industries) in the same
+work cycle — four tiles → the five industry routes, one sentence each, SAMPLE-consistent
+imagery notes only. Build both, screenshot, push once, stop.
