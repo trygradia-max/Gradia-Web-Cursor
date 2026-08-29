@@ -70,6 +70,8 @@ const btnVariant = {
   secondary:
     "border border-[var(--sv-line-strong)] bg-[var(--sv-surface)] text-[var(--sv-ink)] hover:border-[var(--sv-ink-3)]",
   ghost: "text-[var(--sv-ink)] hover:text-[var(--sv-accent)]",
+  /* white-on-graphite: the ink pill inverted, for dark closing bands */
+  inverse: "bg-white text-[var(--sv-ink)] hover:bg-[var(--sv-wash)]",
   link: "!h-auto !px-0 text-[var(--sv-ink)] underline underline-offset-4 decoration-[var(--sv-line-strong)] hover:decoration-[var(--sv-ink)]",
 };
 
