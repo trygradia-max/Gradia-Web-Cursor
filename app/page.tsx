@@ -8,10 +8,18 @@ import { ConnectedFlow } from "@/components/site/sections/ConnectedFlow";
 import { Operations } from "@/components/site/sections/Operations";
 import { CoreSystem } from "@/components/site/sections/CoreSystem";
 import { AgentControl } from "@/components/site/sections/AgentControl";
+import { Receptionist } from "@/components/site/sections/Receptionist";
+import { Industries } from "@/components/site/sections/Industries";
 
 /* v2 homepage (Pass 2, branch site-v2 only — merge to main is the founder's
    cutover act). Sections land one commit at a time per NEXT_TASK.md; the plan
    of record is gradia-v2/marketing-site/site-v2-plan.md §3. */
+
+// Publish gate (NEXT_TASK scope 7 / claim law §5): the Receptionist section
+// stays hidden until the live telephony acceptance run passes (capability #20
+// flips from internal). When flipping to true, recompute band alternation for
+// sections 7+ (REVIEW_NOTES).
+const SHOW_RECEPTIONIST = false;
 
 export const metadata: Metadata = {
   // Minimal D-033-true override so the waitlist-era layout metadata (old
@@ -32,6 +40,8 @@ export default function HomePage() {
         <Operations />
         <CoreSystem />
         <AgentControl />
+        {SHOW_RECEPTIONIST && <Receptionist />}
+        <Industries />
       </main>
       <SiteFooter />
     </div>
