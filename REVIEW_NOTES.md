@@ -22,8 +22,8 @@ Carry-forward notes (address in later sections, not as rework now):
   which doesn't exist — there is no signup flow yet. Decide the CTA destination at cutover:
   platform-app signup route, or waitlist capture until trial build (D-035/E01) ships.
   Until decided, the dead anchor is acceptable on the branch only.
-- [ ] **N2:** `See how it works` targets `#how` — Section 3 (Connected flow) must carry
-  `id="how"` when built.
+- [x] **N2:** `See how it works` targets `#how` — Section 3 (Connected flow) must carry
+  `id="how"` when built. _Done with Section 3; anchor verified (see review below)._
 - [x] **N3:** Extract the sample record (Sarah Mitchell / 2024 BMW X5 / Full Detail +
   Ceramic Maintenance / $485) into `components/site/sample.ts` and import it in every
   section that shows product UI (3, 4, 5, 6). The continuity of ONE record across the page

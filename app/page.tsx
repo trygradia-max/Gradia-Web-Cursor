@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { Hero } from "@/components/site/sections/Hero";
 import { Problem } from "@/components/site/sections/Problem";
 import { ConnectedFlow } from "@/components/site/sections/ConnectedFlow";
+import { Operations } from "@/components/site/sections/Operations";
 
 /* v2 homepage (Pass 2, branch site-v2 only — merge to main is the founder's
    cutover act). Sections land one commit at a time per NEXT_TASK.md; the plan
@@ -26,6 +27,7 @@ export default function HomePage() {
         <Hero />
         <Problem />
         <ConnectedFlow />
+        <Operations />
       </main>
       <SiteFooter />
     </div>
