@@ -90,11 +90,31 @@ screens sit in LIGHT surface cards (hairline border, white surface) with smaller
 used only inside where product chrome genuinely needs it. Do not build a fifth full-width
 dark frame; the page must not become a graphite tunnel.
 
+## Review — Section 5: Core operating system (aa20c99) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 6 (Gradia Agent + control).**
+
+Verified: the graphite-tunnel watch-item was followed exactly — light surface screens with a
+wash chrome strip, alternating sides; the page now breathes · Conversations is texts + email
+only, with the draft chip in accent-soft "waiting for your review" — the approval signal
+stays consistent across every surface · all four panel lines are claim-safe and well written
+("so none of them get lost" · "you approve what goes out") · SAMPLE used wherever Sarah
+appears; pipeline/inbox extras stay nameless · no fake metrics ("customer since spring" is
+the right kind of vague).
+
+Accepted with rationale (not a defect): the Customer-record screen shows Sarah's job
+*completed* with the next maintenance reminder drafted, while Sections 3–4 show it upcoming.
+Each §5 panel deliberately shows its feature at its most illustrative moment (inbox = day
+one; record = after the job), and each screen is self-contained. Fine as-is — but if Pass 3's
+real-UI compositions can make the record panel read clearly as "later," take the opportunity.
+
 ## Next up
 
-Section 5 — Core operating system ("Everything stays connected."), per NEXT_TASK.md scope 5:
-four alternating full-width panels — Customers & Vehicles · Leads & Pipeline · Quotes, Jobs &
-Scheduling · Conversations. One headline + one sentence + one screen each; alternate
-image/text left-right; light section (alternation after the wash band). Screens in LIGHT
-surface cards per the design watch-item above. Conversations = texts + email only. SAMPLE
-everywhere a record shows. Same rhythm: build, screenshot, review, push, stop.
+Section 6 — Gradia Agent + control, ONE section ("Tell Gradia what needs to get done.
+Approve it before it goes out."), per NEXT_TASK.md scope 6. Wash band (alternation). The
+demo: owner asks "Show me every ceramic coating lead this month that hasn't booked" → short
+result list (nameless leads + Sarah is fine) → "Prepare follow-ups" → Prepared → Review →
+Edit → Approve → activity log entry. Graphite frame is appropriate again here (Section 5
+broke the rhythm) — this is the product's chat surface. Approve carries the accent. Close
+with: "Start with approvals. Give Gradia more responsibility when it's earned it. Money and
+calendar always ask." Same rhythm: build, screenshot, review, push, stop.
