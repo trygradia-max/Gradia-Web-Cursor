@@ -72,11 +72,29 @@ Notes:
   is what makes this section the demo. Do not ship cutover before this section gets its
   Pass 3/4 treatment.
 
+## Review — Section 4: Operations dashboard (f4196ef) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 5 (Core operating system).**
+
+Verified: zero analytics/counts/charts — every row is an operational item, exactly per the
+#17-is-building guardrail · every outbound framed approve-first ("Waiting for your review",
+"you approve before it goes out") · timeline continuity is excellent: Sarah's quote is now
+"Accepted · job booked" (consistent with Section 3) and the frame's clock (Tuesday 7:58 AM)
+sits just before her 9:00 AM job — the page reads as one morning in one shop · no second
+invented customer name (walk-in and anonymous lead only) · accent reserved for the
+recommended-actions/approval signal · band alternation correct.
+
+Design watch-item for Section 5 (important): the page now has FOUR graphite frames in a row
+(hero, problem, flow, dashboard). Section 5's four alternating panels must break this rhythm —
+screens sit in LIGHT surface cards (hairline border, white surface) with smaller graphite
+used only inside where product chrome genuinely needs it. Do not build a fifth full-width
+dark frame; the page must not become a graphite tunnel.
+
 ## Next up
 
-Section 4 — Operations dashboard ("Know what needs attention before it becomes a problem."),
-per NEXT_TASK.md scope 4. Wash band (alternation). Graphite frame, calm hierarchy: needs
-attention · today's jobs · open quotes · recommended actions — operational cards ONLY, no
-analytics/charts (capability #17 is 'building'; inventing metrics violates D-025). Use SAMPLE
-where a record appears. Positioning line: "Your business, prioritized for you." Same rhythm:
-build, screenshot at 375/768/1440, review, push, stop.
+Section 5 — Core operating system ("Everything stays connected."), per NEXT_TASK.md scope 5:
+four alternating full-width panels — Customers & Vehicles · Leads & Pipeline · Quotes, Jobs &
+Scheduling · Conversations. One headline + one sentence + one screen each; alternate
+image/text left-right; light section (alternation after the wash band). Screens in LIGHT
+surface cards per the design watch-item above. Conversations = texts + email only. SAMPLE
+everywhere a record shows. Same rhythm: build, screenshot, review, push, stop.
