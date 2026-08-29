@@ -61,8 +61,11 @@ Their aesthetic transfers; their autonomous-agents promise does NOT — Gradia i
 - The dashboard is called **"Home"** in public copy ("your business, prioritized"). NEVER
   "Chief of Operations" / "Chief of Staff" — internal names, banned on the site.
 - Operational counts in sample UI are allowed ("3 leads need a reply", "5 open quotes ·
-  $3,850"). Performance/ROI statistics (hours saved, revenue growth, customer counts) remain
-  banned everywhere.
+  $3,850"). The **ROI receipt** (leads caught · replies sent for you · bookings secured ·
+  $ in booked work · ~time saved · customers revived) is a REAL product feature and may be
+  shown as sample UI inside "Sample data" frames, labels matching the real component.
+  Marketing PROSE may never make aggregate performance claims ("shops save X hrs/week",
+  revenue growth, customer counts) — that ban is permanent.
 
 ## Process hygiene
 

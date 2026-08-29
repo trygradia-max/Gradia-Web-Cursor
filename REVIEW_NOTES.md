@@ -201,6 +201,18 @@ root). Still banned: performance/ROI stats (hours saved, revenue growth, shop co
 charts. **Naming rule (founder, permanent): never call it "Chief of Operations/Staff" in any
 public copy — it is "Home" / "your business, prioritized." Add this to CLAUDE.md.**
 
+**P3-A2 · Add the ROI receipt strip to the Home frame (founder direction, 2026-08-29).**
+The real Home opens with the ROI receipt (src/components/gradia/roi-receipt.tsx — OPERATIONAL
+per capability #17): leads caught · replies sent for you · bookings secured · $ in booked
+work ("money in play") · ~hours of your time saved · customers revived. Add this strip at the
+TOP of the site's Home frame with "This week" sample figures (e.g. 7 leads caught · 12
+replies sent for you · 4 bookings secured · $1,340 in booked work · ~3 hrs of your time
+saved · 1 customer revived), above the count tiles. Match the real component's labels
+verbatim. Guardrail nuance (recorded): the receipt's tiles — including ~time-saved — are a
+REAL product feature and may appear as sample UI inside the "Sample data" frame; marketing
+PROSE still may never make aggregate performance claims ("shops save X hrs/week" stays
+banned). Keep everything row-consistent with the rest of the frame where visible.
+
 **P3-B · NEW Whisper moment (the missing flagship hook).**
 Add a Whisper beat — either a compact section after the Agent demo or folded into it as a
 second demo ("Two ways to hand Gradia work"). The scene: hands-busy owner speaks a voice note
