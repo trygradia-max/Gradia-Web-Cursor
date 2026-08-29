@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { Container, Eyebrow, Lead, Button } from "../primitives";
+import { SAMPLE } from "../sample";
 
 /* Section 1 — Hero (site-v2-plan §3.1 + reference-trygtm ADOPT-1).
    Centered: chip eyebrow → D-033 headline → support line → ink pill +
@@ -15,13 +16,13 @@ const stages: {
 }[] = [
   {
     label: "New lead",
-    title: "Sarah Mitchell",
-    meta: "2024 BMW X5 · asked about ceramic maintenance",
+    title: SAMPLE.customer,
+    meta: `${SAMPLE.vehicle} · asked about ceramic maintenance`,
   },
   {
     label: "Prepared",
-    title: "Quote drafted — $485",
-    meta: "Full Detail + Ceramic Maintenance · waiting for your review",
+    title: `Quote drafted — ${SAMPLE.price}`,
+    meta: `${SAMPLE.service} · waiting for your review`,
   },
   {
     label: "Approved by you",
@@ -31,8 +32,8 @@ const stages: {
   },
   {
     label: "Scheduled",
-    title: "Booked — Tue 9:00 AM",
-    meta: "Full Detail + Ceramic Maintenance · 2024 BMW X5",
+    title: `Booked — ${SAMPLE.slot}`,
+    meta: `${SAMPLE.service} · ${SAMPLE.vehicle}`,
   },
 ];
 

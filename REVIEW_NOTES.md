@@ -24,10 +24,11 @@ Carry-forward notes (address in later sections, not as rework now):
   Until decided, the dead anchor is acceptable on the branch only.
 - [ ] **N2:** `See how it works` targets `#how` — Section 3 (Connected flow) must carry
   `id="how"` when built.
-- [ ] **N3:** Extract the sample record (Sarah Mitchell / 2024 BMW X5 / Full Detail +
+- [x] **N3:** Extract the sample record (Sarah Mitchell / 2024 BMW X5 / Full Detail +
   Ceramic Maintenance / $485) into `components/site/sample.ts` and import it in every
   section that shows product UI (3, 4, 5, 6). The continuity of ONE record across the page
   is the moat being demonstrated — it must be impossible for sections to drift.
+  _Done with Section 2: `sample.ts` created; Hero + Problem now import SAMPLE._
 - [ ] **N4 (founder, tooling):** Reviewer cannot see Vercel branch previews — Deployment
   Protection redirects to Vercel login. Either review previews yourself each round, or
   disable protection for preview deployments on `gradia-web-cursor` so the reviewer can
