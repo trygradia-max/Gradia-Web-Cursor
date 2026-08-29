@@ -12,6 +12,11 @@ and `../_docs/WHAT_GRADIA_DOES.md` (claim law) before writing code.
   "14-day guided trial · starts after your setup · trial usage limits apply."
 - No fake metrics, testimonials, logos, or stock imagery. Sample records are fictional and
   consistent (Sarah Mitchell · 2024 BMW X5 · Full Detail + Ceramic Maintenance · $485).
+  Operational COUNTS in sample-data frames are allowed ("3 leads need a reply", "5 open
+  quotes · $3,850") — performance/ROI stats (hours saved, revenue growth, shop counts) and
+  charts stay banned (founder, 2026-08-29).
+- **Naming (founder, permanent):** never call the dashboard "Chief of Operations" or "Chief
+  of Staff" in any public copy — it is **"Home"** / "your business, prioritized."
 - One commit per homepage section, push, then STOP and wait for `REVIEW_NOTES.md`.
 
 ## Visual reference (founder-designated)

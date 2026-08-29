@@ -1,51 +1,22 @@
+import { Check } from "lucide-react";
 import { Eyebrow, Lead, Section } from "../primitives";
 import { SAMPLE } from "../sample";
 
-/* Section 4 — Operations dashboard (site-v2-plan §3.4, NEXT_TASK scope 4).
-   Calm, prioritized morning view: needs attention · today's jobs · open
-   quotes · recommended actions. Operational cards ONLY — capability #17
-   (reporting) is 'building', so no analytics, charts, counts or metrics
-   (D-025). Structural placeholder; Pass 3 swaps in the real Home dashboard.
-   Sarah's states here stay consistent with the Section 3 flow (quote
-   accepted → job booked). */
+/* Section 4 — Operations dashboard (site-v2-plan §3.4; rebuilt in Pass 3
+   per P3-A). Composition follows the real Home: greeting → count tiles →
+   "What needs a yes" (the app's actual approvals section name) → today's
+   jobs → a Gradia suggestion. Operational COUNTS are allowed and wanted
+   (founder correction 2026-08-29): work-item numbers only — no
+   performance/ROI stats (hours saved, revenue growth), no charts.
+   Naming rule: this surface is "Home" — never "Chief of Operations/Staff".
+   Counts agree with visible rows (1 approval ↔ 1 row · 2 jobs ↔ 2 rows);
+   Sarah's accepted quote is deliberately NOT among the open ones. */
 
-const panels: {
-  label: string;
-  accent?: boolean;
-  rows: { title: string; meta: string }[];
-}[] = [
-  {
-    label: "Needs attention",
-    rows: [
-      { title: "New inquiry — reply drafted", meta: "Waiting for your review" },
-      { title: "Yesterday's quote went quiet", meta: "Follow-up ready for your OK" },
-    ],
-  },
-  {
-    label: "Today's jobs",
-    rows: [
-      {
-        title: `${SAMPLE.slot} — ${SAMPLE.service}`,
-        meta: `${SAMPLE.customer} · ${SAMPLE.vehicle}`,
-      },
-      { title: "2:00 PM — Interior detail", meta: "Walk-in · booked by you" },
-    ],
-  },
-  {
-    label: "Open quotes",
-    rows: [
-      { title: `${SAMPLE.service} — ${SAMPLE.price}`, meta: "Accepted · job booked" },
-      { title: "Paint correction — quote drafted", meta: "Waiting for your review" },
-    ],
-  },
-  {
-    label: "Recommended actions",
-    accent: true,
-    rows: [
-      { title: "Send a maintenance reminder", meta: "Draft ready — you approve before it goes out" },
-      { title: "Revive a lead that never booked", meta: "Follow-up drafted for review" },
-    ],
-  },
+const tiles: { count: string; label: string; accent?: boolean }[] = [
+  { count: "3", label: "leads need a reply" },
+  { count: "5", label: "open quotes · $3,850" },
+  { count: "2", label: "jobs today" },
+  { count: "1", label: "waiting for your approval", accent: true },
 ];
 
 export function Operations() {
@@ -61,34 +32,84 @@ export function Operations() {
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
           <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
-            Tuesday, 7:58 AM · Home
+            Home
           </p>
           <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
         </div>
 
-        <div className="grid gap-2.5 md:grid-cols-2">
-          {panels.map((panel) => (
-            <div
-              key={panel.label}
-              className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5"
-            >
-              <p
-                className={`text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] ${
-                  panel.accent ? "text-[var(--sv-accent-on-dark)]" : "text-white/45"
-                }`}
+        <div className="space-y-2.5">
+          {/* Greeting — the real Home opens with the day, not a report */}
+          <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] px-4 py-3.5 sm:px-5">
+            <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+              Good morning · Tuesday, 7:58 AM
+            </p>
+            <p className="mt-1 font-medium text-white">Two jobs on the books. One yes needed before the day starts.</p>
+          </div>
+
+          {/* Count tiles — operational work items only */}
+          <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+            {tiles.map((t) => (
+              <div
+                key={t.label}
+                className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5"
               >
-                {panel.label}
+                <p
+                  className={`text-[1.75rem] font-semibold leading-none ${
+                    t.accent ? "text-[var(--sv-accent-on-dark)]" : "text-white"
+                  }`}
+                >
+                  {t.count}
+                </p>
+                <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/50">{t.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid gap-2.5 md:grid-cols-2">
+            {/* What needs a yes — the app's approvals section */}
+            <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
+              <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+                What needs a yes
+              </p>
+              <div className="mt-3">
+                <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
+                  Reply to a new ceramic coating inquiry
+                </p>
+                <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
+                  Draft ready · waiting for your review
+                </p>
+              </div>
+            </div>
+
+            {/* Today's jobs — two rows, agreeing with the "2 jobs today" tile */}
+            <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
+              <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-white/45">
+                Today&apos;s jobs
               </p>
               <ul className="mt-3 space-y-3">
-                {panel.rows.map((row) => (
-                  <li key={row.title}>
-                    <p className="text-[length:var(--sv-text-sm)] font-medium text-white">{row.title}</p>
-                    <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{row.meta}</p>
-                  </li>
-                ))}
+                <li>
+                  <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
+                    9:00 AM — {SAMPLE.service}
+                  </p>
+                  <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
+                    {SAMPLE.customer} · {SAMPLE.vehicle}
+                  </p>
+                </li>
+                <li>
+                  <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
+                    2:00 PM — Interior detail
+                  </p>
+                  <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">Walk-in · booked by you</p>
+                </li>
               </ul>
             </div>
-          ))}
+          </div>
+
+          {/* One Gradia suggestion — the Home suggestion bar, approve-first */}
+          <p className="flex flex-wrap items-center gap-2 px-1 pt-1 text-[length:var(--sv-text-xs)] text-white/50">
+            <Check size={13} strokeWidth={2.5} aria-hidden className="text-[var(--sv-accent-on-dark)]" />
+            Gradia suggests: revive a lead that never booked — follow-up drafted for your review
+          </p>
         </div>
       </div>
     </Section>
