@@ -10,6 +10,8 @@ import { CoreSystem } from "@/components/site/sections/CoreSystem";
 import { AgentControl } from "@/components/site/sections/AgentControl";
 import { Receptionist } from "@/components/site/sections/Receptionist";
 import { Industries } from "@/components/site/sections/Industries";
+import { Faq } from "@/components/site/sections/Faq";
+import { FinalCta } from "@/components/site/sections/FinalCta";
 
 /* v2 homepage (Pass 2, branch site-v2 only — merge to main is the founder's
    cutover act). Sections land one commit at a time per NEXT_TASK.md; the plan
@@ -42,6 +44,8 @@ export default function HomePage() {
         <AgentControl />
         {SHOW_RECEPTIONIST && <Receptionist />}
         <Industries />
+        <Faq />
+        <FinalCta />
       </main>
       <SiteFooter />
     </div>
