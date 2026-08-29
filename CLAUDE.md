@@ -48,8 +48,8 @@ Their aesthetic transfers; their autonomous-agents promise does NOT — Gradia i
 
 - **playwright** — after building each section, screenshot your own work at 375 / 768 / 1440px
   against `npm run dev` and LOOK at the screenshots before pushing. Fix what you see.
-- **21st-dev** — inspiration search + component registry (needs `TWENTYFIRST_API_KEY` env var;
-  search is free, installs are capped on the free tier). Use for sourcing, then retoken.
+- **21st** — inspiration search + component registry (registered at user level via `claude mcp add`;
+  search is free, installs capped on the free tier). Use for sourcing, then retoken.
 
 ## Stack facts
 
