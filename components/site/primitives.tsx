@@ -39,13 +39,13 @@ export function Section({
 export function Eyebrow({ children, chip = false }: { children: ReactNode; chip?: boolean }) {
   if (chip) {
     return (
-      <p className="mb-5 inline-flex items-center rounded-[100px] border border-[var(--sv-line-strong)] bg-[var(--sv-surface)] px-3.5 py-1.5 text-[var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
+      <p className="mb-5 inline-flex items-center rounded-[100px] border border-[var(--sv-line-strong)] bg-[var(--sv-surface)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
         {children}
       </p>
     );
   }
   return (
-    <p className="mb-4 text-[var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
+    <p className="mb-4 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
       {children}
     </p>
   );
@@ -53,7 +53,7 @@ export function Eyebrow({ children, chip = false }: { children: ReactNode; chip?
 
 export function Lead({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <p className={`mt-5 max-w-[42rem] text-[var(--sv-text-lg)] leading-relaxed text-[var(--sv-ink-2)] ${className}`}>
+    <p className={`mt-5 max-w-[42rem] text-[length:var(--sv-text-lg)] leading-relaxed text-[var(--sv-ink-2)] ${className}`}>
       {children}
     </p>
   );
@@ -62,8 +62,8 @@ export function Lead({ children, className = "" }: { children: ReactNode; classN
 const btnBase =
   "inline-flex items-center justify-center gap-2 rounded-[100px] font-medium transition-colors duration-150 focus-visible:outline-2 select-none";
 const btnSize = {
-  md: "h-11 px-6 text-[var(--sv-text-sm)]",
-  lg: "h-13 px-8 py-3.5 text-[var(--sv-text-base)]",
+  md: "h-11 px-6 text-[length:var(--sv-text-sm)]",
+  lg: "h-[3.25rem] px-8 text-[length:var(--sv-text-base)]",
 };
 const btnVariant = {
   primary: "bg-[var(--sv-ink)] text-white hover:bg-black",

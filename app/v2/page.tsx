@@ -23,7 +23,7 @@ export default function StyleGuide() {
           <Button href="#trial" size="lg">Start your trial</Button>
           <Button href="#how" variant="link" size="lg">See how it works</Button>
         </div>
-        <p className="mt-5 text-[var(--sv-text-sm)] text-[var(--sv-ink-3)]">
+        <p className="mt-5 text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">
           Guided setup · You approve what goes out
         </p>
       </Section>
@@ -35,19 +35,19 @@ export default function StyleGuide() {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           <Card>
             <h3>Know every customer</h3>
-            <p className="mt-3 text-[var(--sv-text-sm)]">
+            <p className="mt-3 text-[length:var(--sv-text-sm)]">
               Customers, vehicles, conversations, quotes, jobs and history — together.
             </p>
           </Card>
           <Card>
             <h3>Keep every opportunity moving</h3>
-            <p className="mt-3 text-[var(--sv-text-sm)]">
+            <p className="mt-3 text-[length:var(--sv-text-sm)]">
               Organize leads, send quotes, follow up, and see what should happen next.
             </p>
           </Card>
           <Card>
             <h3>Stay in control</h3>
-            <p className="mt-3 text-[var(--sv-text-sm)]">
+            <p className="mt-3 text-[length:var(--sv-text-sm)]">
               Gradia recommends the next action. You decide what happens.
             </p>
           </Card>
@@ -69,7 +69,7 @@ export default function StyleGuide() {
               accent underline
             </a>.
           </p>
-          <p className="text-[var(--sv-text-sm)] text-[var(--sv-ink-3)]">Caption / small meta text in ink-3.</p>
+          <p className="text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">Caption / small meta text in ink-3.</p>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">
@@ -87,7 +87,7 @@ export default function StyleGuide() {
           ].map(([name, v]) => (
             <div key={name} className="flex items-center gap-2 rounded-[var(--sv-radius-sm)] border border-[var(--sv-line)] bg-[var(--sv-surface)] px-3 py-2">
               <span className="inline-block h-6 w-6 rounded-full border border-[var(--sv-line)]" style={{ background: v }} />
-              <code className="text-[var(--sv-text-xs)] text-[var(--sv-ink-2)]">{name}</code>
+              <code className="text-[length:var(--sv-text-xs)] text-[var(--sv-ink-2)]">{name}</code>
             </div>
           ))}
         </div>
@@ -103,7 +103,7 @@ export default function StyleGuide() {
       {/* Dark graphite specimen — used sparingly (product frames, final CTA) */}
       <section className="bg-[var(--sv-graphite)] py-[var(--sv-section-y)]">
         <div className="mx-auto w-full max-w-[var(--sv-container)] px-5 sm:px-8">
-          <p className="mb-4 text-[var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/50">
+          <p className="mb-4 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/50">
             Graphite band
           </p>
           <h2 className="max-w-[20ch] text-white">Dark panels exist for product UI frames and the final CTA — nothing else.</h2>

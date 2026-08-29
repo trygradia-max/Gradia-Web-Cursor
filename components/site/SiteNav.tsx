@@ -40,12 +40,12 @@ export function SiteNav() {
           <Logo />
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="text-[var(--sv-text-sm)] font-medium text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)]"
+                className="text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)]"
               >
                 {l.label}
               </Link>
@@ -53,27 +53,33 @@ export function SiteNav() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Button href="/portal/login" variant="ghost">Sign in</Button>
           <Button href="/#trial" variant="primary">Start your trial</Button>
         </div>
 
-        <button
-          className="md:hidden text-[var(--sv-ink)] px-2 py-1 text-sm font-medium"
-          onClick={() => setOpen(!open)}
-          aria-expanded={open}
-          aria-label="Toggle menu"
-        >
-          Menu
-        </button>
+        {/* Below lg the primary CTA stays visible next to the menu toggle. */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <Button href="/#trial" variant="primary" className="h-9 px-4 text-[length:var(--sv-text-sm)]">
+            Start your trial
+          </Button>
+          <button
+            className="px-2 py-1 text-sm font-medium text-[var(--sv-ink)]"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-label="Toggle menu"
+          >
+            Menu
+          </button>
+        </div>
       </nav>
 
       {open && (
-        <div className="border-b border-[var(--sv-line)] bg-[var(--sv-surface)] px-5 pb-6 pt-2 md:hidden">
+        <div className="border-b border-[var(--sv-line)] bg-[var(--sv-surface)] px-5 pb-6 pt-2 lg:hidden">
           <ul className="flex flex-col gap-4">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="text-[var(--sv-text-base)] font-medium text-[var(--sv-ink)]">
+                <Link href={l.href} className="text-[length:var(--sv-text-base)] font-medium text-[var(--sv-ink)]">
                   {l.label}
                 </Link>
               </li>

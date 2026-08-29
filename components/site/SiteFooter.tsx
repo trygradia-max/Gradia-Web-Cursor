@@ -48,13 +48,13 @@ export function SiteFooter() {
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
             <Logo />
-            <p className="mt-4 max-w-[16rem] text-[var(--sv-text-sm)] text-[var(--sv-ink-3)]">
+            <p className="mt-4 max-w-[16rem] text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">
               The operating system for detailing and automotive appearance shops.
             </p>
           </div>
           {cols.map((c) => (
             <div key={c.title}>
-              <h3 className="text-[var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-ink-3)]">
+              <h3 className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-ink-3)]">
                 {c.title}
               </h3>
               <ul className="mt-4 space-y-3">
@@ -62,7 +62,7 @@ export function SiteFooter() {
                   <li key={l.href}>
                     <Link
                       href={l.href}
-                      className="text-[var(--sv-text-sm)] text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)]"
+                      className="text-[length:var(--sv-text-sm)] text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)]"
                     >
                       {l.label}
                     </Link>
@@ -72,7 +72,7 @@ export function SiteFooter() {
             </div>
           ))}
         </div>
-        <p className="mt-12 border-t border-[var(--sv-line)] pt-6 text-[var(--sv-text-xs)] text-[var(--sv-ink-3)]">
+        <p className="mt-12 border-t border-[var(--sv-line)] pt-6 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
           © {new Date().getFullYear()} Gradia. All rights reserved.
         </p>
       </div>

@@ -19,6 +19,7 @@
   --sv-accent: #6d28d9;      /* the one accent — Gradia violet */
   --sv-accent-hover: #5b21b6;
   --sv-accent-soft: #f1ecfb; /* accent tint for chips/badges */
+  --sv-accent-on-dark: #a78bfa; /* the same accent, legible on graphite frames */
   --sv-graphite: #1c1b22;    /* dark panels (used sparingly) */
 
   /* type scale — large, confident */
@@ -40,22 +41,32 @@
   color: var(--sv-ink-2);
   font-size: var(--sv-text-base);
   line-height: 1.6;
+
+  /* Remap the shared waitlist-theme vars (globals.css) that Logo reads, so it
+     renders ink-on-light inside v2 without touching the legacy theme. */
+  --foreground: var(--sv-ink);
+  --brand-primary: var(--sv-accent);
 }
 
-.site-v2 h1, .site-v2 h2, .site-v2 h3 {
+/* :where(.site-v2) keeps these at element-level specificity (0,0,1): they beat
+   Tailwind's preflight reset by source order, but any utility class (0,1,0)
+   can still override them (e.g. the footer's small-caps h3 labels). */
+:where(.site-v2) h1, :where(.site-v2) h2, :where(.site-v2) h3 {
   color: var(--sv-ink);
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.08;
   text-wrap: balance;
 }
-.site-v2 h1 { font-size: var(--sv-h1); }
-.site-v2 h2 { font-size: var(--sv-h2); line-height: 1.12; }
-.site-v2 h3 { font-size: var(--sv-h3); line-height: 1.25; }
+:where(.site-v2) h1 { font-size: var(--sv-h1); }
+:where(.site-v2) h2 { font-size: var(--sv-h2); line-height: 1.12; }
+:where(.site-v2) h3 { font-size: var(--sv-h3); line-height: 1.25; }
 
 .site-v2 ::selection { background: var(--sv-accent-soft); color: var(--sv-ink); }
 
-.site-v2 a { color: inherit; }
+/* NOTE: no `.site-v2 a { color: inherit }` rule — Tailwind preflight already
+   inherits link color, and the extra specificity would defeat utility color
+   classes (e.g. text-white on the primary Button). */
 .site-v2 :focus-visible {
   outline: 2px solid var(--sv-accent);
   outline-offset: 2px;
