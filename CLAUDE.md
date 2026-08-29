@@ -51,6 +51,14 @@ Their aesthetic transfers; their autonomous-agents promise does NOT — Gradia i
 - **21st** — inspiration search + component registry (registered at user level via `claude mcp add`;
   search is free, installs capped on the free tier). Use for sourcing, then retoken.
 
+## Naming rules (founder-set)
+
+- The dashboard is called **"Home"** in public copy ("your business, prioritized"). NEVER
+  "Chief of Operations" / "Chief of Staff" — internal names, banned on the site.
+- Operational counts in sample UI are allowed ("3 leads need a reply", "5 open quotes ·
+  $3,850"). Performance/ROI statistics (hours saved, revenue growth, customer counts) remain
+  banned everywhere.
+
 ## Process hygiene
 
 - When you start a dev server or any background process, record its PID and stop ONLY that

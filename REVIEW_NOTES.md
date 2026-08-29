@@ -174,8 +174,45 @@ subpages · Pass 6 conversion + JSON-LD · Pass 7 Cursor QA · N1 CTA destinatio
 P0-013 before Pricing publishes · telephony acceptance run before Receptionist un-hides ·
 founder full-preview approval.
 
-## Next up
+## Founder feedback on Pass 2 (received 2026-08-29)
 
-HOLD — founder reviews the full homepage on the Vercel preview before Pass 3 begins. Builder:
-no further sections; next work order will be Pass 3 (real product-UI compositions), issued
-after founder feedback lands here.
+Overall: approved — "looks pretty good." Two directives + three reviewer-derived hooks below.
+
+## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
+
+**P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
+Guardrail CORRECTED: operational COUNTS are allowed and wanted — e.g. "3 leads need a reply" ·
+"5 open quotes · $3,850" · "2 jobs today" — matching how the actual Home dashboard prioritizes
+(reference: platform HOME_REDESIGN_PLAN build + the home-redesign screenshots in ~/Gradia
+root). Still banned: performance/ROI stats (hours saved, revenue growth, shop counts) and
+charts. **Naming rule (founder, permanent): never call it "Chief of Operations/Staff" in any
+public copy — it is "Home" / "your business, prioritized." Add this to CLAUDE.md.**
+
+**P3-B · NEW Whisper moment (the missing flagship hook).**
+Add a Whisper beat — either a compact section after the Agent demo or folded into it as a
+second demo ("Two ways to hand Gradia work"). The scene: hands-busy owner speaks a voice note
+("Just finished the X5 — quote Sarah for a maintenance plan and remind me to order pads") →
+transcript → staged: task created · quote drafted · reminder set — all "waiting for your
+review." Fully claimable (§4: "say it once and it's filed, quoted, and followed up").
+Headline direction: "Say it once. It's handled." Hands-busy framing is the hook.
+
+**P3-C · Timestamps on the connected flow (speed shown, not claimed).**
+Sample times on Sarah's stages: lands 7:58 AM → quote drafted 8:01 → approved by you 8:04 →
+booked 8:05. Inside the sample-data frame; no "X minutes" claims in copy — let the times say it.
+
+**P3-D · Sharpen the quiet-quote wound in the Agent section.**
+Make the found-leads list hurt: e.g. "PPF + ceramic — $1,800 quote · quiet for 9 days."
+Sample-data dollar values on the stalled quotes are allowed (work items, not performance
+stats). The emotional center is the money sitting silent, then rescued via approve-first
+follow-ups.
+
+**P3-E · Real-UI compositions everywhere** (original Pass 3 scope): replace structural
+placeholders with compositions faithful to the actual product screens — Section 3 stage
+vignettes first (cutover blocker), then hero frame, dashboard, core-system panels, agent
+surface. Verify each against the real app before capture; keep "Sample data" labels.
+
+Order: P3-A → P3-B → P3-C+D (one commit) → P3-E. Same rhythm per commit: screenshot at
+375/768/1440, review own shots, push, stop for review notes.
+
+Queued for later passes (do not build now): 60-second demo video at the hero secondary CTA
+(Pass 4/5, pairs with the Demo route) · comparison table (Product page, Pass 5).
