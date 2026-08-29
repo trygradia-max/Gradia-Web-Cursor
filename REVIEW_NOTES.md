@@ -53,9 +53,30 @@ Notes:
 - **Reminder for Section 3: it must carry `id="how"` (N2).** Same customer (SAMPLE) through
   all six stages; Approve is the highlighted stage, consistent with the hero's treatment.
 
+## Review — Section 3: Connected flow (d25df2d) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 4 (Operations dashboard).**
+
+Verified: all six §3.3 stages in order · SAMPLE record persists through every stage with its
+state shown at each moment — the one-example technique executed properly · `id="how"` present,
+hero anchor resolves (N2 ✅) · Approve is the lifted, accent-marked stage — consistent with the
+hero, so the control story now repeats twice before section 6 argues it · every line passes the
+claim list ("Nothing goes out until you say so" = guarantee #1; Retain is "drafted for your
+review", not auto-sent) · "lands in Gradia — not in six inboxes" ties back to Section 2 ·
+semantic `<ol>` · band alternation correct.
+
+Notes:
+- This section is deliberately the page's centerpiece and currently reads as a competent list.
+  That is CORRECT for Pass 2 — but flagging now so it isn't forgotten: Pass 3 gives each stage
+  a real UI vignette, and Pass 4's scroll motion (the record visibly traveling down the stages)
+  is what makes this section the demo. Do not ship cutover before this section gets its
+  Pass 3/4 treatment.
+
 ## Next up
 
-Section 3 — Connected flow ("One system from first message to finished job."), per
-NEXT_TASK.md scope 3: Capture → Understand → Prepare → Approve → Schedule → Retain, SAMPLE
-record persisting through every stage, `id="how"` on the section (N2), Approve stage
-highlighted like the hero. Same rhythm: build, screenshot at 375/768/1440, review, push, stop.
+Section 4 — Operations dashboard ("Know what needs attention before it becomes a problem."),
+per NEXT_TASK.md scope 4. Wash band (alternation). Graphite frame, calm hierarchy: needs
+attention · today's jobs · open quotes · recommended actions — operational cards ONLY, no
+analytics/charts (capability #17 is 'building'; inventing metrics violates D-025). Use SAMPLE
+where a record appears. Positioning line: "Your business, prioritized for you." Same rhythm:
+build, screenshot at 375/768/1440, review, push, stop.
