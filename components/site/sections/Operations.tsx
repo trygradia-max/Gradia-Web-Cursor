@@ -19,6 +19,19 @@ const tiles: { count: string; label: string; accent?: boolean }[] = [
   { count: "1", label: "waiting for your approval", accent: true },
 ];
 
+/* ROI receipt (P3-A2, founder direction): a REAL Home feature
+   (platform src/components/gradia/roi-receipt.tsx) — tile labels match that
+   component verbatim, incl. singular/plural. The real component's title
+   ("What your receptionist got done") is receptionist-gated copy, so the
+   strip header here stays neutral ("This week") until §7 un-hides. */
+const receipt: { value: string; label: string }[] = [
+  { value: "7", label: "leads caught" },
+  { value: "12", label: "replies sent for you" },
+  { value: "4", label: "bookings secured" },
+  { value: "~3 hrs", label: "of your time saved" },
+  { value: "1", label: "customer revived" },
+];
+
 export function Operations() {
   return (
     <Section band>
@@ -44,6 +57,25 @@ export function Operations() {
               Good morning · Tuesday, 7:58 AM
             </p>
             <p className="mt-1 font-medium text-white">Two jobs on the books. One yes needed before the day starts.</p>
+          </div>
+
+          {/* ROI receipt strip — real Home order: greeting → receipt → tiles */}
+          <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
+            <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-white/45">
+              This week
+            </p>
+            <p className="mt-3 flex flex-wrap items-baseline gap-x-2.5">
+              <span className="text-[1.5rem] font-semibold leading-none text-white">$1,340</span>
+              <span className="text-[length:var(--sv-text-xs)] text-white/50">in booked work this week</span>
+            </p>
+            <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-3 lg:grid-cols-5">
+              {receipt.map((r) => (
+                <div key={r.label}>
+                  <p className="font-semibold text-white">{r.value}</p>
+                  <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{r.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Count tiles — operational work items only */}
