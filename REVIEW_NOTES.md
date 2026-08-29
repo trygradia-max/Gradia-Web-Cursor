@@ -123,15 +123,40 @@ Sarah is booked in this page's timeline, so she cannot appear in a "hasn't booke
 nameless result list is right and my note was wrong. This is exactly the kind of pushback the
 loop should produce; keep doing it.
 
-## Next up
+## Review — Sections 7+8: Receptionist (4c0ca7f, hidden) + Industries (2f052eb) — 2026-08-29
 
-Section 7 — Receptionist, per NEXT_TASK.md scope 7: build the full section but ship it
-HIDDEN behind `SHOW_RECEPTIONIST = false` (telephony acceptance run pending; claim law §5).
-Copy per site-v2-plan §9.3 honest framing: "Don't lose the customer because you're under a
-car." + "Gradia captures, organizes and prepares the opportunity so your business can respond
-properly." No quote/book-on-calls claims while gated. IMPORTANT: compute band alternation
-from VISIBLE sections — with 7 hidden, Industries (8) follows band-6 and must be light;
-verify alternation still holds for when 7 flips visible later (acceptable: revisit
-alternation at un-hiding). Then continue straight into Section 8 (Industries) in the same
-work cycle — four tiles → the five industry routes, one sentence each, SAMPLE-consistent
-imagery notes only. Build both, screenshot, push once, stop.
+**VERDICT: BOTH APPROVED — no changes required. Proceed to the final cycle: Sections 9 (FAQ) + 10 (Final CTA).**
+
+Section 7: flag-gating verified in page.tsx · copy stays strictly inside the §9.3 honest frame
+("captures, organizes and prepares") · the demo wisely shows a MISSED call being kept rather
+than an answered call — under-claiming in exactly the right direction · "nothing goes out on
+its own" · nameless caller with documented rationale. Note for un-hide day: when the
+acceptance run passes, this section may upgrade to answering/quoting claims (Pro tier's
+actual capability) — the current copy is the floor, not the ceiling.
+
+Section 8: four tiles carrying five routes (Mobile & fleet pairing is a clean solve) · tile
+sentences describe each trade's reality with the one-system claim as the only product claim ·
+"an expensive quote going quiet costs the most" is the sharpest line on the page · accent
+used only for links (designated signal) · alternation reasoning documented · dead 308 links
+acceptable on branch, pages land in Pass 5.
+
+## Next up — FINAL homepage cycle
+
+Section 9 — FAQ ("Honest answers"), per site-v2-plan §3.9: wash band. 5–6 questions, direct
+answers, all inside claim law. REQUIRED items: "Does Gradia send messages by itself?" (only
+if you turn autonomy on — money and calendar always ask) · "Do I have to start over?"
+(import reassurance, labeled beta-honest) · "What if Gradia drafts something wrong?" (edit or
+discard at review — nothing sends until you approve). Do NOT include a receptionist question
+while Section 7 is hidden (add it at un-hide). No pricing/trial-length questions until the
+pricing page ships. Plain <details> or static Q/A — no JS accordion library. Mark up later
+for FAQPage JSON-LD in Pass 5/6 (not now).
+
+Section 10 — Final CTA, per §3.10: full-bleed graphite band (the page's closing dark moment,
+mirroring the hero frame). "Run the shop without the shop running you." + support line +
+Start your trial (ink-on-dark: use the accent pill here if ink-on-graphite lacks contrast —
+builder's call, screenshot both) + trust line: "Guided setup · You approve what goes out ·
+Import your existing customers — no starting over."
+
+Build both, screenshot, push once, stop. This completes the Pass 2 homepage — after this
+review, the Reviewer runs a full-page top-to-bottom pass and the founder eyeballs the Vercel
+preview before Pass 3 (real product visuals) begins.
