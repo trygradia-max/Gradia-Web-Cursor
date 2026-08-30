@@ -56,6 +56,16 @@ Their aesthetic transfers; their autonomous-agents promise does NOT — Gradia i
 - **21st** — inspiration search + component registry (registered at user level via `claude mcp add`;
   search is free, installs capped on the free tier). Use for sourcing, then retoken.
 
+## Brand rules (founder-set, 2026-08-29)
+
+- **"Gradia asks first."** is the brand line for the approval moat. "Asks-first" is the
+  house adjective (asks-first automation). Use it; never dilute it with "human-in-the-loop"
+  or other jargon in public copy.
+- The violet ✓ "Approved by you" check is the formal brand mark — identical treatment
+  wherever an approval moment appears.
+- Competitors are NEVER named on the site. Contrast with "the industry default" /
+  "typical AI receptionists" only.
+
 ## Naming rules (founder-set)
 
 - The dashboard is called **"Home"** in public copy ("your business, prioritized"). NEVER

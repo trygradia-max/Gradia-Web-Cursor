@@ -238,6 +238,36 @@ verify each screen against the actual app before composing; if a real surface is
 ready, keep the current faithful abstraction rather than shipping an unflattering screenshot
 — flag the choice per surface.
 
+## P3-F — NEW homepage section: "Gradia asks first." (founder decisions, 2026-08-29)
+
+Founder-approved brand move (grounded in `_docs/research/SYNTHESIS.md` #1/#2): the approval
+mechanism is now branded **"Gradia asks first."** — a FULL homepage section, placed directly
+AFTER Section 6 (it extends the control argument into differentiation). Homepage becomes 11
+sections; recompute band alternation from Section 6 onward for visible sections.
+
+Section spec:
+- Eyebrow: WHY GRADIA · H2: **"Gradia asks first."**
+- Support (category, never competitor names — founder rule): "The industry default is
+  autopilot — AI that sends, books, and bills on its own. Gradia was built the other way."
+- Three cards, one line each, all claim-law-clean:
+  1. **Asks first** — "Every message, booking and charge is prepared, shown to you, and sent
+     on your OK. Autopilot is something you turn on — never a default." (guarantee #1)
+  2. **No surprise bills** — "Spending caps and owner-set ceilings are built into the
+     machinery. At the cap, Gradia stops — it never keeps spending." (guarantee #5,
+     fail-closed — this is architecture, claimable)
+  3. **Built only for this trade** — "Gradia speaks detailing natively — services, vehicles,
+     coatings, follow-up cycles — not a generic tool with your industry pasted on."
+- The violet ✓ **"Approved by you" mark is now the formal brand signature** — reuse the exact
+  check treatment from the hero/flow/agent frames on card 1.
+- Deliberately EXCLUDED for now: a self-serve/"no sales call" card — true by design
+  (zero-founder-touch) but not claimable until the trial ships; add it at trial launch.
+- Named competitors: NEVER on the site (founder rule). "Industry default" / "typical AI
+  receptionists" framing only. Named side-by-sides are sales assets, off-site.
+- Pass 5 note: the Product page's comparison table adopts the same three-pillar frame
+  (asks-first · predictable cost · vertical) vs "the industry default", unnamed.
+
+Build P3-F before or after P3-E at Builder's discretion (both remain); same rhythm.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
