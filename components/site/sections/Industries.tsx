@@ -6,8 +6,9 @@ import { Card, Eyebrow, Lead, Section } from "../primitives";
    middleware 308s are acceptable on the branch). Tile sentences describe
    each trade's reality, not extra capabilities — the one-system claim is
    the only product claim here. Text tiles only; no imagery, no new sample
-   records. Light section: with Section 7 hidden, this follows band-6
-   (recompute alternation when Receptionist un-hides). */
+   records. Band section since P3-F: visible order is now 6 band → 6b
+   "asks first" light → this band → FAQ light → graphite CTA (recompute
+   again when Receptionist un-hides). */
 
 const tiles: { title: string; line: string; links: { label: string; href: string }[] }[] = [
   {
@@ -37,7 +38,7 @@ const tiles: { title: string; line: string; links: { label: string; href: string
 
 export function Industries() {
   return (
-    <Section>
+    <Section band>
       <Eyebrow>Industries</Eyebrow>
       <h2 className="max-w-[18ch]">Built to grow with your shop.</h2>
       <Lead>The same operating system, tuned to how your work actually runs.</Lead>

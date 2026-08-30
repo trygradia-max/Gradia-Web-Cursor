@@ -8,6 +8,7 @@ import { ConnectedFlow } from "@/components/site/sections/ConnectedFlow";
 import { Operations } from "@/components/site/sections/Operations";
 import { CoreSystem } from "@/components/site/sections/CoreSystem";
 import { AgentControl } from "@/components/site/sections/AgentControl";
+import { AsksFirst } from "@/components/site/sections/AsksFirst";
 import { Receptionist } from "@/components/site/sections/Receptionist";
 import { Industries } from "@/components/site/sections/Industries";
 import { Faq } from "@/components/site/sections/Faq";
@@ -42,6 +43,7 @@ export default function HomePage() {
         <Operations />
         <CoreSystem />
         <AgentControl />
+        <AsksFirst />
         {SHOW_RECEPTIONIST && <Receptionist />}
         <Industries />
         <Faq />

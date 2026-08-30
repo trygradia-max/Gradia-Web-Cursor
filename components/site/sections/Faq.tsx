@@ -1,7 +1,8 @@
 import { Eyebrow, Lead, Section } from "../primitives";
 
 /* Section 9 — FAQ, honest answers (site-v2-plan §3.9, added from the trygtm
-   reference). Native <details>/<summary> — no JS accordion. Every answer
+   reference). Light since P3-F's alternation recompute (band moved to
+   Industries). Native <details>/<summary> — no JS accordion. Every answer
    stays inside WHAT_GRADIA_DOES §4 + the platform guarantees; the
    unflattering answers are the point. No receptionist question while
    Section 7 is hidden (add at un-hide); no pricing/trial-length questions
@@ -36,7 +37,7 @@ const faqs: { q: string; a: string }[] = [
 
 export function Faq() {
   return (
-    <Section band>
+    <Section>
       <Eyebrow>FAQ</Eyebrow>
       <h2 className="max-w-[18ch]">Honest answers.</h2>
       <Lead>Direct answers to what shop owners actually ask.</Lead>
