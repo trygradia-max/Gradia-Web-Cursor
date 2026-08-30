@@ -191,6 +191,22 @@ yes" (the app's real approvals name) is a stronger label than anything in the pl
 greeting line ("Two jobs on the books. One yes needed before the day starts.") is the best
 copy on the page · naming rule applied and recorded in CLAUDE.md.
 
+## Review — P3-A2: ROI receipt (bb8c5a0) + P3-B: Whisper (089fc3f) — 2026-08-29
+
+**VERDICT: BOTH APPROVED — no changes required. Proceed to P3-C + P3-D (one commit), then P3-E.**
+
+P3-A2: tile labels match the real roi-receipt component verbatim, singular/plural included ·
+"$1,340 in booked work this week" leads the strip · sharp catch by the Builder: the real
+component's title ("What your receptionist got done") is receptionist-gated copy, so the strip
+header stays neutral ("This week") until §7 un-hides — exactly right · placed in the real
+Home order (greeting → receipt → tiles).
+
+P3-B: "Say it once. It's handled." folded into §6 as the second demo — one control story,
+two ways to hand Gradia work · the scene is the hook (voice note 0:09 → transcript → quote
+drafted · task created · reminder set, all "waiting for your review") · timeline holds (the
+note happens after Sarah's morning job — "just finished the X5") · "Nothing sends without
+your OK" · fully inside §4 say-it-once claims.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
