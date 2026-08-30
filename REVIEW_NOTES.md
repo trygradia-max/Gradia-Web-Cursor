@@ -216,6 +216,28 @@ drafted · task created · reminder set, all "waiting for your review") · timel
 note happens after Sarah's morning job — "just finished the X5") · "Nothing sends without
 your OK" · fully inside §4 say-it-once claims.
 
+## Review — P3-C+D: flow timestamps + quiet-quote sharpening (be8614c) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to P3-E (real-UI sweep), the final Pass 3 item.**
+
+P3-C: 7:58 → 7:59 → 8:01 → 8:04 (approved, accent) → 8:05 booked, "Weeks later" for Retain —
+seven minutes from cold text to booked job, shown entirely inside the sample frame, zero
+duration claims in copy. And the Builder caught a continuity bug the Reviewer missed: the
+Home frame's 7:58 clock showed Sarah booked before the flow books her at 8:05 — clock moved
+to 8:12 so the one-morning story sequences correctly. Right call, cleanly handled, properly
+flagged. Verified downstream: at 8:12 the greeting ("before the day starts") and the 2-jobs
+tile still hold.
+
+P3-D: the list now hurts — "$740 quote · quiet for 6 days" · "$1,800 quote · quiet for 9
+days" · "Never quoted · two weeks old" — and the visible dollar values sit inside the Home
+frame's "5 open quotes · $3,850" without contradiction. Work items, not performance stats.
+
+Pass 3 scorecard so far: A ✅ · A2 ✅ · B ✅ · C+D ✅. Remaining: **P3-E** — real product-UI
+compositions, Section 3 vignettes first (cutover blocker). Reminder from the alignment audit:
+verify each screen against the actual app before composing; if a real surface isn't visually
+ready, keep the current faithful abstraction rather than shipping an unflattering screenshot
+— flag the choice per surface.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
