@@ -10,7 +10,9 @@ import { SAMPLE } from "../sample";
    performance/ROI stats (hours saved, revenue growth), no charts.
    Naming rule: this surface is "Home" — never "Chief of Operations/Staff".
    Counts agree with visible rows (1 approval ↔ 1 row · 2 jobs ↔ 2 rows);
-   Sarah's accepted quote is deliberately NOT among the open ones. */
+   Sarah's accepted quote is deliberately NOT among the open ones. Clock
+   sits at 8:12 AM — after the flow's 7:58→8:05 booking (P3-C), so this
+   frame's booked state follows that sequence in the one-morning story. */
 
 const tiles: { count: string; label: string; accent?: boolean }[] = [
   { count: "3", label: "leads need a reply" },
@@ -54,7 +56,7 @@ export function Operations() {
           {/* Greeting — the real Home opens with the day, not a report */}
           <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] px-4 py-3.5 sm:px-5">
             <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
-              Good morning · Tuesday, 7:58 AM
+              Good morning · Tuesday, 8:12 AM
             </p>
             <p className="mt-1 font-medium text-white">Two jobs on the books. One yes needed before the day starts.</p>
           </div>

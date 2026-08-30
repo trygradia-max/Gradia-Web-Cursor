@@ -13,38 +13,48 @@ const stages: {
   name: string;
   line: string;
   state: string;
+  time: string;
   approve?: boolean;
 }[] = [
+  /* P3-C: sample times show the speed — no "X minutes" claims in copy.
+     7:58 → 8:05 is the reviewer-set sequence; the Home frame's clock
+     (Section 4) sits at 8:12 AM so its booked state follows this. */
   {
     name: "Capture",
     line: `${SAMPLE.firstName}'s message lands in Gradia — not in six inboxes.`,
     state: `New lead · ${SAMPLE.customer}`,
+    time: "7:58 AM",
   },
   {
     name: "Understand",
     line: "Her vehicle, history and request become one record.",
     state: `${SAMPLE.vehicle} · asks about ceramic maintenance`,
+    time: "7:59 AM",
   },
   {
     name: "Prepare",
     line: "Gradia drafts the reply and the quote for you.",
     state: `Quote — ${SAMPLE.service} · ${SAMPLE.price}`,
+    time: "8:01 AM",
   },
   {
     name: "Approve",
     line: "Nothing goes out until you say so.",
     state: "Approved by you · reply sent",
+    time: "8:04 AM",
     approve: true,
   },
   {
     name: "Schedule",
     line: "The job lands on the calendar.",
     state: `${SAMPLE.slot} · ${SAMPLE.service}`,
+    time: "8:05 AM",
   },
   {
     name: "Retain",
     line: `Gradia drafts the follow-up when ${SAMPLE.firstName} is due back.`,
     state: "Maintenance reminder · drafted for your review",
+    time: "Weeks later",
   },
 ];
 
@@ -94,9 +104,16 @@ export function ConnectedFlow() {
                   <p className="mt-1 font-medium text-white">{s.line}</p>
                 </div>
               </div>
-              <p className="pl-10 text-[length:var(--sv-text-xs)] text-white/50 sm:pl-0 sm:text-right">
-                {s.state}
-              </p>
+              <div className="flex items-baseline gap-3 pl-10 sm:block sm:pl-0 sm:text-right">
+                <p
+                  className={`shrink-0 text-[length:var(--sv-text-xs)] font-medium ${
+                    s.approve ? "text-[var(--sv-accent-on-dark)]" : "text-white/70"
+                  }`}
+                >
+                  {s.time}
+                </p>
+                <p className="text-[length:var(--sv-text-xs)] text-white/50 sm:mt-0.5">{s.state}</p>
+              </div>
             </li>
           ))}
         </ol>

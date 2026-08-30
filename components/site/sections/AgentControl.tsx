@@ -13,10 +13,13 @@ import { SAMPLE } from "../sample";
    Whisper note happens later the same day ("just finished the X5").
    Structural placeholder; Pass 3-E swaps real UI, Pass 4 may sequence. */
 
+/* P3-D: the list is meant to hurt — sample-data dollar values on stalled
+   quotes are work items, not performance stats. $740 + $1,800 sit inside
+   the Home frame's "5 open quotes · $3,850". */
 const foundLeads: { title: string; meta: string }[] = [
-  { title: "Ceramic coating inquiry", meta: "Quoted — no reply yet" },
-  { title: "PPF + ceramic ask", meta: "Went quiet after the quote" },
-  { title: "Ceramic maintenance question", meta: "Never quoted" },
+  { title: "Ceramic coating inquiry", meta: "$740 quote · quiet for 6 days" },
+  { title: "PPF + ceramic ask", meta: "$1,800 quote · quiet for 9 days" },
+  { title: "Ceramic maintenance question", meta: "Never quoted · two weeks old" },
 ];
 
 function OwnerBubble({ children }: { children: string }) {
