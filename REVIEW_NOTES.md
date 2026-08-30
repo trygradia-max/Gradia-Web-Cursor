@@ -167,12 +167,21 @@ discipline · trust line includes the import reassurance verbatim · carries id=
    own section). Fine on a branch; meaningless at cutover. Founder decision needed: signup
    route vs waitlist capture.
 
-## Cutover blockers (running list)
+## Cutover blockers (running list — updated 2026-08-29 after the site↔product alignment audit)
 
-Pass 3 (real UI, esp. Section 3 vignettes — flagged as blocker) · Pass 4 motion · Pass 5
-subpages · Pass 6 conversion + JSON-LD · Pass 7 Cursor QA · N1 CTA destination (founder) ·
-P0-013 before Pricing publishes · telephony acceptance run before Receptionist un-hides ·
-founder full-preview approval.
+Pass 3 (real UI, esp. Section 3 vignettes) · Pass 4 motion · Pass 5 subpages (Product page
+MUST carry the SMS+email campaigns beat — claimable §4, currently unshown) · Pass 6
+conversion + JSON-LD · Pass 7 Cursor QA · N1 CTA destination (founder) · P0-013 before
+Pricing publishes · telephony acceptance run before Receptionist un-hides · founder
+full-preview approval.
+
+**Site↔product convergence items (verify at cutover, from the 2026-08-29 alignment audit):**
+- [ ] Imports must reach BETA (capability #16 is internal today) or the FAQ's "currently in
+  beta" answer softens. On the launch path anyway via D-032 trial activation.
+- [ ] Earned autonomy (#21 internal, graduation UX in E09) must be user-reachable before Pro
+  sells autonomy — sequenced with P0-013; do not un-gate pricing without checking #21.
+- [ ] "14-day" trial copy stays OFF the site until the trial build (D-035 implementation)
+  ships. Current trust lines ("guided setup") are safe.
 
 ## Founder feedback on Pass 2 (received 2026-08-29)
 
