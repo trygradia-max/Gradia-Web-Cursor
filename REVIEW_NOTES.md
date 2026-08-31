@@ -284,6 +284,23 @@ The homepage argument is now complete: problem → connected system → proof it
 (receipt) → how you stay in control → why nobody else works this way → who it's for → honest
 answers → start. Pass 3 closes when P3-E lands.
 
+## Review — P3-E (1/2): real-UI vignettes on the connected flow (e4443c3) — 2026-08-30
+
+**VERDICT: APPROVED — no changes required. GREEN LIGHT for P3-E (2/2): hero frame · core-system panels · agent surface, same fidelity bar.**
+
+Verified: every vignette composed from the REAL product surface and checked against platform
+source before composing — the Approvals card carries the app's actual voice ("Send it /
+Tweak it / Drop it" · "Caught just now" · type chips · "To Sarah Mitchell"), which puts
+genuine Gradia character on the page, not an invented UI · the deliberate abstention on the
+Schedule vignette is exactly right — capability #9 is building, so it shows the booked state
+and refuses to invent a calendar grid, flagged as the alignment audit required · badges
+retokened to --sv-* (no foreign colors) · P3-C timestamps and the id="how" anchor preserved ·
+the cutover blocker on Section 3 is now satisfied pending part 2's consistency.
+
+Note for part 2: reuse the SAME real labels/voice wherever those surfaces appear (the hero
+frame's stages and the agent surface must not drift from the vignette vocabulary introduced
+here — "Send it / Tweak it / Drop it" is now the canonical approval CTA set on the site).
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
