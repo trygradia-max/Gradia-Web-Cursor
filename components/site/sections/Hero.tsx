@@ -75,7 +75,7 @@ export function Hero() {
   return (
     <section className="pb-[var(--sv-section-y)] pt-12 sm:pt-16">
       <Container className="flex flex-col items-center text-center">
-        <Eyebrow chip>Built for detailing &amp; automotive appearance shops</Eyebrow>
+        <Eyebrow chip>Engineered for detailing &amp; automotive appearance shops</Eyebrow>
         <h1 className="max-w-[17ch]">Run your shop. Capture every lead. Recover more revenue.</h1>
         <Lead className="text-center">
           Gradia connects your customers, vehicles, leads, quotes, jobs, conversations,

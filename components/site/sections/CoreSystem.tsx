@@ -53,7 +53,7 @@ const panels: { title: string; line: string; screen: ReactNode }[] = [
   },
   {
     title: "Leads & Pipeline",
-    line: "New, quoted, booked — every opportunity has a place, so none of them get lost.",
+    line: "New, quoted, booked — every opportunity has a place, so none get lost.",
     screen: (
       <Screen label="Pipeline">
         <div className="grid grid-cols-3 gap-2.5 p-4 sm:p-5">
@@ -121,8 +121,8 @@ export function CoreSystem() {
       <Eyebrow>The operating system</Eyebrow>
       <h2 className="max-w-[18ch]">Everything stays connected.</h2>
       <Lead>
-        Customers, pipeline, jobs and conversations share one record underneath — update it
-        once and it&apos;s current everywhere.
+        Customers, pipeline, jobs and conversations share one record underneath. Update it
+        once — it&apos;s current everywhere.
       </Lead>
 
       <div className="mt-14 space-y-16 sm:space-y-20">

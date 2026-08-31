@@ -40,7 +40,7 @@ export function Faq() {
     <Section>
       <Eyebrow>FAQ</Eyebrow>
       <h2 className="max-w-[18ch]">Honest answers.</h2>
-      <Lead>Direct answers to what shop owners actually ask.</Lead>
+      <Lead>Straight answers to what owners actually ask.</Lead>
 
       <div className="mt-10 max-w-[46rem] border-t border-[var(--sv-line-strong)]">
         {faqs.map((f) => (

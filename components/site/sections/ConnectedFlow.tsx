@@ -175,8 +175,8 @@ export function ConnectedFlow() {
       <Eyebrow>How it works</Eyebrow>
       <h2 className="max-w-[22ch]">One system from first message to finished job.</h2>
       <Lead>
-        Follow one customer through Gradia. The same record moves through every stage — and
-        you approve the moments that matter.
+        Watch one customer move through Gradia. Same record at every stage — you approve the
+        moments that matter.
       </Lead>
 
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
