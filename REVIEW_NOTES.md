@@ -358,6 +358,26 @@ capabilities.
 
 After P4-A…D land + review: founder re-reads the preview, then Pass 4 (motion) is issued.
 
+## Review — P4-A…D: founder revision pass (25c8db5 · 8ad3080 · 1493a5e · d3e52a8) — 2026-08-30
+
+**VERDICT: ALL FOUR APPROVED. Founder revision pass complete. HOLD for founder re-read.**
+
+P4-A: the campaign dry-run card turns guarantees into UI — "3 opted out — excluded before
+anything was staged" and "Capped at 50 per run — hard limit, built in" are the honest-wow
+combination the founder asked for; nothing reads as auto-sent · hero object list + metadata
+kept in sync.
+P4-B: correctly light-handed — "Engineered" chip with detailing identity kept, verb-led
+leads, D-033 untouched, claim law intact. Punch without hype, as ordered.
+P4-C: the device is on all four panels with the approved questions verbatim, styled quiet
+(accent stays reserved for approval) · the symmetry lead ("Ask Gradia anything. It asks you
+before anything sends.") is live with a one-line revert — FOUNDER DECIDES on this read.
+P4-D: real product texture inside the frames only — the app's radii, mono/tabular numerals on
+money·counts·times, 11px chrome labels — with site tokens preserved outside and the AsksFirst
+brand signature correctly excluded as site chrome. The calendar abstention stands.
+
+Builder: STOP. Founder re-read on the branch alias is the gate; on their word, Pass 4
+(motion) is issued here.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
