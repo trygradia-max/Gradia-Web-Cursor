@@ -78,8 +78,8 @@ export function Hero() {
         <Eyebrow chip>Built for detailing &amp; automotive appearance shops</Eyebrow>
         <h1 className="max-w-[17ch]">Run your shop. Capture every lead. Recover more revenue.</h1>
         <Lead className="text-center">
-          Gradia connects your customers, vehicles, leads, quotes, jobs, conversations and
-          schedule in one operating system — and helps keep the work moving.
+          Gradia connects your customers, vehicles, leads, quotes, jobs, conversations,
+          campaigns and schedule in one operating system — and helps keep the work moving.
         </Lead>
         <div className="mt-9 flex flex-col items-center gap-5 sm:flex-row">
           <Button href="/#trial" size="lg">

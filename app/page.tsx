@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   // pricing/framing) never rides on this page. Full SEO/JSON-LD is Pass 5/6.
   title: "Gradia — The operating system for detailing and automotive appearance shops",
   description:
-    "Run your shop. Capture every lead. Recover more revenue. Gradia connects your customers, vehicles, leads, quotes, jobs, conversations and schedule in one operating system.",
+    "Run your shop. Capture every lead. Recover more revenue. Gradia connects your customers, vehicles, leads, quotes, jobs, conversations, campaigns and schedule in one operating system.",
 };
 
 export default function HomePage() {

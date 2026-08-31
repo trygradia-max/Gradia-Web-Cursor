@@ -100,6 +100,45 @@ export function AgentControl() {
             </div>
           </div>
 
+          {/* Third ask — campaigns, shown not told (P4-A). Dry-run preview,
+              caps and opt-outs are guarantees #3/#4 — show them. */}
+          <OwnerBubble>Text my ceramic customers from last spring a fall special.</OwnerBubble>
+
+          <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
+            <p className="border-b border-white/10 px-4 py-2.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+              Campaign — dry-run preview
+            </p>
+            {[
+              ["43 customers match", "Ceramic jobs, last spring"],
+              ["3 opted out — excluded", "Before anything was staged"],
+              ["Capped at 50 per run", "Hard limit, built in"],
+            ].map(([title, meta]) => (
+              <div key={title} className="border-b border-white/10 px-4 py-3">
+                <p className="text-[length:var(--sv-text-sm)] font-medium text-white">{title}</p>
+                <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{meta}</p>
+              </div>
+            ))}
+            <div className="border-b border-white/10 px-4 py-3">
+              <p className="text-[length:var(--sv-text-sm)] font-medium text-white">Drafts ready</p>
+              <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
+                One text + email per customer — sends on your OK
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 px-4 py-3">
+              <span className="rounded-[100px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
+                Send it
+              </span>
+              {["Tweak it", "Drop it"].map((a) => (
+                <span
+                  key={a}
+                  className="rounded-[100px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
+                >
+                  {a}
+                </span>
+              ))}
+            </div>
+          </div>
+
           {/* Activity log */}
           <p className="flex items-center gap-2 px-1 pt-1 text-[length:var(--sv-text-xs)] text-white/50">
             <Check size={13} strokeWidth={2.5} aria-hidden className="text-[var(--sv-accent-on-dark)]" />
