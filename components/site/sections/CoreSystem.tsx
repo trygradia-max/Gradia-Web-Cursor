@@ -34,10 +34,14 @@ function Row({ title, meta, last = false }: { title: string; meta: string; last?
   );
 }
 
-const panels: { title: string; line: string; screen: ReactNode }[] = [
+/* P4-C: the "Ask Gradia." whoa device — one italic pain-question in the
+   owner's head + the three-word answer, same treatment on every panel.
+   All four questions founder-approved; §4-claimable (Agent reads the CRM). */
+const panels: { title: string; line: string; ask: string; screen: ReactNode }[] = [
   {
     title: "Customers & Vehicles",
     line: "History, vehicles, quotes and conversations live on one record — not in your head.",
+    ask: "“The guy with the black X5 who wanted ceramic… when was he in?”",
     screen: (
       <Screen label="Customer file">
         <div className="border-b border-[var(--sv-line)] px-4 py-4 sm:px-5">
@@ -54,6 +58,7 @@ const panels: { title: string; line: string; screen: ReactNode }[] = [
   {
     title: "Leads & Pipeline",
     line: "New, quoted, booked — every opportunity has a place, so none get lost.",
+    ask: "“Who did I forget to quote this week?”",
     screen: (
       <Screen label="Pipeline">
         <div className="grid grid-cols-3 gap-2.5 p-4 sm:p-5">
@@ -81,6 +86,7 @@ const panels: { title: string; line: string; screen: ReactNode }[] = [
   {
     title: "Quotes, Jobs & Scheduling",
     line: "Quotes become jobs, jobs land on the calendar — and you approve what goes out.",
+    ask: "“What's still not booked?”",
     screen: (
       <Screen label="Quote to job">
         <Row title={`Quote — ${SAMPLE.service}`} meta={`${SAMPLE.price} · accepted`} />
@@ -92,6 +98,7 @@ const panels: { title: string; line: string; screen: ReactNode }[] = [
   {
     title: "Conversations",
     line: "Texts and email in one thread per customer, with replies drafted for your review.",
+    ask: "“What did I promise her last month?”",
     screen: (
       <Screen label="Inbox — text + email">
         <div className="space-y-3 p-4 sm:p-5">
@@ -131,6 +138,10 @@ export function CoreSystem() {
             <div className={i % 2 === 1 ? "lg:order-2" : ""}>
               <h3>{panel.title}</h3>
               <p className="mt-3 max-w-[36rem]">{panel.line}</p>
+              <p className="mt-5 max-w-[34rem] text-[length:var(--sv-text-sm)]">
+                <span className="italic text-[var(--sv-ink-3)]">{panel.ask}</span>{" "}
+                <span className="whitespace-nowrap font-semibold text-[var(--sv-ink)]">Ask Gradia.</span>
+              </p>
             </div>
             <div className={i % 2 === 1 ? "lg:order-1" : ""}>{panel.screen}</div>
           </div>

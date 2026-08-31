@@ -36,10 +36,10 @@ export function AgentControl() {
     <Section band>
       <Eyebrow>Gradia Agent</Eyebrow>
       <h2 className="max-w-[24ch]">Tell Gradia what needs to get done. Approve it before it goes out.</h2>
-      <Lead>
-        Ask in plain English. Gradia finds it, drafts it and stages it — nothing sends until
-        you approve.
-      </Lead>
+      {/* P4-C founder option (built in to evaluate on the next read; revert
+          to "Ask in plain English. Gradia finds it, drafts it and stages
+          it — nothing sends until you approve." if it doesn't land). */}
+      <Lead>Ask Gradia anything. It asks you before anything sends.</Lead>
 
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
