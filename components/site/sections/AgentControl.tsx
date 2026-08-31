@@ -33,7 +33,7 @@ function OwnerBubble({ children }: { children: string }) {
 
 export function AgentControl() {
   return (
-    <Section band>
+    <Section>
       <Eyebrow>Gradia Agent</Eyebrow>
       <h2 className="max-w-[24ch]">Tell Gradia what needs to get done. Approve it before it goes out.</h2>
       {/* P4-C founder option (built in to evaluate on the next read; revert

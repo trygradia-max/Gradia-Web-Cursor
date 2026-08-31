@@ -38,7 +38,7 @@ const tiles: { title: string; line: string; links: { label: string; href: string
 
 export function Industries() {
   return (
-    <Section band>
+    <Section>
       <Eyebrow>Industries</Eyebrow>
       <h2 className="max-w-[18ch]">Built to grow with your shop.</h2>
       <Lead>The same operating system, tuned to how your work actually runs.</Lead>

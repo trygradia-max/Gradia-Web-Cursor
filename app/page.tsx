@@ -7,6 +7,7 @@ import { Problem } from "@/components/site/sections/Problem";
 import { ConnectedFlow } from "@/components/site/sections/ConnectedFlow";
 import { Operations } from "@/components/site/sections/Operations";
 import { CoreSystem } from "@/components/site/sections/CoreSystem";
+import { TeachGradia } from "@/components/site/sections/TeachGradia";
 import { AgentControl } from "@/components/site/sections/AgentControl";
 import { AsksFirst } from "@/components/site/sections/AsksFirst";
 import { Receptionist } from "@/components/site/sections/Receptionist";
@@ -42,6 +43,7 @@ export default function HomePage() {
         <ConnectedFlow />
         <Operations />
         <CoreSystem />
+        <TeachGradia />
         <AgentControl />
         <AsksFirst />
         {SHOW_RECEPTIONIST && <Receptionist />}

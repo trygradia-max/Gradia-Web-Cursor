@@ -37,7 +37,7 @@ const faqs: { q: string; a: string }[] = [
 
 export function Faq() {
   return (
-    <Section>
+    <Section band>
       <Eyebrow>FAQ</Eyebrow>
       <h2 className="max-w-[18ch]">Honest answers.</h2>
       <Lead>Straight answers to what owners actually ask.</Lead>

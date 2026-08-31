@@ -28,7 +28,7 @@ const cards: { title: string; body: string; signature?: boolean }[] = [
 
 export function AsksFirst() {
   return (
-    <Section>
+    <Section band>
       <Eyebrow>Why Gradia</Eyebrow>
       <h2 className="max-w-[18ch]">Gradia asks first.</h2>
       <Lead>
