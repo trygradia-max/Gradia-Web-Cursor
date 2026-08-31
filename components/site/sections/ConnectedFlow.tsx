@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Check } from "lucide-react";
 import { Eyebrow, Lead, Section } from "../primitives";
+import { MGroup, MItem, MPop, DUR, STAGGER } from "../motion";
 import { SAMPLE } from "../sample";
 
 /* Section 3 — Connected flow (site-v2-plan §3.3; P3-E real-UI vignettes,
@@ -187,9 +188,12 @@ export function ConnectedFlow() {
           <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
         </div>
 
-        <ol className="overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10">
+        {/* M3: stages reveal top→bottom once, the record traveling down;
+            the Approve check pops last. */}
+        <MGroup tag="ol" className="overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10">
           {stages.map((s, i) => (
-            <li
+            <MItem
+              tag="li"
               key={s.name}
               className={`grid gap-3 px-4 py-4 lg:grid-cols-2 lg:items-center lg:gap-8 sm:px-5 ${
                 i > 0 ? "border-t border-white/10" : ""
@@ -209,16 +213,20 @@ export function ConnectedFlow() {
                       s.approve ? "text-[var(--sv-accent-on-dark)]" : "text-white/45"
                     }`}
                   >
-                    {s.approve && <Check size={13} strokeWidth={2.5} aria-hidden />}
+                    {s.approve && (
+                      <MPop delay={3 * STAGGER + DUR}>
+                        <Check size={13} strokeWidth={2.5} aria-hidden />
+                      </MPop>
+                    )}
                     {s.name}
                   </p>
                   <p className="mt-1 font-medium text-white">{s.line}</p>
                 </div>
               </div>
               <div className="pl-10 lg:pl-0">{s.vignette}</div>
-            </li>
+            </MItem>
           ))}
-        </ol>
+        </MGroup>
       </div>
     </Section>
   );

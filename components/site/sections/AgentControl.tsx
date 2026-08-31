@@ -1,5 +1,6 @@
 import { Check, Mic } from "lucide-react";
 import { Eyebrow, Lead, Section } from "../primitives";
+import { MFill, MGroup, MItem, MSlideIn } from "../motion";
 import { SAMPLE } from "../sample";
 
 /* Section 6 — Gradia Agent + control, ONE section (site-v2-plan §3.6,
@@ -69,36 +70,42 @@ export function AgentControl() {
 
           <OwnerBubble>Prepare follow-ups.</OwnerBubble>
 
-          {/* Staged, waiting for approval */}
-          <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
-            <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
-              Prepared — waiting for your review
-            </p>
-            {foundLeads.map((lead) => (
-              <div key={lead.title} className="border-b border-white/10 px-4 py-3">
-                <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
-                  Follow-up for “{lead.title}”
-                </p>
-                <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
-                  Text + email drafted — nothing sent yet
-                </p>
-              </div>
-            ))}
-            {/* Canonical approval CTA set (approvals-list.tsx / P3-E review) */}
-            <div className="flex flex-wrap items-center gap-2 px-4 py-3">
-              <span className="rounded-[6px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
-                Send it
-              </span>
-              {["Tweak it", "Drop it"].map((a) => (
-                <span
-                  key={a}
-                  className="rounded-[6px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
-                >
-                  {a}
-                </span>
+          {/* Staged, waiting for approval — M4 (Pass 4), the brand moment:
+              card appears, beat, Send it fills, beat, the log slides in. */}
+          <MGroup>
+            <MItem className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
+              <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+                Prepared — waiting for your review
+              </p>
+              {foundLeads.map((lead) => (
+                <div key={lead.title} className="border-b border-white/10 px-4 py-3">
+                  <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
+                    Follow-up for “{lead.title}”
+                  </p>
+                  <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
+                    Text + email drafted — nothing sent yet
+                  </p>
+                </div>
               ))}
-            </div>
-          </div>
+              {/* Canonical approval CTA set (approvals-list.tsx / P3-E review) */}
+              <div className="flex flex-wrap items-center gap-2 px-4 py-3">
+                <MFill
+                  delay={0.9}
+                  className="rounded-[6px] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium"
+                >
+                  Send it
+                </MFill>
+                {["Tweak it", "Drop it"].map((a) => (
+                  <span
+                    key={a}
+                    className="rounded-[6px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
+                  >
+                    {a}
+                  </span>
+                ))}
+              </div>
+            </MItem>
+          </MGroup>
 
           {/* Third ask — campaigns, shown not told (P4-A). Dry-run preview,
               caps and opt-outs are guarantees #3/#4 — show them. */}
@@ -139,11 +146,14 @@ export function AgentControl() {
             </div>
           </div>
 
-          {/* Activity log */}
-          <p className="flex items-center gap-2 px-1 pt-1 text-[length:var(--sv-text-xs)] text-white/50">
+          {/* Activity log — the last beat of M4 */}
+          <MSlideIn
+            delay={0.5}
+            className="flex items-center gap-2 px-1 pt-1 text-[length:var(--sv-text-xs)] text-white/50"
+          >
             <Check size={13} strokeWidth={2.5} aria-hidden className="text-[var(--sv-accent-on-dark)]" />
             Activity log — follow-ups approved by you · sent · logged
-          </p>
+          </MSlideIn>
         </div>
       </div>
 
