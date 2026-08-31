@@ -84,8 +84,12 @@ export function AgentControl() {
                 </p>
               </div>
             ))}
+            {/* Canonical approval CTA set (approvals-list.tsx / P3-E review) */}
             <div className="flex flex-wrap items-center gap-2 px-4 py-3">
-              {["Review", "Edit"].map((a) => (
+              <span className="rounded-[100px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
+                Send it
+              </span>
+              {["Tweak it", "Drop it"].map((a) => (
                 <span
                   key={a}
                   className="rounded-[100px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
@@ -93,9 +97,6 @@ export function AgentControl() {
                   {a}
                 </span>
               ))}
-              <span className="rounded-[100px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
-                Approve
-              </span>
             </div>
           </div>
 

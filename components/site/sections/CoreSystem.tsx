@@ -6,7 +6,9 @@ import { SAMPLE } from "../sample";
    Four alternating full-width panels: Customers & Vehicles · Leads & Pipeline ·
    Quotes, Jobs & Scheduling · Conversations. One headline + one sentence + one
    screen each. Screens sit in LIGHT surface cards (REVIEW_NOTES §4 watch-item:
-   no fifth graphite tunnel) — Pass 3 swaps in real UI compositions.
+   no fifth graphite tunnel). P3-E (2/2): panel voice aligned to the real
+   product ("Customer file" / one-file framing, pipeline statuses New →
+   Quoted → Booked as in the app, "Pending your review").
    Conversations shows texts + email only (claim law). */
 
 function Screen({ label, children }: { label: string; children: ReactNode }) {
@@ -37,15 +39,15 @@ const panels: { title: string; line: string; screen: ReactNode }[] = [
     title: "Customers & Vehicles",
     line: "History, vehicles, quotes and conversations live on one record — not in your head.",
     screen: (
-      <Screen label="Customer record">
+      <Screen label="Customer file">
         <div className="border-b border-[var(--sv-line)] px-4 py-4 sm:px-5">
           <p className="font-medium text-[var(--sv-ink)]">{SAMPLE.customer}</p>
           <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
-            {SAMPLE.vehicle} · customer since spring
+            {SAMPLE.vehicle} · texts, quotes and jobs in one file
           </p>
         </div>
         <Row title={`Last job — ${SAMPLE.service}`} meta={`${SAMPLE.price} · completed`} />
-        <Row title="Next — maintenance reminder" meta="Drafted for your review" last />
+        <Row title="Next — maintenance reminder" meta="Pending your review" last />
       </Screen>
     ),
   },

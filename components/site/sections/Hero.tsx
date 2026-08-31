@@ -5,8 +5,10 @@ import { SAMPLE } from "../sample";
 /* Section 1 — Hero (site-v2-plan §3.1 + reference-trygtm ADOPT-1).
    Centered: chip eyebrow → D-033 headline → support line → ink pill +
    underlined-text secondary → trust line → dark graphite product frame.
-   The frame is a Pass 2 structural placeholder (sample data only);
-   Pass 3 replaces it with real UI compositions. */
+   P3-E (2/2): frame cards speak the real product's voice — the canonical
+   approval vocabulary from approvals-list.tsx ("Send it" · Pending ·
+   "Sent ✓" · booked/on the calendar), consistent with the Section 3
+   vignettes. Stage labels stay: they tell the story at a glance. */
 
 const stages: {
   label: string;
@@ -17,23 +19,23 @@ const stages: {
   {
     label: "New lead",
     title: SAMPLE.customer,
-    meta: `${SAMPLE.vehicle} · asked about ceramic maintenance`,
+    meta: `${SAMPLE.vehicle} · “Do you do ceramic maintenance?”`,
   },
   {
     label: "Prepared",
     title: `Quote drafted — ${SAMPLE.price}`,
-    meta: `${SAMPLE.service} · waiting for your review`,
+    meta: `${SAMPLE.service} · Pending your review`,
   },
   {
     label: "Approved by you",
-    title: "Reply sent",
-    meta: "Text + email follow-up went out on your OK",
+    title: "You tapped Send it",
+    meta: `Text + email to ${SAMPLE.firstName} · Sent ✓`,
     approved: true,
   },
   {
     label: "Scheduled",
     title: `Booked — ${SAMPLE.slot}`,
-    meta: `${SAMPLE.service} · ${SAMPLE.vehicle}`,
+    meta: `On the calendar · confirmed with ${SAMPLE.firstName}`,
   },
 ];
 
