@@ -471,8 +471,53 @@ verified by screencasts, not just screenshots · bonus: the waitlist-era Loading
 splash removed from the root layout (it was blacking out M1; it dies at cutover anyway —
 correct call on this branch).
 
-Builder: STOP. The founder feel-checks motion on the preview (timing/weight judgments are
-theirs); on their word the Pass 5 (subpages) work order is issued here.
+Founder feel-check: PASSED (2026-08-30, "go ahead").
+
+## PASS 5 WORK ORDER — subpages (four cycles, one push + review per cycle)
+
+Global rules for every page: site-v2 design system + motion vocabulary (reuse primitives and
+the four-moment discipline — at most ONE motion moment per subpage) · claim law binds every
+line · SAMPLE record + Demo Detailing shop everywhere product UI shows · whitelist each new
+route in middleware.ts as it ships (branch only; sitemap/JSON-LD ride Pass 6) · SiteNav/
+SiteFooter links go live as their targets ship · every page ends in the Start-your-trial CTA
+band (reuse FinalCta or a compact variant).
+
+**Cycle 1 — /product (the depth page).** Structure: hero statement (D-033 category line) →
+the five capability areas as deep alternating panels (Customers & Vehicles · Leads &
+Pipeline · Quotes, Jobs & Scheduling · Conversations · Home + ROI receipt) — each panel goes
+one level deeper than the homepage (2–3 sentences + a fuller real-UI frame) → **the
+campaigns beat gets its full section here** (audience → dry-run preview → drafts → Send it,
+with caps/opt-outs/cooldowns spelled out as guarantees) → Gradia Agent + Whisper as the
+"two ways to hand Gradia work" pair → **the category comparison table** (three-pillar frame:
+asks-first · predictable cost · built for this trade — vs "the industry default", UNNAMED,
+per the founder rule) → approvals/earned-autonomy explained (suggest-first → autonomy is a
+choice; money + calendar always ask) → FAQ subset → CTA. Receptionist gets ONE feature-not-
+headline mention gated exactly like the homepage (hidden while §7 is hidden).
+
+**Cycle 2 — /industries (index) + the five pages.** One shared template: industry-specific
+headline + the trade's three sharpest pains (source tone from the homepage Industries tiles)
+→ the connected-flow retold with trade-specific sample data (ceramic page: coating packages
++ annual check-in; PPF/tint: high-value quote going quiet; mobile: on-location addresses;
+fleet: multiple vehicles one account — fleet page must NOT claim fleet-management features
+(#14 planned): it sells the OS for shops that SERVE fleets, operational language only) →
+relevant Ask-Gradia micro-moment per trade → CTA. Five pages: detailing · ceramic-coating ·
+ppf-tint-wrap · mobile-detailing · fleet.
+
+**Cycle 3 — /pricing (BUILT, FLAG-HIDDEN) + /security.** Pricing per D-034/D-035: three
+tiers with contents, trial model line, no crossed-out prices, FAQ rows (incl. the caps/
+no-surprise-bills story) — built complete behind SHOW_PRICING=false and NOT whitelisted in
+middleware until P0-013 (double gate, deliberate). Security: ONLY audited truths from
+platform docs 08 — tenancy isolation, approval gates, fail-closed spending, audit trail,
+opt-out handling; NO certification claims (no SOC2 etc.), no "bank-level" fluff. Short page;
+honesty is the design.
+
+**Cycle 4 — /demo + /resources.** Demo: the claimable demo assets only — cold-lead revival →
+approval → send · Whisper note → staged work · campaign dry-run (NO voice while gated);
+static walkthrough frames now, video slot placeholder for later. Resources: minimal shell —
+intro + 3 article stubs retargeted to detailer buyer-intent topics from the SEO plan (full
+articles are post-cutover content work, not Pass 5).
+
+Then Pass 6 (conversion + SEO + JSON-LD + sitemap) work order follows.
 
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
