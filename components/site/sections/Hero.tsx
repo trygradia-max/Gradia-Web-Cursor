@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from "lucide-react";
 import { Container, Eyebrow, Lead, Button } from "../primitives";
+import { MGroup, MItem, MPop, DUR, STAGGER } from "../motion";
 import { SAMPLE } from "../sample";
 
 /* Section 1 — Hero (site-v2-plan §3.1 + reference-trygtm ADOPT-1).
@@ -48,9 +49,11 @@ function HeroFrame() {
         </p>
         <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
       </div>
-      <ol className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
+      {/* M1: cards stagger in on load (after LCP), then the check pops once. */}
+      <MGroup tag="ol" mount delay={0.25} className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
         {stages.map((s) => (
-          <li
+          <MItem
+            tag="li"
             key={s.label}
             className="relative rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5"
           >
@@ -59,14 +62,18 @@ function HeroFrame() {
                 s.approved ? "text-[var(--sv-accent-on-dark)]" : "text-white/45"
               }`}
             >
-              {s.approved && <Check size={13} strokeWidth={2.5} aria-hidden />}
+              {s.approved && (
+                <MPop mount delay={0.25 + 4 * STAGGER + DUR}>
+                  <Check size={13} strokeWidth={2.5} aria-hidden />
+                </MPop>
+              )}
               {s.label}
             </p>
             <p className="mt-2.5 font-medium text-white">{s.title}</p>
             <p className="mt-1.5 text-[length:var(--sv-text-xs)] leading-relaxed text-white/50">{s.meta}</p>
-          </li>
+          </MItem>
         ))}
-      </ol>
+      </MGroup>
     </div>
   );
 }

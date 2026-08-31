@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { LoadingScreen } from "@/components/marketing/LoadingScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -58,8 +57,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
+      {/* Waitlist-era LoadingScreen splash removed on this branch (Pass 4):
+          it blacked out the page while the hero's M1 mount animation played
+          behind it, and it's slated for pruning at cutover anyway. */}
       <body className="min-h-screen font-sans font-normal antialiased">
-        <LoadingScreen />
         {children}
       </body>
     </html>

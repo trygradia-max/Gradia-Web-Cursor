@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Card, Eyebrow, Lead, Section } from "../primitives";
+import { MGroup, MItem } from "../motion";
 import { SAMPLE } from "../sample";
 
 /* Section 2 — Problem (site-v2-plan §3.2, NEXT_TASK scope 2).
@@ -50,7 +51,10 @@ export function Problem() {
         shop gets, the more slips through.
       </Lead>
 
-      <div className="mt-12 grid items-center gap-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-10">
+      {/* M2 (Pass 4): chips settle while the Gradia surface fades up — one
+          play on scroll into view. Chip li keeps its static scatter classes;
+          the inner span animates so transforms never collide. */}
+      <MGroup className="mt-12 grid items-center gap-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-10">
         {/* Today: the same lead scattered across six places */}
         <div>
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
@@ -62,21 +66,25 @@ export function Problem() {
                 key={s.text}
                 className={`rounded-[var(--sv-radius-sm)] border border-[var(--sv-line-strong)] bg-[var(--sv-surface)] px-3.5 py-2.5 text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)] ${s.className}`}
               >
-                {s.text}
+                <MItem tag="span" className="block" y={-10}>
+                  {s.text}
+                </MItem>
               </li>
             ))}
           </ul>
         </div>
 
-        <ArrowRight
-          size={22}
-          strokeWidth={2}
-          aria-hidden
-          className="mx-auto rotate-90 text-[var(--sv-ink-3)] lg:rotate-0"
-        />
+        <MItem tag="span" className="mx-auto" x={-6} y={0}>
+          <ArrowRight
+            size={22}
+            strokeWidth={2}
+            aria-hidden
+            className="rotate-90 text-[var(--sv-ink-3)] lg:rotate-0"
+          />
+        </MItem>
 
         {/* With Gradia: one surface, one clean record */}
-        <div className="rounded-[var(--sv-radius)] bg-[var(--sv-graphite)] p-3 sm:p-4">
+        <MItem y={18} className="rounded-[var(--sv-radius)] bg-[var(--sv-graphite)] p-3 sm:p-4">
           <p className="px-2 pb-3 pt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
             One Gradia surface
           </p>
@@ -93,8 +101,8 @@ export function Problem() {
               </li>
             ))}
           </ul>
-        </div>
-      </div>
+        </MItem>
+      </MGroup>
 
       <div className="mt-12 grid gap-5 md:grid-cols-3">
         {pains.map((p) => (

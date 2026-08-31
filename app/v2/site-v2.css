@@ -79,4 +79,12 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  /* Pass 4 backstop: framer-motion's SSR markup carries initial
+     opacity/transform inline; until hydration swaps in the reduced-motion
+     branch (plain elements), force final state so nothing is ever hidden
+     for reduced-motion users. */
+  .site-v2 [data-motion-initial] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
