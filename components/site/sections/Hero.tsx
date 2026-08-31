@@ -43,7 +43,7 @@ function HeroFrame() {
   return (
     <div className="rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
       <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
-        <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
           One lead, from first message to booked
         </p>
         <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
@@ -55,7 +55,7 @@ function HeroFrame() {
             className="relative rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5"
           >
             <p
-              className={`flex items-center gap-1.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] ${
+              className={`flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] ${
                 s.approved ? "text-[var(--sv-accent-on-dark)]" : "text-white/45"
               }`}
             >

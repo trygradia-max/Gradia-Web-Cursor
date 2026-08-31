@@ -46,7 +46,7 @@ export function Operations() {
 
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
-          <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
             Home
           </p>
           <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
@@ -55,7 +55,7 @@ export function Operations() {
         <div className="space-y-2.5">
           {/* Greeting — the real Home opens with the day, not a report */}
           <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] px-4 py-3.5 sm:px-5">
-            <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
               Good morning · Tuesday, 8:12 AM
             </p>
             <p className="mt-1 font-medium text-white">Two jobs on the books. One yes needed before the day starts.</p>
@@ -63,17 +63,17 @@ export function Operations() {
 
           {/* ROI receipt strip — real Home order: greeting → receipt → tiles */}
           <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
-            <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-white/45">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
               This week
             </p>
             <p className="mt-3 flex flex-wrap items-baseline gap-x-2.5">
-              <span className="text-[1.5rem] font-semibold leading-none text-white">$1,340</span>
+              <span className="font-mono text-[1.4rem] font-semibold leading-none tabular-nums text-white">$1,340</span>
               <span className="text-[length:var(--sv-text-xs)] text-white/50">in booked work this week</span>
             </p>
             <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-3 lg:grid-cols-5">
               {receipt.map((r) => (
                 <div key={r.label}>
-                  <p className="font-semibold text-white">{r.value}</p>
+                  <p className="font-mono font-semibold tabular-nums text-white">{r.value}</p>
                   <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{r.label}</p>
                 </div>
               ))}
@@ -88,7 +88,7 @@ export function Operations() {
                 className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5"
               >
                 <p
-                  className={`text-[1.75rem] font-semibold leading-none ${
+                  className={`font-mono text-[1.6rem] font-semibold leading-none tabular-nums ${
                     t.accent ? "text-[var(--sv-accent-on-dark)]" : "text-white"
                   }`}
                 >
@@ -102,7 +102,7 @@ export function Operations() {
           <div className="grid gap-2.5 md:grid-cols-2">
             {/* What needs a yes — the app's approvals section */}
             <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
-              <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
                 What needs a yes
               </p>
               <div className="mt-3">
@@ -117,7 +117,7 @@ export function Operations() {
 
             {/* Today's jobs — two rows, agreeing with the "2 jobs today" tile */}
             <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
-              <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-white/45">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
                 Today&apos;s jobs
               </p>
               <ul className="mt-3 space-y-3">

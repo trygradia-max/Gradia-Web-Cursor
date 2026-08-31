@@ -43,7 +43,7 @@ export function AgentControl() {
 
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
-          <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
             Gradia Agent
           </p>
           <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
@@ -56,7 +56,7 @@ export function AgentControl() {
 
           {/* Result list */}
           <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
-            <p className="border-b border-white/10 px-4 py-2.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-white/45">
+            <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
               Ceramic coating leads — not booked
             </p>
             {foundLeads.map((lead) => (
@@ -71,7 +71,7 @@ export function AgentControl() {
 
           {/* Staged, waiting for approval */}
           <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
-            <p className="border-b border-white/10 px-4 py-2.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+            <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
               Prepared — waiting for your review
             </p>
             {foundLeads.map((lead) => (
@@ -86,13 +86,13 @@ export function AgentControl() {
             ))}
             {/* Canonical approval CTA set (approvals-list.tsx / P3-E review) */}
             <div className="flex flex-wrap items-center gap-2 px-4 py-3">
-              <span className="rounded-[100px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
+              <span className="rounded-[6px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
                 Send it
               </span>
               {["Tweak it", "Drop it"].map((a) => (
                 <span
                   key={a}
-                  className="rounded-[100px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
+                  className="rounded-[6px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
                 >
                   {a}
                 </span>
@@ -105,7 +105,7 @@ export function AgentControl() {
           <OwnerBubble>Text my ceramic customers from last spring a fall special.</OwnerBubble>
 
           <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
-            <p className="border-b border-white/10 px-4 py-2.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+            <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
               Campaign — dry-run preview
             </p>
             {[
@@ -125,13 +125,13 @@ export function AgentControl() {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2 px-4 py-3">
-              <span className="rounded-[100px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
+              <span className="rounded-[6px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
                 Send it
               </span>
               {["Tweak it", "Drop it"].map((a) => (
                 <span
                   key={a}
-                  className="rounded-[100px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
+                  className="rounded-[6px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
                 >
                   {a}
                 </span>
@@ -158,7 +158,7 @@ export function AgentControl() {
 
       <div className="mt-8 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
-          <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
             Gradia Whisper
           </p>
           <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
@@ -177,7 +177,7 @@ export function AgentControl() {
           </div>
 
           <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
-            <p className="border-b border-white/10 px-4 py-2.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+            <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
               Staged — waiting for your review
             </p>
             {[

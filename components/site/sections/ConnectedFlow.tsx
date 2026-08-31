@@ -21,7 +21,7 @@ import { SAMPLE } from "../sample";
 function Chip({ children, accent = false }: { children: ReactNode; accent?: boolean }) {
   return (
     <span
-      className={`rounded-[100px] px-2 py-0.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.08em] ${
+      className={`rounded-[6px] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.08em] ${
         accent ? "bg-[var(--sv-accent)]/25 text-[var(--sv-accent-on-dark)]" : "bg-white/10 text-white/60"
       }`}
     >
@@ -39,7 +39,7 @@ function Vignette({
 }) {
   return (
     <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.07] p-3.5 sm:p-4">
-      <p className="float-right ml-3 text-[length:var(--sv-text-xs)] font-medium text-white/60">{time}</p>
+      <p className="float-right ml-3 font-mono text-[length:var(--sv-text-xs)] font-medium tabular-nums text-white/60">{time}</p>
       {children}
     </div>
   );
@@ -116,13 +116,13 @@ const stages: {
           Hi {SAMPLE.firstName} — quote attached. We could get the X5 in Tuesday at 9:00 AM.
         </p>
         <div className="mt-2.5 flex flex-wrap items-center gap-2">
-          <span className="rounded-[100px] bg-[var(--sv-accent)] px-3 py-1 text-[length:var(--sv-text-xs)] font-medium text-white">
+          <span className="rounded-[6px] bg-[var(--sv-accent)] px-3 py-1 text-[length:var(--sv-text-xs)] font-medium text-white">
             Send it
           </span>
           {["Tweak it", "Drop it"].map((a) => (
             <span
               key={a}
-              className="rounded-[100px] border border-white/20 px-3 py-1 text-[length:var(--sv-text-xs)] font-medium text-white/70"
+              className="rounded-[6px] border border-white/20 px-3 py-1 text-[length:var(--sv-text-xs)] font-medium text-white/70"
             >
               {a}
             </span>
@@ -181,7 +181,7 @@ export function ConnectedFlow() {
 
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
-          <p className="text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
             {SAMPLE.customer} · {SAMPLE.vehicle}
           </p>
           <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
@@ -205,7 +205,7 @@ export function ConnectedFlow() {
                 </span>
                 <div className="min-w-0">
                   <p
-                    className={`flex items-center gap-1.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] ${
+                    className={`flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] ${
                       s.approve ? "text-[var(--sv-accent-on-dark)]" : "text-white/45"
                     }`}
                   >

@@ -42,7 +42,7 @@ export function Receptionist() {
 
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
-          <p className="flex items-center gap-2 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.14em] text-white/40">
+          <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
             <PhoneMissed size={13} strokeWidth={2} aria-hidden />
             One missed call, kept
           </p>
@@ -55,7 +55,7 @@ export function Receptionist() {
               className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5"
             >
               <p
-                className={`flex items-center gap-1.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.12em] ${
+                className={`flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] ${
                   s.accent ? "text-[var(--sv-accent-on-dark)]" : "text-white/45"
                 }`}
               >
