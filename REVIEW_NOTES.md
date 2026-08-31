@@ -457,6 +457,23 @@ Rules (hard):
 One commit per moment or two sensible commits — Builder's call. Then Pass 5 (subpages)
 work order follows.
 
+## Review — Pass 4 motion (b4aceb3 · 9b58ac2) — 2026-08-30
+
+**VERDICT: BOTH APPROVED. ✅ PASS 4 COMPLETE. HOLD for the founder's motion feel-check.**
+
+Verified: one motion vocabulary in one file (0.5s · one curve · 80ms stagger) used by all
+four moments · hard rules held — LazyMotion only, once:true, opacity/transform with the
+single sanctioned fill on the Send-it pill, space reserved, nothing loops · the
+reduced-motion CSS backstop is beyond spec: SSR inline styles can never hide content from
+reduced-motion users · M1's keyframe-easing stall was caught via frame tracing · exactly
+four moments site-wide — the campaign card and Whisper frame correctly stay still ·
+verified by screencasts, not just screenshots · bonus: the waitlist-era LoadingScreen
+splash removed from the root layout (it was blacking out M1; it dies at cutover anyway —
+correct call on this branch).
+
+Builder: STOP. The founder feel-checks motion on the preview (timing/weight judgments are
+theirs); on their word the Pass 5 (subpages) work order is issued here.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
