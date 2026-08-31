@@ -315,13 +315,48 @@ Pass 3 final scorecard: A ✅ · A2 ✅ · B ✅ · C+D ✅ · F ✅ · E1 ✅ �
 zero rework cycles. The homepage now shows the real product, in the real product's voice,
 with one customer's story timestamped through a single morning.
 
-## HOLD — founder full-page read (second checkpoint)
+## Founder full-page read — feedback received 2026-08-30
 
-Builder: STOP. No further work until the founder reads the complete page on the branch alias
-(https://gradia-web-cursor-git-site-v2-gradia1.vercel.app) and their feedback lands here.
-The page has changed substantially since the Pass 2 read: ROI receipt, count tiles, Whisper
-demo, flow timestamps, $1,800 quiet quote, "Gradia asks first." section, and real product
-voice throughout. After founder feedback: Pass 4 (motion) work order will be issued here.
+Four directives, translated below into P4-A…D (the founder revision pass). Pass 4 motion
+follows after this lands and is re-read.
+
+## PASS 4-PRE WORK ORDER — founder revision pass (do in order, one commit each)
+
+**P4-A · Campaigns, shown not told.** Add a THIRD ask to the Agent section demo (after the
+Whisper beat or as its own exchange): "Text my ceramic customers from last spring a fall
+special." → audience preview card ("43 customers match · 3 opted out — excluded · capped at
+50 per run" — dry-run preview, caps, and opt-outs are guarantees #3/#4, show them) → drafts
+ready → Send it (accent). Also: the hero support line's object list gains "follow-ups" →
+"…conversations, campaigns and schedule" (pick the natural spot). Claim law: campaigns are
+§4-claimable; NEVER "perfectly"/"automatically sent" — always drafted → your OK.
+
+**P4-B · Voice punch-up pass (copy only, no layout).** Rules: D-033 headline is LOCKED —
+untouched. Claim law binds every line. Direction: shorter, second person, verbs first;
+kill soft/generic phrasing wherever found. Eyebrow chip may take mojo (founder example
+territory: "Engineered for shops that move fast" — keep detailing identity present in the
+hero somewhere). Apply best judgment line-by-line across all sections; the founder re-reads
+the preview after this pass, so bold choices are fine — they're reviewable.
+
+**P4-C · "Ask Gradia." whoa device.** A recurring micro-moment on the four core-system
+panels (and optionally the Problem section): one italic pain-question in the owner's head +
+the three-word answer. Approved examples (all §4-claimable — Ask Gradia/Agent reads the CRM):
+- Customers & Vehicles: "The guy with the black X5 who wanted ceramic… when was he in?" → **Ask Gradia.**
+- Leads & Pipeline: "Who did I forget to quote this week?" → **Ask Gradia.**
+- Quotes, Jobs & Scheduling: "What's still not booked?" → **Ask Gradia.**
+- Conversations: "What did I promise her last month?" → **Ask Gradia.**
+One consistent visual treatment; small, not shouty. FOUNDER OPTION to evaluate on the next
+read: replace the Agent section lead with the symmetry line — "Ask Gradia anything. It asks
+you before anything sends." Build it in; founder keeps or reverts.
+
+**P4-D · Product-fidelity polish on frames.** Source the REAL design language:
+`platform/docs/BUILD_REFERENCE.md` (glass-box design system) + `platform/docs/gradia-v2/ui/`
++ current app screens via Playwright if runnable. Frames on the site should read as the
+actual product's chrome — spacing, radii, type rhythm, state colors — "exactly how Gradia's
+future development looks," per the founder. Site page keeps --sv-* tokens; INSIDE the frames,
+match the product. No invented surfaces; abstention rule still applies to building-status
+capabilities.
+
+After P4-A…D land + review: founder re-reads the preview, then Pass 4 (motion) is issued.
 
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
