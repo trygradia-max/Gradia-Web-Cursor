@@ -301,6 +301,28 @@ Note for part 2: reuse the SAME real labels/voice wherever those surfaces appear
 frame's stages and the agent surface must not drift from the vignette vocabulary introduced
 here — "Send it / Tweak it / Drop it" is now the canonical approval CTA set on the site).
 
+## Review — P3-E (2/2): real-product voice everywhere (6033dfe) — 2026-08-30
+
+**VERDICT: APPROVED. ✅ PASS 3 COMPLETE.**
+
+Verified: "Send it / Tweak it / Drop it" is now the one approval vocabulary across hero,
+agent surface, and core panels · the hero's post-approve state ("You tapped Send it · Sent ✓")
+shows the approve-first moment in the product's own words · per-surface flags on the two
+frames left as-is are both correct (Home was already source-faithful from P3-A/A2; Whisper
+shows no CTAs by design) · "Customer file" adopts the app's one-file framing · tsc clean.
+
+Pass 3 final scorecard: A ✅ · A2 ✅ · B ✅ · C+D ✅ · F ✅ · E1 ✅ · E2 ✅ — seven work items,
+zero rework cycles. The homepage now shows the real product, in the real product's voice,
+with one customer's story timestamped through a single morning.
+
+## HOLD — founder full-page read (second checkpoint)
+
+Builder: STOP. No further work until the founder reads the complete page on the branch alias
+(https://gradia-web-cursor-git-site-v2-gradia1.vercel.app) and their feedback lands here.
+The page has changed substantially since the Pass 2 read: ROI receipt, count tiles, Whisper
+demo, flow timestamps, $1,800 quiet quote, "Gradia asks first." section, and real product
+voice throughout. After founder feedback: Pass 4 (motion) work order will be issued here.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
