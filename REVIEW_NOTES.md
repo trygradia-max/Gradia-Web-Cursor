@@ -409,6 +409,25 @@ Order: P4-E → P4-F, one commit each, same rhythm. Then founder re-read #3, the
 
 Builder: proceed with P4-E when these notes land.
 
+## Review — P4-E (d135499) + P4-F (6f57913) — 2026-08-30
+
+**VERDICT: BOTH APPROVED. HOLD for founder read #3 — on their word, Pass 4 (motion) is issued.**
+
+P4-E: the arithmetic detail is the standout — the service menu's $265 + $220 sums to Sarah's
+$485 package, so the Teach-Gradia screen and every quote on the page agree to the dollar ·
+guarantee #2 verbatim · "Used in" chip strip makes the once→everywhere claim visual · the
+Ask-Gradia extension ("answered from your menu, not the internet") is the section's best
+line · alternation recomputed correctly downstream.
+
+P4-F: the Builder again correctly overrode the spec with the real thing — the actual public
+quote page says "Book it / Not this time," not my "Accept" paraphrase, and the site now
+matches source (flagged, as required) · "Good through Friday." is the real validThrough
+string — expiry honesty as urgency · line items mono and consistent with the menu · the
+platform's own demo-shop identity added to sample.ts as canonical · the customer's phone is
+dark because the product ships dark. The page now shows both sides of the same $485.
+
+Homepage stands at 12 sections — DECLARED FULL. New content evicts or goes to subpages.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
