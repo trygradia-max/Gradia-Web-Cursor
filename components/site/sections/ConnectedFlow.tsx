@@ -1,60 +1,171 @@
+import type { ReactNode } from "react";
 import { Check } from "lucide-react";
 import { Eyebrow, Lead, Section } from "../primitives";
 import { SAMPLE } from "../sample";
 
-/* Section 3 — Connected flow (site-v2-plan §3.3, NEXT_TASK scope 3).
-   Capture → Understand → Prepare → APPROVE → Schedule → Retain, with the
-   SAMPLE record persisting through every stage (the trygtm one-example
-   technique). Carries id="how" — the hero's "See how it works" target (N2).
-   Approve is highlighted in the accent, consistent with the hero frame.
-   Structural placeholder; Pass 3 swaps real UI, Pass 4 may add motion. */
+/* Section 3 — Connected flow (site-v2-plan §3.3; P3-E real-UI vignettes,
+   2026-08-30). Each stage now carries a compact composition of the real
+   product surface, verified against platform source before composing:
+   - Approvals (approvals-list.tsx): type chips (SMS · Booking · Draft
+     quote), "To {name}", Pending badge, "Caught {when}", CTAs "Send it /
+     Tweak it / Drop it" — current labels confirmed in source.
+   - Conversations: thread row with snippet + "Needs you" tag.
+   - Customers: "one file per person" framing.
+   Deliberate abstention (flagged per REVIEW_NOTES): no calendar-grid UI in
+   the Schedule vignette — capability #9 is building, so it shows the
+   booked state, not an invented calendar. Pending/approval accents are
+   retokened to --sv-* per CLAUDE.md (no foreign colors).
+   P3-C times kept: 7:58 → 8:05, Home clock follows at 8:12. Carries
+   id="how" (N2). Approve stays the accent-marked stage. */
+
+function Chip({ children, accent = false }: { children: ReactNode; accent?: boolean }) {
+  return (
+    <span
+      className={`rounded-[100px] px-2 py-0.5 text-[length:var(--sv-text-xs)] font-semibold uppercase tracking-[0.08em] ${
+        accent ? "bg-[var(--sv-accent)]/25 text-[var(--sv-accent-on-dark)]" : "bg-white/10 text-white/60"
+      }`}
+    >
+      {children}
+    </span>
+  );
+}
+
+function Vignette({
+  time,
+  children,
+}: {
+  time: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.07] p-3.5 sm:p-4">
+      <p className="float-right ml-3 text-[length:var(--sv-text-xs)] font-medium text-white/60">{time}</p>
+      {children}
+    </div>
+  );
+}
 
 const stages: {
   name: string;
   line: string;
-  state: string;
-  time: string;
   approve?: boolean;
+  vignette: ReactNode;
 }[] = [
-  /* P3-C: sample times show the speed — no "X minutes" claims in copy.
-     7:58 → 8:05 is the reviewer-set sequence; the Home frame's clock
-     (Section 4) sits at 8:12 AM so its booked state follows this. */
   {
     name: "Capture",
     line: `${SAMPLE.firstName}'s message lands in Gradia — not in six inboxes.`,
-    state: `New lead · ${SAMPLE.customer}`,
-    time: "7:58 AM",
+    vignette: (
+      <Vignette time="7:58 AM">
+        <div className="flex flex-wrap items-center gap-2">
+          <Chip>Text</Chip>
+          <span className="text-[length:var(--sv-text-sm)] font-medium text-white">{SAMPLE.customer}</span>
+          <Chip accent>Needs you</Chip>
+        </div>
+        <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/60">
+          &ldquo;Hi — do you do ceramic maintenance for a BMW X5?&rdquo;
+        </p>
+      </Vignette>
+    ),
   },
   {
     name: "Understand",
     line: "Her vehicle, history and request become one record.",
-    state: `${SAMPLE.vehicle} · asks about ceramic maintenance`,
-    time: "7:59 AM",
+    vignette: (
+      <Vignette time="7:59 AM">
+        <div className="flex flex-wrap items-center gap-2">
+          <Chip>Customer file</Chip>
+          <span className="text-[length:var(--sv-text-sm)] font-medium text-white">{SAMPLE.customer}</span>
+        </div>
+        <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/60">
+          {SAMPLE.vehicle} · texts, quotes and jobs in one file
+        </p>
+      </Vignette>
+    ),
   },
   {
     name: "Prepare",
     line: "Gradia drafts the reply and the quote for you.",
-    state: `Quote — ${SAMPLE.service} · ${SAMPLE.price}`,
-    time: "8:01 AM",
+    vignette: (
+      <Vignette time="8:01 AM">
+        <div className="flex flex-wrap items-center gap-2">
+          <Chip>Draft quote</Chip>
+          <span className="text-[length:var(--sv-text-sm)] font-medium text-white">
+            {SAMPLE.service} — {SAMPLE.price}
+          </span>
+        </div>
+        <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/60">
+          Reply drafted to send with it — nothing sent yet
+        </p>
+      </Vignette>
+    ),
   },
   {
     name: "Approve",
     line: "Nothing goes out until you say so.",
-    state: "Approved by you · reply sent",
-    time: "8:04 AM",
     approve: true,
+    vignette: (
+      <Vignette time="8:04 AM">
+        <div className="flex flex-wrap items-center gap-2">
+          <Chip>SMS</Chip>
+          <span className="text-[length:var(--sv-text-sm)] font-medium text-white">
+            To {SAMPLE.customer}
+          </span>
+          <Chip accent>Pending</Chip>
+        </div>
+        <p className="mt-2 rounded-[calc(var(--sv-radius-sm)-4px)] bg-white/[0.06] px-3 py-2 text-[length:var(--sv-text-xs)] text-white/70">
+          Hi {SAMPLE.firstName} — quote attached. We could get the X5 in Tuesday at 9:00 AM.
+        </p>
+        <div className="mt-2.5 flex flex-wrap items-center gap-2">
+          <span className="rounded-[100px] bg-[var(--sv-accent)] px-3 py-1 text-[length:var(--sv-text-xs)] font-medium text-white">
+            Send it
+          </span>
+          {["Tweak it", "Drop it"].map((a) => (
+            <span
+              key={a}
+              className="rounded-[100px] border border-white/20 px-3 py-1 text-[length:var(--sv-text-xs)] font-medium text-white/70"
+            >
+              {a}
+            </span>
+          ))}
+          <span className="text-[length:var(--sv-text-xs)] text-white/40">Caught just now</span>
+        </div>
+      </Vignette>
+    ),
   },
   {
     name: "Schedule",
     line: "The job lands on the calendar.",
-    state: `${SAMPLE.slot} · ${SAMPLE.service}`,
-    time: "8:05 AM",
+    vignette: (
+      <Vignette time="8:05 AM">
+        <div className="flex flex-wrap items-center gap-2">
+          <Chip>Booking</Chip>
+          <span className="text-[length:var(--sv-text-sm)] font-medium text-white">
+            {SAMPLE.slot} — {SAMPLE.service}
+          </span>
+        </div>
+        <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/60">
+          On the calendar · confirmed with {SAMPLE.firstName}
+        </p>
+      </Vignette>
+    ),
   },
   {
     name: "Retain",
     line: `Gradia drafts the follow-up when ${SAMPLE.firstName} is due back.`,
-    state: "Maintenance reminder · drafted for your review",
-    time: "Weeks later",
+    vignette: (
+      <Vignette time="Weeks later">
+        <div className="flex flex-wrap items-center gap-2">
+          <Chip>SMS</Chip>
+          <span className="text-[length:var(--sv-text-sm)] font-medium text-white">
+            Maintenance reminder
+          </span>
+          <Chip accent>Pending</Chip>
+        </div>
+        <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/60">
+          Drafted for your review — sends on your OK
+        </p>
+      </Vignette>
+    ),
   },
 ];
 
@@ -80,7 +191,7 @@ export function ConnectedFlow() {
           {stages.map((s, i) => (
             <li
               key={s.name}
-              className={`flex flex-col gap-2 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-5 ${
+              className={`grid gap-3 px-4 py-4 lg:grid-cols-2 lg:items-center lg:gap-8 sm:px-5 ${
                 i > 0 ? "border-t border-white/10" : ""
               } ${s.approve ? "bg-white/[0.09]" : "bg-white/[0.04]"}`}
             >
@@ -104,16 +215,7 @@ export function ConnectedFlow() {
                   <p className="mt-1 font-medium text-white">{s.line}</p>
                 </div>
               </div>
-              <div className="flex items-baseline gap-3 pl-10 sm:block sm:pl-0 sm:text-right">
-                <p
-                  className={`shrink-0 text-[length:var(--sv-text-xs)] font-medium ${
-                    s.approve ? "text-[var(--sv-accent-on-dark)]" : "text-white/70"
-                  }`}
-                >
-                  {s.time}
-                </p>
-                <p className="text-[length:var(--sv-text-xs)] text-white/50 sm:mt-0.5">{s.state}</p>
-              </div>
+              <div className="pl-10 lg:pl-0">{s.vignette}</div>
             </li>
           ))}
         </ol>
