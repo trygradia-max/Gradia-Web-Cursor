@@ -428,6 +428,35 @@ dark because the product ships dark. The page now shows both sides of the same $
 
 Homepage stands at 12 sections — DECLARED FULL. New content evicts or goes to subpages.
 
+## PASS 4 WORK ORDER — motion (founder approved read #3, 2026-08-30)
+
+Motion explains; it never decorates. Exactly FOUR motion moments — nothing else moves:
+
+**M1 · Hero frame sequence.** On load (after LCP): the four stage cards stagger in left→right
+(~80ms apart), then the "Approved by you" check draws/pops once. One play, no loop.
+**M2 · Problem consolidation** (the Pass-2 deferral). On scroll into view: the six scattered
+chips drift/settle toward the Gradia surface as it fades up. One play.
+**M3 · Connected flow travel.** On scroll: stages reveal top→bottom in sequence; the row
+highlight (Sarah's state) reads as one record moving down. The Approve stage's check draws
+last. One play.
+**M4 · Approval flip in the Agent demo.** On scroll into view: the "Prepared — waiting for
+your review" card appears, beat, the Send it pill fills, beat, the activity-log line slides
+in. This is the brand moment — give it the best timing.
+
+Rules (hard):
+- framer-motion via LazyMotion/domAnimation only (bundle discipline); no gsap/tsparticles.
+- One shared motion vocabulary: define tokens once (e.g. duration 0.5s, one ease curve,
+  stagger 80ms) in a small motion.ts — every moment uses them.
+- whileInView with once: true — nothing replays, nothing loops, nothing runs continuously.
+- useReducedMotion → everything renders in final state, zero animation (a11y hard rule).
+- No layout shift: animate opacity/transform only; reserve space.
+- Mobile: M1 and M4 keep; M2 may simplify to a fade; M3 may simplify to sequential fades.
+- Screenshot review can't capture motion — record a short screen capture per moment
+  (Playwright video or GIF) and review those before pushing.
+
+One commit per moment or two sensible commits — Builder's call. Then Pass 5 (subpages)
+work order follows.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
