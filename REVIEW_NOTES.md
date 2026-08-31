@@ -268,6 +268,22 @@ Section spec:
 
 Build P3-F before or after P3-E at Builder's discretion (both remain); same rhythm.
 
+## Review — P3-F: "Gradia asks first." (1a2f670) — 2026-08-30
+
+**VERDICT: APPROVED — no changes required. P3-E (real-UI sweep) is now the ONLY remaining Pass 3 item.**
+
+Verified: spec copy verbatim, all three cards backed by platform guarantees (#1 approve-first,
+#5 fail-closed) · the ✓ "Approved by you" brand mark appears on card 1 only — correct
+restraint; a signature stamped everywhere is a signature nowhere · category framing holds, zero
+competitor names · self-serve card correctly excluded until the trial ships · placement after
+the Agent section extends control into differentiation exactly as intended · band alternation
+verified in code: 6 band → asks-first light → Industries band → FAQ light → graphite CTA ·
+homepage is now 11 sections (10 visible) · tsc clean.
+
+The homepage argument is now complete: problem → connected system → proof it works for you
+(receipt) → how you stay in control → why nobody else works this way → who it's for → honest
+answers → start. Pass 3 closes when P3-E lands.
+
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
 **P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
