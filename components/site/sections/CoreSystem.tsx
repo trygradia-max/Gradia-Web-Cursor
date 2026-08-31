@@ -87,11 +87,61 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
     title: "Quotes, Jobs & Scheduling",
     line: "Quotes become jobs, jobs land on the calendar — and you approve what goes out.",
     ask: "“What's still not booked?”",
+    /* P4-F: the page's ONLY customer's-eye view — the public quote page
+       (platform app/q/[token], P0-009: accept→book durable, expiry
+       enforced). Labels verbatim from source: "Quote" eyebrow · "For
+       {name} · {vehicle}" · line items · "Good through {date}." · CTAs
+       "Book it" / "Not this time" · accepted state "You're in — quote
+       accepted." The phone is dark because the product ships dark. */
     screen: (
-      <Screen label="Quote to job">
-        <Row title={`Quote — ${SAMPLE.service}`} meta={`${SAMPLE.price} · accepted`} />
-        <Row title={`Job — ${SAMPLE.vehicle}`} meta="Booked" />
-        <Row title={`Schedule — ${SAMPLE.slot}`} meta="On the calendar" last />
+      <Screen label="The customer's view — quote page">
+        <div className="space-y-3 p-4 sm:p-5">
+          <div className="mx-auto w-full max-w-[270px] rounded-[24px] bg-[var(--sv-graphite)] px-5 py-6">
+            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
+              Quote
+            </p>
+            <p className="mt-1 text-center font-medium text-white">{SAMPLE.shop}</p>
+            <p className="mt-0.5 text-center text-[length:var(--sv-text-xs)] text-white/50">
+              For {SAMPLE.customer} · {SAMPLE.vehicle}
+            </p>
+            <div className="mt-4 border-t border-white/10">
+              {(
+                [
+                  ["Full Detail", "$265"],
+                  ["Ceramic Maintenance", "$220"],
+                ] as const
+              ).map(([name, price]) => (
+                <div key={name} className="flex items-baseline justify-between gap-3 border-b border-white/10 py-2">
+                  <span className="text-[length:var(--sv-text-xs)] text-white/70">{name}</span>
+                  <span className="font-mono text-[length:var(--sv-text-xs)] tabular-nums text-white">{price}</span>
+                </div>
+              ))}
+              <div className="flex items-baseline justify-between gap-3 py-2.5">
+                <span className="text-[length:var(--sv-text-xs)] font-medium text-white">Total</span>
+                <span className="font-mono text-[length:var(--sv-text-base)] font-semibold tabular-nums text-white">
+                  {SAMPLE.price}
+                </span>
+              </div>
+            </div>
+            <p className="text-[length:var(--sv-text-xs)] text-white/40">Good through Friday.</p>
+            <div className="mt-4 space-y-2">
+              <p className="rounded-[6px] bg-[var(--sv-accent)] py-2 text-center text-[length:var(--sv-text-xs)] font-medium text-white">
+                Book it
+              </p>
+              <p className="rounded-[6px] border border-white/20 py-2 text-center text-[length:var(--sv-text-xs)] font-medium text-white/70">
+                Not this time
+              </p>
+            </div>
+          </div>
+          <div className="mx-auto max-w-[340px] text-center">
+            <p className="text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink)]">
+              {SAMPLE.firstName} taps Book it — &ldquo;You&apos;re in — quote accepted.&rdquo;
+            </p>
+            <p className="mt-1 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
+              Your side: Booked, {SAMPLE.slot} · quote closed, job on the calendar
+            </p>
+          </div>
+        </div>
       </Screen>
     ),
   },
