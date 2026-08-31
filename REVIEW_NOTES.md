@@ -375,8 +375,39 @@ P4-D: real product texture inside the frames only — the app's radii, mono/tabu
 money·counts·times, 11px chrome labels — with site tokens preserved outside and the AsksFirst
 brand signature correctly excluded as site chrome. The calendar abstention stands.
 
-Builder: STOP. Founder re-read on the branch alias is the gate; on their word, Pass 4
-(motion) is issued here.
+## P4-E + P4-F — founder feature additions (decided 2026-08-30, after the re-read)
+
+Founder verdict on the P4-A…D read: strong, but the page needs more feature "wow." Two
+additions approved — both fully claimable, both building on what exists:
+
+**P4-E · NEW section: "Teach Gradia your shop." (restores the original plan's knowledge
+section; homepage → 12 sections, recompute band alternation).** Placement: after the Core
+operating system section (the brain explains the panels just shown). Content:
+- H2 direction: "Teach Gradia your shop. Once." · lead: services, packages, prices,
+  policies, hours, and how you talk — in once, used everywhere.
+- Visual: a setup panel (service menu rows with prices · hours · travel/policy lines ·
+  "How we talk to customers") with connection lines/chips to: quotes · replies · campaigns ·
+  scheduling. Real product framing (Settings → shop profile/service menu exist — pilot).
+- The persona guarantee gets its beat: "Gradia writes as your shop — we, us, your name
+  signed. Never a third-party bot." (guarantee #2, verbatim territory.)
+- An "Ask Gradia."-style micro-moment fits here too if natural: "Does ceramic need
+  paint correction first?" → answered from YOUR menu, not the internet.
+- Claim law: knowledge base/persona/service menu are §4-claimable. No voice mentions
+  while §7 is hidden.
+
+**P4-F · Customer quote-page moment (panel upgrade, no new section).** Upgrade the Quotes,
+Jobs & Scheduling panel in Core operating system: split-view or sequence — owner sends the
+quote → THE CUSTOMER'S PHONE: the public quote page (Sarah's view: shop name, Full Detail +
+Ceramic Maintenance, $485, Accept button) → she taps Accept → "You're booked — Tue 9:00 AM"
+→ owner side: quote closes to booked. Claim-true per P0-009 (accept→book durable, expiry
+enforced — an "expires" line on the quote page is accurate and adds urgency-honesty).
+This is the page's ONLY customer's-eye view — make it feel like a phone, clearly labeled
+sample data, product-fidelity per P4-D rules.
+
+Order: P4-E → P4-F, one commit each, same rhythm. Then founder re-read #3, then Pass 4
+(motion).
+
+Builder: proceed with P4-E when these notes land.
 
 ## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
 
