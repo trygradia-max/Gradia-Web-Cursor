@@ -3,6 +3,20 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
+**NEXT:** Pass 5 Cycle 4 — `/demo` + `/resources`. Demo: claimable demo assets only (cold-lead revival → approval → send · Whisper → staged work · campaign dry-run; NO voice while gated); static walkthrough frames + video placeholder. Resources: minimal shell + 3 article stubs from SEO plan. One commit for the cycle. `/pricing` stays double-gated until P0-013.
+
+## Review — Pass 5 Cycle 3: /pricing (flag-hidden) + /security (d3d4f2b) — 2026-09-01
+
+**PENDING REVIEW.** Built: `/pricing` complete per D-034/D-035 — three tiers ($99/$149/$249), exact trial line, packs/rollover note, caps/no-surprise-bills FAQ — `SHOW_PRICING=false` + NOT middleware-whitelisted (308 to `/`). Operator team seats labeled "arriving" (D-036). `/security` whitelisted — six audited truths from platform doc 08 (tenancy, approval gates, fail-closed spending, audit trail, outreach guardrails, encrypted credentials + verified webhooks); honest gaps line (no cert claims, export/deletion roadmap). tsc clean · `/security` 200 · `/pricing` 308 verified at dev.
+
+## Review — Pass 5 Cycle 2: /industries (c7301ec) — 2026-09-01
+
+**PENDING REVIEW.** Built: `/industries` index (five trade cards) → shared template on detailing · ceramic-coating · ppf-tint-wrap · mobile-detailing · fleet — trade headline + three pains → connected-flow retold with trade-specific sample data (ceramic: annual check-in · PPF: quiet high-value quote · mobile: on-location address · fleet: multi-vehicle account, no fleet-management claims) → Ask-Gradia micro-moment per trade → FinalCta. `/industries` + all five slugs whitelisted in middleware. tsc clean · routes verified 200 at dev.
+
+## Review — Pass 5 Cycle 1: /product (fd85d66) — 2026-09-01
+
+**PENDING REVIEW.** Built: D-033 category hero → five deep capability panels (incl. Home + ROI receipt) → full campaigns section (dry-run, caps, opt-outs, cooldowns) → Agent + Whisper pair → three-pillar comparison table vs industry default → approvals/earned-autonomy explainer → FAQ subset → FinalCta. `/product` whitelisted in middleware. Receptionist mention omitted (gated, same as homepage). tsc clean · screenshots at 375/768/1440 reviewed.
+
 ## Review — Section 1: Hero (e168720) — 2026-08-29
 
 **VERDICT: APPROVED — no blocking changes. Proceed to Section 2 (Problem) after reading the notes below.**

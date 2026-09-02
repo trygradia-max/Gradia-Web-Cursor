@@ -23,6 +23,8 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith("/v2") || // site-v2 foundation preview (branch: site-v2)
     pathname === "/product" || // Pass 5 Cycle 1 — product depth page (branch: site-v2)
     pathname.startsWith("/industries") || // Pass 5 Cycle 2 — industries index + trade pages (branch: site-v2)
+    pathname === "/security" || // Pass 5 Cycle 3 — security page (branch: site-v2)
+    // /pricing is built but NOT whitelisted until P0-013 (SHOW_PRICING flag in page.tsx)
     pathname === "/privacy" ||
     pathname === "/terms" ||
     pathname.startsWith("/api") ||
