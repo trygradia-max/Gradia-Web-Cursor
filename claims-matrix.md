@@ -28,7 +28,7 @@ _Pass 7 QA · 2026-09-02. Source of truth: `_docs/WHAT_GRADIA_DOES.md` §4–§6
 | Public quote page (customer view) | ✅ | Core system panel | "Book it / Not this time" — source-faithful |
 | Earned autonomy (graduation UX) | ✅ | Product approvals section | Framed as owner choice; money/calendar always ask |
 | Fail-closed credits / spending caps | ✅ | Asks First, Product comparison, Security | Guarantee #5 |
-| Voice receptionist answers/quotes/books | ⛔ | — | Homepage §7 + nav/footer links hidden (`SHOW_RECEPTIONIST=false`); `/receptionist` 308 |
+| Voice receptionist answers/quotes/books | ⛔ | — | Homepage §7 + `/receptionist` built (`SHOW_RECEPTIONIST=false` + middleware 308); nav/footer links hidden; §9.3 floor copy only |
 | Pricing tiers / dollar amounts | 🔒 | `/pricing` only | `SHOW_PRICING=false` + middleware 308; 14-day trial copy OK inside gated page |
 | Customer recovery / opportunity engine | ⛔ | — | Not mentioned |
 | Meta lead ads / social DMs as product | ⛔ | — | Problem section shows IG DM as *shop's scattered reality*, not Gradia channel |

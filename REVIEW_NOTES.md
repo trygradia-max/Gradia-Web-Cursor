@@ -3,7 +3,11 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
-**NEXT:** Founder full-preview approval + cutover decision (N1 CTA destination · merge `site-v2` → `main`). Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + middleware whitelist together.
+**NEXT:** Founder review — `/receptionist` depth page (Pass 5 gap, flag-hidden). Then full-preview approval + cutover decision (N1 CTA destination · merge `site-v2` → `main`). Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + middleware whitelist together · upgrade receptionist copy to live claims only after acceptance run passes.
+
+## Review — Pass 5 gap: /receptionist depth page — 2026-09-02
+
+**PENDING REVIEW.** Built: `/receptionist` — double-gated (`SHOW_RECEPTIONIST=false` + middleware 308, mirrors `/pricing` pattern) · §9.3 honest framing throughout (missed call kept → voice builder setup → Send it approval · no answering/quoting/booking claims) · voice-builder + Going live checklist sample UI (product-fidelity, P4-D) · four-question FAQ · FinalCta. tsc clean · SITE_SYNC batch consumed — no copy changes required (Housecall Pro/Slack already absent).
 
 ## Review — Pass 7: independent QA — 2026-09-02
 
