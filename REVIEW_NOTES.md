@@ -3,7 +3,11 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
-**NEXT:** Pass 5 Cycle 4 — `/demo` + `/resources`. Demo: claimable demo assets only (cold-lead revival → approval → send · Whisper → staged work · campaign dry-run; NO voice while gated); static walkthrough frames + video placeholder. Resources: minimal shell + 3 article stubs from SEO plan. One commit for the cycle. `/pricing` stays double-gated until P0-013.
+**NEXT:** Pass 6 — conversion + SEO + JSON-LD + sitemap (CTA paths, trial messaging, whitelist sync, structured data per site-v2-plan §6). `/pricing` stays double-gated until P0-013. Pass 7 QA should be a different agent than the builder.
+
+## Review — Pass 5 Cycle 4: /demo + /resources — 2026-09-02
+
+**PENDING REVIEW.** Built: `/demo` — three claimable walkthrough frames (cold-lead revival → Send it · Whisper → staged work · campaign dry-run with caps/opt-outs) + video placeholder; voice demo explicitly omitted (gated). `/resources` index + 3 SEO-plan article stubs (`mobile-detailers-handle-calls-hands-busy` · `missed-call-cost-detailing-shop` · `fill-detailing-calendar-without-chasing`) with stub pages linking to demo. Middleware whitelisted. tsc clean · `/demo` 200 · `/resources` + slug 200 · `/pricing` 308 verified at dev. SITE_SYNC batch consumed — no Housecall Pro/Slack copy found on site.
 
 ## Review — Pass 5 Cycle 3: /pricing (flag-hidden) + /security (d3d4f2b) — 2026-09-01
 
