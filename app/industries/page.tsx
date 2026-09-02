@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Industries — Gradia for detailing and automotive appearance shops",
   description:
     "Gradia for detailing, ceramic coating, PPF, tint, wrap, mobile detailing and shops serving fleet accounts — one operating system, tuned to your trade.",
+  alternates: { canonical: "/industries" },
 };
 
 export default function IndustriesPage() {

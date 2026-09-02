@@ -3,7 +3,11 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
-**NEXT:** Pass 6 — conversion + SEO + JSON-LD + sitemap (CTA paths, trial messaging, whitelist sync, structured data per site-v2-plan §6). `/pricing` stays double-gated until P0-013. Pass 7 QA should be a different agent than the builder.
+**NEXT:** Pass 7 QA (independent agent) — design consistency, responsive, a11y, perf, links, copy-vs-claims-matrix audit. `/pricing` stays double-gated until P0-013. N1 CTA destination still a founder cutover decision.
+
+## Review — Pass 6: conversion + SEO + JSON-LD + sitemap — 2026-09-02
+
+**PENDING REVIEW.** Built: D-033 root metadata + OG image rewrite · shared `TRIAL_CTA_HREF` (/#trial until signup ships) · `lib/site-routes.ts` single source for middleware ↔ sitemap (16 public URLs; /pricing + /receptionist excluded) · homepage + product FAQPage JSON-LD synced to visible FAQ copy · canonical tags on all public pages · robots disallow /v2 style guide. tsc clean · SITE_SYNC batch consumed — no copy changes required (Housecall Pro/Slack already absent).
 
 ## Review — Pass 5 Cycle 4: /demo + /resources — 2026-09-02
 

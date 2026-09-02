@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Button, Card, Eyebrow, Lead, Section } from "../primitives";
 import { FinalCta } from "../sections/FinalCta";
 import { ARTICLES } from "./articles";
@@ -16,7 +17,7 @@ export function ResourcesIndex() {
           shop — leads, follow-ups, scheduling and staying in control.
         </Lead>
         <div className="mt-8">
-          <Button href="/#trial" variant="primary" size="lg">
+          <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
             Start your trial
           </Button>
         </div>

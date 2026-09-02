@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Security — Gradia",
   description:
     "Tenant isolation, approval gates, fail-closed spending, audit trails and outreach guardrails — how Gradia protects your shop's data and your customers.",
+  alternates: { canonical: "/security" },
 };
 
 export default function SecurityPage() {

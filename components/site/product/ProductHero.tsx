@@ -1,3 +1,4 @@
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Button, Eyebrow, Lead, Section } from "../primitives";
 
 /* Product page hero — D-033 category line + depth-page positioning. */
@@ -15,7 +16,7 @@ export function ProductHero() {
         with every important action staged for your approval.
       </Lead>
       <div className="mt-8 flex flex-wrap items-center gap-5">
-        <Button href="/#trial" variant="primary" size="lg">
+        <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
           Start your trial
         </Button>
         <Button href="#capabilities" variant="link" size="md">

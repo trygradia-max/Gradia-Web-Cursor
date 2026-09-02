@@ -1,4 +1,5 @@
 import { Mic, Play } from "lucide-react";
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Button, Eyebrow, Lead, Section } from "../primitives";
 import { FinalCta } from "../sections/FinalCta";
 import { SAMPLE } from "../sample";
@@ -161,7 +162,7 @@ export function DemoContent() {
           run a campaign with guardrails. Every outbound action waits for your approval.
         </Lead>
         <div className="mt-8">
-          <Button href="/#trial" variant="primary" size="lg">
+          <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
             Start your trial
           </Button>
         </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Button, Card, Eyebrow, Lead, Section } from "../primitives";
 import { FinalCta } from "../sections/FinalCta";
 import type { Industry } from "./data";
@@ -23,7 +24,7 @@ export function IndustryPage({ industry }: { industry: Industry }) {
         <h1 className="max-w-[24ch]">{industry.headline}</h1>
         <Lead>{industry.lead}</Lead>
         <div className="mt-8">
-          <Button href="/#trial" variant="primary" size="lg">
+          <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
             Start your trial
           </Button>
         </div>

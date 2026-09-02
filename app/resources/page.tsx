@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Resources — Guides for detailing shop owners",
   description:
     "Practical guides on missed calls, follow-ups and filling your calendar — written for detailing and automotive appearance shop owners.",
+  alternates: { canonical: "/resources" },
 };
 
 export default function ResourcesPage() {

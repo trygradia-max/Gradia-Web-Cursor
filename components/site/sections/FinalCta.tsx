@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Button, Container } from "../primitives";
 
 /* Section 10 — Final CTA (site-v2-plan §3.10). Full-bleed graphite band,
@@ -18,7 +19,7 @@ export function FinalCta() {
           approval.
         </p>
         <div className="mt-9">
-          <Button href="/#trial" variant="inverse" size="lg">
+          <Button href={TRIAL_CTA_HREF} variant="inverse" size="lg">
             Start your trial
             <ArrowRight size={18} strokeWidth={2} aria-hidden />
           </Button>

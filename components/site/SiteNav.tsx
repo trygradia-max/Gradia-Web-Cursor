@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Button } from "./primitives";
 
 /* v2 nav: starts blended into the hero, becomes a solid bar with a hairline
@@ -55,12 +56,12 @@ export function SiteNav() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button href="/portal/login" variant="ghost">Sign in</Button>
-          <Button href="/#trial" variant="primary">Start your trial</Button>
+          <Button href={TRIAL_CTA_HREF} variant="primary">Start your trial</Button>
         </div>
 
         {/* Below lg the primary CTA stays visible next to the menu toggle. */}
         <div className="flex items-center gap-2 lg:hidden">
-          <Button href="/#trial" variant="primary" className="h-9 px-4 text-[length:var(--sv-text-sm)]">
+          <Button href={TRIAL_CTA_HREF} variant="primary" className="h-9 px-4 text-[length:var(--sv-text-sm)]">
             Start your trial
           </Button>
           <button
@@ -86,7 +87,7 @@ export function SiteNav() {
             ))}
           </ul>
           <div className="mt-6 flex flex-col gap-3">
-            <Button href="/#trial" variant="primary" className="w-full">Start your trial</Button>
+            <Button href={TRIAL_CTA_HREF} variant="primary" className="w-full">Start your trial</Button>
             <Button href="/portal/login" variant="secondary" className="w-full">Sign in</Button>
           </div>
         </div>

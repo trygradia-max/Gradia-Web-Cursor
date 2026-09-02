@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Container, Eyebrow, Lead, Button } from "../primitives";
 import { MGroup, MItem, MPop, DUR, STAGGER } from "../motion";
 import { SAMPLE } from "../sample";
@@ -89,7 +90,7 @@ export function Hero() {
           campaigns and schedule in one operating system — and helps keep the work moving.
         </Lead>
         <div className="mt-9 flex flex-col items-center gap-5 sm:flex-row">
-          <Button href="/#trial" size="lg">
+          <Button href={TRIAL_CTA_HREF} size="lg">
             Start your trial
             <ArrowRight size={18} strokeWidth={2} aria-hidden />
           </Button>

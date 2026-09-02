@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import {
+  SITE_CATEGORY,
+  SITE_DESCRIPTION,
+  SITE_HEADLINE,
+  siteBase,
+} from "@/lib/site-config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,44 +15,40 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = siteBase();
+const defaultTitle = `Gradia — ${SITE_CATEGORY}`;
+const defaultDescription = `${SITE_HEADLINE} ${SITE_DESCRIPTION}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
+    default: defaultTitle,
     template: "%s · Gradia",
   },
-  description:
-    "The AI front office for auto detailers. Connect your CRM, calls, texts, email, and calendar — then ask Gradia Whisper to quote customers, book jobs, follow up with leads, and run campaigns. Gradia Agent stages every step for your approval. $20/mo. Join the waitlist.",
+  description: defaultDescription,
   keywords: [
-    "car detailing software",
-    "AI for car detailers",
-    "detailing business software",
-    "auto detailing CRM",
-    "detailer booking software",
-    "AI receptionist for detailers",
-    "AI voice agent for detailers",
-    "car detail quoting",
-    "mobile detailing scheduling",
+    "detailing shop software",
+    "automotive appearance shop software",
+    "car detailing CRM",
     "ceramic coating business software",
-    "detailer lead follow-up",
-    "AI front office",
+    "mobile detailing software",
+    "PPF shop software",
+    "detailing lead follow-up",
+    "auto detailing scheduling",
+    "detailing business operating system",
   ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName: "Gradia",
-    title: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
-    description:
-      "Connect your CRM, calls, texts, email, and calendar. Then ask Gradia Whisper to quote, book, follow up, and run campaigns — Gradia Agent stages every step for your approval. $20/mo.",
+    title: defaultTitle,
+    description: defaultDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Front Office for Car Detailers — Just Tell Gradia What To Do",
-    description:
-      "Connect your CRM, calls, texts, email, and calendar. Then ask Gradia Whisper to quote, book, follow up, and run campaigns — Gradia Agent stages every step for your approval. $20/mo.",
+    title: defaultTitle,
+    description: defaultDescription,
   },
 };
 

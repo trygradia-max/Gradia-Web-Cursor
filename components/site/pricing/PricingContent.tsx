@@ -1,3 +1,4 @@
+import { TRIAL_CTA_HREF } from "@/lib/site-config";
 import { Button, Card, Eyebrow, Lead, Section } from "../primitives";
 import { FinalCta } from "../sections/FinalCta";
 import { PRICING_FAQS, PRICING_TIERS, TRIAL_LINE } from "./data";
@@ -19,7 +20,7 @@ export function PricingContent() {
           {TRIAL_LINE}
         </p>
         <div className="mt-8">
-          <Button href="/#trial" variant="primary" size="lg">
+          <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
             Start your trial
           </Button>
         </div>
