@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./v2/site-v2.css";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { SHOW_RECEPTIONIST } from "@/components/site/flags";
 import { HomeStructuredData } from "@/components/site/seo/structured-data";
 import { Hero } from "@/components/site/sections/Hero";
 import { Problem } from "@/components/site/sections/Problem";
@@ -27,9 +28,8 @@ import {
 
 // Publish gate (NEXT_TASK scope 7 / claim law §5): the Receptionist section
 // stays hidden until the live telephony acceptance run passes (capability #20
-// flips from internal). When flipping to true, recompute band alternation for
-// sections 7+ (REVIEW_NOTES).
-const SHOW_RECEPTIONIST = false;
+// flips from internal). When flipping SHOW_RECEPTIONIST in flags.ts, recompute
+// band alternation for sections 7+ (REVIEW_NOTES).
 
 export const metadata: Metadata = {
   title: SITE_CATEGORY,
@@ -42,7 +42,7 @@ export default function HomePage() {
     <div className="site-v2 min-h-screen">
       <HomeStructuredData />
       <SiteNav />
-      <main>
+      <main id="main-content">
         <Hero />
         <Problem />
         <ConnectedFlow />

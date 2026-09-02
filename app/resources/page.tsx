@@ -17,7 +17,7 @@ export default function ResourcesPage() {
   return (
     <div className="site-v2 min-h-screen">
       <SiteNav />
-      <main>
+      <main id="main-content">
         <ResourcesIndex />
       </main>
       <SiteFooter />

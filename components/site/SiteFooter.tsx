@@ -1,47 +1,32 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
+import { visibleFooterColumns } from "@/lib/site-nav-links";
 
 /* v2 footer (site-v2-plan §3 + D-033 routes). Security & Demo live here
-   until their pages mature. All links resolve to planned routes. */
+   until their pages mature. Gated product links hide until their flags flip. */
 
-const cols: { title: string; links: { label: string; href: string }[] }[] = [
-  {
-    title: "Product",
-    links: [
-      { label: "Overview", href: "/product" },
-      { label: "Receptionist", href: "/receptionist" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Demo", href: "/demo" },
-    ],
-  },
-  {
-    title: "Industries",
-    links: [
-      { label: "Detailing", href: "/industries/detailing" },
-      { label: "Ceramic coating", href: "/industries/ceramic-coating" },
-      { label: "PPF, tint & wrap", href: "/industries/ppf-tint-wrap" },
-      { label: "Mobile detailing", href: "/industries/mobile-detailing" },
-      { label: "Fleet", href: "/industries/fleet" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Guides", href: "/resources" },
-      { label: "Security", href: "/security" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-    ],
-  },
-];
+const footerLinkClass =
+  "text-[length:var(--sv-text-sm)] text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sv-accent)]";
+
+function FooterLink({ href, children }: { href: string; children: ReactNode }) {
+  if (href.startsWith("mailto:")) {
+    return (
+      <a href={href} className={footerLinkClass}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={footerLinkClass}>
+      {children}
+    </Link>
+  );
+}
 
 export function SiteFooter() {
+  const cols = visibleFooterColumns();
+
   return (
     <footer className="border-t border-[var(--sv-line)] bg-[var(--sv-wash)]">
       <div className="mx-auto w-full max-w-[var(--sv-container)] px-5 py-14 sm:px-8">
@@ -60,12 +45,7 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-3">
                 {c.links.map((l) => (
                   <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="text-[length:var(--sv-text-sm)] text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)]"
-                    >
-                      {l.label}
-                    </Link>
+                    <FooterLink href={l.href}>{l.label}</FooterLink>
                   </li>
                 ))}
               </ul>

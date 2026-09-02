@@ -17,7 +17,7 @@ export default function DemoPage() {
   return (
     <div className="site-v2 min-h-screen">
       <SiteNav />
-      <main>
+      <main id="main-content">
         <DemoContent />
       </main>
       <SiteFooter />

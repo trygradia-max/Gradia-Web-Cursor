@@ -60,7 +60,7 @@ export function Lead({ children, className = "" }: { children: ReactNode; classN
 }
 
 const btnBase =
-  "inline-flex items-center justify-center gap-2 rounded-[100px] font-medium transition-colors duration-150 focus-visible:outline-2 select-none";
+  "inline-flex items-center justify-center gap-2 rounded-[100px] font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sv-accent)] select-none";
 const btnSize = {
   md: "h-11 px-6 text-[length:var(--sv-text-sm)]",
   lg: "h-[3.25rem] px-8 text-[length:var(--sv-text-base)]",

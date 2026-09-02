@@ -37,7 +37,7 @@ export default async function IndustrySlugPage({ params }: Props) {
   return (
     <div className="site-v2 min-h-screen">
       <SiteNav />
-      <main>
+      <main id="main-content">
         <IndustryPage industry={industry} />
       </main>
       <SiteFooter />

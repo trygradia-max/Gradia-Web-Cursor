@@ -20,7 +20,7 @@ export default function PricingPage() {
   return (
     <div className="site-v2 min-h-screen">
       <SiteNav />
-      <main>
+      <main id="main-content">
         <PricingContent />
       </main>
       <SiteFooter />

@@ -29,7 +29,7 @@ export default function ProductPage() {
     <div className="site-v2 min-h-screen">
       <ProductStructuredData />
       <SiteNav />
-      <main>
+      <main id="main-content">
         <ProductHero />
         <ProductPanels />
         <ProductCampaigns />

@@ -2,22 +2,20 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { TRIAL_CTA_HREF } from "@/lib/site-config";
+import { visiblePrimaryNavLinks } from "@/lib/site-nav-links";
 import { Button } from "./primitives";
 
 /* v2 nav: starts blended into the hero, becomes a solid bar with a hairline
    border after scroll (site-v2-plan §3.1). Primary CTA always visible. */
 
-const links = [
-  { label: "Product", href: "/product" },
-  { label: "Receptionist", href: "/receptionist" },
-  { label: "Industries", href: "/industries" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Resources", href: "/resources" },
-];
+const navLinkClass =
+  "text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sv-accent)]";
 
 export function SiteNav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -28,6 +26,21 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  const links = visiblePrimaryNavLinks();
+
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-200 ${
@@ -36,7 +49,16 @@ export function SiteNav() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 w-full max-w-[var(--sv-container)] items-center justify-between px-5 sm:px-8">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-5 focus:top-3 focus:z-[60] focus:rounded-[100px] focus:bg-[var(--sv-ink)] focus:px-4 focus:py-2 focus:text-[length:var(--sv-text-sm)] focus:font-medium focus:text-white focus:outline-2 focus:outline-offset-2 focus:outline-[var(--sv-accent)]"
+      >
+        Skip to main content
+      </a>
+      <nav
+        aria-label="Primary"
+        className="mx-auto flex h-16 w-full max-w-[var(--sv-container)] items-center justify-between px-5 sm:px-8"
+      >
         <Link href="/" aria-label="Gradia home" className="shrink-0">
           <Logo />
         </Link>
@@ -44,10 +66,7 @@ export function SiteNav() {
         <ul className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <Link
-                href={l.href}
-                className="text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)]"
-              >
+              <Link href={l.href} className={navLinkClass}>
                 {l.label}
               </Link>
             </li>
@@ -65,9 +84,11 @@ export function SiteNav() {
             Start your trial
           </Button>
           <button
-            className="px-2 py-1 text-sm font-medium text-[var(--sv-ink)]"
+            type="button"
+            className="px-2 py-1 text-sm font-medium text-[var(--sv-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sv-accent)]"
             onClick={() => setOpen(!open)}
             aria-expanded={open}
+            aria-controls="site-mobile-nav"
             aria-label="Toggle menu"
           >
             Menu
@@ -76,11 +97,17 @@ export function SiteNav() {
       </nav>
 
       {open && (
-        <div className="border-b border-[var(--sv-line)] bg-[var(--sv-surface)] px-5 pb-6 pt-2 lg:hidden">
+        <div
+          id="site-mobile-nav"
+          className="border-b border-[var(--sv-line)] bg-[var(--sv-surface)] px-5 pb-6 pt-2 lg:hidden"
+        >
           <ul className="flex flex-col gap-4">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="text-[length:var(--sv-text-base)] font-medium text-[var(--sv-ink)]">
+                <Link
+                  href={l.href}
+                  className="text-[length:var(--sv-text-base)] font-medium text-[var(--sv-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sv-accent)]"
+                >
                   {l.label}
                 </Link>
               </li>

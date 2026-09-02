@@ -3,7 +3,19 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
-**NEXT:** Pass 7 QA (independent agent) — design consistency, responsive, a11y, perf, links, copy-vs-claims-matrix audit. `/pricing` stays double-gated until P0-013. N1 CTA destination still a founder cutover decision.
+**NEXT:** Founder full-preview approval + cutover decision (N1 CTA destination · merge `site-v2` → `main`). Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + middleware whitelist together.
+
+## Review — Pass 7: independent QA — 2026-09-02
+
+**PENDING REVIEW.** Audited: routes (16 public 200 · `/pricing` `/receptionist` `/contact` 308 as expected) · sitemap 16 URLs · middleware ↔ `lib/site-routes.ts` in sync · claims sweep on `components/site/**` — zero §4/§5/§6 violations (Housecall Pro/Slack absent; 14-day copy only on gated `/pricing`; team seats "arriving") · homepage 137 kB first load · tsc + production build clean.
+
+**Fixes in this commit:**
+- Gated nav/footer links (`Pricing`, `Receptionist`) hidden until `SHOW_PRICING` / `SHOW_RECEPTIONIST` flip — no more 308 traps from primary chrome.
+- Footer Contact → `mailto:trygradia@gmail.com` (was dead `/contact` 308).
+- `SHOW_RECEPTIONIST` consolidated into `flags.ts` with `SHOW_PRICING`.
+- Skip-to-main link + `id="main-content"` on every v2 page; accent focus rings on nav/buttons.
+
+**Carry-forward (not QA defects):** N1 CTA still `/#trial` · imports FAQ "currently in beta" tracks capability #16 · founder preview/deployment-protection (N4) · cutover blockers list in Pass 2 full-page review still applies.
 
 ## Review — Pass 6: conversion + SEO + JSON-LD + sitemap — 2026-09-02
 

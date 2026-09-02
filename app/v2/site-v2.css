@@ -41,6 +41,7 @@
   color: var(--sv-ink-2);
   font-size: var(--sv-text-base);
   line-height: 1.6;
+  overflow-x: clip;
 
   /* Remap the shared waitlist-theme vars (globals.css) that Logo reads, so it
      renders ink-on-light inside v2 without touching the legacy theme. */
