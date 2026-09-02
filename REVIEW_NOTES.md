@@ -3,7 +3,11 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
-**NEXT:** Founder review — `/receptionist` depth page (Pass 5 gap, flag-hidden). Then full-preview approval + cutover decision (N1 CTA destination · merge `site-v2` → `main`). Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + middleware whitelist together · upgrade receptionist copy to live claims only after acceptance run passes.
+**NEXT:** Founder full-preview review — Passes 2–7 complete (incl. `/receptionist` depth page, flag-hidden). Cutover decision: N1 CTA destination · merge `site-v2` → `main`. Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + add routes to `lib/site-routes.ts` `PUBLIC_ROUTE_PREFIXES` together · upgrade receptionist copy to live claims only after acceptance run passes. Builder queue idle until platform gates clear or founder issues new work.
+
+## Autorun closeout — Passes 2–7 complete — 2026-09-02
+
+**BUILDER IDLE.** Verified: no new SITE_SYNC blocks after ff66cc9 · `/receptionist` depth page landed (1eb573a, double-gated, §9.3 floor copy) · Pass 7 QA clean (33d1483) · `tsc` + production `build` clean · claims-matrix PASS · Housecall Pro/Slack absent. No further pass/section work in `AUTORUN.md` until platform gates clear or founder issues cutover/new scope.
 
 ## Review — Pass 5 gap: /receptionist depth page — 2026-09-02
 
