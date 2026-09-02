@@ -3,7 +3,7 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
-**NEXT:** Founder full-preview review — Passes 2–7 complete (incl. `/receptionist` depth page, flag-hidden). Cutover decision: N1 CTA destination · merge `site-v2` → `main`. Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + add routes to `lib/site-routes.ts` `PUBLIC_ROUTE_PREFIXES` together · upgrade receptionist copy to live claims only after acceptance run passes. Builder queue idle until platform gates clear or founder issues new work.
+**NEXT:** Founder full-preview review — Passes 2–7 complete (incl. `/receptionist` depth page, flag-hidden). Cutover decision: N1 CTA destination · merge `site-v2` → `main`. Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + add routes to `lib/site-routes.ts` `PUBLIC_ROUTE_PREFIXES` together · upgrade receptionist copy to live claims only after acceptance run passes. **Builder queue idle** — autorun 2026-09-02 16:31 PT: no SITE_SYNC blocks after ff66cc9 · no unfinished AUTORUN pass/section · `tsc` + production `build` clean · Housecall Pro/Slack absent · SITE_SYNC batch copy requirements satisfied.
 
 ## Autorun closeout — Passes 2–7 complete — 2026-09-02
 
