@@ -7,13 +7,15 @@
 
 ## Review — Pass 7: independent QA — 2026-09-02
 
-**PENDING REVIEW.** Audited: routes (16 public 200 · `/pricing` `/receptionist` `/contact` 308 as expected) · sitemap 16 URLs · middleware ↔ `lib/site-routes.ts` in sync · claims sweep on `components/site/**` — zero §4/§5/§6 violations (Housecall Pro/Slack absent; 14-day copy only on gated `/pricing`; team seats "arriving") · homepage 137 kB first load · tsc + production build clean.
+**PENDING REVIEW.** Audited: routes (16 public 200 · `/pricing` `/receptionist` `/contact` 308 as expected) · sitemap 16 URLs · middleware ↔ `lib/site-routes.ts` in sync · `claims-matrix.md` full §4/§5/§6 sweep — zero violations (Housecall Pro/Slack absent; 14-day copy only on gated `/pricing`; team seats "arriving") · homepage 137 kB first load · tsc + production build clean.
 
 **Fixes in this commit:**
 - Gated nav/footer links (`Pricing`, `Receptionist`) hidden until `SHOW_PRICING` / `SHOW_RECEPTIONIST` flip — no more 308 traps from primary chrome.
 - Footer Contact → `mailto:trygradia@gmail.com` (was dead `/contact` 308).
 - `SHOW_RECEPTIONIST` consolidated into `flags.ts` with `SHOW_PRICING`.
-- Skip-to-main link + `id="main-content"` on every v2 page; accent focus rings on nav/buttons.
+- Skip-to-main link + `id="main-content"` on every v2 page; accent focus rings on nav/footer.
+- Mobile nav: escape to close, auto-close on route change, `aria-controls`.
+- `overflow-x: clip` on `.site-v2` to prevent horizontal scroll on narrow viewports.
 
 **Carry-forward (not QA defects):** N1 CTA still `/#trial` · imports FAQ "currently in beta" tracks capability #16 · founder preview/deployment-protection (N4) · cutover blockers list in Pass 2 full-page review still applies.
 
