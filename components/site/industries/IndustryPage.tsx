@@ -47,7 +47,7 @@ export function IndustryPage({ industry }: { industry: Industry }) {
 
       <Section>
         <Eyebrow>How it works</Eyebrow>
-        <h2 className="max-w-[22ch]">One system from first message to finished job.</h2>
+        <h2 className="max-w-[22ch]">One CRM from first inquiry to booked appointment.</h2>
         <Lead>
           Watch one {industry.slug === "fleet" ? "account" : "customer"} move through Gradia.
           Same record at every stage — you approve the moments that matter.

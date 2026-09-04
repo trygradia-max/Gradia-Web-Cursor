@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import "../../v2/site-v2.css";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { SHOW_FLEET_INDUSTRY } from "@/components/site/flags";
 import { IndustryPage } from "@/components/site/industries/IndustryPage";
 import {
   INDUSTRY_BY_SLUG,
@@ -10,16 +11,19 @@ import {
   type IndustrySlug,
 } from "@/components/site/industries/data";
 
-/* Pass 5 Cycle 2 — trade-specific industry pages (REVIEW_NOTES Pass 5). */
+/* Trade pages. /industries/fleet is flag-hidden (D-067 — fleet accounts out). */
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return INDUSTRY_SLUGS.map((slug) => ({ slug }));
+  return INDUSTRY_SLUGS.filter(
+    (slug) => slug !== "fleet" || SHOW_FLEET_INDUSTRY,
+  ).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === "fleet" && !SHOW_FLEET_INDUSTRY) return {};
   const industry = INDUSTRY_BY_SLUG[slug as IndustrySlug];
   if (!industry) return {};
   return {
@@ -31,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function IndustrySlugPage({ params }: Props) {
   const { slug } = await params;
+  if (slug === "fleet" && !SHOW_FLEET_INDUSTRY) notFound();
   const industry = INDUSTRY_BY_SLUG[slug as IndustrySlug];
   if (!industry) notFound();
 

@@ -4,12 +4,10 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { IndustriesIndex } from "@/components/site/industries/IndustriesIndex";
 
-/* Pass 5 Cycle 2 — /industries index (REVIEW_NOTES Pass 5). */
-
 export const metadata: Metadata = {
-  title: "Industries — Gradia for detailing and automotive appearance shops",
+  title: "Industries — Gradia CRM for automotive appearance shops",
   description:
-    "Gradia for detailing, ceramic coating, PPF, tint, wrap, mobile detailing and shops serving fleet accounts — one operating system, tuned to your trade.",
+    "AI-native CRM for detailing, ceramic coating, PPF, tint and mobile shops with staff — Gradia does the work, you approve what matters.",
   alternates: { canonical: "/industries" },
 };
 

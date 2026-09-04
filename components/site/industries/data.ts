@@ -1,8 +1,6 @@
-/* Pass 5 Cycle 2 — industry page content (REVIEW_NOTES Pass 5).
-   Each trade gets its own sample record for the connected-flow retelling;
-   fleet page sells the OS for shops that SERVE fleets — no fleet-management
-   claims (capability #14 is planned). Homepage SAMPLE stays canonical for
-   the homepage only; these are page-local fiction. */
+/* Industry page content — D-067 AI-native CRM positioning.
+   Fleet page kept in data but flag-hidden (SHOW_FLEET_INDUSTRY) — fleet
+   accounts are out of scope. No OS language, no SMS delivery claims. */
 
 export type IndustrySlug =
   | "detailing"
@@ -30,14 +28,16 @@ export type Industry = {
   stages: FlowStage[];
   metaTitle: string;
   metaDescription: string;
+  /** When true, page is flag-hidden (D-067 out of scope). */
+  gated?: boolean;
 };
 
 export const INDUSTRIES: Industry[] = [
   {
     slug: "detailing",
     title: "Detailing",
-    headline: "Full details, maintenance visits and repeat customers — organized around every vehicle.",
-    lead: "Gradia keeps each customer's history, quotes and follow-ups in one record — so repeat work doesn't depend on your memory.",
+    headline: "Full details and repeat customers — worked in the CRM, not in your head.",
+    lead: "Gradia keeps each customer's vehicles, quotes and follow-ups in one record. The agent drafts the next step; you approve what goes out. Built for shops with staff, already spending on ads.",
     pains: [
       {
         title: "Repeat customers slip away",
@@ -48,8 +48,8 @@ export const INDUSTRIES: Industry[] = [
         body: "A price you sent last week is buried in a thread — and so is the follow-up.",
       },
       {
-        title: "You are the system",
-        body: "Every vehicle, every promise and every follow-up lives in your head until you touch it.",
+        title: "You operate every click",
+        body: "Typical CRMs wait for you. The busier the bay, the more leads go quiet.",
       },
     ],
     ask: "When was the black X5 in for its last maintenance detail?",
@@ -58,14 +58,14 @@ export const INDUSTRIES: Industry[] = [
       {
         name: "Capture",
         time: "7:58 AM",
-        line: "Sarah's text lands in Gradia — not in six inboxes.",
+        line: "Sarah's inquiry lands in Gradia — not in six inboxes.",
         detail: "“Hi — do you do ceramic maintenance for a BMW X5?”",
       },
       {
         name: "Understand",
         time: "7:59 AM",
         line: "Her vehicle, history and request become one record.",
-        detail: "2024 BMW X5 · texts, quotes and jobs in one file",
+        detail: "2024 BMW X5 · quotes and history in one file",
       },
       {
         name: "Prepare",
@@ -83,7 +83,7 @@ export const INDUSTRIES: Industry[] = [
       {
         name: "Schedule",
         time: "8:05 AM",
-        line: "The job lands on the calendar.",
+        line: "The booking lands on the calendar.",
         detail: "Tue 9:00 AM — Full Detail + Ceramic Maintenance · confirmed with Sarah",
       },
       {
@@ -93,15 +93,15 @@ export const INDUSTRIES: Industry[] = [
         detail: "Maintenance reminder drafted for your review — sends on your OK",
       },
     ],
-    metaTitle: "Detailing — Gradia for auto detailing shops",
+    metaTitle: "Detailing — Gradia CRM for auto detailing shops",
     metaDescription:
-      "Full details, maintenance visits and repeat customers in one operating system. Every outbound action staged for your approval.",
+      "AI-native CRM for detailing shops with staff. Leads, pipeline, quotes and calendar — the agent drafts, you approve.",
   },
   {
     slug: "ceramic-coating",
     title: "Ceramic coating",
     headline: "Big quotes and annual check-ins that shouldn't depend on anyone's memory.",
-    lead: "Coating packages, inspection schedules and renewal follow-ups stay tied to each vehicle — drafted for your OK, never auto-sent.",
+    lead: "Coating packages and renewal follow-ups stay tied to each vehicle. Gradia drafts the chase; you approve before anything goes out. For established coating shops already spending on ads.",
     pains: [
       {
         title: "Annual check-ins get missed",
@@ -122,7 +122,7 @@ export const INDUSTRIES: Industry[] = [
       {
         name: "Capture",
         time: "9:12 AM",
-        line: "David's inquiry lands as one thread — not lost in DMs.",
+        line: "David's inquiry lands as one lead — not lost in DMs.",
         detail: "“Looking for a 2-year ceramic on my Cayenne — what's included?”",
       },
       {
@@ -157,15 +157,15 @@ export const INDUSTRIES: Industry[] = [
         detail: "Annual coating inspection reminder — drafted for your review",
       },
     ],
-    metaTitle: "Ceramic coating — Gradia for coating shops",
+    metaTitle: "Ceramic coating — Gradia CRM for coating shops",
     metaDescription:
-      "Coating packages, installs and annual check-ins in one system. Big quotes and renewal follow-ups staged for your approval.",
+      "AI-native CRM for ceramic coating shops. Big quotes and renewal follow-ups drafted for your approval.",
   },
   {
     slug: "ppf-tint-wrap",
     title: "PPF, tint & wrap",
     headline: "Estimate-heavy work where an expensive quote going quiet costs the most.",
-    lead: "High-value PPF, tint and wrap quotes stay visible in your pipeline — with follow-ups drafted for your OK, not buried in threads.",
+    lead: "High-value PPF, tint and wrap quotes stay visible in your pipeline — with follow-ups drafted for your OK. Built for shops with staff, not solo operators.",
     pains: [
       {
         title: "Expensive quotes go quiet",
@@ -221,19 +221,19 @@ export const INDUSTRIES: Industry[] = [
         detail: "$3,200 quote · quiet 6 days — follow-up drafted for your review",
       },
     ],
-    metaTitle: "PPF, tint & wrap — Gradia for appearance shops",
+    metaTitle: "PPF, tint & wrap — Gradia CRM for appearance shops",
     metaDescription:
-      "High-value PPF, tint and wrap quotes in one pipeline. Expensive estimates and follow-ups staged for your approval.",
+      "AI-native CRM for PPF, tint and wrap shops. High-value estimates and follow-ups staged for your approval.",
   },
   {
     slug: "mobile-detailing",
     title: "Mobile detailing",
-    headline: "Work that happens at the customer's place — with contacts, jobs and follow-ups in the same system.",
-    lead: "On-location addresses, route-ready schedules and customer threads stay in one place — so you can run the day from the van, not six apps.",
+    headline: "On-location work with contacts, quotes and follow-ups in the same CRM.",
+    lead: "Addresses, schedules and customer records stay in one place — so the agent can draft the next step while you're between stops. For mobile shops with staff, already spending on ads.",
     pains: [
       {
         title: "Addresses live everywhere",
-        body: "The job is at 1847 Cedar Lane — but that address is in a text, not on the calendar.",
+        body: "The booking is at 1847 Cedar Lane — but that address is in a text, not on the calendar.",
       },
       {
         title: "Messages pile up on the road",
@@ -244,13 +244,13 @@ export const INDUSTRIES: Industry[] = [
         body: "By evening you're chasing the day's loose ends instead of planning tomorrow's route.",
       },
     ],
-    ask: "What's my first job tomorrow and where?",
+    ask: "What's my first booking tomorrow and where?",
     frameLabel: "Maria Santos · 2022 Range Rover Sport",
     stages: [
       {
         name: "Capture",
         time: "8:15 AM",
-        line: "Maria's request lands while you're between jobs.",
+        line: "Maria's request lands while you're between stops.",
         detail: "“Can you come to my place for a full detail this week?”",
       },
       {
@@ -275,7 +275,7 @@ export const INDUSTRIES: Industry[] = [
       {
         name: "Schedule",
         time: "8:23 AM",
-        line: "The job books with the on-location address attached.",
+        line: "The booking lands with the on-location address attached.",
         detail: "Wed 1:00 PM · Mobile Full Detail · 1847 Cedar Lane",
       },
       {
@@ -285,13 +285,14 @@ export const INDUSTRIES: Industry[] = [
         detail: "Maintenance detail reminder — drafted for your review",
       },
     ],
-    metaTitle: "Mobile detailing — Gradia for mobile detailers",
+    metaTitle: "Mobile detailing — Gradia CRM for mobile detailers",
     metaDescription:
-      "On-location jobs, addresses and customer follow-ups in one system. Run your mobile shop from one place.",
+      "AI-native CRM for mobile detailing shops. On-location addresses, quotes and follow-ups in one place.",
   },
   {
     slug: "fleet",
     title: "Fleet",
+    gated: true,
     headline: "Shops that serve fleet accounts — multiple vehicles, one relationship, one system.",
     lead: "Property managers and fleet contacts with several vehicles on file stay organized in Gradia — scheduling, quotes and follow-ups without a separate fleet tool.",
     pains: [
@@ -351,7 +352,7 @@ export const INDUSTRIES: Industry[] = [
     ],
     metaTitle: "Fleet — Gradia for shops serving fleet accounts",
     metaDescription:
-      "Multiple vehicles under one account — scheduling, quotes and follow-ups in one operating system. For shops that serve fleet customers.",
+      "Multiple vehicles under one account — scheduling, quotes and follow-ups. Flag-hidden: fleet accounts are out of scope (D-067).",
   },
 ];
 
@@ -360,3 +361,6 @@ export const INDUSTRY_BY_SLUG = Object.fromEntries(
 ) as Record<IndustrySlug, Industry>;
 
 export const INDUSTRY_SLUGS = INDUSTRIES.map((i) => i.slug);
+
+/** Public trade pages only — excludes D-067 gated fleet. */
+export const PUBLIC_INDUSTRIES = INDUSTRIES.filter((i) => !i.gated);
