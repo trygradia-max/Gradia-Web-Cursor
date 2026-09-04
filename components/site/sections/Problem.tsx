@@ -21,23 +21,23 @@ const scattered: { text: string; className: string }[] = [
 const surface: { label: string; detail: string }[] = [
   { label: "Customers & vehicles", detail: `${SAMPLE.customer} · ${SAMPLE.vehicle}` },
   { label: "Leads & pipeline", detail: "New → Quoted → Booked" },
-  { label: "Quotes & jobs", detail: `${SAMPLE.service} · ${SAMPLE.price}` },
-  { label: "Conversations", detail: "Texts + email, one thread" },
+  { label: "Quotes & calendar", detail: `${SAMPLE.service} · ${SAMPLE.price}` },
+  { label: "Approvals", detail: "Drafts wait for your OK" },
   { label: "Schedule", detail: SAMPLE.slot },
 ];
 
 const pains: { title: string; body: string }[] = [
   {
     title: "Leads get lost",
-    body: "A missed call or an unanswered text is a job that quietly goes to another shop.",
+    body: "A missed inquiry is booked work that quietly goes to another shop.",
   },
   {
     title: "Follow-up depends on memory",
     body: "Quotes go quiet unless somebody remembers to chase them — and somebody is always you.",
   },
   {
-    title: "The owner is the system",
-    body: "Every detail lives in your head, so nothing moves unless you touch it.",
+    title: "You operate the software",
+    body: "Typical CRMs wait for you to click. The busier the shop, the more slips through.",
   },
 ];
 
@@ -45,10 +45,10 @@ export function Problem() {
   return (
     <Section band>
       <Eyebrow>The problem</Eyebrow>
-      <h2 className="max-w-[24ch]">Running a shop shouldn&apos;t take six disconnected systems.</h2>
+      <h2 className="max-w-[24ch]">A CRM you operate still leaves the work on you.</h2>
       <Lead>
-        Quotes live in texts, jobs on a whiteboard, follow-ups in your head. The busier the
-        shop gets, the more slips through.
+        Quotes live in texts, appointments on a whiteboard, follow-ups in your head. Systems of
+        record wait for clicks — Gradia is built to do the work and report it.
       </Lead>
 
       {/* M2 (Pass 4): chips settle while the Gradia surface fades up — one

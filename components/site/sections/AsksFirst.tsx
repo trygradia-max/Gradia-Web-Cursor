@@ -1,28 +1,23 @@
 import { Check } from "lucide-react";
 import { Card, Eyebrow, Lead, Section } from "../primitives";
 
-/* Section 6b — "Gradia asks first." (P3-F, founder decisions 2026-08-29,
-   grounded in _docs/research/SYNTHESIS.md #1/#2). Directly after the Agent
-   section: extends the control argument into differentiation. Category
-   framing only — competitor names NEVER appear on the site (founder rule).
-   The violet ✓ "Approved by you" mark is the formal brand signature —
-   exact check treatment from the hero/flow/agent frames, on card 1 only.
-   Excluded until the trial ships: a self-serve/"no sales call" card.
-   Light section; Industries/FAQ bands recomputed downstream. */
+/* "Gradia asks first." — D-067 contrast: systems of record vs Gradia does the
+   work. Jobber/Urable named per founder commercial claim (CONTEXT §1). No
+   payment/charge claims (out of scope). */
 
 const cards: { title: string; body: string; signature?: boolean }[] = [
   {
     title: "Asks first",
-    body: "Every message, booking and charge is prepared, shown to you, and sent on your OK. Autopilot is something you turn on — never a default.",
+    body: "Every outbound draft and booking is prepared, shown to you, and released on your OK. Autopilot is something you turn on — never a default.",
     signature: true,
   },
   {
-    title: "No surprise bills",
-    body: "Spending caps and owner-set ceilings are built into the machinery. At the cap, Gradia stops — it never keeps spending.",
+    title: "Does the work",
+    body: "Systems of record wait for clicks. Gradia qualifies leads, drafts quotes, proposes times and moves the pipeline — then reports what happened.",
   },
   {
-    title: "Built only for this trade",
-    body: "Gradia speaks detailing natively — services, vehicles, coatings, follow-up cycles — not a generic tool with your industry pasted on.",
+    title: "Built for this trade",
+    body: "Detailing, ceramic, PPF and tint natively — vehicles, coatings, follow-up cycles — not a generic CRM with your industry pasted on. For shops with staff, already spending on ads.",
   },
 ];
 
@@ -32,8 +27,8 @@ export function AsksFirst() {
       <Eyebrow>Why Gradia</Eyebrow>
       <h2 className="max-w-[18ch]">Gradia asks first.</h2>
       <Lead>
-        The industry default is autopilot — AI that sends, books, and bills on its own. Gradia
-        was built the other way.
+        Jobber and Urable are systems of record you operate. Gradia does the work and reports
+        it — with your approval on what goes out.
       </Lead>
 
       <div className="mt-12 grid gap-5 md:grid-cols-3">

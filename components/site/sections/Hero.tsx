@@ -4,13 +4,9 @@ import { Container, Eyebrow, Lead, Button } from "../primitives";
 import { MGroup, MItem, MPop, DUR, STAGGER } from "../motion";
 import { SAMPLE } from "../sample";
 
-/* Section 1 — Hero (site-v2-plan §3.1 + reference-trygtm ADOPT-1).
-   Centered: chip eyebrow → D-033 headline → support line → ink pill +
-   underlined-text secondary → trust line → dark graphite product frame.
-   P3-E (2/2): frame cards speak the real product's voice — the canonical
-   approval vocabulary from approvals-list.tsx ("Send it" · Pending ·
-   "Sent ✓" · booked/on the calendar), consistent with the Section 3
-   vignettes. Stage labels stay: they tell the story at a glance. */
+/* Section 1 — Hero. Repositioned 2026-09-03 (D-067): AI-native CRM + agent
+   story; contrast vs systems of record; ICP explicit. Sample frame shows
+   approval vocabulary only — no SMS/voice/Meta delivery claims (D-025). */
 
 const stages: {
   label: string;
@@ -21,7 +17,7 @@ const stages: {
   {
     label: "New lead",
     title: SAMPLE.customer,
-    meta: `${SAMPLE.vehicle} · “Do you do ceramic maintenance?”`,
+    meta: `${SAMPLE.vehicle} · inquiry landed in the pipeline`,
   },
   {
     label: "Prepared",
@@ -31,13 +27,13 @@ const stages: {
   {
     label: "Approved by you",
     title: "You tapped Send it",
-    meta: `Text + email to ${SAMPLE.firstName} · Sent ✓`,
+    meta: `Draft approved · nothing left your shop without you`,
     approved: true,
   },
   {
-    label: "Scheduled",
-    title: `Booked — ${SAMPLE.slot}`,
-    meta: `On the calendar · confirmed with ${SAMPLE.firstName}`,
+    label: "Booked",
+    title: `On the calendar — ${SAMPLE.slot}`,
+    meta: `Pipeline moved · confirmed with ${SAMPLE.firstName}`,
   },
 ];
 
@@ -46,11 +42,10 @@ function HeroFrame() {
     <div className="rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
       <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
-          One lead, from first message to booked
+          One lead, from inquiry to booked
         </p>
         <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
       </div>
-      {/* M1: cards stagger in on load (after LCP), then the check pops once. */}
       <MGroup tag="ol" mount delay={0.25} className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
         {stages.map((s) => (
           <MItem
@@ -83,11 +78,12 @@ export function Hero() {
   return (
     <section className="pb-[var(--sv-section-y)] pt-12 sm:pt-16">
       <Container className="flex flex-col items-center text-center">
-        <Eyebrow chip>Engineered for detailing &amp; automotive appearance shops</Eyebrow>
-        <h1 className="max-w-[17ch]">Run your shop. Capture every lead. Recover more revenue.</h1>
+        <Eyebrow chip>AI-native CRM for detailing, ceramic, PPF &amp; tint</Eyebrow>
+        <h1 className="max-w-[18ch]">Gradia does the work. You approve what matters.</h1>
         <Lead className="text-center">
-          Gradia connects your customers, vehicles, leads, quotes, jobs, conversations,
-          campaigns and schedule in one operating system — and helps keep the work moving.
+          Jobber and Urable are systems of record you operate. Gradia qualifies leads, drafts
+          quotes, books appointments, and moves the pipeline — you read what happened and
+          approve what matters. Built for established shops with staff, already spending on ads.
         </Lead>
         <div className="mt-9 flex flex-col items-center gap-5 sm:flex-row">
           <Button href={TRIAL_CTA_HREF} size="lg">

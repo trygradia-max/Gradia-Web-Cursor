@@ -1,14 +1,7 @@
 import Link from "next/link";
 import { Card, Eyebrow, Lead, Section } from "../primitives";
 
-/* Section 8 — Industries (site-v2-plan §3.8, NEXT_TASK scope 8).
-   Four tiles → the five industry routes (pages come in Pass 5; the
-   middleware 308s are acceptable on the branch). Tile sentences describe
-   each trade's reality, not extra capabilities — the one-system claim is
-   the only product claim here. Text tiles only; no imagery, no new sample
-   records. Band section since P3-F: visible order is now 6 band → 6b
-   "asks first" light → this band → FAQ light → graphite CTA (recompute
-   again when Receptionist un-hides). */
+/* Homepage industries tiles — D-067. Fleet accounts out of scope; mobile only. */
 
 const tiles: { title: string; line: string; links: { label: string; href: string }[] }[] = [
   {
@@ -27,12 +20,9 @@ const tiles: { title: string; line: string; links: { label: string; href: string
     links: [{ label: "PPF, tint & wrap", href: "/industries/ppf-tint-wrap" }],
   },
   {
-    title: "Mobile & fleet",
-    line: "Work that happens at the customer's place — with contacts, jobs and follow-ups in the same system.",
-    links: [
-      { label: "Mobile detailing", href: "/industries/mobile-detailing" },
-      { label: "Fleet", href: "/industries/fleet" },
-    ],
+    title: "Mobile detailing",
+    line: "On-location work with contacts, quotes and follow-ups in the same CRM.",
+    links: [{ label: "Mobile detailing", href: "/industries/mobile-detailing" }],
   },
 ];
 
@@ -40,8 +30,11 @@ export function Industries() {
   return (
     <Section>
       <Eyebrow>Industries</Eyebrow>
-      <h2 className="max-w-[18ch]">Built to grow with your shop.</h2>
-      <Lead>The same operating system, tuned to how your work actually runs.</Lead>
+      <h2 className="max-w-[18ch]">Built for shops with staff.</h2>
+      <Lead>
+        The same AI-native CRM, tuned to how your trade actually runs — for established shops
+        already spending on ads.
+      </Lead>
 
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {tiles.map((tile) => (

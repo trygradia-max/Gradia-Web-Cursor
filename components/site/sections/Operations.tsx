@@ -17,7 +17,7 @@ import { SAMPLE } from "../sample";
 const tiles: { count: string; label: string; accent?: boolean }[] = [
   { count: "3", label: "leads need a reply" },
   { count: "5", label: "open quotes · $3,850" },
-  { count: "2", label: "jobs today" },
+  { count: "2", label: "booked today" },
   { count: "1", label: "waiting for your approval", accent: true },
 ];
 
@@ -58,7 +58,7 @@ export function Operations() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
               Good morning · Tuesday, 8:12 AM
             </p>
-            <p className="mt-1 font-medium text-white">Two jobs on the books. One yes needed before the day starts.</p>
+            <p className="mt-1 font-medium text-white">Two bookings on the books. One yes needed before the day starts.</p>
           </div>
 
           {/* ROI receipt strip — real Home order: greeting → receipt → tiles */}
@@ -118,7 +118,7 @@ export function Operations() {
             {/* Today's jobs — two rows, agreeing with the "2 jobs today" tile */}
             <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
-                Today&apos;s jobs
+                Booked today
               </p>
               <ul className="mt-3 space-y-3">
                 <li>

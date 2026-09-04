@@ -2,14 +2,9 @@ import type { ReactNode } from "react";
 import { Eyebrow, Lead, Section } from "../primitives";
 import { SAMPLE } from "../sample";
 
-/* Section 5 — Core operating system (site-v2-plan §3.5, NEXT_TASK scope 5).
-   Four alternating full-width panels: Customers & Vehicles · Leads & Pipeline ·
-   Quotes, Jobs & Scheduling · Conversations. One headline + one sentence + one
-   screen each. Screens sit in LIGHT surface cards (REVIEW_NOTES §4 watch-item:
-   no fifth graphite tunnel). P3-E (2/2): panel voice aligned to the real
-   product ("Customer file" / one-file framing, pipeline statuses New →
-   Quoted → Booked as in the app, "Pending your review").
-   Conversations shows texts + email only (claim law). */
+/* Section 5 — CRM core (D-067). Four panels: Customers & Vehicles · Leads &
+   Pipeline · Quotes & Calendar · Approvals. No jobs/work-orders, invoices, or
+   campaigns. Conversations/SMS delivery not claimed as live (D-025). */
 
 function Screen({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -47,11 +42,11 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
         <div className="border-b border-[var(--sv-line)] px-4 py-4 sm:px-5">
           <p className="font-medium text-[var(--sv-ink)]">{SAMPLE.customer}</p>
           <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
-            {SAMPLE.vehicle} · texts, quotes and jobs in one file
+            {SAMPLE.vehicle} · quotes and history in one file
           </p>
         </div>
-        <Row title={`Last job — ${SAMPLE.service}`} meta={`${SAMPLE.price} · completed`} />
-        <Row title="Next — maintenance reminder" meta="Pending your review" last />
+        <Row title={`Last visit — ${SAMPLE.service}`} meta={`${SAMPLE.price} · completed`} />
+        <Row title="Next — maintenance reminder" meta="Draft pending your review" last />
       </Screen>
     ),
   },
@@ -84,15 +79,9 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
     ),
   },
   {
-    title: "Quotes, Jobs & Scheduling",
-    line: "Quotes become jobs, jobs land on the calendar — and you approve what goes out.",
+    title: "Quotes & Calendar",
+    line: "Build a quote from your menu. When the customer accepts, it lands on the calendar — bookings always ask first.",
     ask: "“What's still not booked?”",
-    /* P4-F: the page's ONLY customer's-eye view — the public quote page
-       (platform app/q/[token], P0-009: accept→book durable, expiry
-       enforced). Labels verbatim from source: "Quote" eyebrow · "For
-       {name} · {vehicle}" · line items · "Good through {date}." · CTAs
-       "Book it" / "Not this time" · accepted state "You're in — quote
-       accepted." The phone is dark because the product ships dark. */
     screen: (
       <Screen label="The customer's view — quote page">
         <div className="space-y-3 p-4 sm:p-5">
@@ -138,7 +127,7 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
               {SAMPLE.firstName} taps Book it — &ldquo;You&apos;re in — quote accepted.&rdquo;
             </p>
             <p className="mt-1 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
-              Your side: Booked, {SAMPLE.slot} · quote closed, job on the calendar
+              Your side: Booked, {SAMPLE.slot} · on the calendar
             </p>
           </div>
         </div>
@@ -146,26 +135,37 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
     ),
   },
   {
-    title: "Conversations",
-    line: "Texts and email in one thread per customer, with replies drafted for your review.",
-    ask: "“What did I promise her last month?”",
+    title: "Approvals",
+    line: "The agent drafts replies and follow-ups. You review, edit or discard — nothing leaves without your OK.",
+    ask: "“What is waiting on me right now?”",
     screen: (
-      <Screen label="Inbox — text + email">
+      <Screen label="Needs your OK">
         <div className="space-y-3 p-4 sm:p-5">
-          <div className="max-w-[85%] rounded-[var(--sv-radius-sm)] bg-[var(--sv-wash)] px-3.5 py-2.5">
-            <p className="text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">{SAMPLE.firstName} · text</p>
-            <p className="mt-1 text-[length:var(--sv-text-sm)] text-[var(--sv-ink)]">
-              Hi — do you do ceramic maintenance for a BMW X5?
-            </p>
-          </div>
-          <div className="ml-auto max-w-[85%] rounded-[var(--sv-radius-sm)] border border-[var(--sv-line)] px-3.5 py-2.5">
+          <div className="rounded-[var(--sv-radius-sm)] border border-[var(--sv-line)] px-3.5 py-2.5">
             <p className="inline-flex rounded-[6px] bg-[var(--sv-accent-soft)] px-2 py-0.5 text-[length:var(--sv-text-xs)] font-medium text-[var(--sv-accent)]">
               Draft — waiting for your review
             </p>
             <p className="mt-1.5 text-[length:var(--sv-text-sm)] text-[var(--sv-ink)]">
-              We do — here&apos;s a quote for {SAMPLE.service}.
+              Quote reply for {SAMPLE.firstName} — {SAMPLE.service} · {SAMPLE.price}
             </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {["Send it", "Tweak it", "Drop it"].map((a, i) => (
+                <span
+                  key={a}
+                  className={`rounded-[6px] px-2.5 py-1 text-[length:var(--sv-text-xs)] font-medium ${
+                    i === 0
+                      ? "bg-[var(--sv-accent)] text-white"
+                      : "border border-[var(--sv-line)] text-[var(--sv-ink-2)]"
+                  }`}
+                >
+                  {a}
+                </span>
+              ))}
+            </div>
           </div>
+          <p className="text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
+            Live today: CRM + approvals. SMS and voice channels labeled coming until verified.
+          </p>
         </div>
       </Screen>
     ),
@@ -175,10 +175,10 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
 export function CoreSystem() {
   return (
     <Section>
-      <Eyebrow>The operating system</Eyebrow>
+      <Eyebrow>The CRM</Eyebrow>
       <h2 className="max-w-[18ch]">Everything stays connected.</h2>
       <Lead>
-        Customers, pipeline, jobs and conversations share one record underneath. Update it
+        Customers, vehicles, leads, pipeline, quotes and calendar share one record. Update it
         once — it&apos;s current everywhere.
       </Lead>
 

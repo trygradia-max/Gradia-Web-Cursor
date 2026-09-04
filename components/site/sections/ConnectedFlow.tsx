@@ -54,11 +54,11 @@ const stages: {
 }[] = [
   {
     name: "Capture",
-    line: `${SAMPLE.firstName}'s message lands in Gradia — not in six inboxes.`,
+    line: `${SAMPLE.firstName}'s inquiry lands in Gradia — not in six inboxes.`,
     vignette: (
       <Vignette time="7:58 AM">
         <div className="flex flex-wrap items-center gap-2">
-          <Chip>Text</Chip>
+          <Chip>New lead</Chip>
           <span className="text-[length:var(--sv-text-sm)] font-medium text-white">{SAMPLE.customer}</span>
           <Chip accent>Needs you</Chip>
         </div>
@@ -78,7 +78,7 @@ const stages: {
           <span className="text-[length:var(--sv-text-sm)] font-medium text-white">{SAMPLE.customer}</span>
         </div>
         <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/60">
-          {SAMPLE.vehicle} · texts, quotes and jobs in one file
+          {SAMPLE.vehicle} · quotes and history in one file
         </p>
       </Vignette>
     ),
@@ -107,7 +107,7 @@ const stages: {
     vignette: (
       <Vignette time="8:04 AM">
         <div className="flex flex-wrap items-center gap-2">
-          <Chip>SMS</Chip>
+          <Chip>Draft</Chip>
           <span className="text-[length:var(--sv-text-sm)] font-medium text-white">
             To {SAMPLE.customer}
           </span>
@@ -135,7 +135,7 @@ const stages: {
   },
   {
     name: "Schedule",
-    line: "The job lands on the calendar.",
+    line: "The booking lands on the calendar.",
     vignette: (
       <Vignette time="8:05 AM">
         <div className="flex flex-wrap items-center gap-2">
@@ -156,7 +156,7 @@ const stages: {
     vignette: (
       <Vignette time="Weeks later">
         <div className="flex flex-wrap items-center gap-2">
-          <Chip>SMS</Chip>
+          <Chip>Draft</Chip>
           <span className="text-[length:var(--sv-text-sm)] font-medium text-white">
             Maintenance reminder
           </span>
@@ -174,7 +174,7 @@ export function ConnectedFlow() {
   return (
     <Section id="how">
       <Eyebrow>How it works</Eyebrow>
-      <h2 className="max-w-[22ch]">One system from first message to finished job.</h2>
+      <h2 className="max-w-[22ch]">One CRM from first inquiry to booked appointment.</h2>
       <Lead>
         Watch one customer move through Gradia. Same record at every stage — you approve the
         moments that matter.
