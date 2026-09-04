@@ -5,3 +5,6 @@ export const SHOW_PRICING = false;
 
 /** Hidden until the telephony acceptance run passes — homepage section + /receptionist route. */
 export const SHOW_RECEPTIONIST = false;
+
+/** Fleet accounts are out of scope (D-067). Page kept, flag-hidden from nav/sitemap/middleware. */
+export const SHOW_FLEET_INDUSTRY = false;

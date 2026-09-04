@@ -1,3 +1,4 @@
+import { SHOW_FLEET_INDUSTRY } from "@/components/site/flags";
 import { INDUSTRY_SLUGS } from "@/components/site/industries/data";
 import { ARTICLES } from "@/components/site/resources/articles";
 import { siteBase } from "@/lib/site-config";
@@ -5,10 +6,13 @@ import type { MetadataRoute } from "next";
 
 /**
  * Public marketing routes — must stay in sync with middleware allowlist and sitemap.
- * /pricing and /receptionist are built but excluded until their gates clear.
+ * /pricing, /receptionist, and /industries/fleet are built but excluded until gates clear.
  */
 
 export const GATED_ROUTE_PREFIXES = ["/pricing", "/receptionist"] as const;
+
+/** Exact paths gated even when a parent prefix is public (D-067 fleet cut). */
+export const GATED_EXACT_PATHS = ["/industries/fleet"] as const;
 
 /** Prefixes reachable without the takedown 308 (branch: site-v2). */
 const PUBLIC_ROUTE_PREFIXES = [
@@ -22,11 +26,15 @@ const PUBLIC_ROUTE_PREFIXES = [
   "/terms",
 ] as const;
 
+const publicIndustrySlugs = INDUSTRY_SLUGS.filter(
+  (slug) => slug !== "fleet" || SHOW_FLEET_INDUSTRY,
+);
+
 export const PUBLIC_MARKETING_PATHS = [
   "/",
   "/product",
   "/industries",
-  ...INDUSTRY_SLUGS.map((slug) => `/industries/${slug}`),
+  ...publicIndustrySlugs.map((slug) => `/industries/${slug}`),
   "/security",
   "/demo",
   "/resources",
@@ -37,6 +45,9 @@ export const PUBLIC_MARKETING_PATHS = [
 
 export function isPublicMarketingRoute(pathname: string): boolean {
   if (pathname === "/") return true;
+  if ((GATED_EXACT_PATHS as readonly string[]).includes(pathname)) {
+    return SHOW_FLEET_INDUSTRY;
+  }
   return PUBLIC_ROUTE_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );

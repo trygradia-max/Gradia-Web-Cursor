@@ -34,7 +34,7 @@ export function SiteFooter() {
           <div className="col-span-2 md:col-span-1">
             <Logo />
             <p className="mt-4 max-w-[16rem] text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">
-              The operating system for detailing and automotive appearance shops.
+              An AI-native CRM for automotive appearance shops.
             </p>
           </div>
           {cols.map((c) => (

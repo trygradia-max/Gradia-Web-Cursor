@@ -1,19 +1,20 @@
-import { SHOW_PRICING, SHOW_RECEPTIONIST } from "@/components/site/flags";
+import { SHOW_PRICING, SHOW_RECEPTIONIST, SHOW_FLEET_INDUSTRY } from "@/components/site/flags";
 
 export type SiteLink = { label: string; href: string };
 
 type GatedSiteLink = SiteLink & {
   /** Omit or leave unset for always-visible links. */
-  gate?: "pricing" | "receptionist";
+  gate?: "pricing" | "receptionist" | "fleet";
 };
 
 function isLinkVisible(link: GatedSiteLink): boolean {
   if (link.gate === "pricing") return SHOW_PRICING;
   if (link.gate === "receptionist") return SHOW_RECEPTIONIST;
+  if (link.gate === "fleet") return SHOW_FLEET_INDUSTRY;
   return true;
 }
 
-/** Primary nav — hides routes that 308 until their publish gates clear (Pass 7 QA). */
+/** Primary nav — hides routes that 308 until their publish gates clear. */
 export const PRIMARY_NAV_LINKS: GatedSiteLink[] = [
   { label: "Product", href: "/product" },
   { label: "Receptionist", href: "/receptionist", gate: "receptionist" },
@@ -44,7 +45,7 @@ export const FOOTER_COLUMNS: { title: string; links: GatedSiteLink[] }[] = [
       { label: "Ceramic coating", href: "/industries/ceramic-coating" },
       { label: "PPF, tint & wrap", href: "/industries/ppf-tint-wrap" },
       { label: "Mobile detailing", href: "/industries/mobile-detailing" },
-      { label: "Fleet", href: "/industries/fleet" },
+      { label: "Fleet", href: "/industries/fleet", gate: "fleet" },
     ],
   },
   {
