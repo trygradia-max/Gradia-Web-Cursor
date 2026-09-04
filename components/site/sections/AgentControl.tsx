@@ -107,33 +107,26 @@ export function AgentControl() {
             </MItem>
           </MGroup>
 
-          {/* Third ask — campaigns, shown not told (P4-A). Dry-run preview,
-              caps and opt-outs are guarantees #3/#4 — show them. */}
-          <OwnerBubble>Text my ceramic customers from last spring a fall special.</OwnerBubble>
+          {/* Third ask — list quiet quotes (campaigns out of scope per D-067). */}
+          <OwnerBubble>Show ceramic leads this month that haven&apos;t booked.</OwnerBubble>
 
           <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
             <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
-              Campaign — dry-run preview
+              Prepared — waiting for your review
             </p>
             {[
-              ["43 customers match", "Ceramic jobs, last spring"],
-              ["3 opted out — excluded", "Before anything was staged"],
-              ["Capped at 50 per run", "Hard limit, built in"],
+              ["Ceramic coating inquiry", "$740 quote · quiet 6 days"],
+              ["PPF + ceramic ask", "$1,800 quote · quiet 9 days"],
+              ["Maintenance question", "Never quoted · two weeks old"],
             ].map(([title, meta]) => (
               <div key={title} className="border-b border-white/10 px-4 py-3">
                 <p className="text-[length:var(--sv-text-sm)] font-medium text-white">{title}</p>
                 <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{meta}</p>
               </div>
             ))}
-            <div className="border-b border-white/10 px-4 py-3">
-              <p className="text-[length:var(--sv-text-sm)] font-medium text-white">Drafts ready</p>
-              <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
-                One text + email per customer — sends on your OK
-              </p>
-            </div>
             <div className="flex flex-wrap items-center gap-2 px-4 py-3">
               <span className="rounded-[6px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
-                Send it
+                Draft follow-ups
               </span>
               {["Tweak it", "Drop it"].map((a) => (
                 <span
@@ -152,7 +145,7 @@ export function AgentControl() {
             className="flex items-center gap-2 px-1 pt-1 text-[length:var(--sv-text-xs)] text-white/50"
           >
             <Check size={13} strokeWidth={2.5} aria-hidden className="text-[var(--sv-accent-on-dark)]" />
-            Activity log — follow-ups approved by you · sent · logged
+            Activity log — drafts approved by you · logged
           </MSlideIn>
         </div>
       </div>
@@ -206,7 +199,7 @@ export function AgentControl() {
 
       <p className="mt-8 max-w-[44rem] text-[var(--sv-ink-2)]">
         Start with approvals. Give Gradia more responsibility when it&apos;s earned it.{" "}
-        <span className="font-medium text-[var(--sv-ink)]">Money and calendar always ask.</span>
+        <span className="font-medium text-[var(--sv-ink)]">Calendar bookings always ask.</span>
       </p>
     </Section>
   );

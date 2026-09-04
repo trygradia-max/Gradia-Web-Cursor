@@ -36,7 +36,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Can it quote and book over the phone?",
-    a: "Bookings and charges always wait for your approval. Live call answering, quoting and booking are part of the voice receptionist — we do not claim them publicly until our telephony acceptance run passes.",
+    a: "Bookings always wait for your approval. Live call answering, quoting and booking on the phone are part of the voice receptionist — we do not claim them publicly until our telephony acceptance run passes. Payments are out of scope.",
   },
   {
     q: "How is this different from a typical AI receptionist?",
@@ -110,8 +110,8 @@ export function ReceptionistContent() {
         <h2 className="max-w-[26ch]">Teach the receptionist how your shop works.</h2>
         <Lead>
           Greeting, hours, how booking works — you set the facts once. Gradia composes the
-          receptionist from your services, policies and voice. Bookings and payments always wait
-          for your approval.
+          receptionist from your services, policies and voice. Bookings always wait
+          for your approval. Payments are out of scope.
         </Lead>
         <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <LightScreen label="Voice receptionist">

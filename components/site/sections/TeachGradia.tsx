@@ -17,7 +17,7 @@ const menu: { row: string; value: string }[] = [
   { row: "How we talk to customers", value: "We/us · your shop's name signed" },
 ];
 
-const usedIn = ["Quotes", "Replies", "Campaigns", "Scheduling"];
+const usedIn = ["Quotes", "Replies", "Pipeline", "Scheduling"];
 
 export function TeachGradia() {
   return (
@@ -32,8 +32,8 @@ export function TeachGradia() {
       <div className="mt-12 grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
         <div>
           <p className="max-w-[36rem]">
-            Every quote, reply and campaign draws on the same menu and the same rules — so
-            what goes out is priced right and sounds right.
+            Every quote and draft reply draws on the same menu and the same rules — so what
+            goes out is priced right and sounds right.
           </p>
           <p className="mt-5 max-w-[36rem] font-medium text-[var(--sv-ink)]">
             Gradia writes as your shop — we, us, your name signed. Never a third-party bot.

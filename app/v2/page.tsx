@@ -4,7 +4,7 @@ import { Section, Eyebrow, Lead, Button, Card } from "@/components/site/primitiv
 
 /* Pass 1 style guide — living reference for every later pass.
    This page demonstrates the foundation; it is NOT the homepage.
-   Copy shown is the locked D-033 language so reviewers see real words. */
+   Copy mirrors D-067 category language. */
 
 export default function StyleGuide() {
   return (
@@ -13,11 +13,11 @@ export default function StyleGuide() {
 
       {/* Hero specimen */}
       <Section>
-        <Eyebrow chip>Built for detailing &amp; automotive appearance shops</Eyebrow>
-        <h1 className="max-w-[16ch]">Run your shop. Capture every lead. Recover more revenue.</h1>
+        <Eyebrow chip>AI-native CRM for detailing, ceramic, PPF &amp; tint</Eyebrow>
+        <h1 className="max-w-[16ch]">Gradia does the work. You approve what matters.</h1>
         <Lead>
-          Gradia connects your customers, vehicles, leads, quotes, jobs, conversations and
-          schedule in one operating system — and helps keep the work moving.
+          Jobber and Urable are systems of record you operate. Gradia qualifies leads, drafts
+          quotes, books appointments, and moves the pipeline — you approve what matters.
         </Lead>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <Button href="#trial" size="lg">Start your trial</Button>
@@ -36,7 +36,7 @@ export default function StyleGuide() {
           <Card>
             <h3>Know every customer</h3>
             <p className="mt-3 text-[length:var(--sv-text-sm)]">
-              Customers, vehicles, conversations, quotes, jobs and history — together.
+              Customers, vehicles, quotes and history — together.
             </p>
           </Card>
           <Card>

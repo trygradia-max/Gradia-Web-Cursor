@@ -11,10 +11,10 @@ export function PricingContent() {
     <>
       <Section>
         <Eyebrow>Pricing</Eyebrow>
-        <h1 className="max-w-[16ch]">One system. Three ways to run it.</h1>
+        <h1 className="max-w-[16ch]">AI-native CRM. Three ways to run it.</h1>
         <Lead>
-          Every tier includes the full CRM, Gradia Agent, Whisper and approvals. The split is
-          how much Gradia does and through which channels — never by walling off your data.
+          Every tier includes the full CRM, Gradia Agent and approvals. The split is how much
+          Gradia does and through which channels — never by walling off your data.
         </Lead>
         <p className="mt-6 text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-2)]">
           {TRIAL_LINE}
