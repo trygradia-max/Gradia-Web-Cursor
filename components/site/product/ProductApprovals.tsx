@@ -1,12 +1,12 @@
 import { Eyebrow, Lead, Section } from "../primitives";
 
-/* Approvals + earned autonomy — suggest-first default, autonomy is a choice.
-   No tier names or pricing (claim law). Money + calendar always ask. */
+/* Approvals — suggest-first default. Calendar always asks. No payment/charge
+   claims (out of scope per D-067). */
 
 const levels = [
   {
     title: "Suggest-first (default)",
-    body: "Gradia prepares every message, follow-up and campaign draft. You review, edit or discard — nothing sends until you approve.",
+    body: "Gradia prepares drafts and next steps. You review, edit or discard — nothing sends until you approve.",
   },
   {
     title: "Earned autonomy (your choice)",
@@ -14,7 +14,7 @@ const levels = [
   },
   {
     title: "Hard floor — never changes",
-    body: "Money and calendar always ask. No setting, mode or tier bypasses this. Charges and bookings need your OK every time.",
+    body: "Calendar bookings always ask. No setting, mode or tier bypasses this. Payments are out of scope — Gradia is not a payment processor.",
   },
 ];
 

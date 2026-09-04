@@ -1,8 +1,7 @@
 import { Check } from "lucide-react";
 import { Card, Eyebrow, Lead, Section } from "../primitives";
 
-/* Category comparison — three pillars vs "the industry default" (unnamed).
-   Same frame as the homepage AsksFirst section (P3-F / Pass 5 note). */
+/* Category comparison — D-067 systems-of-record contrast. No payment claims. */
 
 const rows: {
   pillar: string;
@@ -11,20 +10,20 @@ const rows: {
   signature?: boolean;
 }[] = [
   {
-    pillar: "Asks first",
-    industry: "Autopilot sends, books and bills on its own",
-    gradia: "Every message, booking and charge is prepared and sent on your OK",
-    signature: true,
+    pillar: "Does the work",
+    industry: "You operate the CRM — click every step yourself",
+    gradia: "The agent qualifies, drafts, proposes times and moves the pipeline — then reports it",
   },
   {
-    pillar: "Predictable cost",
-    industry: "Usage runs up with no ceiling",
-    gradia: "Spending caps and owner-set ceilings — at the cap, Gradia stops",
+    pillar: "Asks first",
+    industry: "Autopilot sends and books on its own",
+    gradia: "Every outbound draft and booking is prepared and released on your OK",
+    signature: true,
   },
   {
     pillar: "Built for this trade",
     industry: "Generic CRM with your industry pasted on",
-    gradia: "Detailing natively — services, vehicles, coatings, follow-up cycles",
+    gradia: "Detailing, ceramic, PPF and tint natively — vehicles, coatings, follow-up cycles",
   },
 ];
 
@@ -32,10 +31,10 @@ export function ProductComparison() {
   return (
     <Section>
       <Eyebrow>Why Gradia</Eyebrow>
-      <h2 className="max-w-[18ch]">Gradia asks first.</h2>
+      <h2 className="max-w-[20ch]">Systems of record vs. does the work.</h2>
       <Lead>
-        The industry default is autopilot — AI that acts on its own. Gradia was built the
-        other way.
+        Jobber and Urable are systems of record you operate. Gradia does the work and reports
+        it — with your approval on what goes out.
       </Lead>
 
       <div className="mt-10 hidden overflow-x-auto lg:block">
@@ -44,7 +43,7 @@ export function ProductComparison() {
             <tr className="border-b border-[var(--sv-line-strong)]">
               <th className="pb-4 pr-6 text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-3)]" />
               <th className="pb-4 pr-6 text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-3)]">
-                The industry default
+                Systems of record
               </th>
               <th className="pb-4 text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink)]">
                 Gradia
