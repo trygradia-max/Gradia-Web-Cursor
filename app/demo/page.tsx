@@ -9,7 +9,7 @@ import { DemoContent } from "@/components/site/demo/DemoContent";
 export const metadata: Metadata = {
   title: "Demo — See Gradia in action",
   description:
-    "Walk through cold-lead revival, Whisper voice notes and campaign dry-runs — every outbound action staged for your approval before it sends.",
+    "Walk through cold-lead revival, Whisper voice notes and pipeline asks — every outbound draft staged for your approval before it sends.",
   alternates: { canonical: "/demo" },
 };
 

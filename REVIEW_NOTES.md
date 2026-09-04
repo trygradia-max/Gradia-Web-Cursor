@@ -15,6 +15,7 @@
 4. `283e473` — Industries: CRM + ICP re-cut; fleet kept in data, flag-hidden + `notFound`.
 5. `186f638` — Pricing: stays `SHOW_PRICING=false`; tier bullets cleaned for D-067 (direction Core $99 / Pro $149 / Operator $249).
 6. `65217cc` — Sweep: demo/security/agent/teach/style-guide/claims-matrix; campaigns and payment claims removed from public surfaces.
+7. _(follow-up)_ — Sweep residuals: `/demo` metadata no longer says “campaign dry-runs”; industry flow sample chips `SMS` → `Draft` (matches homepage ConnectedFlow; no SMS-works implication). `CURSOR_BRIEF.md` tracked in repo.
 
 ### Founder questions (claims I was unsure about)
 

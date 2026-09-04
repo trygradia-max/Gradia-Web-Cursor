@@ -33,7 +33,7 @@ function stageVignette(stage: FlowStage): ReactNode {
     return (
       <Vignette time={stage.time}>
         <div className="flex flex-wrap items-center gap-2">
-          <Chip>SMS</Chip>
+          <Chip>Draft</Chip>
           <Chip accent>Pending</Chip>
         </div>
         <p className="mt-2 rounded-[calc(var(--sv-radius-sm)-4px)] bg-white/[0.06] px-3 py-2 text-[length:var(--sv-text-xs)] text-white/70">
@@ -60,7 +60,7 @@ function stageVignette(stage: FlowStage): ReactNode {
     return (
       <Vignette time={stage.time}>
         <div className="flex flex-wrap items-center gap-2">
-          <Chip>SMS</Chip>
+          <Chip>Draft</Chip>
           <Chip accent>Pending</Chip>
         </div>
         <p className="mt-2 text-[length:var(--sv-text-xs)] text-white/60">{stage.detail}</p>
