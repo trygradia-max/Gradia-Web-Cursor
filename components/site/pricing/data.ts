@@ -1,4 +1,6 @@
-/* Pricing page data — mirrors _docs/GRADIA_PRICING.md (D-034/D-035). No crossed-out prices. */
+/* Pricing page data — direction Core $99 / Pro $149 / Operator $249.
+   Page stays flag-hidden (SHOW_PRICING=false): live billing is not aligned yet
+   (CURSOR_BRIEF 2026-09-03). Do not publish until founder flips the gate. */
 
 export type PricingTier = {
   name: string;
@@ -12,32 +14,31 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     name: "Core",
     price: 99,
-    tagline: "For solo and smaller shops.",
+    tagline: "CRM + agent drafts — suggest-first.",
     features: [
-      "Full CRM — customers, vehicles, leads, pipeline, quotes, jobs, conversations, calendar",
-      "Gradia Agent + Whisper + Ask Gradia — suggest-first only",
-      "SMS + email follow-ups, campaigns and reminders — all approve-first",
+      "Full CRM — customers, vehicles, leads, pipeline, quotes, calendar",
+      "Gradia Agent + Ask Gradia — suggest-first only",
+      "Approvals inbox — every outbound draft waits for your OK",
       "7,000 message credits per month",
-      "Imports and approvals inbox",
-      "Money and calendar always ask first",
+      "Calendar bookings always ask first",
     ],
   },
   {
     name: "Pro",
     price: 149,
-    tagline: "For growing shops that want the phone answered and trusted work running itself.",
+    tagline: "For growing shops that want more automation once earned.",
     highlighted: true,
     features: [
       "Everything in Core",
-      "Voice receptionist + business number included",
-      "Earned autonomy — graduate agents per workflow, reversible; money + calendar always ask",
+      "Voice receptionist + business number — Coming until acceptance run passes",
+      "Earned autonomy — graduate workflows, reversible; calendar always asks",
       "6,000 message credits + 100 voice minutes per month",
     ],
   },
   {
     name: "Operator",
     price: 249,
-    tagline: "For established shops and teams running volume.",
+    tagline: "For established shops with staff running volume.",
     features: [
       "Everything in Pro",
       "10,000 message credits + 180 voice minutes per month",
@@ -60,19 +61,11 @@ export const PRICING_FAQS: { q: string; a: string }[] = [
     a: "No — a card is optional to begin. You'll need one on file before converting to a paid plan, with clear reminders before billing starts.",
   },
   {
-    q: "What are message credits?",
-    a: "One credit equals one cent of retail usage. SMS, email, outreach drafts and agent plans draw from your monthly allowance. Inbound classification, approvals, CRM work and calendar operations are never metered.",
+    q: "What happens at the credit cap?",
+    a: "Gradia stops. Credits and voice minutes are fail-closed — at your ceiling, agents stop and voice degrades gracefully. No surprise bills.",
   },
   {
-    q: "Could I get a surprise bill?",
-    a: "No. Spending caps and owner-set ceilings are built in. At the cap, Gradia stops — it never keeps spending. Credit and minute packs are optional, offered with ROI framing; auto-top-up respects your ceiling.",
-  },
-  {
-    q: "What happens to unused credits?",
-    a: "Up to 25% of unused included credits roll forward one month. Two separate meters — message credits and voice minutes — never cross.",
-  },
-  {
-    q: "Does Gradia send on its own?",
-    a: "Everything starts suggest-first. On Pro, you can graduate individual workflows to earned autonomy — reversible, logged, with money and calendar always asking first.",
+    q: "Does pricing include invoicing or payments?",
+    a: "No. Invoices, deposits and payment processing are out of scope. Gradia is an AI-native CRM, not a payment processor.",
   },
 ];
