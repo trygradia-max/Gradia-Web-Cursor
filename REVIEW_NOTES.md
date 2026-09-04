@@ -3,7 +3,29 @@
 > Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
 > them in a follow-up commit and checks the box → next section.
 
-**NEXT:** Founder full-preview review — Passes 2–7 complete (incl. `/receptionist` depth page, flag-hidden). Cutover decision: N1 CTA destination · merge `site-v2` → `main`. Un-gate `/pricing` when P0-013 merges · un-hide Receptionist when telephony acceptance run passes · flip `SHOW_PRICING` / `SHOW_RECEPTIONIST` in `flags.ts` + add routes to `lib/site-routes.ts` `PUBLIC_ROUTE_PREFIXES` together · upgrade receptionist copy to live claims only after acceptance run passes. **Builder queue idle** — autorun 2026-09-02 16:34 PT: no SITE_SYNC blocks after ff66cc9 · no unfinished AUTORUN pass/section · `tsc` + production `build` clean · Housecall Pro/Slack absent · SITE_SYNC batch copy requirements satisfied.
+**NEXT:** Founder review of D-067 reposition (commits below, not pushed). Decide: keep Jobber/Urable named on-site · keep “Chief of Staff” in public product copy · when to flip `SHOW_PRICING` after billing aligns · confirm A2P before any SMS-works claim. Cutover still blocked on N1 CTA + merge to `main`.
+
+## Reposition — D-067 / CURSOR_BRIEF — 2026-09-03
+
+**PENDING REVIEW.** One commit per brief section on `site-v2` (never pushed · never touched `../platform`):
+
+1. `0868034` — Home: AI-native CRM headline/subhead, Jobber/Urable contrast, ICP (staffed shops on ads); OS language removed; sample UI no SMS “Sent ✓”.
+2. `4e5b6e2` — Product: three flagships (lead worked · Chief of Staff · booked appointment) with Live/Coming labels; campaigns unmounted.
+3. `50df927` — Nav/sitemap/footer: `SHOW_FLEET_INDUSTRY=false`; fleet exact-path gated; footer category line updated.
+4. `283e473` — Industries: CRM + ICP re-cut; fleet kept in data, flag-hidden + `notFound`.
+5. `186f638` — Pricing: stays `SHOW_PRICING=false`; tier bullets cleaned for D-067 (direction Core $99 / Pro $149 / Operator $249).
+6. `65217cc` — Sweep: demo/security/agent/teach/style-guide/claims-matrix; campaigns and payment claims removed from public surfaces.
+
+### Founder questions (claims I was unsure about)
+
+1. **Named competitors on-site** — Brief/CONTEXT lead with Jobber + Urable. Older brand rule banned competitor names. Used the brief. Confirm permanent?
+2. **“Chief of Staff” in public copy** — Brief asks for it as flagship 2; older marketing rule banned it for “Home.” Used Chief of Staff on `/product` with Coming label on the consolidated screen. Confirm?
+3. **Data export** — Brief lists “shop keeping its own data with export” as safe; CONTEXT B-01 says export is not built. Did **not** claim export works; Security still says export is on the roadmap. Confirm?
+4. **Website form intake** — Labeled Coming on product. Is any public form → CRM path Live today?
+5. **Email sending** — Gmail connection labeled Live; outbound email not claimed. Confirm that split is correct for public copy?
+6. **Import “currently in beta”** — Left on Final CTA / FAQ. Still accurate under D-067?
+7. **Homepage Agent / Whisper / ROI receipt** — Left as sample UI of Live approval + Ask Gradia surfaces. Want those reframed as Chief of Staff Coming teasers?
+8. **Unmounted legacy files** — `ProductPanels.tsx`, `ProductCampaigns.tsx`, `ProductAgent.tsx` still in tree but not mounted. Delete later or keep?
 
 ## Autorun closeout — Passes 2–7 complete — 2026-09-02
 
