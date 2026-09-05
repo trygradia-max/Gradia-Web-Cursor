@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Check } from "lucide-react";
 
 const ROLES = [
@@ -28,17 +29,32 @@ export function WaitlistForm() {
     "idle",
   );
   const [error, setError] = useState<string | null>(null);
+  /** A2P 10DLC: opt-in starts FALSE. Never pre-check, never bundle with Terms. */
+  const [smsConsent, setSmsConsent] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
-    setError(null);
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const phone = String(data.get("phone") ?? "").trim();
+
+    // Consent without a number is not consent — keep the record meaningful.
+    if (smsConsent && !phone) {
+      setStatus("error");
+      setError(
+        "Add a mobile number to receive text messages, or uncheck the SMS box.",
+      );
+      return;
+    }
+
+    setStatus("loading");
+    setError(null);
+
     const payload = {
       email: String(data.get("email") ?? ""),
-      phone: String(data.get("phone") ?? ""),
+      phone,
+      smsConsent,
       role: String(data.get("role") ?? ""),
       shopName: String(data.get("shopName") ?? ""),
       currentTools: String(data.get("currentTools") ?? ""),
@@ -139,14 +155,59 @@ export function WaitlistForm() {
               />
             </Field>
 
-            <Field label="Phone (optional)">
+            <Field label="Mobile phone (optional)">
               <input
                 type="tel"
                 name="phone"
+                autoComplete="tel"
                 placeholder="(555) 123-4567"
                 className="w-full border border-[var(--border)] bg-[var(--bg)] px-3 py-2.5 text-sm text-[var(--foreground)] outline-none focus:border-[var(--brand-primary)]"
               />
             </Field>
+
+            {/* A2P 10DLC / CTIA opt-in. Unchecked by default, optional, and
+                separate from acceptance of the Terms — do not pre-check, bundle,
+                or gate submission on it. Wording lives in lib/sms-consent.ts;
+                bump SMS_CONSENT_VERSION whenever this copy changes. */}
+            <div className="flex items-start gap-3 border border-[var(--border)] bg-[var(--bg-elevated)] p-3.5">
+              <input
+                type="checkbox"
+                id="smsConsent"
+                name="smsConsent"
+                checked={smsConsent}
+                onChange={(e) => setSmsConsent(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--brand-primary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-primary)]"
+              />
+              <label
+                htmlFor="smsConsent"
+                className="text-[13px] leading-relaxed text-[var(--foreground)]"
+              >
+                I agree to receive conversational and appointment-related text messages from
+                Gradia.ai LLC at the mobile number provided. Message frequency varies. Message and
+                data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a
+                condition of purchase. See our{" "}
+                <Link
+                  href="/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-[var(--brand-primary)] underline underline-offset-2"
+                >
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-[var(--brand-primary)] underline underline-offset-2"
+                >
+                  Privacy Policy
+                </Link>
+                .
+              </label>
+            </div>
 
             <Field label="What do you run?">
               <select

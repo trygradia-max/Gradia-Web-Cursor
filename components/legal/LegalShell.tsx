@@ -36,7 +36,7 @@ export function LegalShell({
         <h1 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] sm:text-4xl">
           {title}
         </h1>
-        <p className="mt-3 text-sm text-[var(--muted)]">Last updated: {updated}</p>
+        <p className="mt-3 text-sm text-[var(--muted)]">Effective date: {updated}</p>
 
         <div className="legal-prose mt-10">{children}</div>
 
@@ -78,7 +78,7 @@ export function LegalShell({
               Contact
             </a>
           </div>
-          <p className="text-sm text-[var(--muted)]">©2026 Gradia LLC</p>
+          <p className="text-sm text-[var(--muted)]">©2026 Gradia.ai LLC</p>
         </div>
       </footer>
     </div>

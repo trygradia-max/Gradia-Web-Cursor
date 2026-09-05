@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalShell title="Terms of Service" updated="June 9, 2026">
+    <LegalShell title="Terms of Service" updated="September 5, 2026">
       <p>
         These Terms of Service (&ldquo;Terms&rdquo;) govern your use of{" "}
         <a href="https://trygradia.com">trygradia.com</a>, the Gradia waitlist, and the Gradia
         platform and services (together, the &ldquo;Service&rdquo;), provided by{" "}
-        <strong>Gradia LLC</strong> (&ldquo;Gradia,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;). By
+        <strong>Gradia.ai LLC</strong> (&ldquo;Gradia,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;). By
         accessing the Service or joining the waitlist, you agree to these Terms. If you do not agree,
         do not use the Service.
       </p>
@@ -32,8 +32,54 @@ export default function TermsPage() {
       <h2>Waitlist and early access</h2>
       <p>
         Joining the waitlist does not guarantee access to the Service, any particular price, or a
-        specific launch date. Founding and early-access offers are limited and may change. Our July
-        10, 2026 launch target is a goal, not a commitment.
+        specific launch date. Founding and early-access offers are limited and may change. Any launch or
+        availability date we mention is a goal, not a commitment.
+      </p>
+
+      <h2>SMS messaging program</h2>
+      <p>
+        When you provide your mobile number and affirmatively consent to text messaging,{" "}
+        <strong>Gradia.ai LLC</strong> may send you conversational and transactional SMS messages.
+        Messages may include:
+      </p>
+      <ul>
+        <li>responses to inquiries you initiate;</li>
+        <li>information about requested services;</li>
+        <li>appointment confirmations;</li>
+        <li>appointment reminders;</li>
+        <li>appointment updates;</li>
+        <li>support-related communications.</li>
+      </ul>
+      <p>
+        <strong>Message frequency varies</strong> based on your interactions with Gradia.{" "}
+        <strong>Message and data rates may apply.</strong>{" "}
+        <strong>
+          Consent to receive SMS messages is not a condition of purchasing any goods or services.
+        </strong>
+      </p>
+
+      <h2>Opt out</h2>
+      <p>
+        You may opt out of SMS communications at any time by replying <strong>STOP</strong>. After
+        you opt out you will receive one confirmation message, and no further messages will be sent
+        unless you later opt in again.
+      </p>
+
+      <h2>Help</h2>
+      <p>
+        For assistance, reply <strong>HELP</strong> to any message, or email{" "}
+        <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>.
+      </p>
+
+      <h2>Carriers</h2>
+      <p>
+        Wireless carriers are not liable for delayed or undelivered messages. Delivery of SMS
+        messages is subject to the availability and operation of wireless networks and
+        telecommunications providers.
+      </p>
+      <p>
+        How we handle mobile information and SMS consent is described in our{" "}
+        <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
       <h2>Eligibility and accounts</h2>
@@ -86,7 +132,7 @@ export default function TermsPage() {
 
       <h2>Intellectual property</h2>
       <p>
-        Gradia, including its software, models, and brand, is owned by Gradia LLC We grant you a
+        Gradia, including its software, models, and brand, is owned by Gradia.ai LLC. We grant you a
         limited, non-exclusive, non-transferable right to use the Service. You retain ownership of
         your data and content.
       </p>
@@ -139,7 +185,7 @@ export default function TermsPage() {
 
       <h2>Contact us</h2>
       <p>
-        Gradia LLC — questions about these Terms? Email{" "}
+        Gradia.ai LLC — questions about these Terms? Email{" "}
         <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>.
       </p>
     </LegalShell>

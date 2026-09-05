@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { createAdminSupabaseClient } from "@/lib/supabase/admin";
+import { SMS_CONSENT_VERSION } from "@/lib/sms-consent";
 
 async function clientIpKey(): Promise<string> {
   const h = await headers();
@@ -23,7 +24,10 @@ const ALL_FIELDS = [
   "company_alt",
 ] as const;
 
-type Payload = Partial<Record<(typeof ALL_FIELDS)[number], string>>;
+type Payload = Partial<Record<(typeof ALL_FIELDS)[number], string>> & {
+  /** Unknown on purpose — only a literal `true` counts as consent. */
+  smsConsent?: unknown;
+};
 
 const MAX_LEN = 5000;
 
@@ -83,13 +87,24 @@ export async function POST(request: Request) {
     );
   }
 
-  const row = {
+  // A2P 10DLC / TCPA: express written consent only. Anything other than a
+  // literal `true` is not consent, and consent without a number is meaningless.
+  const smsConsent = body.smsConsent === true && cleaned.phone !== "";
+
+  const baseRow = {
     email: cleaned.email.toLowerCase(),
     phone: cleaned.phone || null,
     role: cleaned.role || null,
     shop_name: cleaned.shopName || null,
     current_tools: cleaned.currentTools || null,
     ip: ipKey,
+  };
+
+  const row = {
+    ...baseRow,
+    sms_consent: smsConsent,
+    sms_consent_at: smsConsent ? new Date().toISOString() : null,
+    sms_consent_version: smsConsent ? SMS_CONSENT_VERSION : null,
   };
 
   // Persist to Supabase (see supabase/migrations/005_waitlist.sql). Upsert on
@@ -99,7 +114,20 @@ export async function POST(request: Request) {
     const { error } = await supabase
       .from("waitlist")
       .upsert(row, { onConflict: "email", ignoreDuplicates: true });
-    if (error) throw error;
+
+    // The sms_consent_* columns arrive with migration 007. If that has not been
+    // applied yet PostgREST rejects the whole row, so retry without them — a
+    // signup is never lost, and the consent record still lands in the log below.
+    if (error) {
+      const retry = await supabase
+        .from("waitlist")
+        .upsert(baseRow, { onConflict: "email", ignoreDuplicates: true });
+      if (retry.error) throw error;
+      console.error(
+        "[waitlist-signup] persisted without SMS consent columns — apply supabase/migrations/007_waitlist_sms_consent.sql:",
+        error.message,
+      );
+    }
   } catch (err) {
     // Don't lose the signup if the DB is unconfigured (e.g. local dev without
     // SUPABASE_SERVICE_ROLE_KEY) or briefly unavailable — fall back to a
