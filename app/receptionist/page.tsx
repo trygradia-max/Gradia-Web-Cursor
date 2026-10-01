@@ -12,7 +12,8 @@ import { ReceptionistContent } from "@/components/site/receptionist/Receptionist
 export const metadata: Metadata = {
   title: "Receptionist — Gradia for detailing shops",
   description:
-    "When your hands are full, Gradia captures missed-call opportunities, organizes the lead and prepares your reply — nothing goes out until you say so.",
+    "Inbound phone reception follows real-call and forwarding checks. Keeping your existing number is a requirement. This page stays unpublished until those checks pass.",
+  robots: { index: false, follow: false },
 };
 
 export default function ReceptionistPage() {

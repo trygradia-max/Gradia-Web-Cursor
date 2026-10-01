@@ -7,9 +7,9 @@ import { DemoContent } from "@/components/site/demo/DemoContent";
 /* Pass 5 Cycle 4 — /demo (WHAT_GRADIA_DOES §7 claimable assets only). */
 
 export const metadata: Metadata = {
-  title: "Demo — See Gradia in action",
+  title: "Demo — Gradia product preview",
   description:
-    "Walk through cold-lead revival, Whisper voice notes and pipeline asks — every outbound draft staged for your approval before it sends.",
+    "Product preview of the intended inquiry, quote and approval workflow. Sample business data — not a recording of live bookings or sent messages.",
   alternates: { canonical: "/demo" },
 };
 

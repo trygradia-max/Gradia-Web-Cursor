@@ -1,29 +1,27 @@
 import { Check } from "lucide-react";
 import { Card, Eyebrow, Lead, Section } from "../primitives";
 
-/* Category comparison — D-067 systems-of-record contrast. No payment claims. */
-
 const rows: {
   pillar: string;
-  industry: string;
+  other: string;
   gradia: string;
   signature?: boolean;
 }[] = [
   {
-    pillar: "Does the work",
-    industry: "You operate the CRM — click every step yourself",
-    gradia: "The agent qualifies, drafts, proposes times and moves the pipeline — then reports it",
+    pillar: "The record",
+    other: "Customer, quote and next step live in different tools",
+    gradia: "One CRM for the customer, conversation, quote and calendar",
   },
   {
-    pillar: "Asks first",
-    industry: "Autopilot sends and books on its own",
-    gradia: "Every outbound draft and booking is prepared and released on your OK",
+    pillar: "The Agent",
+    other: "You operate every click, or a bot sends on its own",
+    gradia: "Gradia prepares the next step. Customer-facing actions start with approval required",
     signature: true,
   },
   {
-    pillar: "Built for this trade",
-    industry: "Generic CRM with your industry pasted on",
-    gradia: "Detailing, ceramic, PPF and tint natively — vehicles, coatings, follow-up cycles",
+    pillar: "The shop",
+    other: "Generic CRM, or a tool built only for large teams",
+    gradia: "Detailing, coating, PPF and tint — solo or team, one location or mobile area",
   },
 ];
 
@@ -31,10 +29,10 @@ export function ProductComparison() {
   return (
     <Section>
       <Eyebrow>Why Gradia</Eyebrow>
-      <h2 className="max-w-[20ch]">Systems of record vs. does the work.</h2>
+      <h2 className="max-w-[20ch]">The customer and the next step, in one place.</h2>
       <Lead>
-        Jobber and Urable are systems of record you operate. Gradia does the work and reports
-        it — with your approval on what goes out.
+        Gradia is an AI-powered CRM for appearance businesses — not a payment processor, and not a
+        complete shop-management suite.
       </Lead>
 
       <div className="mt-10 hidden overflow-x-auto lg:block">
@@ -43,7 +41,7 @@ export function ProductComparison() {
             <tr className="border-b border-[var(--sv-line-strong)]">
               <th className="pb-4 pr-6 text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-3)]" />
               <th className="pb-4 pr-6 text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-3)]">
-                Systems of record
+                Typical tools
               </th>
               <th className="pb-4 text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink)]">
                 Gradia
@@ -57,7 +55,7 @@ export function ProductComparison() {
                   {row.pillar}
                 </th>
                 <td className="py-5 pr-6 align-top text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">
-                  {row.industry}
+                  {row.other}
                 </td>
                 <td className="py-5 align-top text-[length:var(--sv-text-sm)] text-[var(--sv-ink)]">
                   {row.signature && (

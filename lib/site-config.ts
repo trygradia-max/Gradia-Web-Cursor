@@ -1,4 +1,4 @@
-/** Site-wide constants (Pass 6 — conversion + SEO). Repositioned 2026-09-03 per D-067. */
+/** Site-wide constants. Pilot recruitment (2026-10-01) per MVP website handoff. */
 
 const DEFAULT_SITE_URL = "https://trygradia.com";
 
@@ -8,15 +8,26 @@ export function siteBase(): string {
   return raw.replace(/\/$/, "");
 }
 
-/** Primary trial CTA — scrolls to FinalCta (#trial). Swap at cutover when signup ships (REVIEW_NOTES N1). */
-export const TRIAL_CTA_HREF = "/#trial";
+/** Primary conversion CTA — working /request-access form. */
+export const PILOT_CTA_HREF = "/request-access";
 
-/** Category line — D-067. Replaces D-033 "operating system" positioning. */
+/** Visible label for every primary conversion button. */
+export const PILOT_CTA_LABEL = "Request pilot access";
+
+/** Category line — AI-powered CRM, not an operating-system or staff-only story. */
 export const SITE_CATEGORY =
-  "An AI-native CRM for automotive appearance shops";
+  "AI-powered CRM for detailing and automotive appearance businesses";
 
 export const SITE_HEADLINE =
-  "Gradia does the work. You approve what matters.";
+  "More time on the car. Less time chasing the booking.";
 
 export const SITE_DESCRIPTION =
-  "Jobber and Urable are systems of record you operate. Gradia qualifies leads, drafts quotes, books appointments, and moves the pipeline — you read what happened and approve what matters. Built for established shops with staff, already spending on ads.";
+  "Meet Gradia: customer records, quotes and scheduling with an AI Agent for detailing businesses. Request access to our controlled pilot.";
+
+export const SITE_SOCIAL_SUBLINE =
+  "Customers. Quotes. Scheduling. One Gradia Agent.";
+
+export const SITE_DOCUMENT_TITLE = "Gradia | AI CRM for Detailing Businesses";
+
+export const PILOT_STATUS =
+  "We're preparing a controlled pilot. Features and channels will be enabled as they pass verification.";

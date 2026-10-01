@@ -2,28 +2,26 @@ import type { ReactNode } from "react";
 import { Check } from "lucide-react";
 import { Eyebrow, Section } from "../primitives";
 import { SAMPLE } from "../sample";
-import { GraphiteFrame, LightScreen, PanelRow } from "./shared";
+import { GraphiteFrame, LightScreen } from "./shared";
 
-/* Three flagships (CURSOR_BRIEF 2026-09-03 / D-067):
-   1. Every lead lands and gets worked
-   2. Chief of Staff — see what the agent did, ask it for work
-   3. It becomes a booked appointment
-   Honest Live / Coming labels throughout (D-025). No campaigns, jobs/work
-   orders, payments, SMS delivery, voice, or Meta claims. */
-
-type State = "Live" | "Coming";
+type State = "Preview" | "Planned" | "Later";
 
 function StateChip({ state }: { state: State }) {
-  const live = state === "Live";
+  const styles: Record<State, string> = {
+    Preview: "bg-[var(--sv-wash)] text-[var(--sv-ink-2)]",
+    Planned: "bg-[var(--sv-accent-soft)] text-[var(--sv-accent)]",
+    Later: "bg-[var(--sv-wash)] text-[var(--sv-ink-3)]",
+  };
+  const labels: Record<State, string> = {
+    Preview: "Product preview",
+    Planned: "Planned for pilot",
+    Later: "Not in initial MVP",
+  };
   return (
     <span
-      className={`inline-flex rounded-[6px] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] ${
-        live
-          ? "bg-[var(--sv-accent-soft)] text-[var(--sv-accent)]"
-          : "bg-[var(--sv-wash)] text-[var(--sv-ink-3)]"
-      }`}
+      className={`inline-flex rounded-[6px] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] ${styles[state]}`}
     >
-      {state}
+      {labels[state]}
     </span>
   );
 }
@@ -38,26 +36,24 @@ type Flagship = {
 
 const flagships: Flagship[] = [
   {
-    eyebrow: "Flagship 1",
-    title: "Every lead lands and gets worked.",
+    eyebrow: "CRM",
+    title: "Customers, vehicles, pipeline, quotes and calendar.",
     lines: [
-      "Inquiries become CRM records — customer, vehicle, pipeline stage — so nothing sits in a DM or sticky note.",
-      "The Gradia Agent drafts the next step. You approve before anything goes out.",
+      "These screens are the core product. They are shown as a product preview with sample business data — not as proof that every shop workflow is already accepted.",
+      "The CRM is designed to remain useful with the Agent turned off.",
     ],
     states: [
-      { label: "CRM · pipeline · quotes", state: "Live" },
-      { label: "Email connection (Gmail)", state: "Live" },
-      { label: "Website form intake", state: "Coming" },
-      { label: "SMS · voice · Meta lead ads", state: "Coming" },
+      { label: "Customers, vehicles, pipeline, quotes, calendar", state: "Preview" },
+      { label: "Chief of Staff summary", state: "Preview" },
     ],
     screen: (
-      <LightScreen label="Pipeline — sample data">
+      <LightScreen label="Pipeline">
         <div className="grid grid-cols-3 gap-2.5 p-4 sm:p-5">
           {(
             [
-              ["New", "Ceramic coating inquiry", "Reply drafted · your review"],
-              ["Quoted", "Paint correction · $620", "Quiet 4 days · follow-up staged"],
-              ["Booked", SAMPLE.customer, `${SAMPLE.service} · ${SAMPLE.slot}`],
+              ["New", "Ceramic coating inquiry", "Needs details"],
+              ["Quoted", `${SAMPLE.service}`, "Waiting on review"],
+              ["Booked", SAMPLE.customer, SAMPLE.slot],
             ] as const
           ).map(([col, card, meta]) => (
             <div key={col}>
@@ -71,105 +67,84 @@ const flagships: Flagship[] = [
             </div>
           ))}
         </div>
-        <div className="border-t border-[var(--sv-line)] px-4 py-3 sm:px-5">
-          <p className="text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
-            Live today: lead → pipeline → draft for approval. Instant SMS reply and Meta intake
-            are Coming — not claimed live.
-          </p>
-        </div>
       </LightScreen>
     ),
   },
   {
-    eyebrow: "Flagship 2",
-    title: "Chief of Staff — see what the agent did. Ask it for work.",
+    eyebrow: "Gradia Agent",
+    title: "One Agent from inquiry through booking.",
     lines: [
-      "One place to see what needs your yes, what the agent already prepared, and what happened overnight.",
-      "Ask in plain English over your shop's own data. Writes go through the same approval path — no second door.",
+      "The intended loop: capture the inquiry, get the details, prepare the quote, arrange the booking, keep the record current, then prepare an individual confirmation, reminder or check-in.",
+      "This is the pilot's intended workflow, not an already running service for every shop.",
     ],
     states: [
-      { label: "Approvals · audit trail", state: "Live" },
-      { label: "Ask Gradia over CRM data", state: "Live" },
-      { label: "Chief of Staff screen (replaces Home)", state: "Coming" },
+      { label: "SMS, website forms, Meta Lead Ads", state: "Planned" },
+      { label: "Email inbox and in-thread reply", state: "Later" },
+      { label: "Inbound receptionist", state: "Later" },
     ],
     screen: (
-      <GraphiteFrame label="Chief of Staff — sample data">
+      <GraphiteFrame label="Planned lead workflow">
         <div className="space-y-2.5">
-          <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] px-4 py-3.5 sm:px-5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
-              Needs you
+          {[
+            "Capture the inquiry into one customer record",
+            "Qualify service, vehicle and timing",
+            "Prepare a menu-based quote for review",
+            "Present a proposed appointment for approval",
+            "Update pipeline and prepare individual follow-up",
+          ].map((line) => (
+            <p
+              key={line}
+              className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] px-4 py-3 text-[length:var(--sv-text-sm)] text-white"
+            >
+              {line}
             </p>
-            <p className="mt-1 font-medium text-white">
-              One draft waiting — quote reply for {SAMPLE.firstName}
-            </p>
-          </div>
-          <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] p-4 sm:p-5">
-            <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
-              <Check size={13} strokeWidth={2.5} aria-hidden />
-              Approved by you
-            </p>
-            <p className="mt-2 text-[length:var(--sv-text-sm)] text-white">
-              You tapped Send it on {SAMPLE.firstName}&apos;s quote draft
-            </p>
-            <p className="mt-1 text-[length:var(--sv-text-xs)] text-white/50">
-              Logged · undoable · nothing left without you
-            </p>
-          </div>
-          <div className="ml-auto max-w-[90%] rounded-[var(--sv-radius-sm)] bg-white/10 px-4 py-3">
-            <p className="text-[length:var(--sv-text-xs)] text-white/40">You ask</p>
-            <p className="mt-0.5 text-[length:var(--sv-text-sm)] text-white">
-              Show ceramic leads this month that haven&apos;t booked.
-            </p>
-          </div>
-          <p className="px-1 text-[length:var(--sv-text-xs)] text-white/45">
-            Approvals and Ask Gradia are Live. The consolidated Chief of Staff screen is Coming.
-          </p>
+          ))}
         </div>
       </GraphiteFrame>
     ),
   },
   {
-    eyebrow: "Flagship 3",
-    title: "It becomes a booked appointment.",
+    eyebrow: "Chief of Staff",
+    title: "See what needs you. See what happened.",
     lines: [
-      "Accepted quotes land on the calendar. Pipeline moves to Booked. The owner sees the outcome — not another form to fill.",
-      "Calendar bookings always ask first. Payments and invoices are out of scope — Gradia is not a payment processor.",
+      "Review proposed actions, upcoming appointments and recent activity. Held and failed states stay visible — proposed quote value is not treated as revenue.",
+      "Ask Gradia to find a customer, prepare a quote or draft a reply. Writes go through approval.",
     ],
     states: [
-      { label: "Quotes · public accept page", state: "Live" },
-      { label: "Calendar · working hours", state: "Live" },
-      { label: "Book from conversation (end-to-end)", state: "Coming" },
+      { label: "Needs-you queue and activity", state: "Preview" },
+      { label: "Per-action autonomy controls", state: "Planned" },
     ],
     screen: (
-      <LightScreen label="Quote → book — sample data">
-        <PanelRow
-          title={`${SAMPLE.service} — ${SAMPLE.price}`}
-          meta={`${SAMPLE.customer} · ${SAMPLE.vehicle} · Good through Friday`}
-        />
-        <PanelRow title="Customer taps Book it" meta="You're in — quote accepted." />
-        <PanelRow
-          title={`On the calendar — ${SAMPLE.slot}`}
-          meta="Pipeline → Booked · sample data"
-          last
-        />
-        <div className="border-t border-[var(--sv-line)] px-4 py-3 sm:px-5">
-          <p className="text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
-            Live today: quotes and calendar. Wiring book-from-conversation end-to-end is Coming.
-            Invoices and payments are out of scope — not Coming.
+      <GraphiteFrame label="Chief of Staff">
+        <div className="space-y-2.5">
+          <div className="rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] px-4 py-3.5 sm:px-5">
+            <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
+              <Check size={13} strokeWidth={2.5} aria-hidden />
+              Needs you
+            </p>
+            <p className="mt-1 font-medium text-white">
+              Quote draft for {SAMPLE.firstName} — {SAMPLE.service}
+            </p>
+            <p className="mt-1 text-[length:var(--sv-text-xs)] text-white/50">Proposed · not sent</p>
+          </div>
+          <p className="px-1 text-[length:var(--sv-text-xs)] text-white/45">
+            Held: website form waiting on shop verification. Failed: one exception flagged for
+            review.
           </p>
         </div>
-      </LightScreen>
+      </GraphiteFrame>
     ),
   },
 ];
 
 export function ProductFlagships() {
   return (
-    <Section id="flagships" band>
+    <Section id="workflow" band>
       <Eyebrow>Product</Eyebrow>
-      <h2 className="max-w-[22ch]">Three things Gradia is for.</h2>
+      <h2 className="max-w-[22ch]">What Gradia is for — and what is still being verified.</h2>
       <p className="mt-5 max-w-[42rem] text-[length:var(--sv-text-lg)] leading-relaxed text-[var(--sv-ink-2)]">
-        Everything else is cut. Honest Live / Coming labels — we only claim what is verified.
+        Screens below are product previews with sample business data. Pilot channels are enabled
+        only after setup and verification.
       </p>
 
       <div className="mt-14 space-y-16 sm:space-y-20">

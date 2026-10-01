@@ -10,7 +10,9 @@ export function LightScreen({ label, children }: { label: string; children: Reac
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
           {label}
         </p>
-        <p className="shrink-0 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">Sample data</p>
+        <p className="shrink-0 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
+          Product preview · sample business data
+        </p>
       </div>
       {children}
     </div>
@@ -22,7 +24,9 @@ export function GraphiteFrame({ label, children }: { label: string; children: Re
     <div className="rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
       <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">{label}</p>
-        <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
+        <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">
+          Product preview · sample business data
+        </p>
       </div>
       {children}
     </div>

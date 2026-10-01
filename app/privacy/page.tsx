@@ -4,36 +4,37 @@ import { LegalShell } from "@/components/legal/LegalShell";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Gradia LLC collects, uses, and protects your information across the Gradia website, waitlist, and AI office for auto detailers.",
+    "How Gradia.ai LLC collects, uses, and protects your information across the Gradia website, pilot requests, and platform.",
   alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
   return (
-    <LegalShell title="Privacy Policy" updated="June 9, 2026">
+    <LegalShell title="Privacy Policy" updated="September 5, 2026">
       <p>
-        This Privacy Policy explains how <strong>Gradia LLC</strong> (&ldquo;Gradia,&rdquo;
+        This Privacy Policy explains how <strong>Gradia.ai LLC</strong> (&ldquo;Gradia,&rdquo;
         &ldquo;we,&rdquo; &ldquo;us&rdquo;) collects, uses, and protects information when you
-        visit <a href="https://trygradia.com">trygradia.com</a>, join our waitlist, or use the
-        Gradia platform — an AI office for auto detailers. By using our website or services, you
-        agree to this policy.
+        visit <a href="https://trygradia.com">trygradia.com</a>, request pilot access, join our
+        waitlist, or use the Gradia platform. By using our website or services, you agree to this
+        policy.
       </p>
 
       <h2>Information we collect</h2>
       <h3>Information you give us</h3>
       <ul>
         <li>
-          <strong>Waitlist details:</strong> your email address (required), and optionally your
-          phone number, the kind of business you run, your shop name, and the tools you use today.
+          <strong>Pilot request and waitlist details:</strong> your name, business email, business
+          name, service type, whether you work solo or with a team, current tools, a short note
+          about what you would like Gradia to handle, and optionally your mobile phone number and
+          whether you consented to receive text messages.
         </li>
         <li>
           <strong>Messages you send us:</strong> if you email or contact us, we keep that
           correspondence.
         </li>
         <li>
-          <strong>Customer account details (at launch):</strong> if you become a paying customer,
-          we collect account and business information and billing details needed to provide the
-          service.
+          <strong>Customer account details:</strong> if you become a paying customer, we collect
+          account and business information and billing details needed to provide the service.
         </li>
       </ul>
 
@@ -53,31 +54,65 @@ export default function PrivacyPage() {
       <h3>Business data you connect (customers)</h3>
       <p>
         When you connect your CRM, calendar, email, phone, and SMS, Gradia processes your business
-        data — such as customers, vehicles, quotes, jobs, messages, and call details — to operate
-        the voice and chat agents on your behalf. <strong>This data is yours.</strong> You control
-        it, you can export it, and Gradia acts only on the actions you approve.
+        data — such as customers, vehicles, quotes, messages, and call details — to operate the
+        service on your behalf. <strong>This data is yours.</strong> You control it, you can export
+        it, and Gradia acts only on the actions you approve.
       </p>
 
       <h2>How we use information</h2>
       <ul>
-        <li>To operate the waitlist and let you know about early access and our launch.</li>
+        <li>
+          To operate the waitlist and pilot-request form, and to follow up about fit and
+          availability.
+        </li>
         <li>To provide, maintain, secure, and improve Gradia.</li>
         <li>
-          To communicate with you. For waitlist members, we will only email you about early access
-          and launch — not unrelated marketing.
+          To communicate with you. For people who request access, we will email you about fit,
+          availability, and onboarding — not unrelated marketing. Requesting access is not consent
+          for automated marketing texts.
         </li>
         <li>To prevent fraud and abuse and to comply with our legal obligations.</li>
       </ul>
       <p>
-        <strong>We do not sell your personal information</strong>, and we do not use your customers&rsquo;
-        data to train public AI models or for third-party advertising.
+        <strong>We do not sell your personal information</strong>, and we do not use your
+        customers&rsquo; data to train public AI models or for third-party advertising.
+      </p>
+
+      <h2>SMS and mobile information</h2>
+      <p>
+        If you provide your mobile number and consent to receive text messages from{" "}
+        <strong>Gradia.ai LLC</strong>, we may send conversational responses, service-related
+        communications, appointment confirmations, appointment reminders, appointment updates, and
+        other messages related to your interaction with Gradia.
+      </p>
+      <p>
+        <strong>Message frequency varies</strong> depending on your interactions with Gradia.{" "}
+        <strong>Message and data rates may apply.</strong> Consent to receive SMS messages is not a
+        condition of purchasing any goods or services.
+      </p>
+      <p>
+        <strong>
+          Mobile information, including phone numbers and SMS consent records, will not be shared
+          with third parties or affiliates for their marketing or promotional purposes.
+        </strong>{" "}
+        We may share this information with service providers that help us deliver communications or
+        operate our services, but only as necessary to provide those services and subject to
+        appropriate safeguards.
+      </p>
+      <p>
+        You may opt out of SMS messages at any time by replying <strong>STOP</strong>. For
+        assistance, reply <strong>HELP</strong> or email{" "}
+        <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>. We keep a record of your SMS
+        consent — including the date and the disclosure you agreed to — so we can honor and
+        evidence your choice.
       </p>
 
       <h2>How the agents use your data</h2>
       <p>
         Gradia speaks and acts as your shop, and <strong>every outbound message, booking, or action
-        requires your approval</strong> — there is no auto-send. We process your connected data only
-        to draft and stage that work for you, and to keep your single source of truth in sync.
+        requires your approval</strong> unless you later enable a specific action under your shop
+        rules. We process your connected data only to draft and stage that work for you, and to
+        keep your records in sync.
       </p>
 
       <h2>How we share information</h2>
@@ -102,9 +137,10 @@ export default function PrivacyPage() {
 
       <h2>Data retention</h2>
       <p>
-        We keep waitlist information until our launch or until you ask us to remove it, whichever
-        comes first. Customer data is retained while your account is active and according to your
-        settings; you can export or delete it. We may retain limited records as required by law.
+        We keep waitlist and pilot-request information until you ask us to remove it, or until it
+        is no longer needed to evaluate fit and availability. Customer data is retained while your
+        account is active and according to your settings; you can export or delete it. We may
+        retain limited records as required by law.
       </p>
 
       <h2>Your choices and rights</h2>
@@ -112,8 +148,7 @@ export default function PrivacyPage() {
         <li>You can unsubscribe from our emails at any time.</li>
         <li>
           You can request access to, correction of, or deletion of your personal information by
-          emailing{" "}
-          <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>.
+          emailing <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>.
         </li>
         <li>
           Depending on where you live (for example, the EU/UK or California), you may have
@@ -150,7 +185,7 @@ export default function PrivacyPage() {
 
       <h2>Contact us</h2>
       <p>
-        Gradia LLC — questions about privacy? Email{" "}
+        Gradia.ai LLC — questions about privacy? Email{" "}
         <a href="mailto:trygradia@gmail.com">trygradia@gmail.com</a>.
       </p>
     </LegalShell>

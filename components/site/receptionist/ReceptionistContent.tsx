@@ -1,5 +1,5 @@
 import { Check, Info, PhoneMissed } from "lucide-react";
-import { TRIAL_CTA_HREF } from "@/lib/site-config";
+import { PILOT_CTA_HREF, PILOT_CTA_LABEL } from "@/lib/site-config";
 import { Button, Card, Eyebrow, Lead, Section } from "../primitives";
 import { GraphiteFrame, LightScreen } from "../product/shared";
 import { FinalCta } from "../sections/FinalCta";
@@ -65,8 +65,8 @@ export function ReceptionistContent() {
           the opportunity so your business can respond properly.
         </Lead>
         <div className="mt-8">
-          <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
-            Start your trial
+          <Button href={PILOT_CTA_HREF} variant="primary" size="lg">
+            {PILOT_CTA_LABEL}
           </Button>
         </div>
       </Section>

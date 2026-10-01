@@ -16,11 +16,11 @@ export default function StyleGuide() {
         <Eyebrow chip>AI-native CRM for detailing, ceramic, PPF &amp; tint</Eyebrow>
         <h1 className="max-w-[16ch]">Gradia does the work. You approve what matters.</h1>
         <Lead>
-          Jobber and Urable are systems of record you operate. Gradia qualifies leads, drafts
-          quotes, books appointments, and moves the pipeline — you approve what matters.
+          Gradia brings customers, quotes and calendar together. One Agent is being built to help
+          move bookings forward — with you in control.
         </Lead>
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Button href="#trial" size="lg">Start your trial</Button>
+          <Button href="/request-access" size="lg">Request pilot access</Button>
           <Button href="#how" variant="link" size="lg">See how it works</Button>
         </div>
         <p className="mt-5 text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">
@@ -108,7 +108,7 @@ export default function StyleGuide() {
           </p>
           <h2 className="max-w-[20ch] text-white">Dark panels exist for product UI frames and the final CTA — nothing else.</h2>
           <div className="mt-8">
-            <Button href="#" size="lg">Start your trial</Button>
+            <Button href="/request-access" size="lg">Request pilot access</Button>
           </div>
         </div>
       </section>

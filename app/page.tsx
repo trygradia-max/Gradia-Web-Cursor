@@ -16,24 +16,11 @@ import { Receptionist } from "@/components/site/sections/Receptionist";
 import { Industries } from "@/components/site/sections/Industries";
 import { Faq } from "@/components/site/sections/Faq";
 import { FinalCta } from "@/components/site/sections/FinalCta";
-import {
-  SITE_CATEGORY,
-  SITE_DESCRIPTION,
-  SITE_HEADLINE,
-} from "@/lib/site-config";
-
-/* v2 homepage (Pass 2, branch site-v2 only — merge to main is the founder's
-   cutover act). Sections land one commit at a time per NEXT_TASK.md; the plan
-   of record is gradia-v2/marketing-site/site-v2-plan.md §3. */
-
-// Publish gate (NEXT_TASK scope 7 / claim law §5): the Receptionist section
-// stays hidden until the live telephony acceptance run passes (capability #20
-// flips from internal). When flipping SHOW_RECEPTIONIST in flags.ts, recompute
-// band alternation for sections 7+ (REVIEW_NOTES).
+import { SITE_DESCRIPTION, SITE_DOCUMENT_TITLE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: SITE_CATEGORY,
-  description: `${SITE_HEADLINE} ${SITE_DESCRIPTION}`,
+  title: { absolute: SITE_DOCUMENT_TITLE },
+  description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
 };
 
@@ -46,11 +33,11 @@ export default function HomePage() {
         <Hero />
         <Problem />
         <ConnectedFlow />
-        <Operations />
         <CoreSystem />
-        <TeachGradia />
         <AgentControl />
         <AsksFirst />
+        <Operations />
+        <TeachGradia />
         {SHOW_RECEPTIONIST && <Receptionist />}
         <Industries />
         <Faq />

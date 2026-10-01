@@ -1,20 +1,17 @@
 import { Eyebrow, Lead, Section } from "../primitives";
 
-/* Approvals — suggest-first default. Calendar always asks. No payment/charge
-   claims (out of scope per D-067). */
-
 const levels = [
   {
-    title: "Suggest-first (default)",
-    body: "Gradia prepares drafts and next steps. You review, edit or discard — nothing sends until you approve.",
+    title: "Approval required (default)",
+    body: "Customer-facing actions start with approval required. Gradia prepares drafts and next steps. You review, edit or hold — nothing sends until you approve.",
   },
   {
-    title: "Earned autonomy (your choice)",
-    body: "When Gradia has earned your trust on a specific workflow, you can let it run with less friction — per workflow, reversible, fully logged with undo.",
+    title: "Planned per-action controls",
+    body: "The finished controls will let the owner enable specific actions within defined rules. Connecting a channel does not automatically allow every action on it. This is planned, not claimed as live across every path today.",
   },
   {
-    title: "Hard floor — never changes",
-    body: "Calendar bookings always ask. No setting, mode or tier bypasses this. Payments are out of scope — Gradia is not a payment processor.",
+    title: "Not in the initial MVP",
+    body: "Payments, deposits, invoicing, point of sale and full work orders are out of scope. Bulk win-back and review-request campaigns are also outside this release.",
   },
 ];
 
@@ -22,10 +19,10 @@ export function ProductApprovals() {
   return (
     <Section band>
       <Eyebrow>Control</Eyebrow>
-      <h2 className="max-w-[22ch]">You decide how much Gradia does.</h2>
+      <h2 className="max-w-[22ch]">You decide what goes out.</h2>
       <Lead>
-        Everything starts suggest-first. Give Gradia more responsibility when it&apos;s earned
-        it — and pull it back any time.
+        Connecting SMS, a website form or Meta Lead Ads does not turn on every action. Each
+        channel is enabled after verification.
       </Lead>
 
       <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -33,7 +30,7 @@ export function ProductApprovals() {
           <div
             key={level.title}
             className={`rounded-[var(--sv-radius)] border p-6 sm:p-8 ${
-              i === 2
+              i === 0
                 ? "border-[var(--sv-accent)] bg-[var(--sv-accent-soft)]"
                 : "border-[var(--sv-line)] bg-[var(--sv-surface)]"
             }`}
@@ -43,11 +40,6 @@ export function ProductApprovals() {
           </div>
         ))}
       </div>
-
-      <p className="mt-8 max-w-[44rem] text-[length:var(--sv-text-sm)] text-[var(--sv-ink-2)]">
-        Every run, plan and action is recorded in a full audit trail. Gradia writes as your
-        shop — &ldquo;we,&rdquo; your name, your voice — never as a third-party bot.
-      </p>
     </Section>
   );
 }

@@ -214,7 +214,7 @@ export function AnimatedShaderHero() {
           className="inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] text-white/70 backdrop-blur-sm sm:text-xs"
         >
           <span className="wl-dot-pulse h-1.5 w-1.5 rounded-full bg-[var(--brand-primary)]" />
-          Launching July 10, 2026 · Founders get early access
+          Controlled pilot · request access
         </span>
 
         <h1 className="mt-5 max-w-4xl text-[2rem] font-bold leading-[1.14] tracking-tight text-white sm:mt-6 sm:text-6xl sm:leading-[1.05] lg:text-7xl">
@@ -238,11 +238,9 @@ export function AnimatedShaderHero() {
           style={rise("0.5s")}
           className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/65 sm:mt-6 sm:max-w-2xl sm:text-lg"
         >
-          Connect your CRM, calls, texts, email, and calendar in one place.
-          Then just tell Gradia what happened (&ldquo;quoted Marcus $600 on the
-          F-150&rdquo;) and Gradia Whisper stages the quote, the booking, and the
-          follow-up — every step waiting for your tap in one inbox. Flip to
-          autopilot when it&apos;s earned it. From $20/month.
+          Gradia brings customers, vehicles, quotes and calendar together. One Agent is being
+          built to help move a lead toward a booking — with you in control. Request access to
+          the controlled pilot.
         </p>
 
         <div

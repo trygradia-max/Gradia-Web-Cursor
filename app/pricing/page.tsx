@@ -6,14 +6,11 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { SHOW_PRICING } from "@/components/site/flags";
 import { PricingContent } from "@/components/site/pricing/PricingContent";
 
-/* Pass 5 Cycle 3 — /pricing (BUILT, double-gated: SHOW_PRICING + middleware).
-   Direction Core $99 / Pro $149 / Operator $249 — do not publish until live
-   billing is aligned (CURSOR_BRIEF 2026-09-03). */
-
 export const metadata: Metadata = {
-  title: "Pricing — Gradia for detailing shops",
+  title: "Pricing — Gradia",
   description:
-    "Core, Pro and Operator — full CRM plus Gradia Agent, with predictable credits and spending caps. 14-day guided trial starts after your setup.",
+    "Pilot pricing and terms are confirmed before onboarding. No free trial. Request access to the controlled pilot.",
+  robots: { index: false, follow: false },
 };
 
 export default function PricingPage() {

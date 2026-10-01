@@ -1,51 +1,33 @@
 import { Eyebrow, Lead, Section } from "../primitives";
 
-/* Section 5b — "Teach Gradia your shop." (P4-E, founder addition
-   2026-08-30; restores the original plan's knowledge section). Placed
-   after Core operating system — the brain explains the panels just shown.
-   Real product framing: Settings → shop profile / service menu (pilot).
-   Menu math stays SAMPLE-consistent: $265 + $220 = Sarah's $485 package.
-   Persona beat = guarantee #2 verbatim territory. No voice mentions while
-   §7 is hidden. Wash band; alternation recomputed downstream (Agent →
-   light, AsksFirst → band, Industries → light, FAQ → band). */
-
 const menu: { row: string; value: string }[] = [
   { row: "Full Detail", value: "from $265" },
   { row: "Ceramic Maintenance", value: "from $220" },
   { row: "Hours", value: "Mon–Sat · 8–6" },
   { row: "Policy", value: "Ceramic coating needs paint correction first" },
-  { row: "How we talk to customers", value: "We/us · your shop's name signed" },
 ];
 
 const usedIn = ["Quotes", "Replies", "Pipeline", "Scheduling"];
 
 export function TeachGradia() {
   return (
-    <Section band>
+    <Section>
       <Eyebrow>Your shop&apos;s knowledge</Eyebrow>
-      <h2 className="max-w-[16ch]">Teach Gradia your shop. Once.</h2>
+      <h2 className="max-w-[16ch]">Teach Gradia your shop.</h2>
       <Lead>
-        Services, packages, prices, policies, hours, and how you talk — in once, used
-        everywhere.
+        Services, packages, prices, policies and hours — entered once, then used as the source for
+        quotes and drafts. Gradia uses customer and shop context; it does not claim to learn
+        automatically from everything.
       </Lead>
 
       <div className="mt-12 grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
         <div>
           <p className="max-w-[36rem]">
-            Every quote and draft reply draws on the same menu and the same rules — so what
-            goes out is priced right and sounds right.
+            Every quote and draft reply can draw on the same menu and the same rules — so what is
+            prepared is priced from your list and ready for your review.
           </p>
           <p className="mt-5 max-w-[36rem] font-medium text-[var(--sv-ink)]">
             Gradia writes as your shop — we, us, your name signed. Never a third-party bot.
-          </p>
-          <p className="mt-5 max-w-[34rem] text-[length:var(--sv-text-sm)]">
-            <span className="italic text-[var(--sv-ink-3)]">
-              &ldquo;Does ceramic need paint correction first?&rdquo;
-            </span>{" "}
-            <span className="whitespace-nowrap font-semibold text-[var(--sv-ink)]">Ask Gradia.</span>{" "}
-            <span className="text-[var(--sv-ink-3)]">
-              Answered from your menu, not the internet.
-            </span>
           </p>
         </div>
 
@@ -54,7 +36,9 @@ export function TeachGradia() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
               Settings — Your shop
             </p>
-            <p className="shrink-0 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">Sample data</p>
+            <p className="shrink-0 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
+              Product preview · sample business data
+            </p>
           </div>
           {menu.map((m, i) => (
             <div

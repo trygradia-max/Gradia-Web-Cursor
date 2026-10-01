@@ -1,16 +1,12 @@
 import { HOME_FAQS } from "../faqs/home";
 import { Eyebrow, Lead, Section } from "../primitives";
 
-/* Section 9 — FAQ, honest answers (site-v2-plan §3.9). Q&A lives in faqs/home.ts
-   — shared with FAQPage JSON-LD (Pass 6). No receptionist question while §7 is
-   hidden; no pricing/trial-length questions until the pricing page ships. */
-
 export function Faq() {
   return (
-    <Section band>
+    <Section band id="faq">
       <Eyebrow>FAQ</Eyebrow>
       <h2 className="max-w-[18ch]">Honest answers.</h2>
-      <Lead>Straight answers to what owners actually ask.</Lead>
+      <Lead>Straight answers about the product, the pilot and what is not included yet.</Lead>
 
       <div className="mt-10 max-w-[46rem] border-t border-[var(--sv-line-strong)]">
         {HOME_FAQS.map((f) => (

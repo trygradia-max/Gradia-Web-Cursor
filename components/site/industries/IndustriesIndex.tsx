@@ -1,24 +1,23 @@
 import Link from "next/link";
-import { TRIAL_CTA_HREF } from "@/lib/site-config";
+import { PILOT_CTA_HREF, PILOT_CTA_LABEL } from "@/lib/site-config";
 import { Button, Card, Eyebrow, Lead, Section } from "../primitives";
 import { FinalCta } from "../sections/FinalCta";
 import { PUBLIC_INDUSTRIES } from "./data";
-
-/* /industries index — D-067. Fleet gated out of PUBLIC_INDUSTRIES. */
 
 export function IndustriesIndex() {
   return (
     <>
       <Section>
         <Eyebrow>Industries</Eyebrow>
-        <h1 className="max-w-[18ch]">Built for shops with staff.</h1>
+        <h1 className="max-w-[18ch]">Built around the way appearance businesses work.</h1>
         <Lead>
-          The same AI-native CRM, tuned to how your trade actually runs — detailing, ceramic,
-          PPF, tint and mobile. For established shops already spending on ads.
+          Detailing, ceramic coating, PPF, tint and mobile — from a solo business to a shop with a
+          team. The same CRM and the same intended lead workflow, at one location or within one
+          mobile service area.
         </Lead>
         <div className="mt-8">
-          <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
-            Start your trial
+          <Button href={PILOT_CTA_HREF} variant="primary" size="lg">
+            {PILOT_CTA_LABEL}
           </Button>
         </div>
       </Section>

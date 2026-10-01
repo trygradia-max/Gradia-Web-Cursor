@@ -1,30 +1,28 @@
-import { TRIAL_CTA_HREF } from "@/lib/site-config";
+import { PILOT_CTA_HREF, PILOT_CTA_LABEL, PILOT_STATUS } from "@/lib/site-config";
 import { Button, Eyebrow, Lead, Section } from "../primitives";
-
-/* Product hero — D-067 AI-native CRM positioning. */
 
 export function ProductHero() {
   return (
     <Section>
-      <Eyebrow chip>AI-native CRM for detailing, ceramic, PPF &amp; tint</Eyebrow>
+      <Eyebrow chip>For detailing &amp; automotive appearance businesses</Eyebrow>
       <h1 className="max-w-[20ch]">
-        Gradia does the work. You approve what matters.
+        The customer, the conversation and the next step—together.
       </h1>
       <Lead>
-        Jobber and Urable are systems of record you operate. Gradia qualifies leads, drafts
-        quotes, books appointments, and moves the pipeline — you read what happened and approve
-        what matters. Built for established shops with staff, already spending on ads.
+        Gradia brings customer records, vehicles, conversations, quotes and calendar into one CRM.
+        One Gradia Agent is being built to help move a lead from inquiry toward a booking—with you
+        in control.
       </Lead>
       <div className="mt-8 flex flex-wrap items-center gap-5">
-        <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
-          Start your trial
+        <Button href={PILOT_CTA_HREF} variant="primary" size="lg">
+          {PILOT_CTA_LABEL}
         </Button>
-        <Button href="#flagships" variant="link" size="md">
-          See the three flagships
+        <Button href="#workflow" variant="link" size="md">
+          See the planned workflow
         </Button>
       </div>
-      <p className="mt-6 text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">
-        Guided setup · You approve what goes out
+      <p className="mt-6 max-w-[40rem] text-[length:var(--sv-text-sm)] text-[var(--sv-ink-3)]">
+        {PILOT_STATUS}
       </p>
     </Section>
   );

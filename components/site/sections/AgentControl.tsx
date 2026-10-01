@@ -1,134 +1,73 @@
 import { Check, Mic } from "lucide-react";
 import { Eyebrow, Lead, Section } from "../primitives";
-import { MFill, MGroup, MItem, MSlideIn } from "../motion";
 import { SAMPLE } from "../sample";
 
-/* Section 6 — Gradia Agent + control, ONE section (site-v2-plan §3.6,
-   NEXT_TASK scope 6; Whisper beat added in Pass 3 per P3-B). Two demos,
-   one control story: typed (Agent: ask → list → staged → approve → logged)
-   and spoken (Whisper: voice note → transcript → staged, all waiting for
-   review — §4 'say it once → filed, quoted, followed up'). Graphite frames
-   (the product's chat surface). Approve carries the accent. The agent
-   result list is nameless on purpose: Sarah is already booked in this
-   page's timeline, so she cannot appear in a "hasn't booked" list; the
-   Whisper note happens later the same day ("just finished the X5").
-   Structural placeholder; Pass 3-E swaps real UI, Pass 4 may sequence. */
-
-/* P3-D: the list is meant to hurt — sample-data dollar values on stalled
-   quotes are work items, not performance stats. $740 + $1,800 sit inside
-   the Home frame's "5 open quotes · $3,850". */
-const foundLeads: { title: string; meta: string }[] = [
-  { title: "Ceramic coating inquiry", meta: "$740 quote · quiet for 6 days" },
-  { title: "PPF + ceramic ask", meta: "$1,800 quote · quiet for 9 days" },
-  { title: "Ceramic maintenance question", meta: "Never quoted · two weeks old" },
+const plannedPrompts = [
+  "Show me ceramic coating inquiries waiting for a quote.",
+  "Prepare a quote for this customer's SUV using our service menu.",
+  "Draft a reply asking which day works for them.",
 ];
-
-function OwnerBubble({ children }: { children: string }) {
-  return (
-    <div className="ml-auto max-w-[85%] rounded-[var(--sv-radius-sm)] bg-white/10 px-4 py-3 sm:max-w-[70%]">
-      <p className="text-[length:var(--sv-text-xs)] text-white/40">You</p>
-      <p className="mt-0.5 text-[length:var(--sv-text-sm)] text-white">{children}</p>
-    </div>
-  );
-}
 
 export function AgentControl() {
   return (
     <Section>
       <Eyebrow>Gradia Agent</Eyebrow>
-      <h2 className="max-w-[24ch]">Tell Gradia what needs to get done. Approve it before it goes out.</h2>
-      {/* P4-C founder option (built in to evaluate on the next read; revert
-          to "Ask in plain English. Gradia finds it, drafts it and stages
-          it — nothing sends until you approve." if it doesn't land). */}
-      <Lead>Ask Gradia anything. It asks you before anything sends.</Lead>
+      <h2 className="max-w-[24ch]">Gradia prepares the work. You decide what goes out.</h2>
+      <Lead>
+        Ask Gradia to find a customer, prepare a quote or draft the next reply. Customer-facing
+        actions start with approval required. The finished controls will let owners enable specific
+        actions within their shop&apos;s rules.
+      </Lead>
+
+      <ul className="mt-8 space-y-2">
+        {plannedPrompts.map((prompt) => (
+          <li
+            key={prompt}
+            className="max-w-[42rem] rounded-[var(--sv-radius-sm)] border border-[var(--sv-line)] bg-[var(--sv-surface)] px-4 py-3 text-[length:var(--sv-text-sm)] text-[var(--sv-ink)]"
+          >
+            <span className="mr-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-ink-3)]">
+              Planned example
+            </span>
+            {prompt}
+          </li>
+        ))}
+      </ul>
 
       <div className="mt-12 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
             Gradia Agent
           </p>
-          <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
+          <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">
+            Product preview · sample business data
+          </p>
         </div>
 
         <div className="space-y-3">
-          <OwnerBubble>
-            Show me every ceramic coating lead this month that hasn&apos;t booked.
-          </OwnerBubble>
-
-          {/* Result list */}
-          <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
-            <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
-              Ceramic coating leads — not booked
+          <div className="ml-auto max-w-[85%] rounded-[var(--sv-radius-sm)] bg-white/10 px-4 py-3 sm:max-w-[70%]">
+            <p className="text-[length:var(--sv-text-xs)] text-white/40">You</p>
+            <p className="mt-0.5 text-[length:var(--sv-text-sm)] text-white">
+              Prepare a quote for this customer&apos;s SUV using our service menu.
             </p>
-            {foundLeads.map((lead) => (
-              <div key={lead.title} className="border-b border-white/10 px-4 py-3 last:border-b-0">
-                <p className="text-[length:var(--sv-text-sm)] font-medium text-white">{lead.title}</p>
-                <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{lead.meta}</p>
-              </div>
-            ))}
           </div>
-
-          <OwnerBubble>Prepare follow-ups.</OwnerBubble>
-
-          {/* Staged, waiting for approval — M4 (Pass 4), the brand moment:
-              card appears, beat, Send it fills, beat, the log slides in. */}
-          <MGroup>
-            <MItem className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
-              <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
-                Prepared — waiting for your review
-              </p>
-              {foundLeads.map((lead) => (
-                <div key={lead.title} className="border-b border-white/10 px-4 py-3">
-                  <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
-                    Follow-up for “{lead.title}”
-                  </p>
-                  <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
-                    Text + email drafted — nothing sent yet
-                  </p>
-                </div>
-              ))}
-              {/* Canonical approval CTA set (approvals-list.tsx / P3-E review) */}
-              <div className="flex flex-wrap items-center gap-2 px-4 py-3">
-                <MFill
-                  delay={0.9}
-                  className="rounded-[6px] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium"
-                >
-                  Send it
-                </MFill>
-                {["Tweak it", "Drop it"].map((a) => (
-                  <span
-                    key={a}
-                    className="rounded-[6px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
-                  >
-                    {a}
-                  </span>
-                ))}
-              </div>
-            </MItem>
-          </MGroup>
-
-          {/* Third ask — list quiet quotes (campaigns out of scope per D-067). */}
-          <OwnerBubble>Show ceramic leads this month that haven&apos;t booked.</OwnerBubble>
 
           <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
             <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
               Prepared — waiting for your review
             </p>
-            {[
-              ["Ceramic coating inquiry", "$740 quote · quiet 6 days"],
-              ["PPF + ceramic ask", "$1,800 quote · quiet 9 days"],
-              ["Maintenance question", "Never quoted · two weeks old"],
-            ].map(([title, meta]) => (
-              <div key={title} className="border-b border-white/10 px-4 py-3">
-                <p className="text-[length:var(--sv-text-sm)] font-medium text-white">{title}</p>
-                <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{meta}</p>
-              </div>
-            ))}
+            <div className="border-b border-white/10 px-4 py-3">
+              <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
+                {SAMPLE.service} — {SAMPLE.price}
+              </p>
+              <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
+                {SAMPLE.customer} · {SAMPLE.vehicle} · from your menu
+              </p>
+            </div>
             <div className="flex flex-wrap items-center gap-2 px-4 py-3">
               <span className="rounded-[6px] bg-[var(--sv-accent)] px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white">
-                Draft follow-ups
+                Approve
               </span>
-              {["Tweak it", "Drop it"].map((a) => (
+              {["Edit", "Hold"].map((a) => (
                 <span
                   key={a}
                   className="rounded-[6px] border border-white/20 px-3.5 py-1.5 text-[length:var(--sv-text-xs)] font-medium text-white/80"
@@ -138,68 +77,56 @@ export function AgentControl() {
               ))}
             </div>
           </div>
-
-          {/* Activity log — the last beat of M4 */}
-          <MSlideIn
-            delay={0.5}
-            className="flex items-center gap-2 px-1 pt-1 text-[length:var(--sv-text-xs)] text-white/50"
-          >
-            <Check size={13} strokeWidth={2.5} aria-hidden className="text-[var(--sv-accent-on-dark)]" />
-            Activity log — drafts approved by you · logged
-          </MSlideIn>
         </div>
       </div>
 
-      {/* Whisper — the second way to hand Gradia work (P3-B) */}
       <div className="mt-14">
-        <h3>Say it once. It&apos;s handled.</h3>
+        <h3>Gradia Whisper</h3>
         <p className="mt-3 max-w-[36rem]">
-          Hands full of buffer? Speak it — Gradia files it, quotes it and follows up, staged
-          for your review.
+          Whisper is the communications experience across enabled channels — not a second bot or a
+          second brain. A voice note is an input to the same Gradia Agent.
         </p>
       </div>
 
       <div className="mt-8 rounded-[calc(var(--sv-radius)+10px)] bg-[var(--sv-graphite)] p-3 sm:p-4">
         <div className="flex items-baseline justify-between gap-4 px-2 pb-3 pt-1 sm:px-3">
           <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
-            Gradia Whisper
+            Voice note · same Agent
           </p>
-          <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">Sample data</p>
+          <p className="shrink-0 text-[length:var(--sv-text-xs)] text-white/30">
+            Product preview · sample business data
+          </p>
         </div>
-
         <div className="space-y-3">
           <div className="ml-auto max-w-[85%] rounded-[var(--sv-radius-sm)] bg-white/10 px-4 py-3 sm:max-w-[70%]">
             <p className="flex items-center gap-1.5 text-[length:var(--sv-text-xs)] text-white/40">
               <Mic size={12} strokeWidth={2} aria-hidden />
-              Voice note · 0:09
+              Voice note
             </p>
             <p className="mt-1 text-[length:var(--sv-text-sm)] text-white">
-              &ldquo;Just finished the X5 — quote {SAMPLE.firstName} for a maintenance plan and
-              remind me to order pads.&rdquo;
+              &ldquo;Quote {SAMPLE.firstName} for ceramic maintenance on the X5.&rdquo;
             </p>
           </div>
-
           <div className="max-w-[92%] overflow-hidden rounded-[var(--sv-radius-sm)] border border-white/10 bg-white/[0.05] sm:max-w-[80%]">
             <p className="border-b border-white/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--sv-accent-on-dark)]">
               Staged — waiting for your review
             </p>
-            {[
-              [`Quote drafted — ceramic maintenance plan`, `${SAMPLE.customer} · ${SAMPLE.vehicle}`],
-              ["Task created — order pads", "On today's list once you confirm"],
-              ["Reminder set — nudge you if the quote goes quiet", "Nothing sends without your OK"],
-            ].map(([title, meta]) => (
-              <div key={title} className="border-b border-white/10 px-4 py-3 last:border-b-0">
-                <p className="text-[length:var(--sv-text-sm)] font-medium text-white">{title}</p>
-                <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">{meta}</p>
-              </div>
-            ))}
+            <div className="px-4 py-3">
+              <p className="text-[length:var(--sv-text-sm)] font-medium text-white">
+                Quote drafted — ceramic maintenance
+              </p>
+              <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-white/50">
+                Same Agent · nothing sends without your OK
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      <p className="mt-8 max-w-[44rem] text-[var(--sv-ink-2)]">
-        Start with approvals. Give Gradia more responsibility when it&apos;s earned it.{" "}
-        <span className="font-medium text-[var(--sv-ink)]">Calendar bookings always ask.</span>
+      <p className="mt-8 flex max-w-[44rem] items-start gap-2 text-[var(--sv-ink-2)]">
+        <Check size={16} strokeWidth={2.5} className="mt-1 shrink-0 text-[var(--sv-accent)]" aria-hidden />
+        Connecting a channel does not automatically allow every action on it. Per-action autonomy
+        is planned; it is not claimed as live across every path today.
       </p>
     </Section>
   );

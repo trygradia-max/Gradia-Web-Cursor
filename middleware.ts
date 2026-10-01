@@ -11,9 +11,9 @@ export async function middleware(request: NextRequest) {
 
   // Site takedown: whitelisted marketing routes, portal and API stay reachable.
   // Everything else 308-redirects to /. Keep isPublicMarketingRoute in sync
-  // with lib/site-routes.ts + app/sitemap.ts (Pass 6). /pricing is built but
-  // excluded until P0-013. 308 is cached by browsers — expect stale redirects
-  // until cache clears after cutover.
+  // with lib/site-routes.ts + app/sitemap.ts. /pricing and /receptionist are
+  // built but excluded until their evidence gates clear. 308 is cached by
+  // browsers — expect stale redirects until cache clears after cutover.
   const isFunctional =
     isPublicMarketingRoute(pathname) ||
     pathname.startsWith("/api") ||

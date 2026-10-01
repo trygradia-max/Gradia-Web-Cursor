@@ -14,28 +14,31 @@ function isLinkVisible(link: GatedSiteLink): boolean {
   return true;
 }
 
-/** Primary nav — hides routes that 308 until their publish gates clear. */
+/** Primary nav — Product · How it works · Who it's for · FAQ. */
 export const PRIMARY_NAV_LINKS: GatedSiteLink[] = [
   { label: "Product", href: "/product" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "Who it's for", href: "/#who-its-for" },
+  { label: "FAQ", href: "/#faq" },
   { label: "Receptionist", href: "/receptionist", gate: "receptionist" },
-  { label: "Industries", href: "/industries" },
   { label: "Pricing", href: "/pricing", gate: "pricing" },
-  { label: "Resources", href: "/resources" },
 ];
 
 export function visiblePrimaryNavLinks(): SiteLink[] {
   return PRIMARY_NAV_LINKS.filter(isLinkVisible);
 }
 
-/** Footer columns — same gating rules as nav for product links. */
+/** Footer columns — Product · Pilot access · Privacy · Terms · Security. */
 export const FOOTER_COLUMNS: { title: string; links: GatedSiteLink[] }[] = [
   {
     title: "Product",
     links: [
       { label: "Overview", href: "/product" },
+      { label: "How it works", href: "/#how-it-works" },
+      { label: "Who it's for", href: "/#who-its-for" },
+      { label: "Demo", href: "/demo" },
       { label: "Receptionist", href: "/receptionist", gate: "receptionist" },
       { label: "Pricing", href: "/pricing", gate: "pricing" },
-      { label: "Demo", href: "/demo" },
     ],
   },
   {
@@ -49,10 +52,11 @@ export const FOOTER_COLUMNS: { title: string; links: GatedSiteLink[] }[] = [
     ],
   },
   {
-    title: "Resources",
+    title: "Company",
     links: [
-      { label: "Guides", href: "/resources" },
+      { label: "Pilot access", href: "/request-access" },
       { label: "Security", href: "/security" },
+      { label: "Guides", href: "/resources" },
       { label: "Contact", href: "mailto:trygradia@gmail.com" },
     ],
   },

@@ -1,11 +1,11 @@
-/* Site-wide feature flags (Pass 5 subpages). Flip only when the matching gate clears. */
+/* Site-wide feature flags. Flip only when the matching evidence gate clears. */
 
-/** Hidden until live Stripe billing aligns with Core $99 / Pro $149 / Operator $249
- *  (CURSOR_BRIEF 2026-09-03). Page built; middleware + this flag double-gate /pricing. */
+/** Hidden until prices, entitlements, usage terms and live billing match.
+ *  Do not publish checkout prices. Middleware + this flag double-gate /pricing. */
 export const SHOW_PRICING = false;
 
-/** Hidden until the telephony acceptance run passes — homepage section + /receptionist route. */
+/** Hidden until real-call, forwarding and number-continuity acceptance pass. */
 export const SHOW_RECEPTIONIST = false;
 
-/** Fleet accounts are out of scope (D-067). Page kept, flag-hidden from nav/sitemap/middleware. */
+/** Fleet accounts are out of scope. Page kept, flag-hidden from nav/sitemap/middleware. */
 export const SHOW_FLEET_INDUSTRY = false;

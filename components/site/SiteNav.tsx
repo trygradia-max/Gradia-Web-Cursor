@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
-import { TRIAL_CTA_HREF } from "@/lib/site-config";
+import { PILOT_CTA_HREF, PILOT_CTA_LABEL } from "@/lib/site-config";
 import { visiblePrimaryNavLinks } from "@/lib/site-nav-links";
 import { Button } from "./primitives";
 
 /* v2 nav: starts blended into the hero, becomes a solid bar with a hairline
-   border after scroll (site-v2-plan §3.1). Primary CTA always visible. */
+   border after scroll. Primary CTA always visible. Sign in is omitted until
+   the customer login destination is verified for invited users. */
 
 const navLinkClass =
   "text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink-2)] transition-colors hover:text-[var(--sv-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--sv-accent)]";
@@ -74,14 +75,18 @@ export function SiteNav() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href="/portal/login" variant="ghost">Sign in</Button>
-          <Button href={TRIAL_CTA_HREF} variant="primary">Start your trial</Button>
+          <Button href={PILOT_CTA_HREF} variant="primary">
+            {PILOT_CTA_LABEL}
+          </Button>
         </div>
 
-        {/* Below lg the primary CTA stays visible next to the menu toggle. */}
         <div className="flex items-center gap-2 lg:hidden">
-          <Button href={TRIAL_CTA_HREF} variant="primary" className="h-9 px-4 text-[length:var(--sv-text-sm)]">
-            Start your trial
+          <Button
+            href={PILOT_CTA_HREF}
+            variant="primary"
+            className="h-9 px-4 text-[length:var(--sv-text-sm)]"
+          >
+            {PILOT_CTA_LABEL}
           </Button>
           <button
             type="button"
@@ -114,8 +119,9 @@ export function SiteNav() {
             ))}
           </ul>
           <div className="mt-6 flex flex-col gap-3">
-            <Button href={TRIAL_CTA_HREF} variant="primary" className="w-full">Start your trial</Button>
-            <Button href="/portal/login" variant="secondary" className="w-full">Sign in</Button>
+            <Button href={PILOT_CTA_HREF} variant="primary" className="w-full">
+              {PILOT_CTA_LABEL}
+            </Button>
           </div>
         </div>
       )}

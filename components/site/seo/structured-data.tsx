@@ -1,4 +1,4 @@
-import { siteBase, SITE_CATEGORY, SITE_DESCRIPTION, TRIAL_CTA_HREF } from "@/lib/site-config";
+import { siteBase, SITE_CATEGORY, SITE_DESCRIPTION } from "@/lib/site-config";
 import { HOME_FAQS, type FaqItem } from "../faqs/home";
 import { PRODUCT_FAQS } from "../faqs/product";
 
@@ -25,12 +25,7 @@ function baseSchemas() {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       url: siteUrl,
-      description: `${SITE_CATEGORY} ${SITE_DESCRIPTION}`,
-      offers: {
-        "@type": "Offer",
-        url: `${siteUrl}${TRIAL_CTA_HREF}`,
-        availability: "https://schema.org/PreOrder",
-      },
+      description: `${SITE_CATEGORY}. ${SITE_DESCRIPTION}`,
     },
     {
       "@context": "https://schema.org",

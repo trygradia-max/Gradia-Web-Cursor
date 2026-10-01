@@ -1,23 +1,26 @@
 # CLAUDE.md — Gradia marketing site (trygradia.com)
 
-You are the **Builder** for the site-v2 rebuild. The work order is `NEXT_TASK.md` — read it,
-plus `HANDOFF.md`, `../platform/docs/gradia-v2/marketing-site/site-v2-plan.md` (plan of record),
-and `../_docs/WHAT_GRADIA_DOES.md` (claim law) before writing code.
+> **2026-10-01:** Website copy authority is
+> `platform/docs/gradia-v2/marketing-site/MVP_WEBSITE_HANDOFF_2026-09-29.md`.
+> Public CTA is **Request pilot access** → `/request-access`. No free trial, no $20 /
+> founding / July launch copy, no public checkout prices. Work on a reviewable branch
+> from `site-v2`. Do not merge `main` or production-deploy trygradia.com from a website
+> update session. "Chief of Staff" is the public name for the summary screen.
+
+You are the **Builder** for the site-v2 visual system. Keep typography, spacing and the
+restrained palette. The work order below is historical except where it does not conflict
+with the 2026-09-29 handoff.
 
 ## Non-negotiables
 
-- Branch `site-v2` only. NEVER commit or push to `main` (it auto-deploys the live site).
-- Every public-facing string must pass `../_docs/WHAT_GRADIA_DOES.md` §4. Its §5 gates and §6
-  forbidden claims are law. No prices/tier names on any page; trial copy is exactly
-  "14-day guided trial · starts after your setup · trial usage limits apply."
+- NEVER commit or push to `main` (it auto-deploys the live site). Feature branches from `site-v2` are OK.
+- No prices, plan entitlements or seat counts on public pages until billing matches.
+- No free-trial language. Primary CTA is Request pilot access.
 - No fake metrics, testimonials, logos, or stock imagery. Sample records are fictional and
   consistent (Sarah Mitchell · 2024 BMW X5 · Full Detail + Ceramic Maintenance · $485).
-  Operational COUNTS in sample-data frames are allowed ("3 leads need a reply", "5 open
-  quotes · $3,850") — performance/ROI stats (hours saved, revenue growth, shop counts) and
-  charts stay banned (founder, 2026-08-29).
-- **Naming (founder, permanent):** never call the dashboard "Chief of Operations" or "Chief
-  of Staff" in any public copy — it is **"Home"** / "your business, prioritized."
-- One commit per homepage section, push, then STOP and wait for `REVIEW_NOTES.md`.
+  Do not turn proposed quote value into revenue.
+- Product UI frames use the caption **Product preview · sample business data**.
+- Preserve A2P SMS consent wording in `lib/sms-consent.ts` (version 2026-09-05).
 
 ## Visual reference (founder-designated)
 

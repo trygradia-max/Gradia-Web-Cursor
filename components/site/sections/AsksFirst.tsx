@@ -1,34 +1,30 @@
 import { Check } from "lucide-react";
 import { Card, Eyebrow, Lead, Section } from "../primitives";
 
-/* "Gradia asks first." — D-067 contrast: systems of record vs Gradia does the
-   work. Jobber/Urable named per founder commercial claim (CONTEXT §1). No
-   payment/charge claims (out of scope). */
-
 const cards: { title: string; body: string; signature?: boolean }[] = [
   {
-    title: "Asks first",
-    body: "Every outbound draft and booking is prepared, shown to you, and released on your OK. Autopilot is something you turn on — never a default.",
+    title: "Approval required first",
+    body: "Customer-facing actions start with approval required. You see the draft, then you decide.",
     signature: true,
   },
   {
-    title: "Does the work",
-    body: "Systems of record wait for clicks. Gradia qualifies leads, drafts quotes, proposes times and moves the pipeline — then reports what happened.",
+    title: "One Agent",
+    body: "One Gradia Agent works across enabled capabilities — not a separate bot for each channel. Whisper is the shared communications experience.",
   },
   {
-    title: "Built for this trade",
-    body: "Detailing, ceramic, PPF and tint natively — vehicles, coatings, follow-up cycles — not a generic CRM with your industry pasted on. For shops with staff, already spending on ads.",
+    title: "Your shop's rules",
+    body: "The finished controls will let owners enable specific actions within defined rules. Connecting a channel does not turn everything on.",
   },
 ];
 
 export function AsksFirst() {
   return (
     <Section band>
-      <Eyebrow>Why Gradia</Eyebrow>
-      <h2 className="max-w-[18ch]">Gradia asks first.</h2>
+      <Eyebrow>Control</Eyebrow>
+      <h2 className="max-w-[18ch]">You stay in control of what goes out.</h2>
       <Lead>
-        Jobber and Urable are systems of record you operate. Gradia does the work and reports
-        it — with your approval on what goes out.
+        Gradia prepares the next step from your customers, menu and calendar. You approve
+        customer-facing actions. Planned autonomy is per action, not a default.
       </Lead>
 
       <div className="mt-12 grid gap-5 md:grid-cols-3">

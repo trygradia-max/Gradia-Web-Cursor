@@ -1,9 +1,9 @@
 import { ImageResponse } from "next/og";
-import { SITE_CATEGORY, SITE_HEADLINE, siteBase } from "@/lib/site-config";
+import { SITE_HEADLINE, SITE_SOCIAL_SUBLINE, siteBase } from "@/lib/site-config";
 
 export const runtime = "edge";
 
-export const alt = `${SITE_HEADLINE} — ${SITE_CATEGORY}`;
+export const alt = `${SITE_HEADLINE} — ${SITE_SOCIAL_SUBLINE}`;
 
 export const size = {
   width: 1200,
@@ -104,7 +104,7 @@ export default async function OpenGraphImage() {
               maxWidth: 920,
             }}
           >
-            {SITE_CATEGORY}
+            {SITE_SOCIAL_SUBLINE}
           </span>
         </div>
 

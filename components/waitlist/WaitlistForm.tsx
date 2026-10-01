@@ -13,13 +13,8 @@ const ROLES = [
 
 const TIERS = [
   {
-    title: "Founding 100",
-    perk: "$10/month for life (50% off) + early access ahead of the July 10, 2026 launch.",
-    limited: true,
-  },
-  {
-    title: "Next 900",
-    perk: "50% off your first month ($10).",
+    title: "Controlled pilot",
+    perk: "Access and available features are confirmed before onboarding. No free trial.",
   },
 ];
 
@@ -75,11 +70,8 @@ export function WaitlistForm() {
           Get on the list.
         </h2>
         <p className="mt-4 max-w-md text-[var(--muted)]">
-          <span className="font-semibold text-[var(--foreground)]">
-            Gradia launches July 10, 2026
-          </span>{" "}
-          — be first in line. Just $20/month at launch, less than one detail. The
-          founding 100 lock in 50% off for life and get early access.
+          We&apos;re preparing a controlled pilot. Request access and we&apos;ll follow up about fit
+          and availability. Requesting access does not create an account or start a subscription.
         </p>
 
         <ul className="mt-8 flex flex-col gap-3">
@@ -87,15 +79,7 @@ export function WaitlistForm() {
             <li key={t.title} className="flex gap-3">
               <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-primary)]" />
               <span className="text-sm">
-                <span className="font-medium text-[var(--foreground)]">
-                  {t.title}
-                </span>
-                {"limited" in t && t.limited && (
-                  <span className="ml-2 inline-flex items-center gap-1 border border-[color:var(--dash-warning)]/40 bg-[color:var(--dash-warning)]/10 px-1.5 py-0.5 align-middle text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--dash-warning)]">
-                    <span className="wl-dot-pulse h-1 w-1 bg-[var(--dash-warning)]" />
-                    Limited · only 100
-                  </span>
-                )}{" "}
+                <span className="font-medium text-[var(--foreground)]">{t.title}</span>{" "}
                 <span className="text-[var(--muted)]">— {t.perk}</span>
               </span>
             </li>
@@ -111,10 +95,10 @@ export function WaitlistForm() {
               <Check className="h-6 w-6" />
             </span>
             <h3 className="text-xl font-semibold text-[var(--foreground)]">
-              You&rsquo;re on the list.
+              Your request is saved.
             </h3>
             <p className="mt-2 max-w-xs text-sm text-[var(--muted)]">
-              We&rsquo;ll email you the moment Gradia opens up.
+              We&rsquo;ll follow up about fit and availability.
             </p>
           </div>
         ) : (
@@ -192,10 +176,10 @@ export function WaitlistForm() {
               disabled={status === "loading"}
               className="wl-cta wl-pulse-glow mt-1 inline-flex items-center justify-center rounded-[100px] bg-[var(--brand-primary)] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[var(--brand-primary-hover)] disabled:opacity-60"
             >
-              {status === "loading" ? "Saving…" : "Save my spot"}
+              {status === "loading" ? "Saving…" : "Request pilot access"}
             </button>
             <p className="text-center text-xs text-[var(--muted)]">
-              No spam. We&rsquo;ll only email you about early access.
+              Requesting access does not create an account or start a subscription.
             </p>
           </form>
         )}

@@ -2,10 +2,6 @@ import type { ReactNode } from "react";
 import { Eyebrow, Lead, Section } from "../primitives";
 import { SAMPLE } from "../sample";
 
-/* Section 5 — CRM core (D-067). Four panels: Customers & Vehicles · Leads &
-   Pipeline · Quotes & Calendar · Approvals. No jobs/work-orders, invoices, or
-   campaigns. Conversations/SMS delivery not claimed as live (D-025). */
-
 function Screen({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="overflow-hidden rounded-[var(--sv-radius)] border border-[var(--sv-line)] bg-[var(--sv-surface)]">
@@ -13,7 +9,9 @@ function Screen({ label, children }: { label: string; children: ReactNode }) {
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--sv-ink-3)]">
           {label}
         </p>
-        <p className="shrink-0 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">Sample data</p>
+        <p className="shrink-0 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
+          Product preview · sample business data
+        </p>
       </div>
       {children}
     </div>
@@ -29,14 +27,10 @@ function Row({ title, meta, last = false }: { title: string; meta: string; last?
   );
 }
 
-/* P4-C: the "Ask Gradia." whoa device — one italic pain-question in the
-   owner's head + the three-word answer, same treatment on every panel.
-   All four questions founder-approved; §4-claimable (Agent reads the CRM). */
-const panels: { title: string; line: string; ask: string; screen: ReactNode }[] = [
+const panels: { title: string; line: string; screen: ReactNode }[] = [
   {
-    title: "Customers & Vehicles",
-    line: "History, vehicles, quotes and conversations live on one record — not in your head.",
-    ask: "“The guy with the black X5 who wanted ceramic… when was he in?”",
+    title: "Customers & vehicles",
+    line: "Contact details, vehicle information, notes and history together.",
     screen: (
       <Screen label="Customer file">
         <div className="border-b border-[var(--sv-line)] px-4 py-4 sm:px-5">
@@ -45,21 +39,20 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
             {SAMPLE.vehicle} · quotes and history in one file
           </p>
         </div>
-        <Row title={`Last visit — ${SAMPLE.service}`} meta={`${SAMPLE.price} · completed`} />
-        <Row title="Next — maintenance reminder" meta="Draft pending your review" last />
+        <Row title={`${SAMPLE.service}`} meta={`${SAMPLE.price} · quote on file`} />
+        <Row title="Next — confirmation or reminder" meta="Draft pending your review" last />
       </Screen>
     ),
   },
   {
-    title: "Leads & Pipeline",
-    line: "New, quoted, booked — every opportunity has a place, so none get lost.",
-    ask: "“Who did I forget to quote this week?”",
+    title: "Pipeline",
+    line: "See where each lead stands and what needs to happen next.",
     screen: (
       <Screen label="Pipeline">
         <div className="grid grid-cols-3 gap-2.5 p-4 sm:p-5">
           {(
             [
-              ["New", "Ceramic coating inquiry", "Reply drafted"],
+              ["New", "Ceramic coating inquiry", "Needs details"],
               ["Quoted", "Paint correction", "Waiting on customer"],
               ["Booked", SAMPLE.customer, SAMPLE.slot],
             ] as const
@@ -69,7 +62,9 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
                 {col}
               </p>
               <div className="rounded-[var(--sv-radius-sm)] border border-[var(--sv-line)] bg-[var(--sv-paper)] px-3 py-2.5">
-                <p className="text-[length:var(--sv-text-xs)] font-medium text-[var(--sv-ink)]">{card}</p>
+                <p className="text-[length:var(--sv-text-xs)] font-medium text-[var(--sv-ink)]">
+                  {card}
+                </p>
                 <p className="mt-0.5 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">{meta}</p>
               </div>
             </div>
@@ -79,94 +74,23 @@ const panels: { title: string; line: string; ask: string; screen: ReactNode }[] 
     ),
   },
   {
-    title: "Quotes & Calendar",
-    line: "Build a quote from your menu. When the customer accepts, it lands on the calendar — bookings always ask first.",
-    ask: "“What's still not booked?”",
+    title: "Quotes & calendar",
+    line: "Connect the service request, quote and appointment.",
     screen: (
-      <Screen label="The customer's view — quote page">
-        <div className="space-y-3 p-4 sm:p-5">
-          <div className="mx-auto w-full max-w-[270px] rounded-[24px] bg-[var(--sv-graphite)] px-5 py-6">
-            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.14em] text-white/40">
-              Quote
-            </p>
-            <p className="mt-1 text-center font-medium text-white">{SAMPLE.shop}</p>
-            <p className="mt-0.5 text-center text-[length:var(--sv-text-xs)] text-white/50">
-              For {SAMPLE.customer} · {SAMPLE.vehicle}
-            </p>
-            <div className="mt-4 border-t border-white/10">
-              {(
-                [
-                  ["Full Detail", "$265"],
-                  ["Ceramic Maintenance", "$220"],
-                ] as const
-              ).map(([name, price]) => (
-                <div key={name} className="flex items-baseline justify-between gap-3 border-b border-white/10 py-2">
-                  <span className="text-[length:var(--sv-text-xs)] text-white/70">{name}</span>
-                  <span className="font-mono text-[length:var(--sv-text-xs)] tabular-nums text-white">{price}</span>
-                </div>
-              ))}
-              <div className="flex items-baseline justify-between gap-3 py-2.5">
-                <span className="text-[length:var(--sv-text-xs)] font-medium text-white">Total</span>
-                <span className="font-mono text-[length:var(--sv-text-base)] font-semibold tabular-nums text-white">
-                  {SAMPLE.price}
-                </span>
-              </div>
-            </div>
-            <p className="text-[length:var(--sv-text-xs)] text-white/40">Good through Friday.</p>
-            <div className="mt-4 space-y-2">
-              <p className="rounded-[6px] bg-[var(--sv-accent)] py-2 text-center text-[length:var(--sv-text-xs)] font-medium text-white">
-                Book it
-              </p>
-              <p className="rounded-[6px] border border-white/20 py-2 text-center text-[length:var(--sv-text-xs)] font-medium text-white/70">
-                Not this time
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto max-w-[340px] text-center">
-            <p className="text-[length:var(--sv-text-sm)] font-medium text-[var(--sv-ink)]">
-              {SAMPLE.firstName} taps Book it — &ldquo;You&apos;re in — quote accepted.&rdquo;
-            </p>
-            <p className="mt-1 text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
-              Your side: Booked, {SAMPLE.slot} · on the calendar
-            </p>
-          </div>
-        </div>
+      <Screen label="Quote">
+        <Row title={`${SAMPLE.service} — ${SAMPLE.price}`} meta={`${SAMPLE.customer} · ${SAMPLE.vehicle}`} />
+        <Row title={`Proposed time — ${SAMPLE.slot}`} meta="Presented for approval when required" />
+        <Row title="Calendar" meta="Appointment connects to the same record" last />
       </Screen>
     ),
   },
   {
-    title: "Approvals",
-    line: "The agent drafts replies and follow-ups. You review, edit or discard — nothing leaves without your OK.",
-    ask: "“What is waiting on me right now?”",
+    title: "Conversations",
+    line: "Keep the context that explains the next action.",
     screen: (
-      <Screen label="Needs your OK">
-        <div className="space-y-3 p-4 sm:p-5">
-          <div className="rounded-[var(--sv-radius-sm)] border border-[var(--sv-line)] px-3.5 py-2.5">
-            <p className="inline-flex rounded-[6px] bg-[var(--sv-accent-soft)] px-2 py-0.5 text-[length:var(--sv-text-xs)] font-medium text-[var(--sv-accent)]">
-              Draft — waiting for your review
-            </p>
-            <p className="mt-1.5 text-[length:var(--sv-text-sm)] text-[var(--sv-ink)]">
-              Quote reply for {SAMPLE.firstName} — {SAMPLE.service} · {SAMPLE.price}
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {["Send it", "Tweak it", "Drop it"].map((a, i) => (
-                <span
-                  key={a}
-                  className={`rounded-[6px] px-2.5 py-1 text-[length:var(--sv-text-xs)] font-medium ${
-                    i === 0
-                      ? "bg-[var(--sv-accent)] text-white"
-                      : "border border-[var(--sv-line)] text-[var(--sv-ink-2)]"
-                  }`}
-                >
-                  {a}
-                </span>
-              ))}
-            </div>
-          </div>
-          <p className="text-[length:var(--sv-text-xs)] text-[var(--sv-ink-3)]">
-            Live today: CRM + approvals. SMS and voice channels labeled coming until verified.
-          </p>
-        </div>
+      <Screen label="Conversation">
+        <Row title="Inquiry" meta="“Do you do ceramic maintenance for a BMW X5?”" />
+        <Row title="Draft reply" meta="Waiting for your review — nothing sent" last />
       </Screen>
     ),
   },
@@ -176,10 +100,10 @@ export function CoreSystem() {
   return (
     <Section>
       <Eyebrow>The CRM</Eyebrow>
-      <h2 className="max-w-[18ch]">Everything stays connected.</h2>
+      <h2 className="max-w-[18ch]">One place for the customer and the next step.</h2>
       <Lead>
-        Customers, vehicles, leads, pipeline, quotes and calendar share one record. Update it
-        once — it&apos;s current everywhere.
+        These are the core workflows we&apos;re preparing for the pilot. The CRM is designed to
+        remain useful with AI turned off.
       </Lead>
 
       <div className="mt-14 space-y-16 sm:space-y-20">
@@ -188,10 +112,6 @@ export function CoreSystem() {
             <div className={i % 2 === 1 ? "lg:order-2" : ""}>
               <h3>{panel.title}</h3>
               <p className="mt-3 max-w-[36rem]">{panel.line}</p>
-              <p className="mt-5 max-w-[34rem] text-[length:var(--sv-text-sm)]">
-                <span className="italic text-[var(--sv-ink-3)]">{panel.ask}</span>{" "}
-                <span className="whitespace-nowrap font-semibold text-[var(--sv-ink)]">Ask Gradia.</span>
-              </p>
             </div>
             <div className={i % 2 === 1 ? "lg:order-1" : ""}>{panel.screen}</div>
           </div>

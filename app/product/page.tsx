@@ -10,14 +10,10 @@ import { ProductComparison } from "@/components/site/product/ProductComparison";
 import { ProductApprovals } from "@/components/site/product/ProductApprovals";
 import { ProductFaq } from "@/components/site/product/ProductFaq";
 
-/* /product — D-067 three flagships + honest Live/Coming labels.
-   Campaigns / jobs / payments removed from the story. Legacy panel and
-   campaign components remain in tree but are not mounted. */
-
 export const metadata: Metadata = {
-  title: "Product — AI-native CRM for detailing shops",
+  title: "Product — AI CRM for detailing businesses",
   description:
-    "Every lead lands and gets worked. Chief of Staff shows what the agent did. Accepted quotes become booked appointments. You approve what matters.",
+    "Customers, vehicles, conversations, quotes and calendar in one CRM, with one Gradia Agent to help move leads toward bookings. Request access to the controlled pilot.",
   alternates: { canonical: "/product" },
 };
 

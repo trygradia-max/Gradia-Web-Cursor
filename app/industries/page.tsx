@@ -5,9 +5,9 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { IndustriesIndex } from "@/components/site/industries/IndustriesIndex";
 
 export const metadata: Metadata = {
-  title: "Industries — Gradia CRM for automotive appearance shops",
+  title: "Industries — Gradia CRM for appearance businesses",
   description:
-    "AI-native CRM for detailing, ceramic coating, PPF, tint and mobile shops with staff — Gradia does the work, you approve what matters.",
+    "AI CRM for detailing, ceramic coating, PPF, tint and mobile — solo businesses and teams, at one location or within one mobile service area.",
   alternates: { canonical: "/industries" },
 };
 

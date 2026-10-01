@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { TRIAL_CTA_HREF } from "@/lib/site-config";
+import { PILOT_CTA_HREF, PILOT_CTA_LABEL } from "@/lib/site-config";
 import { Button, Card, Eyebrow, Lead, Section } from "../primitives";
 import { FinalCta } from "../sections/FinalCta";
 import type { Industry } from "./data";
@@ -24,8 +24,8 @@ export function IndustryPage({ industry }: { industry: Industry }) {
         <h1 className="max-w-[24ch]">{industry.headline}</h1>
         <Lead>{industry.lead}</Lead>
         <div className="mt-8">
-          <Button href={TRIAL_CTA_HREF} variant="primary" size="lg">
-            Start your trial
+          <Button href={PILOT_CTA_HREF} variant="primary" size="lg">
+            {PILOT_CTA_LABEL}
           </Button>
         </div>
       </Section>
@@ -47,10 +47,10 @@ export function IndustryPage({ industry }: { industry: Industry }) {
 
       <Section>
         <Eyebrow>How it works</Eyebrow>
-        <h2 className="max-w-[22ch]">One CRM from first inquiry to booked appointment.</h2>
+        <h2 className="max-w-[22ch]">From first inquiry to a clear next step.</h2>
         <Lead>
-          Watch one {industry.slug === "fleet" ? "account" : "customer"} move through Gradia.
-          Same record at every stage — you approve the moments that matter.
+          The workflow we&apos;re building for the pilot. Same record at every stage — you approve
+          customer-facing actions.
         </Lead>
         <div className="mt-12">
           <IndustryFlow frameLabel={industry.frameLabel} stages={industry.stages} />
@@ -65,8 +65,8 @@ export function IndustryPage({ industry }: { industry: Industry }) {
           <span className="whitespace-nowrap font-semibold text-[var(--sv-ink)]">Ask Gradia.</span>
         </p>
         <p className="mt-4 max-w-[34rem] text-[length:var(--sv-text-sm)] text-[var(--sv-ink-2)]">
-          Gradia reads your customers, quotes and schedule — then stages anything it prepares
-          for your approval. Nothing sends on its own.
+          Gradia uses customer and shop context, then stages anything it prepares for your
+          approval. Nothing sends on its own.
         </p>
       </Section>
 

@@ -9,7 +9,7 @@ import { SecurityContent } from "@/components/site/security/SecurityContent";
 export const metadata: Metadata = {
   title: "Security — Gradia",
   description:
-    "Tenant isolation, approval gates, fail-closed spending, audit trails and outreach guardrails — how Gradia protects your shop's data and your customers.",
+    "Tenant isolation, approval gates, audit trails and outreach guardrails — how Gradia protects your shop's data. No invented certifications.",
   alternates: { canonical: "/security" },
 };
 
