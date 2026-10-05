@@ -1,9 +1,12 @@
 /**
- * SMS opt-in disclosure shown on the public waitlist form.
+ * SMS opt-in disclosure shown on the public pilot-request form.
  *
  * A2P 10DLC / CTIA: the checkbox is unchecked by default, optional, and kept
  * separate from acceptance of the Terms. If DISCLOSURE changes, bump VERSION —
  * the stored version is the record of exactly which text a subscriber agreed to.
+ *
+ * Ported from the 2026-09-05 production waitlist (do not rewrite this wording
+ * without a legal/A2P review). Pilot interest is not blanket marketing consent.
  */
 export const SMS_CONSENT_VERSION = "2026-09-05";
 

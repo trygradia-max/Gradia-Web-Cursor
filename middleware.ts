@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isPublicMarketingRoute } from "@/lib/site-routes";
 
 /**
  * Refreshes Supabase auth cookies on every portal request and blocks
@@ -8,20 +9,13 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Site takedown: only the waitlist landing (/) and functional routes (the
-  // portal app + API) stay reachable. Every other (retired) marketing route
-  // 308-redirects to the waitlist. 308 (permanent) — not 307 — so search
-  // engines consolidate these dead URLs into / and drop their old titles/
-  // descriptions from the index, instead of keeping them as "temporarily
-  // moved." The old marketing pages have been removed from the repo; restore
-  // from git history if ever needed. Static assets and metadata files are
-  // excluded by `config.matcher` below.
-  // NOTE: 308 is cached by browsers; if the marketing site is revived, expect
-  // some clients to keep redirecting until their cache clears.
+  // Site takedown: whitelisted marketing routes, portal and API stay reachable.
+  // Everything else 308-redirects to /. Keep isPublicMarketingRoute in sync
+  // with lib/site-routes.ts + app/sitemap.ts. /pricing and /receptionist are
+  // built but excluded until their evidence gates clear. 308 is cached by
+  // browsers — expect stale redirects until cache clears after cutover.
   const isFunctional =
-    pathname === "/" ||
-    pathname === "/privacy" ||
-    pathname === "/terms" ||
+    isPublicMarketingRoute(pathname) ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/portal");
   if (!isFunctional) {

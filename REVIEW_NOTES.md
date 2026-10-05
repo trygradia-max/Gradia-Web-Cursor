@@ -1,0 +1,638 @@
+# REVIEW_NOTES — site-v2 build
+
+> Loop: Claude Code pushes a section → Reviewer writes notes here → Claude Code addresses
+> them in a follow-up commit and checks the box → next section.
+
+**NEXT:** Founder review of D-067 reposition (commits below, not pushed). Decide: keep Jobber/Urable named on-site · keep “Chief of Staff” in public product copy · when to flip `SHOW_PRICING` after billing aligns · confirm A2P before any SMS-works claim. Cutover still blocked on N1 CTA + merge to `main`.
+
+## Reposition — D-067 / CURSOR_BRIEF — 2026-09-03
+
+**PENDING REVIEW.** One commit per brief section on `site-v2` (never pushed · never touched `../platform`):
+
+1. `0868034` — Home: AI-native CRM headline/subhead, Jobber/Urable contrast, ICP (staffed shops on ads); OS language removed; sample UI no SMS “Sent ✓”.
+2. `4e5b6e2` — Product: three flagships (lead worked · Chief of Staff · booked appointment) with Live/Coming labels; campaigns unmounted.
+3. `50df927` — Nav/sitemap/footer: `SHOW_FLEET_INDUSTRY=false`; fleet exact-path gated; footer category line updated.
+4. `283e473` — Industries: CRM + ICP re-cut; fleet kept in data, flag-hidden + `notFound`.
+5. `186f638` — Pricing: stays `SHOW_PRICING=false`; tier bullets cleaned for D-067 (direction Core $99 / Pro $149 / Operator $249).
+6. `65217cc` — Sweep: demo/security/agent/teach/style-guide/claims-matrix; campaigns and payment claims removed from public surfaces.
+7. _(follow-up)_ — Sweep residuals: `/demo` metadata no longer says “campaign dry-runs”; industry flow sample chips `SMS` → `Draft` (matches homepage ConnectedFlow; no SMS-works implication). `CURSOR_BRIEF.md` tracked in repo.
+
+### Founder questions (claims I was unsure about)
+
+1. **Named competitors on-site** — Brief/CONTEXT lead with Jobber + Urable. Older brand rule banned competitor names. Used the brief. Confirm permanent?
+2. **“Chief of Staff” in public copy** — Brief asks for it as flagship 2; older marketing rule banned it for “Home.” Used Chief of Staff on `/product` with Coming label on the consolidated screen. Confirm?
+3. **Data export** — Brief lists “shop keeping its own data with export” as safe; CONTEXT B-01 says export is not built. Did **not** claim export works; Security still says export is on the roadmap. Confirm?
+4. **Website form intake** — Labeled Coming on product. Is any public form → CRM path Live today?
+5. **Email sending** — Gmail connection labeled Live; outbound email not claimed. Confirm that split is correct for public copy?
+6. **Import “currently in beta”** — Left on Final CTA / FAQ. Still accurate under D-067?
+7. **Homepage Agent / Whisper / ROI receipt** — Left as sample UI of Live approval + Ask Gradia surfaces. Want those reframed as Chief of Staff Coming teasers?
+8. **Unmounted legacy files** — `ProductPanels.tsx`, `ProductCampaigns.tsx`, `ProductAgent.tsx` still in tree but not mounted. Delete later or keep?
+
+## Autorun closeout — Passes 2–7 complete — 2026-09-02
+
+**BUILDER IDLE.** Verified: no new SITE_SYNC blocks after ff66cc9 · `/receptionist` depth page landed (1eb573a, double-gated, §9.3 floor copy) · Pass 7 QA clean (33d1483) · `tsc` + production `build` clean · claims-matrix PASS · Housecall Pro/Slack absent. No further pass/section work in `AUTORUN.md` until platform gates clear or founder issues cutover/new scope.
+
+## Review — Pass 5 gap: /receptionist depth page — 2026-09-02
+
+**PENDING REVIEW.** Built: `/receptionist` — double-gated (`SHOW_RECEPTIONIST=false` + middleware 308, mirrors `/pricing` pattern) · §9.3 honest framing throughout (missed call kept → voice builder setup → Send it approval · no answering/quoting/booking claims) · voice-builder + Going live checklist sample UI (product-fidelity, P4-D) · four-question FAQ · FinalCta. tsc clean · SITE_SYNC batch consumed — no copy changes required (Housecall Pro/Slack already absent).
+
+## Review — Pass 7: independent QA — 2026-09-02
+
+**PENDING REVIEW.** Audited: routes (16 public 200 · `/pricing` `/receptionist` `/contact` 308 as expected) · sitemap 16 URLs · middleware ↔ `lib/site-routes.ts` in sync · `claims-matrix.md` full §4/§5/§6 sweep — zero violations (Housecall Pro/Slack absent; 14-day copy only on gated `/pricing`; team seats "arriving") · homepage 137 kB first load · tsc + production build clean.
+
+**Fixes in this commit:**
+- Gated nav/footer links (`Pricing`, `Receptionist`) hidden until `SHOW_PRICING` / `SHOW_RECEPTIONIST` flip — no more 308 traps from primary chrome.
+- Footer Contact → `mailto:trygradia@gmail.com` (was dead `/contact` 308).
+- `SHOW_RECEPTIONIST` consolidated into `flags.ts` with `SHOW_PRICING`.
+- Skip-to-main link + `id="main-content"` on every v2 page; accent focus rings on nav/footer.
+- Mobile nav: escape to close, auto-close on route change, `aria-controls`.
+- `overflow-x: clip` on `.site-v2` to prevent horizontal scroll on narrow viewports.
+
+**Carry-forward (not QA defects):** N1 CTA still `/#trial` · imports FAQ "currently in beta" tracks capability #16 · founder preview/deployment-protection (N4) · cutover blockers list in Pass 2 full-page review still applies.
+
+## Review — Pass 6: conversion + SEO + JSON-LD + sitemap — 2026-09-02
+
+**PENDING REVIEW.** Built: D-033 root metadata + OG image rewrite · shared `TRIAL_CTA_HREF` (/#trial until signup ships) · `lib/site-routes.ts` single source for middleware ↔ sitemap (16 public URLs; /pricing + /receptionist excluded) · homepage + product FAQPage JSON-LD synced to visible FAQ copy · canonical tags on all public pages · robots disallow /v2 style guide. tsc clean · SITE_SYNC batch consumed — no copy changes required (Housecall Pro/Slack already absent).
+
+## Review — Pass 5 Cycle 4: /demo + /resources — 2026-09-02
+
+**PENDING REVIEW.** Built: `/demo` — three claimable walkthrough frames (cold-lead revival → Send it · Whisper → staged work · campaign dry-run with caps/opt-outs) + video placeholder; voice demo explicitly omitted (gated). `/resources` index + 3 SEO-plan article stubs (`mobile-detailers-handle-calls-hands-busy` · `missed-call-cost-detailing-shop` · `fill-detailing-calendar-without-chasing`) with stub pages linking to demo. Middleware whitelisted. tsc clean · `/demo` 200 · `/resources` + slug 200 · `/pricing` 308 verified at dev. SITE_SYNC batch consumed — no Housecall Pro/Slack copy found on site.
+
+## Review — Pass 5 Cycle 3: /pricing (flag-hidden) + /security (d3d4f2b) — 2026-09-01
+
+**PENDING REVIEW.** Built: `/pricing` complete per D-034/D-035 — three tiers ($99/$149/$249), exact trial line, packs/rollover note, caps/no-surprise-bills FAQ — `SHOW_PRICING=false` + NOT middleware-whitelisted (308 to `/`). Operator team seats labeled "arriving" (D-036). `/security` whitelisted — six audited truths from platform doc 08 (tenancy, approval gates, fail-closed spending, audit trail, outreach guardrails, encrypted credentials + verified webhooks); honest gaps line (no cert claims, export/deletion roadmap). tsc clean · `/security` 200 · `/pricing` 308 verified at dev.
+
+## Review — Pass 5 Cycle 2: /industries (c7301ec) — 2026-09-01
+
+**PENDING REVIEW.** Built: `/industries` index (five trade cards) → shared template on detailing · ceramic-coating · ppf-tint-wrap · mobile-detailing · fleet — trade headline + three pains → connected-flow retold with trade-specific sample data (ceramic: annual check-in · PPF: quiet high-value quote · mobile: on-location address · fleet: multi-vehicle account, no fleet-management claims) → Ask-Gradia micro-moment per trade → FinalCta. `/industries` + all five slugs whitelisted in middleware. tsc clean · routes verified 200 at dev.
+
+## Review — Pass 5 Cycle 1: /product (fd85d66) — 2026-09-01
+
+**PENDING REVIEW.** Built: D-033 category hero → five deep capability panels (incl. Home + ROI receipt) → full campaigns section (dry-run, caps, opt-outs, cooldowns) → Agent + Whisper pair → three-pillar comparison table vs industry default → approvals/earned-autonomy explainer → FAQ subset → FinalCta. `/product` whitelisted in middleware. Receptionist mention omitted (gated, same as homepage). tsc clean · screenshots at 375/768/1440 reviewed.
+
+## Review — Section 1: Hero (e168720) — 2026-08-29
+
+**VERDICT: APPROVED — no blocking changes. Proceed to Section 2 (Problem) after reading the notes below.**
+
+Verified: D-033 headline + support copy verbatim · chip eyebrow · ink pill + underlined
+secondary per reference-trygtm · trust line correct · graphite frame labeled "Sample data"
+with the canonical record (Sarah Mitchell · 2024 BMW X5 · $485) · approve-step highlighted
+in accent — the control differentiator is visible in the hero itself, which is exactly right ·
+metadata override so waitlist-era title/description never rides on this page — good catch ·
+every string passes WHAT_GRADIA_DOES §4. The foundation-fixes commit (f28f6d0) was audited:
+all seven fixes are legitimate Pass-1 bugs (the Tailwind `text-[var()]` length/color
+ambiguity was real and would have poisoned every size utility) — good work.
+
+Carry-forward notes (address in later sections, not as rework now):
+
+- [ ] **N1 (founder decision, before cutover):** `Start your trial` points at `/#trial`,
+  which doesn't exist — there is no signup flow yet. Decide the CTA destination at cutover:
+  platform-app signup route, or waitlist capture until trial build (D-035/E01) ships.
+  Until decided, the dead anchor is acceptable on the branch only.
+- [x] **N2:** `See how it works` targets `#how` — Section 3 (Connected flow) must carry
+  `id="how"` when built. _Done with Section 3; anchor verified (see review below)._
+- [x] **N3:** Extract the sample record (Sarah Mitchell / 2024 BMW X5 / Full Detail +
+  Ceramic Maintenance / $485) into `components/site/sample.ts` and import it in every
+  section that shows product UI (3, 4, 5, 6). The continuity of ONE record across the page
+  is the moat being demonstrated — it must be impossible for sections to drift.
+  _Done with Section 2: `sample.ts` created; Hero + Problem now import SAMPLE._
+- [ ] **N4 (founder, tooling):** Reviewer cannot see Vercel branch previews — Deployment
+  Protection redirects to Vercel login. Either review previews yourself each round, or
+  disable protection for preview deployments on `gradia-web-cursor` so the reviewer can
+  screenshot them.
+
+## Review — Section 2: Problem (b3c9800) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 3 (Connected flow).**
+
+Verified: §3.2 headline verbatim · the scattered/consolidated visual tells the right story —
+the SAME lead (via SAMPLE) hiding in six places, then one clean record · sharp claim
+discipline: "Instagram DM, unread" sits only on the *today/scattered* side (the shop's current
+reality), while the Gradia surface lists exactly the claimable channels ("Texts + email, one
+thread") — this is precisely how to show the problem without over-claiming the product ·
+three pains match the plan and the copy is strong ("nothing moves unless you touch it") ·
+N3 done properly: `sample.ts` canonical, Hero + Problem both import it, checkbox updated ·
+band alternation correct · primitives used throughout.
+
+Notes:
+- The consolidation motion (chips flowing into the surface) is correctly deferred to Pass 4 —
+  do not add it now.
+- **Reminder for Section 3: it must carry `id="how"` (N2).** Same customer (SAMPLE) through
+  all six stages; Approve is the highlighted stage, consistent with the hero's treatment.
+
+## Review — Section 3: Connected flow (d25df2d) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 4 (Operations dashboard).**
+
+Verified: all six §3.3 stages in order · SAMPLE record persists through every stage with its
+state shown at each moment — the one-example technique executed properly · `id="how"` present,
+hero anchor resolves (N2 ✅) · Approve is the lifted, accent-marked stage — consistent with the
+hero, so the control story now repeats twice before section 6 argues it · every line passes the
+claim list ("Nothing goes out until you say so" = guarantee #1; Retain is "drafted for your
+review", not auto-sent) · "lands in Gradia — not in six inboxes" ties back to Section 2 ·
+semantic `<ol>` · band alternation correct.
+
+Notes:
+- This section is deliberately the page's centerpiece and currently reads as a competent list.
+  That is CORRECT for Pass 2 — but flagging now so it isn't forgotten: Pass 3 gives each stage
+  a real UI vignette, and Pass 4's scroll motion (the record visibly traveling down the stages)
+  is what makes this section the demo. Do not ship cutover before this section gets its
+  Pass 3/4 treatment.
+
+## Review — Section 4: Operations dashboard (f4196ef) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 5 (Core operating system).**
+
+Verified: zero analytics/counts/charts — every row is an operational item, exactly per the
+#17-is-building guardrail · every outbound framed approve-first ("Waiting for your review",
+"you approve before it goes out") · timeline continuity is excellent: Sarah's quote is now
+"Accepted · job booked" (consistent with Section 3) and the frame's clock (Tuesday 7:58 AM)
+sits just before her 9:00 AM job — the page reads as one morning in one shop · no second
+invented customer name (walk-in and anonymous lead only) · accent reserved for the
+recommended-actions/approval signal · band alternation correct.
+
+Design watch-item for Section 5 (important): the page now has FOUR graphite frames in a row
+(hero, problem, flow, dashboard). Section 5's four alternating panels must break this rhythm —
+screens sit in LIGHT surface cards (hairline border, white surface) with smaller graphite
+used only inside where product chrome genuinely needs it. Do not build a fifth full-width
+dark frame; the page must not become a graphite tunnel.
+
+## Review — Section 5: Core operating system (aa20c99) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 6 (Gradia Agent + control).**
+
+Verified: the graphite-tunnel watch-item was followed exactly — light surface screens with a
+wash chrome strip, alternating sides; the page now breathes · Conversations is texts + email
+only, with the draft chip in accent-soft "waiting for your review" — the approval signal
+stays consistent across every surface · all four panel lines are claim-safe and well written
+("so none of them get lost" · "you approve what goes out") · SAMPLE used wherever Sarah
+appears; pipeline/inbox extras stay nameless · no fake metrics ("customer since spring" is
+the right kind of vague).
+
+Accepted with rationale (not a defect): the Customer-record screen shows Sarah's job
+*completed* with the next maintenance reminder drafted, while Sections 3–4 show it upcoming.
+Each §5 panel deliberately shows its feature at its most illustrative moment (inbox = day
+one; record = after the job), and each screen is self-contained. Fine as-is — but if Pass 3's
+real-UI compositions can make the record panel read clearly as "later," take the opportunity.
+
+## Review — Section 6: Gradia Agent + control (d2c05c5) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to Section 7 (Receptionist, flag-hidden).**
+
+Verified: the demo runs the exact §3.6 sequence — ask → result list → "Prepare follow-ups" →
+Prepared (accent label) → Review/Edit pills with Approve as the single solid-accent action →
+activity log "approved by you · sent · logged" · every step staged, zero autonomous framing ·
+closes on the trust copy with "Money and calendar always ask." emphasized · action pills are
+non-interactive spans, so the demo doesn't fake affordances · PPF casing self-caught and fixed.
+
+Reviewer note on the continuity call: the Builder correctly OVERRODE my "Sarah is fine" note —
+Sarah is booked in this page's timeline, so she cannot appear in a "hasn't booked" list. The
+nameless result list is right and my note was wrong. This is exactly the kind of pushback the
+loop should produce; keep doing it.
+
+## Review — Sections 7+8: Receptionist (4c0ca7f, hidden) + Industries (2f052eb) — 2026-08-29
+
+**VERDICT: BOTH APPROVED — no changes required. Proceed to the final cycle: Sections 9 (FAQ) + 10 (Final CTA).**
+
+Section 7: flag-gating verified in page.tsx · copy stays strictly inside the §9.3 honest frame
+("captures, organizes and prepares") · the demo wisely shows a MISSED call being kept rather
+than an answered call — under-claiming in exactly the right direction · "nothing goes out on
+its own" · nameless caller with documented rationale. Note for un-hide day: when the
+acceptance run passes, this section may upgrade to answering/quoting claims (Pro tier's
+actual capability) — the current copy is the floor, not the ceiling.
+
+Section 8: four tiles carrying five routes (Mobile & fleet pairing is a clean solve) · tile
+sentences describe each trade's reality with the one-system claim as the only product claim ·
+"an expensive quote going quiet costs the most" is the sharpest line on the page · accent
+used only for links (designated signal) · alternation reasoning documented · dead 308 links
+acceptable on branch, pages land in Pass 5.
+
+## Review — Sections 9+10: FAQ (09da270) + Final CTA (609a02a) — 2026-08-29
+
+**VERDICT: BOTH APPROVED. ✅ PASS 2 HOMEPAGE COMPLETE — all 10 sections built (9 visible, Receptionist flag-hidden).**
+
+Section 9: native <details>, no JS accordion · all six answers inside claim law · the honest
+ones land ("Only if you turn autonomy on… money and calendar always ask" · "Could Gradia spam
+my customers? No — hard caps, cooldowns, opt-outs honored before staging") · import answer
+carries its beta label (D-028) · correctly no receptionist or pricing questions yet.
+Section 10: full-bleed graphite mirror of the hero · inverse (white) pill keeps monochrome
+discipline · trust line includes the import reassurance verbatim · carries id="trial".
+
+## Full-page pass (Pass 2 complete) — Reviewer, 2026-08-29
+
+1. **Narrative** — one record travels the whole page: text message → one record → quote →
+   approved → booked (Tue 9:00) → completed → maintenance drafted. Approval is highlighted
+   identically in every frame. This is the moat, demonstrated, not described. PASS.
+2. **Rhythm** — light/band alternation holds; five dark moments (hero frame · flow · ops ·
+   agent · final CTA) separated by light relief (core system · industries · FAQ). PASS.
+3. **Claim sweep** — full-copy review: zero violations across all ten sections. No invented
+   metrics, names, testimonials, prices, or trial numbers anywhere. PASS.
+4. **"Waiting for your review" repetition** — appears across ~5 sections. Reviewer verdict:
+   deliberate drumbeat, keep. Founder should confirm on the full preview read; vary phrasing
+   only if it grates in situ.
+5. **⚠ N1 is now urgent** — the CTA chain is circular (nav/hero → #trial → Final CTA → its
+   own section). Fine on a branch; meaningless at cutover. Founder decision needed: signup
+   route vs waitlist capture.
+
+## Cutover blockers (running list — updated 2026-08-29 after the site↔product alignment audit)
+
+Pass 3 (real UI, esp. Section 3 vignettes) · Pass 4 motion · Pass 5 subpages (Product page
+MUST carry the SMS+email campaigns beat — claimable §4, currently unshown) · Pass 6
+conversion + JSON-LD · Pass 7 Cursor QA · N1 CTA destination (founder) · P0-013 before
+Pricing publishes · telephony acceptance run before Receptionist un-hides · founder
+full-preview approval.
+
+**Site↔product convergence items (verify at cutover, from the 2026-08-29 alignment audit):**
+- [ ] Imports must reach BETA (capability #16 is internal today) or the FAQ's "currently in
+  beta" answer softens. On the launch path anyway via D-032 trial activation.
+- [ ] Earned autonomy (#21 internal, graduation UX in E09) must be user-reachable before Pro
+  sells autonomy — sequenced with P0-013; do not un-gate pricing without checking #21.
+- [ ] "14-day" trial copy stays OFF the site until the trial build (D-035 implementation)
+  ships. Current trust lines ("guided setup") are safe.
+
+## Founder feedback on Pass 2 (received 2026-08-29)
+
+Overall: approved — "looks pretty good." Two directives + three reviewer-derived hooks below.
+
+## Review — P3-A: Home dashboard rebuild (9b28707) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to P3-B (Whisper moment).**
+
+Verified: composition follows the real Home (greeting → count tiles → "What needs a yes" →
+today's jobs → suggestion bar) · founder's counts delivered ("3 leads need a reply · 5 open
+quotes · $3,850 · 2 jobs today · 1 waiting for your approval") with zero performance/ROI
+stats and zero charts · internal consistency is airtight — counts agree with visible rows,
+and Sarah's accepted quote is deliberately absent from the open-quotes count · "What needs a
+yes" (the app's real approvals name) is a stronger label than anything in the plan · the
+greeting line ("Two jobs on the books. One yes needed before the day starts.") is the best
+copy on the page · naming rule applied and recorded in CLAUDE.md.
+
+## Review — P3-A2: ROI receipt (bb8c5a0) + P3-B: Whisper (089fc3f) — 2026-08-29
+
+**VERDICT: BOTH APPROVED — no changes required. Proceed to P3-C + P3-D (one commit), then P3-E.**
+
+P3-A2: tile labels match the real roi-receipt component verbatim, singular/plural included ·
+"$1,340 in booked work this week" leads the strip · sharp catch by the Builder: the real
+component's title ("What your receptionist got done") is receptionist-gated copy, so the strip
+header stays neutral ("This week") until §7 un-hides — exactly right · placed in the real
+Home order (greeting → receipt → tiles).
+
+P3-B: "Say it once. It's handled." folded into §6 as the second demo — one control story,
+two ways to hand Gradia work · the scene is the hook (voice note 0:09 → transcript → quote
+drafted · task created · reminder set, all "waiting for your review") · timeline holds (the
+note happens after Sarah's morning job — "just finished the X5") · "Nothing sends without
+your OK" · fully inside §4 say-it-once claims.
+
+## Review — P3-C+D: flow timestamps + quiet-quote sharpening (be8614c) — 2026-08-29
+
+**VERDICT: APPROVED — no changes required. Proceed to P3-E (real-UI sweep), the final Pass 3 item.**
+
+P3-C: 7:58 → 7:59 → 8:01 → 8:04 (approved, accent) → 8:05 booked, "Weeks later" for Retain —
+seven minutes from cold text to booked job, shown entirely inside the sample frame, zero
+duration claims in copy. And the Builder caught a continuity bug the Reviewer missed: the
+Home frame's 7:58 clock showed Sarah booked before the flow books her at 8:05 — clock moved
+to 8:12 so the one-morning story sequences correctly. Right call, cleanly handled, properly
+flagged. Verified downstream: at 8:12 the greeting ("before the day starts") and the 2-jobs
+tile still hold.
+
+P3-D: the list now hurts — "$740 quote · quiet for 6 days" · "$1,800 quote · quiet for 9
+days" · "Never quoted · two weeks old" — and the visible dollar values sit inside the Home
+frame's "5 open quotes · $3,850" without contradiction. Work items, not performance stats.
+
+Pass 3 scorecard so far: A ✅ · A2 ✅ · B ✅ · C+D ✅. Remaining: **P3-E** — real product-UI
+compositions, Section 3 vignettes first (cutover blocker). Reminder from the alignment audit:
+verify each screen against the actual app before composing; if a real surface isn't visually
+ready, keep the current faithful abstraction rather than shipping an unflattering screenshot
+— flag the choice per surface.
+
+## P3-F — NEW homepage section: "Gradia asks first." (founder decisions, 2026-08-29)
+
+Founder-approved brand move (grounded in `_docs/research/SYNTHESIS.md` #1/#2): the approval
+mechanism is now branded **"Gradia asks first."** — a FULL homepage section, placed directly
+AFTER Section 6 (it extends the control argument into differentiation). Homepage becomes 11
+sections; recompute band alternation from Section 6 onward for visible sections.
+
+Section spec:
+- Eyebrow: WHY GRADIA · H2: **"Gradia asks first."**
+- Support (category, never competitor names — founder rule): "The industry default is
+  autopilot — AI that sends, books, and bills on its own. Gradia was built the other way."
+- Three cards, one line each, all claim-law-clean:
+  1. **Asks first** — "Every message, booking and charge is prepared, shown to you, and sent
+     on your OK. Autopilot is something you turn on — never a default." (guarantee #1)
+  2. **No surprise bills** — "Spending caps and owner-set ceilings are built into the
+     machinery. At the cap, Gradia stops — it never keeps spending." (guarantee #5,
+     fail-closed — this is architecture, claimable)
+  3. **Built only for this trade** — "Gradia speaks detailing natively — services, vehicles,
+     coatings, follow-up cycles — not a generic tool with your industry pasted on."
+- The violet ✓ **"Approved by you" mark is now the formal brand signature** — reuse the exact
+  check treatment from the hero/flow/agent frames on card 1.
+- Deliberately EXCLUDED for now: a self-serve/"no sales call" card — true by design
+  (zero-founder-touch) but not claimable until the trial ships; add it at trial launch.
+- Named competitors: NEVER on the site (founder rule). "Industry default" / "typical AI
+  receptionists" framing only. Named side-by-sides are sales assets, off-site.
+- Pass 5 note: the Product page's comparison table adopts the same three-pillar frame
+  (asks-first · predictable cost · vertical) vs "the industry default", unnamed.
+
+Build P3-F before or after P3-E at Builder's discretion (both remain); same rhythm.
+
+## Review — P3-F: "Gradia asks first." (1a2f670) — 2026-08-30
+
+**VERDICT: APPROVED — no changes required. P3-E (real-UI sweep) is now the ONLY remaining Pass 3 item.**
+
+Verified: spec copy verbatim, all three cards backed by platform guarantees (#1 approve-first,
+#5 fail-closed) · the ✓ "Approved by you" brand mark appears on card 1 only — correct
+restraint; a signature stamped everywhere is a signature nowhere · category framing holds, zero
+competitor names · self-serve card correctly excluded until the trial ships · placement after
+the Agent section extends control into differentiation exactly as intended · band alternation
+verified in code: 6 band → asks-first light → Industries band → FAQ light → graphite CTA ·
+homepage is now 11 sections (10 visible) · tsc clean.
+
+The homepage argument is now complete: problem → connected system → proof it works for you
+(receipt) → how you stay in control → why nobody else works this way → who it's for → honest
+answers → start. Pass 3 closes when P3-E lands.
+
+## Review — P3-E (1/2): real-UI vignettes on the connected flow (e4443c3) — 2026-08-30
+
+**VERDICT: APPROVED — no changes required. GREEN LIGHT for P3-E (2/2): hero frame · core-system panels · agent surface, same fidelity bar.**
+
+Verified: every vignette composed from the REAL product surface and checked against platform
+source before composing — the Approvals card carries the app's actual voice ("Send it /
+Tweak it / Drop it" · "Caught just now" · type chips · "To Sarah Mitchell"), which puts
+genuine Gradia character on the page, not an invented UI · the deliberate abstention on the
+Schedule vignette is exactly right — capability #9 is building, so it shows the booked state
+and refuses to invent a calendar grid, flagged as the alignment audit required · badges
+retokened to --sv-* (no foreign colors) · P3-C timestamps and the id="how" anchor preserved ·
+the cutover blocker on Section 3 is now satisfied pending part 2's consistency.
+
+Note for part 2: reuse the SAME real labels/voice wherever those surfaces appear (the hero
+frame's stages and the agent surface must not drift from the vignette vocabulary introduced
+here — "Send it / Tweak it / Drop it" is now the canonical approval CTA set on the site).
+
+## Review — P3-E (2/2): real-product voice everywhere (6033dfe) — 2026-08-30
+
+**VERDICT: APPROVED. ✅ PASS 3 COMPLETE.**
+
+Verified: "Send it / Tweak it / Drop it" is now the one approval vocabulary across hero,
+agent surface, and core panels · the hero's post-approve state ("You tapped Send it · Sent ✓")
+shows the approve-first moment in the product's own words · per-surface flags on the two
+frames left as-is are both correct (Home was already source-faithful from P3-A/A2; Whisper
+shows no CTAs by design) · "Customer file" adopts the app's one-file framing · tsc clean.
+
+Pass 3 final scorecard: A ✅ · A2 ✅ · B ✅ · C+D ✅ · F ✅ · E1 ✅ · E2 ✅ — seven work items,
+zero rework cycles. The homepage now shows the real product, in the real product's voice,
+with one customer's story timestamped through a single morning.
+
+## Founder full-page read — feedback received 2026-08-30
+
+Four directives, translated below into P4-A…D (the founder revision pass). Pass 4 motion
+follows after this lands and is re-read.
+
+## PASS 4-PRE WORK ORDER — founder revision pass (do in order, one commit each)
+
+**P4-A · Campaigns, shown not told.** Add a THIRD ask to the Agent section demo (after the
+Whisper beat or as its own exchange): "Text my ceramic customers from last spring a fall
+special." → audience preview card ("43 customers match · 3 opted out — excluded · capped at
+50 per run" — dry-run preview, caps, and opt-outs are guarantees #3/#4, show them) → drafts
+ready → Send it (accent). Also: the hero support line's object list gains "follow-ups" →
+"…conversations, campaigns and schedule" (pick the natural spot). Claim law: campaigns are
+§4-claimable; NEVER "perfectly"/"automatically sent" — always drafted → your OK.
+
+**P4-B · Voice punch-up pass (copy only, no layout).** Rules: D-033 headline is LOCKED —
+untouched. Claim law binds every line. Direction: shorter, second person, verbs first;
+kill soft/generic phrasing wherever found. Eyebrow chip may take mojo (founder example
+territory: "Engineered for shops that move fast" — keep detailing identity present in the
+hero somewhere). Apply best judgment line-by-line across all sections; the founder re-reads
+the preview after this pass, so bold choices are fine — they're reviewable.
+
+**P4-C · "Ask Gradia." whoa device.** A recurring micro-moment on the four core-system
+panels (and optionally the Problem section): one italic pain-question in the owner's head +
+the three-word answer. Approved examples (all §4-claimable — Ask Gradia/Agent reads the CRM):
+- Customers & Vehicles: "The guy with the black X5 who wanted ceramic… when was he in?" → **Ask Gradia.**
+- Leads & Pipeline: "Who did I forget to quote this week?" → **Ask Gradia.**
+- Quotes, Jobs & Scheduling: "What's still not booked?" → **Ask Gradia.**
+- Conversations: "What did I promise her last month?" → **Ask Gradia.**
+One consistent visual treatment; small, not shouty. FOUNDER OPTION to evaluate on the next
+read: replace the Agent section lead with the symmetry line — "Ask Gradia anything. It asks
+you before anything sends." Build it in; founder keeps or reverts.
+
+**P4-D · Product-fidelity polish on frames.** Source the REAL design language:
+`platform/docs/BUILD_REFERENCE.md` (glass-box design system) + `platform/docs/gradia-v2/ui/`
++ current app screens via Playwright if runnable. Frames on the site should read as the
+actual product's chrome — spacing, radii, type rhythm, state colors — "exactly how Gradia's
+future development looks," per the founder. Site page keeps --sv-* tokens; INSIDE the frames,
+match the product. No invented surfaces; abstention rule still applies to building-status
+capabilities.
+
+After P4-A…D land + review: founder re-reads the preview, then Pass 4 (motion) is issued.
+
+## Review — P4-A…D: founder revision pass (25c8db5 · 8ad3080 · 1493a5e · d3e52a8) — 2026-08-30
+
+**VERDICT: ALL FOUR APPROVED. Founder revision pass complete. HOLD for founder re-read.**
+
+P4-A: the campaign dry-run card turns guarantees into UI — "3 opted out — excluded before
+anything was staged" and "Capped at 50 per run — hard limit, built in" are the honest-wow
+combination the founder asked for; nothing reads as auto-sent · hero object list + metadata
+kept in sync.
+P4-B: correctly light-handed — "Engineered" chip with detailing identity kept, verb-led
+leads, D-033 untouched, claim law intact. Punch without hype, as ordered.
+P4-C: the device is on all four panels with the approved questions verbatim, styled quiet
+(accent stays reserved for approval) · the symmetry lead ("Ask Gradia anything. It asks you
+before anything sends.") is live with a one-line revert — FOUNDER DECIDES on this read.
+P4-D: real product texture inside the frames only — the app's radii, mono/tabular numerals on
+money·counts·times, 11px chrome labels — with site tokens preserved outside and the AsksFirst
+brand signature correctly excluded as site chrome. The calendar abstention stands.
+
+## P4-E + P4-F — founder feature additions (decided 2026-08-30, after the re-read)
+
+Founder verdict on the P4-A…D read: strong, but the page needs more feature "wow." Two
+additions approved — both fully claimable, both building on what exists:
+
+**P4-E · NEW section: "Teach Gradia your shop." (restores the original plan's knowledge
+section; homepage → 12 sections, recompute band alternation).** Placement: after the Core
+operating system section (the brain explains the panels just shown). Content:
+- H2 direction: "Teach Gradia your shop. Once." · lead: services, packages, prices,
+  policies, hours, and how you talk — in once, used everywhere.
+- Visual: a setup panel (service menu rows with prices · hours · travel/policy lines ·
+  "How we talk to customers") with connection lines/chips to: quotes · replies · campaigns ·
+  scheduling. Real product framing (Settings → shop profile/service menu exist — pilot).
+- The persona guarantee gets its beat: "Gradia writes as your shop — we, us, your name
+  signed. Never a third-party bot." (guarantee #2, verbatim territory.)
+- An "Ask Gradia."-style micro-moment fits here too if natural: "Does ceramic need
+  paint correction first?" → answered from YOUR menu, not the internet.
+- Claim law: knowledge base/persona/service menu are §4-claimable. No voice mentions
+  while §7 is hidden.
+
+**P4-F · Customer quote-page moment (panel upgrade, no new section).** Upgrade the Quotes,
+Jobs & Scheduling panel in Core operating system: split-view or sequence — owner sends the
+quote → THE CUSTOMER'S PHONE: the public quote page (Sarah's view: shop name, Full Detail +
+Ceramic Maintenance, $485, Accept button) → she taps Accept → "You're booked — Tue 9:00 AM"
+→ owner side: quote closes to booked. Claim-true per P0-009 (accept→book durable, expiry
+enforced — an "expires" line on the quote page is accurate and adds urgency-honesty).
+This is the page's ONLY customer's-eye view — make it feel like a phone, clearly labeled
+sample data, product-fidelity per P4-D rules.
+
+Order: P4-E → P4-F, one commit each, same rhythm. Then founder re-read #3, then Pass 4
+(motion).
+
+Builder: proceed with P4-E when these notes land.
+
+## Review — P4-E (d135499) + P4-F (6f57913) — 2026-08-30
+
+**VERDICT: BOTH APPROVED. HOLD for founder read #3 — on their word, Pass 4 (motion) is issued.**
+
+P4-E: the arithmetic detail is the standout — the service menu's $265 + $220 sums to Sarah's
+$485 package, so the Teach-Gradia screen and every quote on the page agree to the dollar ·
+guarantee #2 verbatim · "Used in" chip strip makes the once→everywhere claim visual · the
+Ask-Gradia extension ("answered from your menu, not the internet") is the section's best
+line · alternation recomputed correctly downstream.
+
+P4-F: the Builder again correctly overrode the spec with the real thing — the actual public
+quote page says "Book it / Not this time," not my "Accept" paraphrase, and the site now
+matches source (flagged, as required) · "Good through Friday." is the real validThrough
+string — expiry honesty as urgency · line items mono and consistent with the menu · the
+platform's own demo-shop identity added to sample.ts as canonical · the customer's phone is
+dark because the product ships dark. The page now shows both sides of the same $485.
+
+Homepage stands at 12 sections — DECLARED FULL. New content evicts or goes to subpages.
+
+## PASS 4 WORK ORDER — motion (founder approved read #3, 2026-08-30)
+
+Motion explains; it never decorates. Exactly FOUR motion moments — nothing else moves:
+
+**M1 · Hero frame sequence.** On load (after LCP): the four stage cards stagger in left→right
+(~80ms apart), then the "Approved by you" check draws/pops once. One play, no loop.
+**M2 · Problem consolidation** (the Pass-2 deferral). On scroll into view: the six scattered
+chips drift/settle toward the Gradia surface as it fades up. One play.
+**M3 · Connected flow travel.** On scroll: stages reveal top→bottom in sequence; the row
+highlight (Sarah's state) reads as one record moving down. The Approve stage's check draws
+last. One play.
+**M4 · Approval flip in the Agent demo.** On scroll into view: the "Prepared — waiting for
+your review" card appears, beat, the Send it pill fills, beat, the activity-log line slides
+in. This is the brand moment — give it the best timing.
+
+Rules (hard):
+- framer-motion via LazyMotion/domAnimation only (bundle discipline); no gsap/tsparticles.
+- One shared motion vocabulary: define tokens once (e.g. duration 0.5s, one ease curve,
+  stagger 80ms) in a small motion.ts — every moment uses them.
+- whileInView with once: true — nothing replays, nothing loops, nothing runs continuously.
+- useReducedMotion → everything renders in final state, zero animation (a11y hard rule).
+- No layout shift: animate opacity/transform only; reserve space.
+- Mobile: M1 and M4 keep; M2 may simplify to a fade; M3 may simplify to sequential fades.
+- Screenshot review can't capture motion — record a short screen capture per moment
+  (Playwright video or GIF) and review those before pushing.
+
+One commit per moment or two sensible commits — Builder's call. Then Pass 5 (subpages)
+work order follows.
+
+## Review — Pass 4 motion (b4aceb3 · 9b58ac2) — 2026-08-30
+
+**VERDICT: BOTH APPROVED. ✅ PASS 4 COMPLETE. HOLD for the founder's motion feel-check.**
+
+Verified: one motion vocabulary in one file (0.5s · one curve · 80ms stagger) used by all
+four moments · hard rules held — LazyMotion only, once:true, opacity/transform with the
+single sanctioned fill on the Send-it pill, space reserved, nothing loops · the
+reduced-motion CSS backstop is beyond spec: SSR inline styles can never hide content from
+reduced-motion users · M1's keyframe-easing stall was caught via frame tracing · exactly
+four moments site-wide — the campaign card and Whisper frame correctly stay still ·
+verified by screencasts, not just screenshots · bonus: the waitlist-era LoadingScreen
+splash removed from the root layout (it was blacking out M1; it dies at cutover anyway —
+correct call on this branch).
+
+Founder feel-check: PASSED (2026-08-30, "go ahead").
+
+## PASS 5 WORK ORDER — subpages (four cycles, one push + review per cycle)
+
+Global rules for every page: site-v2 design system + motion vocabulary (reuse primitives and
+the four-moment discipline — at most ONE motion moment per subpage) · claim law binds every
+line · SAMPLE record + Demo Detailing shop everywhere product UI shows · whitelist each new
+route in middleware.ts as it ships (branch only; sitemap/JSON-LD ride Pass 6) · SiteNav/
+SiteFooter links go live as their targets ship · every page ends in the Start-your-trial CTA
+band (reuse FinalCta or a compact variant).
+
+**Cycle 1 — /product (the depth page).** Structure: hero statement (D-033 category line) →
+the five capability areas as deep alternating panels (Customers & Vehicles · Leads &
+Pipeline · Quotes, Jobs & Scheduling · Conversations · Home + ROI receipt) — each panel goes
+one level deeper than the homepage (2–3 sentences + a fuller real-UI frame) → **the
+campaigns beat gets its full section here** (audience → dry-run preview → drafts → Send it,
+with caps/opt-outs/cooldowns spelled out as guarantees) → Gradia Agent + Whisper as the
+"two ways to hand Gradia work" pair → **the category comparison table** (three-pillar frame:
+asks-first · predictable cost · built for this trade — vs "the industry default", UNNAMED,
+per the founder rule) → approvals/earned-autonomy explained (suggest-first → autonomy is a
+choice; money + calendar always ask) → FAQ subset → CTA. Receptionist gets ONE feature-not-
+headline mention gated exactly like the homepage (hidden while §7 is hidden).
+
+**Cycle 2 — /industries (index) + the five pages.** One shared template: industry-specific
+headline + the trade's three sharpest pains (source tone from the homepage Industries tiles)
+→ the connected-flow retold with trade-specific sample data (ceramic page: coating packages
++ annual check-in; PPF/tint: high-value quote going quiet; mobile: on-location addresses;
+fleet: multiple vehicles one account — fleet page must NOT claim fleet-management features
+(#14 planned): it sells the OS for shops that SERVE fleets, operational language only) →
+relevant Ask-Gradia micro-moment per trade → CTA. Five pages: detailing · ceramic-coating ·
+ppf-tint-wrap · mobile-detailing · fleet.
+
+**Cycle 3 — /pricing (BUILT, FLAG-HIDDEN) + /security.** Pricing per D-034/D-035: three
+tiers with contents, trial model line, no crossed-out prices, FAQ rows (incl. the caps/
+no-surprise-bills story) — built complete behind SHOW_PRICING=false and NOT whitelisted in
+middleware until P0-013 (double gate, deliberate). Security: ONLY audited truths from
+platform docs 08 — tenancy isolation, approval gates, fail-closed spending, audit trail,
+opt-out handling; NO certification claims (no SOC2 etc.), no "bank-level" fluff. Short page;
+honesty is the design.
+
+**Cycle 4 — /demo + /resources.** Demo: the claimable demo assets only — cold-lead revival →
+approval → send · Whisper note → staged work · campaign dry-run (NO voice while gated);
+static walkthrough frames now, video slot placeholder for later. Resources: minimal shell —
+intro + 3 article stubs retargeted to detailer buyer-intent topics from the SEO plan (full
+articles are post-cutover content work, not Pass 5).
+
+Then Pass 6 (conversion + SEO + JSON-LD + sitemap) work order follows.
+
+## Next up — PASS 3 WORK ORDER (real product UI + founder revisions)
+
+**P3-A · Rebuild Section 4 as the real Home dashboard, with numbers.**
+Guardrail CORRECTED: operational COUNTS are allowed and wanted — e.g. "3 leads need a reply" ·
+"5 open quotes · $3,850" · "2 jobs today" — matching how the actual Home dashboard prioritizes
+(reference: platform HOME_REDESIGN_PLAN build + the home-redesign screenshots in ~/Gradia
+root). Still banned: performance/ROI stats (hours saved, revenue growth, shop counts) and
+charts. **Naming rule (founder, permanent): never call it "Chief of Operations/Staff" in any
+public copy — it is "Home" / "your business, prioritized." Add this to CLAUDE.md.**
+
+**P3-A2 · Add the ROI receipt strip to the Home frame (founder direction, 2026-08-29).**
+The real Home opens with the ROI receipt (src/components/gradia/roi-receipt.tsx — OPERATIONAL
+per capability #17): leads caught · replies sent for you · bookings secured · $ in booked
+work ("money in play") · ~hours of your time saved · customers revived. Add this strip at the
+TOP of the site's Home frame with "This week" sample figures (e.g. 7 leads caught · 12
+replies sent for you · 4 bookings secured · $1,340 in booked work · ~3 hrs of your time
+saved · 1 customer revived), above the count tiles. Match the real component's labels
+verbatim. Guardrail nuance (recorded): the receipt's tiles — including ~time-saved — are a
+REAL product feature and may appear as sample UI inside the "Sample data" frame; marketing
+PROSE still may never make aggregate performance claims ("shops save X hrs/week" stays
+banned). Keep everything row-consistent with the rest of the frame where visible.
+
+**P3-B · NEW Whisper moment (the missing flagship hook).**
+Add a Whisper beat — either a compact section after the Agent demo or folded into it as a
+second demo ("Two ways to hand Gradia work"). The scene: hands-busy owner speaks a voice note
+("Just finished the X5 — quote Sarah for a maintenance plan and remind me to order pads") →
+transcript → staged: task created · quote drafted · reminder set — all "waiting for your
+review." Fully claimable (§4: "say it once and it's filed, quoted, and followed up").
+Headline direction: "Say it once. It's handled." Hands-busy framing is the hook.
+
+**P3-C · Timestamps on the connected flow (speed shown, not claimed).**
+Sample times on Sarah's stages: lands 7:58 AM → quote drafted 8:01 → approved by you 8:04 →
+booked 8:05. Inside the sample-data frame; no "X minutes" claims in copy — let the times say it.
+
+**P3-D · Sharpen the quiet-quote wound in the Agent section.**
+Make the found-leads list hurt: e.g. "PPF + ceramic — $1,800 quote · quiet for 9 days."
+Sample-data dollar values on the stalled quotes are allowed (work items, not performance
+stats). The emotional center is the money sitting silent, then rescued via approve-first
+follow-ups.
+
+**P3-E · Real-UI compositions everywhere** (original Pass 3 scope): replace structural
+placeholders with compositions faithful to the actual product screens — Section 3 stage
+vignettes first (cutover blocker), then hero frame, dashboard, core-system panels, agent
+surface. Verify each against the real app before capture; keep "Sample data" labels.
+
+Order: P3-A → P3-B → P3-C+D (one commit) → P3-E. Same rhythm per commit: screenshot at
+375/768/1440, review own shots, push, stop for review notes.
+
+Queued for later passes (do not build now): 60-second demo video at the hero secondary CTA
+(Pass 4/5, pairs with the Demo route) · comparison table (Product page, Pass 5).

@@ -8,7 +8,7 @@ _Last updated: June 2026_
 
 ## What this is
 
-Marketing site + Supabase-authenticated client portal for **Gradia** — a 7-agent AI front office for car detailers. This folder (`/Users/harryhatch/Gradia/marketing`) is the repo root for the landing page; the `.git` lives here.
+Marketing site + Supabase-authenticated client portal for **Gradia** — the operating system for detailing and automotive appearance shops (positioning D-033; the old "7-agent AI front office" framing is retired). **Site v2 is being built on branch `site-v2`** per `../platform/docs/gradia-v2/marketing-site/site-v2-plan.md`; claims come from `../_docs/WHAT_GRADIA_DOES.md` (rewritten 2026-08-28). This folder (`/Users/harryhatch/Gradia/marketing`) is the repo root for the landing page; the `.git` lives here.
 
 - **Repo:** github.com/trygradia-max/Gradia-Web-Cursor · branch `main`
 - **Vercel:** project `gradia-web-cursor` (team `gradia1`) → trygradia.com (`.vercel/project.json`)

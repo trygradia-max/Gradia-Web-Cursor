@@ -1,17 +1,9 @@
 import { ImageResponse } from "next/og";
+import { SITE_HEADLINE, SITE_SOCIAL_SUBLINE, siteBase } from "@/lib/site-config";
 
 export const runtime = "edge";
 
-export const alt =
-  "Gradia — the AI front office for auto detailers: connect your shop, then just tell Gradia what to do";
-
-const CAPABILITIES = [
-  "Answers every call 24/7",
-  "Books over the phone",
-  "Follows up by text + email",
-  "Revives old leads",
-  "You approve everything",
-];
+export const alt = `${SITE_HEADLINE} — ${SITE_SOCIAL_SUBLINE}`;
 
 export const size = {
   width: 1200,
@@ -60,10 +52,7 @@ export default async function OpenGraphImage() {
   }
 
   const hasInter = Boolean(inter400 && inter700);
-
-  const fontFamily = hasInter
-    ? "Inter"
-    : "ui-sans-serif, system-ui, sans-serif";
+  const fontFamily = hasInter ? "Inter" : "ui-sans-serif, system-ui, sans-serif";
 
   return new ImageResponse(
     (
@@ -75,85 +64,63 @@ export default async function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)",
+          background: "#1a1a1a",
           fontFamily,
         }}
       >
-        {/* Wordmark */}
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span
             style={{
-              fontSize: 40,
-              color: "white",
-              fontWeight: 700,
-              letterSpacing: "-0.02em",
+              fontSize: 36,
+              color: "rgba(255,255,255,0.55)",
+              fontWeight: 600,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
             }}
           >
             Gradia
           </span>
-          <span
-            style={{
-              width: 12,
-              height: 12,
-              background: "rgba(255,255,255,0.9)",
-              marginTop: 12,
-            }}
-          />
         </div>
 
-        {/* Headline */}
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <span
             style={{
-              fontSize: 68,
+              fontSize: 64,
               lineHeight: 1.05,
               color: "white",
               fontWeight: 700,
               letterSpacing: "-0.02em",
-              maxWidth: 940,
+              maxWidth: 980,
             }}
           >
-            Your entire front office. Just tell Gradia what to do.
+            {SITE_HEADLINE}
           </span>
           <span
             style={{
-              fontSize: 36,
-              color: "rgba(255,255,255,0.85)",
+              fontSize: 32,
+              lineHeight: 1.35,
+              color: "rgba(255,255,255,0.65)",
               fontWeight: 400,
-              marginTop: 16,
+              maxWidth: 920,
             }}
           >
-            Never miss another call. You approve everything. Built for auto
-            detailers — $20/mo.
+            {SITE_SOCIAL_SUBLINE}
           </span>
         </div>
 
-        {/* Capability chips */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-          {CAPABILITIES.map((name) => (
-            <span
-              key={name}
-              style={{
-                display: "flex",
-                fontSize: 24,
-                color: "white",
-                fontWeight: 500,
-                padding: "10px 20px",
-                background: "rgba(255,255,255,0.14)",
-                border: "1px solid rgba(255,255,255,0.25)",
-              }}
-            >
-              {name}
-            </span>
-          ))}
-        </div>
+        <span
+          style={{
+            fontSize: 24,
+            color: "rgba(255,255,255,0.45)",
+            fontWeight: 500,
+          }}
+        >
+          {siteBase().replace(/^https?:\/\//, "")}
+        </span>
       </div>
     ),
     {
       ...size,
-      // Only override the built-in font when our Inter fetch succeeded —
-      // passing an empty `fonts` array makes ImageResponse throw
-      // "No fonts are loaded" (e.g. if fonts.gstatic.com is unreachable).
       ...(fonts.length > 0 ? { fonts } : {}),
     },
   );

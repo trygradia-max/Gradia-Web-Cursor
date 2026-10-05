@@ -5,7 +5,7 @@ import { LegalShell } from "@/components/legal/LegalShell";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms that govern your use of the Gradia website, waitlist, and the Gradia AI office for auto detailers.",
+    "The terms that govern your use of the Gradia website, pilot requests, waitlist, and platform.",
   alternates: { canonical: "/terms" },
 };
 
@@ -14,26 +14,26 @@ export default function TermsPage() {
     <LegalShell title="Terms of Service" updated="September 5, 2026">
       <p>
         These Terms of Service (&ldquo;Terms&rdquo;) govern your use of{" "}
-        <a href="https://trygradia.com">trygradia.com</a>, the Gradia waitlist, and the Gradia
-        platform and services (together, the &ldquo;Service&rdquo;), provided by{" "}
+        <a href="https://trygradia.com">trygradia.com</a>, the Gradia waitlist and pilot-request
+        form, and the Gradia platform and services (together, the &ldquo;Service&rdquo;), provided by{" "}
         <strong>Gradia.ai LLC</strong> (&ldquo;Gradia,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;). By
-        accessing the Service or joining the waitlist, you agree to these Terms. If you do not agree,
-        do not use the Service.
+        accessing the Service, requesting pilot access, or joining the waitlist, you agree to these
+        Terms. If you do not agree, do not use the Service.
       </p>
 
       <h2>What Gradia is</h2>
       <p>
-        Gradia is an AI office for auto detailers: a voice agent and a chat agent that share one
-        brain across your CRM, calendar, email, voice, and SMS. <strong>You approve every outbound
-        action</strong> — there is no auto-send. Gradia is currently in pre-launch and private beta;
-        features, integrations, and availability may change.
+        Gradia is an AI-powered CRM for detailing and automotive appearance businesses, with one
+        Gradia Agent to help move leads toward bookings. <strong>Customer-facing actions start
+        with approval required.</strong> Features, integrations, and availability may change.
+        Requesting access does not create an account or start a subscription.
       </p>
 
-      <h2>Waitlist and early access</h2>
+      <h2>Waitlist and pilot access</h2>
       <p>
-        Joining the waitlist does not guarantee access to the Service, any particular price, or a
-        specific launch date. Founding and early-access offers are limited and may change. Any launch or
-        availability date we mention is a goal, not a commitment.
+        Requesting pilot access or joining the waitlist does not guarantee access to the Service,
+        any particular price, or a specific date. Access and available features are confirmed
+        before onboarding. Requesting access does not create an account or start a subscription.
       </p>
 
       <h2>SMS messaging program</h2>
@@ -122,12 +122,11 @@ export default function TermsPage() {
 
       <h2>Fees and billing</h2>
       <p>
-        At launch, Gradia is offered as a paid subscription. The planned launch price is{" "}
-        <strong>$20 per month, per user</strong>; exact fees, any usage-based charges, and applicable
-        taxes are disclosed at sign-up. Pre-launch pricing and promotional offers are subject to
-        change. Paid subscriptions renew until canceled, and you may cancel at any time; except where
-        required by law, fees already paid are non-refundable. Payments are processed by our payment
-        provider (Stripe).
+        Gradia is offered as a paid subscription after you accept an engagement. Pilot pricing and
+        terms are confirmed before onboarding. There is no free trial. Exact fees, any usage-based
+        charges, and applicable taxes are disclosed before you commit. Paid subscriptions renew
+        until canceled, and you may cancel at any time; except where required by law, fees already
+        paid are non-refundable. Payments are processed by our payment provider (Stripe).
       </p>
 
       <h2>Intellectual property</h2>
